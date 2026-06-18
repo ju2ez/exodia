@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block title %}Ideas &middot; {{ site_title }}{% endblock %}
+{% block content %}
+<h1>Generated research ideas</h1>
+{% include "partials/disclaimer.html" %}
+
+{% if ideas %}
+{% if best_ideas %}
+<section class="best-ideas">
+  <h2>🏆 Best ideas <span class="muted">(ranked by community vote)</span></h2>
+  <ol id="best-list">
+    {% for b in best_ideas %}
+    <li data-idea="{{ b.idea_id }}">
+      <a href="#idea-{{ b.idea_id }}">{{ b.title }}</a>
+      {% if b.realized %}<span class="star" title="Realized by a published paper">★</span>{% endif %}
+      <span class="best-score">{{ b.score }}</span>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+{% endif %}
+
+<p class="muted">{{ n_ideas }} ideas generated across runs, newest first.</p>
+{% for i in ideas %}
+<article class="idea" id="idea-{{ i.idea_id }}" data-idea="{{ i.idea_id }}">
+  <h2>{% if i.realized %}<span class="star" title="Realized by a published paper">★</span> {% endif %}{{ i.title }}</h2>
+  <p class="muted">run {{ i.run_id }} &middot; {{ i.run_utc[:10] }} &middot; model <code>{{ i.model }}</code></p>
+
+  {% if i.realized %}
+  <p class="realized-note">
+    ★ Essentially realized by a published paper:
+    {% if i.realized_paper_url %}<a href="{{ i.realized_paper_url }}">{{ i.realized_paper_title }}</a>{% else %}{{ i.realized_paper_title }}{% endif %}
+    <span class="muted">(similarity {{ i.realized_score }})</span>
+  </p>
+  {% endif %}
+
+  <h4>Hypothesis</h4>
+  <p>{{ i.short_hypothesis }}</p>
+  <h4>Abstract</h4>
+  <p>{{ i.abstract }}</p>
+  <h4>Related work</h4>
+  <p>{{ i.related_work }}</p>
+  <h4>Proposed experiments</h4>
+  <p>{{ i.experiments }}</p>
+  <h4>Risks &amp; limitations</h4>
+  <p>{{ i.risk_factors_and_limitations }}</p>
+
+  {% if dynamic %}
+  <div class="idea-vote" data-idea="{{ i.idea_id }}">
+    <button class="vote-btn up" data-value="1" aria-label="thumbs up">👍 <span class="up-count">{{ i.up }}</span></button>
+    <button class="vote-btn down" data-value="-1" aria-label="thumbs down">👎 <span class="down-count">{{ i.down }}</span></button>
+    <span class="score-badge">score <strong class="score">{{ i.score }}</strong></span>
+  </div>
+  {% elif i.issue_url %}
+  <div class="idea-vote-gh">
+    <span class="gh-tally">👍 <strong>{{ i.votes_up }}</strong></span>
+    <span class="gh-tally">👎 <strong>{{ i.votes_down }}</strong></span>
+    <span class="score-badge">score <strong>{{ i.score }}</strong></span>
+    <a class="gh-link" href="{{ i.issue_url }}" rel="nofollow">Vote &amp; discuss on GitHub ({{ i.feedback_count }} 💬) &rarr;</a>
+  </div>
+  {% else %}
+  <p class="muted gh-pending">Voting opens once this idea's GitHub discussion issue is created.</p>
+  {% endif %}
+
+  {% if dynamic %}
+  <details class="feedback-block">
+    <summary><span class="fb-count">{{ (feedback.get(i.idea_id) or [])|length }}</span> feedback</summary>
+    <ul class="feedback-list">
+      {% for f in feedback.get(i.idea_id) or [] %}
+      <li><strong>{{ f.author or "anonymous" }}</strong> <span class="muted">{{ f.created_utc[:10] }}</span><br>{{ f.text }}</li>
+      {% endfor %}
+    </ul>
+    <form class="feedback-form">
+      <input type="text" name="author" placeholder="name (optional)" maxlength="80">
+      <textarea name="text" rows="2" placeholder="Share feedback on this idea…" maxlength="2000" required></textarea>
+      <button type="submit">Send feedback</button>
+    </form>
+  </details>
+  {% endif %}
+</article>
+{% endfor %}
+{% else %}
+<p class="muted">
+  No ideas generated yet. Run the pipeline with an LLM key (or a dry-run with the
+  bundled fixture) to populate this page.
+</p>
+{% endif %}
+
+{% if dynamic %}<script src="assets/js/ideas.js"></script>{% endif %}
+{% endblock %}

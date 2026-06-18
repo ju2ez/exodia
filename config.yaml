@@ -1,0 +1,51 @@
+# Exodia run configuration (non-secret tunables).
+# Secrets (API keys) come from environment variables — see .env.example.
+
+upstream:
+  repo: "jennyzzt/awesome-open-ended"   # the curated source list (Jenny Zhang)
+  branch: "main"
+
+site:
+  title: "Exodia"
+  # base_url: leave "" for a user/org page served at the domain root.
+  # Set to "/exodia" if this is a project page (served under /<repo>/).
+  base_url: ""
+  # owner/repo hosting the per-idea GitHub Issues (voting + feedback backend).
+  # Leave "" to fall back to $GITHUB_REPOSITORY (set automatically in CI).
+  repo: "ju2ez/exodia"
+
+ideation:
+  # Google Gemini via AI-Scientist-v2 (needs GEMINI_API_KEY; talks to Gemini's
+  # OpenAI-compatible endpoint). Other supported ids: gpt-4o-2024-05-13 (OPENAI_API_KEY),
+  # claude-3-5-sonnet-20241022 (ANTHROPIC), gemini-2.0-flash, gemini-2.5-flash-preview-04-17.
+  model: "gemini-2.5-pro-preview-03-25"
+  max_num_generations: 3
+  num_reflections: 3
+  # Max seconds to allow the AI-Scientist-v2 subprocess to run before timing out.
+  timeout_seconds: 1800
+
+enrich:
+  max_new_fetches: 50          # safety cap on arXiv requests per run
+  request_delay_seconds: 3.0   # arXiv politeness: <= 1 request / 3 seconds
+
+pdfs:
+  fetch: true                  # also download full-text PDFs (kept locally, git-ignored)
+  max_new_downloads: 50        # safety cap on PDF downloads per run
+  request_delay_seconds: 3.0   # arXiv politeness between PDF downloads
+
+analysis:
+  method: "tfidf_kmeans"
+  use_llm: false               # optional LLM consensus paragraph (AI-labeled on site)
+  k_range: [3, 8]              # KMeans cluster-count search range
+
+ideas:
+  match_threshold: 0.13        # min idea<->new-paper cosine to mark an idea "realized" (★)
+  novelty_threshold: 0.82      # drop a newly generated idea if this similar to an existing one
+
+paths:
+  data_dir: "data"
+  site_dir: "site"
+
+# The schedule itself is declared in .github/workflows/pipeline.yml.
+# Documented here for reference:
+schedule_cron: "17 6 * * *"   # daily 06:17 UTC poll of upstream

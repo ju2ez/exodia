@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}About &middot; {{ site_title }}{% endblock %}
+{% block content %}
+<h1>About Exodia</h1>
+<p class="tagline">Distilling SotA of open-endedness with open-endedness.</p>
+
+<p>
+  Exodia is a self-updating pipeline. When the upstream reading list
+  changes, it re-ingests the entries, enriches them with abstracts, analyzes the
+  consensus themes, asks an automated scientist for new ideas, and rebuilds this
+  site &mdash; the loop shown on the <a href="index.html">home page</a>.
+</p>
+
+<h2>Method</h2>
+<ol>
+  <li><strong>Gate.</strong> Poll the upstream commit SHA; run only when it changed.</li>
+  <li><strong>Ingest.</strong> Parse the upstream README into structured entries.</li>
+  <li><strong>Enrich.</strong> Add abstracts via the arXiv API (rate-limited, cache-first).</li>
+  <li><strong>Analyze.</strong> TF-IDF + clustering surface consensus themes ({{ report.method }}).</li>
+  <li><strong>Ideate.</strong> Invoke AI-Scientist-v2 to generate &amp; summarize ideas.</li>
+  <li><strong>Render.</strong> Build this site, plots, and the changelog; deploy to Pages.</li>
+</ol>
+
+<h2>Credits &amp; attribution</h2>
+<ul>
+  <li>
+    The knowledge base is distilled from
+    <a href="https://github.com/jennyzzt/awesome-open-ended">awesome-open-ended</a>,
+    curated by <strong>Jenny Zhang</strong>. The upstream list publishes no license,
+    so we store only factual metadata (titles, authors, venues, links) and link back
+    to the originals &mdash; we do not republish upstream prose.
+  </li>
+  <li>
+    Idea generation and summaries come from
+    <a href="https://github.com/SakanaAI/AI-Scientist-v2">AI-Scientist-v2</a>
+    (<strong>Sakana AI</strong>), used under its source-code license. Machine-generated
+    content is labeled as such wherever it appears, as that license requires.
+  </li>
+  <li>
+    Abstracts are retrieved via the <a href="https://arxiv.org">arXiv</a> API and shown
+    with attribution and a link back; full PDFs are never downloaded.
+  </li>
+</ul>
+<p>
+  This project's own code is released under the MIT License; no third-party source
+  code is vendored. See the repository <code>NOTICE</code> file for full details.
+</p>
+
+<h2>Future work</h2>
+<p>
+  The loop is intentionally left open. A future step could close it by invoking
+  AI-Scientist-v2's full experiment-and-write-up pipeline to draft an actual paper
+  from the highest-consensus ideas. That step is <strong>not implemented</strong>
+  here and appears as a dashed branch in the loop diagram.
+</p>
+{% endblock %}

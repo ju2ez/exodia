@@ -1,0 +1,23 @@
+{% raw %}<pre class="mermaid">
+flowchart TD
+    A["Expert Curator<br/><b>Jenny Zhang</b><br/>awesome-open-ended (upstream)"] -->|"pushes new entries"| B
+    B["GitHub Action<br/>(cron poll + manual)<br/>checks latest commit SHA"] --> C{New content?}
+    C -- "no" --> Z["Sleep until next poll<br/>(loop stays open)"]
+    Z -.-> B
+    C -- "yes" --> D["Ingest: parse README to Knowledge Base<br/>(metadata + abstracts only)"]
+    D --> E["Enrich abstracts via arXiv API<br/>(rate-limited, attributed)"]
+    E --> F["Analysis: consensus / majority-vote themes<br/>(TF-IDF + clustering)"]
+    F --> G["Idea generation &amp; summarization<br/><b>AI-Scientist-v2</b> (Sakana AI)"]
+    G --> H["Build / update site<br/>Jinja2 + plots + changelog"]
+    H --> I["Deploy to GitHub Pages<br/>update 'last updated' date"]
+    I -->|"commit KB + state + changelog"| Z
+    G -.->|"potential idea (future work)"| J["Draft full paper<br/>AI-Scientist-v2 experiment loop"]
+    J -.-> PR["Peer review"]
+    PR -.->|"feedback to the curator"| A
+    classDef future stroke-dasharray:5 5,fill:#f7f7f7,stroke:#999,color:#555;
+    classDef human fill:#eef6ff,stroke:#2b6cb0;
+    classDef ai fill:#f0fff4,stroke:#2f855a;
+    class J,PR future;
+    class A human;
+    class G,J ai;
+</pre>{% endraw %}

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Knowledge Base &middot; {{ site_title }}{% endblock %}
+{% block content %}
+<h1>Knowledge base</h1>
+<p>
+  {{ n_entries }} entries distilled from
+  <a href="{{ upstream_url }}">{{ upstream_repo }}</a>, curated by
+  <strong>Jenny Zhang</strong>. Metadata only &mdash; follow the links to the originals.
+</p>
+
+{% for key, label in categories %}
+  {% if grouped[key] %}
+  <h2>{{ label }} <span class="muted">({{ grouped[key]|length }})</span></h2>
+  <ul class="entries">
+    {% for e in grouped[key] %}
+    <li class="entry">
+      <div class="entry-title">{{ e.title }}</div>
+      <div class="entry-meta">
+        {% if e.authors %}{{ e.authors|join(", ") }}{% endif %}
+        {% if e.venue %} &middot; {{ e.venue }}{% endif %}
+        {% if e.year %} &middot; {{ e.year }}{% endif %}
+      </div>
+      {% if e.links %}
+      <div class="entry-links">
+        {% for lbl, url in e.links.items() %}<a href="{{ url }}">{{ lbl }}</a>{% endfor %}
+      </div>
+      {% endif %}
+      {% if e.abstract %}
+      <details class="entry-abstract">
+        <summary>Abstract</summary>
+        <p>{{ e.abstract }}</p>
+        <p class="muted">Abstract via <a href="{{ e.abstract_url }}">arXiv</a>.</p>
+      </details>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+{% endfor %}
+{% endblock %}

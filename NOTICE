@@ -1,0 +1,62 @@
+Exodia
+Copyright (c) 2026 Julian Hatzky
+Licensed under the MIT License (see LICENSE).
+
+This project builds a knowledge base and website from third-party sources.
+It does NOT vendor (copy into this repository) any third-party source code.
+The following attributions and compliance notes apply.
+
+================================================================================
+1. awesome-open-ended  —  the curated source list
+================================================================================
+Maintainer: Jenny Zhang (https://github.com/jennyzzt)
+Source:     https://github.com/jennyzzt/awesome-open-ended
+
+As of this writing the upstream repository publishes no explicit LICENSE file,
+so its content is treated as all-rights-reserved. Accordingly, Exodia:
+  - stores only factual bibliographic metadata (titles, authors, venues, years,
+    and the curator's outbound links), which it links back to the original
+    sources rather than republishing upstream prose;
+  - does not copy, mirror, or redistribute the upstream README text;
+  - prominently credits Jenny Zhang and links to awesome-open-ended on every
+    generated page and in this repository.
+
+If the upstream maintainer requests changes to how this project references their
+work, those requests take precedence.
+
+================================================================================
+2. AI-Scientist-v2  —  idea generation & summarization
+================================================================================
+Author:  Sakana AI (https://sakana.ai)
+Source:  https://github.com/SakanaAI/AI-Scientist-v2
+License: The AI Scientist Source Code License, Version 1.0 (December 2025),
+         based on the Responsible AI Source Code License v1.1.
+
+Exodia clones AI-Scientist-v2 at build time and invokes its ideation
+script as a subprocess. It does not copy AI-Scientist-v2's source into this
+repository, so the license's source-redistribution clause is not triggered.
+
+The license requires prominent disclosure when disseminating machine-generated
+research content. Exodia satisfies this by:
+  - labeling all AI-generated ideas and LLM-derived summaries on the website
+    with a visible "AI-generated content" disclaimer;
+  - attributing AI-Scientist-v2 and Sakana AI with links wherever such content
+    appears.
+
+Use restrictions in that license (surveillance, deepfakes, healthcare decisions,
+criminal prediction, undisclosed machine-generated scholarship) are respected.
+
+================================================================================
+3. arXiv  —  paper abstracts
+================================================================================
+Source: https://arxiv.org  /  API: https://info.arxiv.org/help/api
+
+Paper abstracts are retrieved via the arXiv API and shown with attribution
+("Abstract via arXiv") and a link back to the arXiv abstract page. Full-text
+PDFs are additionally downloaded from arXiv and cached locally (under
+data/pdfs/) for analysis only; they are git-ignored, are not committed to this
+repository, and are never re-hosted or redistributed — the site continues to
+link back to the arXiv abstract page rather than serving any PDF. The client
+respects arXiv's rate guidance (no more than one request every three seconds,
+a single connection, and a descriptive User-Agent) for both abstract and PDF
+requests. Thank you to arXiv for use of its open API.

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}Changelog &middot; {{ site_title }}{% endblock %}
+{% block content %}
+<h1>Changelog</h1>
+<p class="muted">How the field &mdash; and our distillation of it &mdash; moves over time.</p>
+
+{% for c in changelog %}
+<section class="changelog-entry">
+  <h2>{{ c.run_utc[:10] }} <span class="muted">&middot; run {{ c.run_id }}</span></h2>
+  <p class="muted">
+    {{ c.counts.added }} added &middot; {{ c.counts.removed }} removed &middot;
+    {{ c.counts.changed }} changed &middot; {{ c.new_ideas }} new ideas
+    {% if c.upstream_compare_url %}&middot; <a href="{{ c.upstream_compare_url }}">upstream diff</a>{% endif %}
+  </p>
+  {% if c.note %}<p>{{ c.note }}</p>{% endif %}
+  {% if c.added %}
+  <h4>Added</h4>
+  <ul>{% for a in c.added %}<li>{{ a.title }} <span class="muted">({{ a.category }})</span></li>{% endfor %}</ul>
+  {% endif %}
+  {% if c.removed %}
+  <h4>Removed</h4>
+  <ul>{% for a in c.removed %}<li>{{ a.title }}</li>{% endfor %}</ul>
+  {% endif %}
+  {% if c.changed %}
+  <h4>Changed</h4>
+  <ul>{% for a in c.changed %}<li>{{ a.title }} <span class="muted">({{ a.fields|join(", ") }})</span></li>{% endfor %}</ul>
+  {% endif %}
+</section>
+{% else %}
+<p class="muted">No changelog entries yet.</p>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>ArXiv Query Results</title>
+  <entry>
+    <id>http://arxiv.org/api/errors#incorrect_id_format_for_bad_id</id>
+    <title>Error</title>
+    <summary>incorrect id format for bad_id</summary>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/1901.01753v3</id>
+    <updated>2019-02-15T18:18:23Z</updated>
+    <published>2019-01-07T05:32:24Z</published>
+    <title>Paired Open-Ended Trailblazer (POET)</title>
+    <summary>  While the history of machine learning so far largely encompasses a series of
+problems posed by researchers, the Paired Open-Ended Trailblazer (POET)
+endlessly generates its own problems and their solutions, opening a path toward
+open-ended discovery.
+</summary>
+    <author><name>Rui Wang</name></author>
+    <author><name>Joel Lehman</name></author>
+    <category term="cs.NE" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+  </entry>
+</feed>
