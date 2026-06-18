@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %}Concepts &middot; {{ site_title }}{% endblock %}
+{% block content %}
+<h1>State-of-the-art concepts</h1>
+<p class="muted">
+  Derived from {{ report.n_docs }} curated works via <code>{{ report.method }}</code> analysis.
+</p>
+
+{% if report.consensus_statement %}
+{% include "partials/disclaimer.html" %}
+<blockquote class="consensus">{{ report.consensus_statement }}</blockquote>
+{% endif %}
+
+<h2>Theme clusters <span class="muted">(the "majority vote")</span></h2>
+{% if report.clusters %}
+<div class="cluster-grid">
+  {% for c in report.clusters %}
+  <article class="cluster">
+    <h3>{{ c.label }}</h3>
+    <p class="muted">{{ c.size }} works &middot; {{ c.top_terms|join(", ") }}</p>
+    {% if c.members %}
+    <details open>
+      <summary>{{ c.size }} papers in this cluster</summary>
+      <ol class="cluster-members">
+        {% for m in c.members %}
+        <li>{% if m.url %}<a href="{{ m.url }}">{{ m.title }}</a>{% else %}{{ m.title }}{% endif %}</li>
+        {% endfor %}
+      </ol>
+    </details>
+    {% else %}
+    <ul>
+      {% for t in c.representative_titles %}<li>{{ t }}</li>{% endfor %}
+    </ul>
+    {% endif %}
+  </article>
+  {% endfor %}
+</div>
+{% else %}
+<p class="muted">Not enough data to cluster yet.</p>
+{% endif %}
+
+<h2>Dominant vocabulary <span class="muted">(consensus keyphrases)</span></h2>
+<ol class="keyphrases">
+  {% for k in report.top_keyphrases[:20] %}
+  <li>{{ k.phrase }} <span class="muted">({{ k.score }})</span></li>
+  {% endfor %}
+</ol>
+{% endblock %}

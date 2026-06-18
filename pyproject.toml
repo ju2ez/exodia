@@ -1,0 +1,51 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "exodia"
+version = "0.1.0"
+description = "Distilling SotA open-endedness through open-endedness."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+authors = [{ name = "Julian Hatzky" }]
+keywords = ["open-endedness", "ai-scientist", "research", "knowledge-base"]
+dependencies = [
+    "requests>=2.31",
+    "PyYAML>=6.0",
+    "jinja2>=3.1",
+    "plotly>=5.20",
+    "scikit-learn>=1.4",
+    "numpy>=1.26",
+    "python-dateutil>=2.9",
+    "fastapi>=0.110",
+    "uvicorn[standard]>=0.29",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.4", "httpx>=0.27"]
+
+[project.scripts]
+exodia = "exodia.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/jennyzzt/awesome-open-ended"
+Source = "https://github.com/ju2ez/exodia"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E501"]  # line length handled pragmatically
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+filterwarnings = ["ignore::DeprecationWarning"]

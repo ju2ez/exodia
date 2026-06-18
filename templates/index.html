@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="loop">
+  <h2>The loop</h2>
+  {% include "partials/mermaid.html" %}
+  <p class="muted">
+    This site <em>is</em> the loop above. The dashed branch &mdash; draft a full paper
+    with AI-Scientist-v2, peer-review it, and feed the result back up to the curator
+    &mdash; is future work and is not implemented.
+  </p>
+</section>
+
+<section class="stats">
+  <div class="stat"><span class="num">{{ n_entries }}</span><span class="lbl">entries</span></div>
+  <div class="stat"><span class="num">{{ n_ideas }}</span><span class="lbl">generated ideas</span></div>
+  <div class="stat"><span class="num">{{ n_clusters }}</span><span class="lbl">themes</span></div>
+  <div class="stat"><span class="num">{{ last_updated_date }}</span><span class="lbl">last updated</span></div>
+</section>
+
+<section class="plots">
+  <h2>Overview</h2>
+  {% if plot_cards %}
+  <div class="plot-grid">
+    {% for card in plot_cards %}
+      {% include "partials/plot_card.html" %}
+    {% endfor %}
+  </div>
+  {% else %}
+  <p class="muted">No plots yet &mdash; run the pipeline to generate them.</p>
+  {% endif %}
+</section>
+{% endblock %}
