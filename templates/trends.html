@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Trends &middot; {{ site_title }}{% endblock %}
+{% block content %}
+<h1>Trends over time</h1>
+<p class="muted">
+  How open-endedness research shifts year over year, derived from {{ n_entries }} curated
+  entries: which topics are rising, which themes are fading, and how venues and categories
+  change. Charts are interactive &mdash; hover for values, and click legend entries to toggle series.
+</p>
+
+{% if plot_cards %}
+<div class="plot-grid">
+  {% for card in plot_cards %}
+    {% include "partials/plot_card.html" %}
+  {% endfor %}
+</div>
+{% else %}
+<p class="muted">Not enough dated entries yet to chart trends &mdash; run the pipeline to populate them.</p>
+{% endif %}
+{% endblock %}

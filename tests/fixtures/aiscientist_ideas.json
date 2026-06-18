@@ -1,0 +1,20 @@
+[
+    {
+        "Name": "curriculum_via_self_generated_goals",
+        "Title": "Open-Ended Curricula from Self-Generated Goals",
+        "Short Hypothesis": "An agent that proposes and filters its own goals using a learned interestingness model will sustain open-ended skill growth longer than fixed-curriculum baselines.",
+        "Related Work": "Builds on POET, OMNI, and Voyager, which show that environment/goal generation drives open-ended progress, but typically rely on hand-specified novelty signals.",
+        "Abstract": "We propose a self-curricular agent that generates candidate goals, scores them with a learned model of human notions of interestingness, and trains on the most promising frontier. We hypothesize this yields broader skill coverage and slower plateauing than static curricula.",
+        "Experiments": "Compare against POET-style minimal criterion coevolution and a fixed curriculum in a procedurally generated benchmark; measure skill coverage, novelty over time, and transfer.",
+        "Risk Factors and Limitations": "Interestingness models can collapse to trivial novelty; compute cost of goal generation may dominate; benchmark may not capture true open-endedness."
+    },
+    {
+        "Name": "llm_judge_consensus_drift",
+        "Title": "Measuring Consensus Drift in Open-Ended Research with LLM Judges",
+        "Short Hypothesis": "Aggregating many LLM judgments over a research corpus reveals stable 'consensus directions' whose drift predicts where a field will move next.",
+        "Related Work": "Connects automated reviewing and idea-generation systems (e.g., AI Scientist) with quality-diversity notions of measuring a search frontier.",
+        "Abstract": "We treat a curated literature list as an evolving population and use ensembles of LLM judges to estimate consensus themes and their year-over-year drift, then evaluate whether drift forecasts the emergence of new subfields.",
+        "Experiments": "Backtest on historical snapshots of an awesome-list; correlate predicted drift with subsequently added entries; ablate judge ensemble size.",
+        "Risk Factors and Limitations": "LLM judges share biases that can manufacture false consensus; historical snapshots are sparse; correlation need not imply predictive power."
+    }
+]

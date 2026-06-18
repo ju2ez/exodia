@@ -1,0 +1,20 @@
+# Exodia pipeline + dynamic site dependencies (OURS only).
+# AI-Scientist-v2's own requirements are installed at CI time from its cloned repo,
+# never vendored here. No torch is required for the ideation step.
+
+requests>=2.31          # GitHub REST + raw README fetch + arXiv API (abstracts + PDFs)
+PyYAML>=6.0             # config.yaml
+jinja2>=3.1             # HTML templating (static render + FastAPI pages)
+plotly>=5.20            # interactive overview charts (embedded HTML)
+scikit-learn>=1.4       # TF-IDF + KMeans themes, idea<->paper matching, novelty
+numpy>=1.26             # analysis support
+python-dateutil>=2.9    # lenient date parsing
+
+# Dynamic site (voting + feedback)
+fastapi>=0.110          # web app + JSON API
+uvicorn[standard]>=0.29 # ASGI server
+
+# dev / test
+pytest>=8.0
+ruff>=0.4
+httpx>=0.27             # FastAPI TestClient

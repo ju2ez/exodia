@@ -1,0 +1,98 @@
+name: Exodia pipeline
+
+# Daily: poll upstream and process any changes.
+# Weekly (Mondays): force a run so a *new, novel* idea is generated even when the
+# upstream list hasn't changed (the novelty filter drops near-duplicate ideas).
+# Each run also syncs ideas -> GitHub Issues (the voting/feedback backend) and
+# deploys the refreshed static site to GitHub Pages.
+on:
+  schedule:
+    - cron: "17 6 * * *"   # daily  06:17 UTC — poll upstream
+    - cron: "0 7 * * 1"    # weekly Mon 07:00 UTC — force a novel idea
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Run even if upstream is unchanged"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write   # commit refreshed data/
+  issues: write     # create/refresh per-idea discussion issues
+  pages: write      # deploy the site
+  id-token: write   # required by deploy-pages
+
+concurrency:
+  group: exodia-pipeline
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install
+        run: uv pip install --system -e .
+
+      - name: Decide run flags
+        id: flags
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          force="${{ inputs.force }}"
+          # The weekly cron always forces a fresh idea-generation pass.
+          if [ "${{ github.event.schedule }}" = "0 7 * * 1" ]; then force="true"; fi
+          echo "force=$force" >> "$GITHUB_OUTPUT"
+          # Without an LLM key, fall back to the no-cost fixture so the loop still runs.
+          if [ -n "$GEMINI_API_KEY" ] || [ -n "$OPENAI_API_KEY" ]; then
+            echo "dry=" >> "$GITHUB_OUTPUT"
+          else
+            echo "dry=--dry-run" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Run pipeline
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          EXODIA_AISCIENTIST_DIR: ${{ github.workspace }}/AI-Scientist-v2
+        run: |
+          python -m exodia run-all \
+            ${{ steps.flags.outputs.dry }} \
+            ${{ steps.flags.outputs.force == 'true' && '--force' || '' }}
+
+      - name: Sync ideas -> GitHub Issues (votes + feedback)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python -m exodia sync-issues
+
+      - name: Re-render site with synced vote tallies
+        run: python -m exodia render
+
+      - name: Commit refreshed data
+        run: |
+          git config user.name "exodia-bot"
+          git config user.email "exodia-bot@users.noreply.github.com"
+          git add data/
+          git diff --cached --quiet || git commit -m "chore: refresh knowledge base, ideas & themes [skip ci]"
+          git push
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

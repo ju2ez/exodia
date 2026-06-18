@@ -167,6 +167,17 @@ venv.bak/
 # mkdocs documentation
 /site
 
+# Exodia: locally cached full-text PDFs (analysis only; never committed)
+data/pdfs/
+# Exodia: ideation scratch dir + dynamic-site vote/feedback database
+.exodia-work/
+data/community.db
+data/community.db-wal
+data/community.db-shm
+
+# macOS
+.DS_Store
+
 # mypy
 .mypy_cache/
 .dmypy.json

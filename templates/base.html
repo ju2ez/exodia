@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ site_title }}{% endblock %}</title>
+  <meta name="description" content="Distilling SotA open-endedness through open-endedness.">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-name">{{ site_title }}</span>
+        <span class="brand-tagline">Distilling SotA open-endedness through open-endedness.</span>
+      </a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="concepts.html">Concepts</a>
+        <a href="trends.html">Trends</a>
+        <a href="papers.html">Knowledge Base</a>
+        <a href="ideas.html">Ideas</a>
+        <a href="changelog.html">Changelog</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="updated-bar">
+    <div class="container">
+      Last updated: <strong>{{ last_updated_date }}</strong>
+      &middot; upstream <a href="{{ upstream_url }}">{{ upstream_repo }}</a>@<code>{{ upstream_sha_short }}</code>
+      &middot; run #{{ run_count }}
+    </div>
+  </div>
+
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      {% include "partials/credits.html" %}
+    </div>
+  </footer>
+
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+  </script>
+</body>
+</html>
