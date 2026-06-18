@@ -12,6 +12,7 @@ zoom, and toggle series. The venue chart reports the *real* publication venue
 
 from __future__ import annotations
 
+import re
 from collections import Counter
 
 import plotly.graph_objects as go
@@ -39,6 +40,80 @@ _TREND_TOPICS = {
     "Agents / embodiment": ["agent", "embodied", "robot", "minecraft", "manipulation"],
     "Multi-agent / self-play": ["multi-agent", "multi agent", "self-play", "self play", "population", "competitive"],
     "Generative / world models": ["generative", "diffusion", "world model", "gan", "autoencoder"],
+}
+
+# Curated gazetteers for entity trends (matched as whole words against title+abstract).
+_MODELS = {
+    "GPT-4 / 4o": ["gpt-4", "gpt-4o"],
+    "GPT-3 / 3.5 / ChatGPT": ["gpt-3", "chatgpt", "instructgpt"],
+    "GPT-2": ["gpt-2"],
+    "Claude": ["claude"],
+    "Gemini": ["gemini"],
+    "PaLM": ["palm"],
+    "Llama": ["llama"],
+    "Mistral / Mixtral": ["mistral", "mixtral"],
+    "Qwen": ["qwen"],
+    "DeepSeek": ["deepseek"],
+    "BERT": ["bert"],
+    "T5": ["t5"],
+    "Diffusion models": ["diffusion"],
+    "Dreamer / world model": ["dreamer", "world model"],
+    "MuZero / AlphaZero": ["muzero", "alphazero", "alphago"],
+    "PPO / DQN (RL)": ["ppo", "dqn", "impala", "a3c"],
+}
+_PROVIDERS = {
+    "OpenAI": ["openai"],
+    "Google / DeepMind": ["deepmind", "google"],
+    "Meta AI": ["meta ai", "facebook ai"],
+    "Anthropic": ["anthropic"],
+    "Microsoft": ["microsoft"],
+    "Mistral AI": ["mistral ai"],
+    "Hugging Face": ["hugging face", "huggingface"],
+    "Stability AI": ["stability ai"],
+    "Sakana AI": ["sakana"],
+    "Cohere": ["cohere"],
+    "Alibaba (Qwen)": ["alibaba"],
+    "NVIDIA": ["nvidia"],
+}
+_DATASETS = {
+    "Minecraft / MineDojo": ["minecraft", "minedojo", "minerl", "malmo"],
+    "Atari (ALE)": ["atari", "arcade learning environment"],
+    "MuJoCo": ["mujoco"],
+    "NetHack": ["nethack", "minihack"],
+    "Crafter": ["crafter"],
+    "Procgen": ["procgen"],
+    "XLand": ["xland"],
+    "MiniGrid / BabyAI": ["minigrid", "babyai"],
+    "Meta-World": ["meta-world", "metaworld"],
+    "DM Control / DMLab": ["dm control", "dmcontrol", "deepmind lab", "dmlab", "control suite"],
+    "Gym / Gymnasium": ["openai gym", "gymnasium"],
+    "MMLU": ["mmlu"],
+    "HumanEval": ["humaneval"],
+    "GSM8K": ["gsm8k"],
+    "BIG-bench": ["big-bench", "bigbench"],
+    "ImageNet": ["imagenet"],
+    "StarCraft (SMAC)": ["starcraft", "smac"],
+}
+_TASKS = {
+    "Code generation": ["code generation", "program synthesis", "coding"],
+    "Math reasoning": ["math reasoning", "mathematical reasoning", "theorem proving"],
+    "Question answering": ["question answering", "question-answering"],
+    "Dialogue / chat": ["dialogue", "conversational", "chatbot"],
+    "Summarization": ["summarization"],
+    "Planning": ["planning"],
+    "Tool use": ["tool use", "tool-use", "function calling"],
+    "Instruction following": ["instruction following", "instruction-following", "instruction tuning"],
+    "Navigation": ["navigation", "maze"],
+    "Manipulation / locomotion": ["manipulation", "grasping", "locomotion"],
+    "Game playing": ["game playing", "game-playing"],
+    "Image generation": ["image generation", "text-to-image", "text to image"],
+    "Exploration": ["exploration"],
+}
+_ARXIV_CAT_NAMES = {
+    "cs.AI": "cs.AI · AI", "cs.LG": "cs.LG · ML", "cs.NE": "cs.NE · neural/evo",
+    "cs.RO": "cs.RO · robotics", "cs.CL": "cs.CL · NLP", "cs.CV": "cs.CV · vision",
+    "cs.MA": "cs.MA · multi-agent", "stat.ML": "stat.ML", "cs.GT": "cs.GT · game theory",
+    "cs.HC": "cs.HC · HCI", "cs.SY": "cs.SY · systems",
 }
 
 
@@ -353,6 +428,142 @@ def category_mix_over_time(entries: list[Entry], settings: Settings) -> dict | N
                  "Entries by curated category each year.", fig, 480)
 
 
+def _entity_trend(
+    entries: list[Entry], gazetteer: dict[str, list[str]], *, card_id: str,
+    title: str, caption: str, top_n: int = 8, height: int = 520, share: bool = True,
+) -> dict | None:
+    """Per-year prevalence of named entities (keyword gazetteer) in title+abstract.
+
+    Matches each keyword as a whole word (leading boundary, so 'gpt-4' also catches
+    'gpt-4o'). Plots the top-N entities by total mentions as lines: % of that year's
+    entries (``share``) or absolute mention counts.
+    """
+    matchers = {
+        label: re.compile("|".join(r"\b" + re.escape(k) for k in kws), re.IGNORECASE)
+        for label, kws in gazetteer.items()
+    }
+    year_total: Counter[int] = Counter()
+    ent_year: dict[str, Counter] = {label: Counter() for label in gazetteer}
+    totals: Counter[str] = Counter()
+    for e in entries:
+        if not e.year:
+            continue
+        year_total[e.year] += 1
+        text = f"{e.title} {e.abstract or ''}"
+        for label, rx in matchers.items():
+            if rx.search(text):
+                ent_year[label][e.year] += 1
+                totals[label] += 1
+    years = sorted(year_total)
+    top = [label for label, n in totals.most_common(top_n) if n > 0]
+    if len(years) < 2 or not top:
+        return None
+    fig = go.Figure()
+    for label in top:
+        yc = ent_year[label]
+        if share:
+            ys = [100.0 * yc.get(y, 0) / year_total[y] for y in years]
+            tmpl = f"{label} — %{{x}}: %{{y:.0f}}%<extra></extra>"
+        else:
+            ys = [yc.get(y, 0) for y in years]
+            tmpl = f"{label} — %{{x}}: %{{y}}<extra></extra>"
+        fig.add_trace(go.Scatter(x=years, y=ys, mode="lines+markers", name=label, hovertemplate=tmpl))
+    fig.update_xaxes(title="Year", dtick=1)
+    fig.update_yaxes(title="% of that year's entries" if share else "Entries mentioning",
+                     ticksuffix="%" if share else "")
+    fig.update_layout(legend=dict(orientation="h", y=-0.3))
+    return _card(card_id, title, caption, fig, height)
+
+
+def models_over_time(entries: list[Entry], settings: Settings) -> dict | None:
+    return _entity_trend(
+        entries, _MODELS, card_id="models_trend", title="Models used over time",
+        caption="Share of each year's entries mentioning a model / algorithm family "
+                "(keyword-based, approximate) — the LLM families climb fast.",
+    )
+
+
+def providers_over_time(entries: list[Entry], settings: Settings) -> dict | None:
+    return _entity_trend(
+        entries, _PROVIDERS, card_id="providers_trend", title="Model providers over time",
+        caption="Share of each year's entries mentioning an AI lab / model provider "
+                "(keyword-based, approximate).",
+    )
+
+
+def datasets_over_time(entries: list[Entry], settings: Settings) -> dict | None:
+    return _entity_trend(
+        entries, _DATASETS, card_id="datasets_trend",
+        title="Datasets, benchmarks & environments over time",
+        caption="Share of each year's entries mentioning a dataset / benchmark / environment "
+                "(keyword-based, approximate).",
+    )
+
+
+def tasks_over_time(entries: list[Entry], settings: Settings) -> dict | None:
+    return _entity_trend(
+        entries, _TASKS, card_id="tasks_trend", title="Tasks studied over time",
+        caption="Share of each year's entries mentioning a task type (keyword-based, approximate).",
+    )
+
+
+def arxiv_categories_over_time(entries: list[Entry], settings: Settings, top_n: int = 8) -> dict | None:
+    """Primary arXiv subject categories of the papers, by year (from arxiv metadata)."""
+    year_total: Counter[int] = Counter()
+    cat_year: dict[str, Counter] = {}
+    totals: Counter[str] = Counter()
+    for e in entries:
+        if not e.year or not e.arxiv_categories:
+            continue
+        year_total[e.year] += 1
+        for c in dict.fromkeys(e.arxiv_categories):  # de-dup within an entry
+            cat_year.setdefault(c, Counter())[e.year] += 1
+            totals[c] += 1
+    years = sorted(year_total)
+    top = [c for c, _ in totals.most_common(top_n)]
+    if len(years) < 2 or not top:
+        return None
+    fig = go.Figure()
+    for c in top:
+        yc = cat_year[c]
+        name = _ARXIV_CAT_NAMES.get(c, c)
+        fig.add_trace(go.Scatter(
+            x=years, y=[yc.get(y, 0) for y in years], mode="lines+markers", name=name,
+            hovertemplate=f"{name} — %{{x}}: %{{y}}<extra></extra>",
+        ))
+    fig.update_xaxes(title="Year", dtick=1)
+    fig.update_yaxes(title="Papers")
+    fig.update_layout(legend=dict(orientation="h", y=-0.3))
+    return _card("arxiv_categories", "arXiv subfields over time",
+                 "Primary arXiv categories of the papers each year — which subfields drive "
+                 "open-endedness (from arXiv metadata, not keywords).", fig)
+
+
+def code_availability_over_time(entries: list[Entry], settings: Settings) -> dict | None:
+    """Share of each year's entries that link to code — a reproducibility signal."""
+    year_total: Counter[int] = Counter()
+    year_code: Counter[int] = Counter()
+    for e in entries:
+        if not e.year:
+            continue
+        year_total[e.year] += 1
+        if "code" in (e.links or {}):
+            year_code[e.year] += 1
+    years = sorted(year_total)
+    if len(years) < 2:
+        return None
+    ys = [100.0 * year_code.get(y, 0) / year_total[y] for y in years]
+    fig = go.Figure(go.Scatter(
+        x=years, y=ys, mode="lines+markers", line=dict(color=_ACCENT, width=3),
+        fill="tozeroy", fillcolor="rgba(47,133,90,0.12)",
+        hovertemplate="%{x}: %{y:.0f}% link to code<extra></extra>",
+    ))
+    fig.update_xaxes(title="Year", dtick=1)
+    fig.update_yaxes(title="% of entries with a code link", ticksuffix="%")
+    return _card("code_availability", "Code availability over time",
+                 "Share of each year's entries that link to code — a reproducibility signal.", fig, 440)
+
+
 def _fig_html(fig: go.Figure, include_js: bool) -> str:
     return fig.to_html(
         full_html=False,
@@ -401,6 +612,12 @@ def make_trend_plots(entries: list[Entry], report: ThemeReport, settings: Settin
     """Trends page charts (how the field changes over the years)."""
     cards = _assemble([
         lambda: topic_prevalence_over_time(entries, settings),
+        lambda: models_over_time(entries, settings),
+        lambda: providers_over_time(entries, settings),
+        lambda: datasets_over_time(entries, settings),
+        lambda: tasks_over_time(entries, settings),
+        lambda: arxiv_categories_over_time(entries, settings),
+        lambda: code_availability_over_time(entries, settings),
         lambda: themes_over_time(report, settings),
         lambda: rising_falling_keyphrases(report, settings),
         lambda: venue_mix_over_time(entries, settings),
