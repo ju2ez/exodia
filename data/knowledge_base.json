@@ -1,0 +1,3447 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-06-18T15:42:38Z",
+  "source": {
+    "repo": "jennyzzt/awesome-open-ended",
+    "url": "https://github.com/jennyzzt/awesome-open-ended"
+  },
+  "entries": [
+    {
+      "entry_id": "f8cb8723f2f7",
+      "title": "CORAL: Towards Autonomous Multi-Agent Evolution for Open-Ended Discovery",
+      "authors": [
+        "Ao Qu",
+        "Han Zheng",
+        "Zijian Zhou",
+        "Yihao Yan",
+        "Yihong Tang",
+        "Shao Yong Ong",
+        "Fenglu Hong",
+        "Kaichen Zhou",
+        "Chonghe Jiang",
+        "Minwei Kong",
+        "Jiacheng Zhu",
+        "Xuan Jiang",
+        "Sirui Li",
+        "Cathy Wu",
+        "Bryan Kian Hsiang Low",
+        "Jinhua Zhao",
+        "Paul Pu Liang"
+      ],
+      "authors_raw": "Ao Qu, Han Zheng, Zijian Zhou, Yihao Yan, Yihong Tang, Shao Yong Ong, Fenglu Hong, Kaichen Zhou, Chonghe Jiang, Minwei Kong, Jiacheng Zhu, Xuan Jiang, Sirui Li, Cathy Wu, Bryan Kian Hsiang Low, Jinhua Zhao, Paul Pu Liang",
+      "venue": "arXiv",
+      "year": 2026,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2604.01658",
+        "code": "https://github.com/Human-Agent-Society/CORAL",
+        "website": "https://human-agent-society.github.io/CORAL/"
+      },
+      "arxiv_id": "2604.01658",
+      "abstract": "Large language model (LLM)-based evolution is a promising approach for open-ended discovery, where progress requires sustained search and knowledge accumulation. Existing methods still rely heavily on fixed heuristics and hard-coded exploration rules, which limit the autonomy of LLM agents. We present CORAL, the first framework for autonomous multi-agent evolution on open-ended problems. CORAL replaces rigid control with long-running agents that explore, reflect, and collaborate through shared persistent memory, asynchronous multi-agent execution, and heartbeat-based interventions. It also provides practical safeguards, including isolated workspaces, evaluator separation, resource management, and agent session and health management. Evaluated on diverse mathematical, algorithmic, and systems optimization tasks, CORAL sets new state-of-the-art results on 10 tasks, achieving 3-10 times higher improvement rates with far fewer evaluations than fixed evolutionary search baselines across tasks. On Anthropic's kernel engineering task, four co-evolving agents improve the best known score from 1363 to 1103 cycles. Mechanistic analyses further show how these gains arise from knowledge reuse and multi-agent exploration and communication. Together, these results suggest that greater agent autonomy and multi-agent evolution can substantially improve open-ended discovery. Code is available at https://github.com/Human-Agent-Society/CORAL.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2604.01658",
+      "arxiv_published": "2026-04-02T05:59:06Z",
+      "arxiv_categories": [
+        "cs.AI"
+      ],
+      "pdf_path": "data/pdfs/2604.01658.pdf",
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Preprint (arXiv)",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "d56b7bf20c63ab2c",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "7e601be59f78",
+      "title": "Darwin Gödel Machine: Open-Ended Evolution of Self-Improving Agents",
+      "authors": [
+        "Jenny Zhang",
+        "Shengran Hu",
+        "Cong Lu",
+        "Robert Lange",
+        "Jeff Clune"
+      ],
+      "authors_raw": "Jenny Zhang, Shengran Hu, Cong Lu, Robert Lange, Jeff Clune",
+      "venue": "ICLR",
+      "year": 2026,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2505.22954",
+        "code": "https://github.com/jennyzzt/dgm"
+      },
+      "arxiv_id": "2505.22954",
+      "abstract": "Today's AI systems have human-designed, fixed architectures and cannot autonomously and continuously improve themselves. The advance of AI could itself be automated. If done safely, that would accelerate AI development and allow us to reap its benefits much sooner. Meta-learning can automate the discovery of novel algorithms, but is limited by first-order improvements and the human design of a suitable search space. The Gödel machine proposed a theoretical alternative: a self-improving AI that repeatedly modifies itself in a provably beneficial manner. Unfortunately, proving that most changes are net beneficial is impossible in practice. We introduce the Darwin Gödel Machine (DGM), a self-improving system that iteratively modifies its own code (thereby also improving its ability to modify its own codebase) and empirically validates each change using coding benchmarks. Inspired by Darwinian evolution and open-endedness research, the DGM maintains an archive of generated coding agents. It grows the archive by sampling an agent from it and using a foundation model to create a new, interesting, version of the sampled agent. This open-ended exploration forms a growing tree of diverse, high-quality agents and allows the parallel exploration of many different paths through the search space. Empirically, the DGM automatically improves its coding capabilities (e.g., better code editing tools, long-context window management, peer-review mechanisms), increasing performance on SWE-bench from 20.0% to 50.0%, and on Polyglot from 14.2% to 30.7%. Furthermore, the DGM significantly outperforms baselines without self-improvement or open-ended exploration. All experiments were done with safety precautions (e.g., sandboxing, human oversight). The DGM is a significant step toward self-improving AI, capable of gathering its own stepping stones along paths that unfold into endless innovation.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2505.22954",
+      "arxiv_published": "2025-05-29T00:26:15Z",
+      "arxiv_categories": [
+        "cs.AI"
+      ],
+      "pdf_path": "data/pdfs/2505.22954.pdf",
+      "journal_ref": null,
+      "doi": null,
+      "comment": "Code at https://github.com/jennyzzt/dgm",
+      "venue_display": "ICLR",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "76d71d8fdf8d271e",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "a3c3bf2108e7",
+      "title": "Hyperagents",
+      "authors": [
+        "Jenny Zhang",
+        "Bingchen Zhao",
+        "Wannan Yang",
+        "Jakob Foerster",
+        "Jeff Clune",
+        "Minqi Jiang",
+        "Sam Devlin",
+        "Tatiana Shavrina"
+      ],
+      "authors_raw": "Jenny Zhang, Bingchen Zhao, Wannan Yang, Jakob Foerster, Jeff Clune, Minqi Jiang, Sam Devlin, Tatiana Shavrina",
+      "venue": "arXiv",
+      "year": 2026,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2603.19461",
+        "code": "https://github.com/facebookresearch/Hyperagents"
+      },
+      "arxiv_id": "2603.19461",
+      "abstract": "Self-improving AI systems aim to reduce reliance on human engineering by learning to improve their own learning and problem-solving processes. Existing approaches to self-improvement rely on fixed, handcrafted meta-level mechanisms, fundamentally limiting how fast such systems can improve. The Darwin Gödel Machine (DGM) demonstrates open-ended self-improvement in coding by repeatedly generating and evaluating self-modified variants. Because both evaluation and self-modification are coding tasks, gains in coding ability can translate into gains in self-improvement ability. However, this alignment does not generally hold beyond coding domains. We introduce \\textbf{hyperagents}, self-referential agents that integrate a task agent (which solves the target task) and a meta agent (which modifies itself and the task agent) into a single editable program. Crucially, the meta-level modification procedure is itself editable, enabling metacognitive self-modification, improving not only the task-solving behavior, but also the mechanism that generates future improvements. We instantiate this framework by extending DGM to create DGM-Hyperagents (DGM-H), eliminating the assumption of domain-specific alignment between task performance and self-modification skill to potentially support self-accelerating progress on any computable task. Across diverse domains, the DGM-H improves performance over time and outperforms baselines without self-improvement or open-ended exploration, as well as prior self-improving systems. Furthermore, the DGM-H improves the process by which it generates new agents (e.g., persistent memory, performance tracking), and these meta-level improvements transfer across domains and accumulate across runs. DGM-Hyperagents offer a glimpse of open-ended AI systems that do not merely search for better solutions, but continually improve their search for how to improve.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2603.19461",
+      "arxiv_published": "2026-03-19T20:50:08Z",
+      "arxiv_categories": [
+        "cs.AI"
+      ],
+      "pdf_path": "data/pdfs/2603.19461.pdf",
+      "journal_ref": null,
+      "doi": null,
+      "comment": "Code at https://github.com/facebookresearch/Hyperagents",
+      "venue_display": "Preprint (arXiv)",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "f983b0a476884880",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "f03c42bde961",
+      "title": "Learning to Continually Learn via Meta-learning Agentic Memory Designs",
+      "authors": [
+        "Yiming Xiong",
+        "Shengran Hu",
+        "Jeff Clune"
+      ],
+      "authors_raw": "Yiming Xiong, Shengran Hu, Jeff Clune",
+      "venue": "arXiv",
+      "year": 2026,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2602.07755"
+      },
+      "arxiv_id": "2602.07755",
+      "abstract": "The statelessness of foundation models bottlenecks agentic systems' ability to continually learn, a core capability for long-horizon reasoning and adaptation. To address this limitation, agentic systems commonly incorporate memory modules to retain and reuse past experience, aiming for continual learning during test time. However, most existing memory designs are human-crafted and fixed, which limits their ability to adapt to the diversity and non-stationarity of real-world tasks. In this paper, we introduce ALMA (Automated meta-Learning of Memory designs for Agentic systems), a framework that meta-learns memory designs to replace hand-engineered memory designs, therefore minimizing human effort and enabling agentic systems to be continual learners across diverse domains. Our approach employs a Meta Agent that searches over memory designs expressed as executable code in an open-ended manner, theoretically allowing the discovery of arbitrary memory designs, including database schemas as well as their retrieval and update mechanisms. Extensive experiments across four sequential decision-making domains demonstrate that the learned memory designs enable more effective and efficient learning from experience than state-of-the-art human-crafted memory designs on all benchmarks. When developed and deployed safely, ALMA represents a step toward self-improving AI systems that learn to be adaptive, continual learners.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2602.07755",
+      "arxiv_published": "2026-02-08T01:20:49Z",
+      "arxiv_categories": [
+        "cs.AI"
+      ],
+      "pdf_path": "data/pdfs/2602.07755.pdf",
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Preprint (arXiv)",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "5fd9b4ab1d8b30d2",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "432ffeda05c2",
+      "title": "Automated Capability Discovery via Model Self-Exploration",
+      "authors": [
+        "Cong Lu",
+        "Shengran Hu",
+        "Jeff Clune"
+      ],
+      "authors_raw": "Cong Lu, Shengran Hu, Jeff Clune",
+      "venue": "arXiv",
+      "year": 2025,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2502.07577",
+        "code": "https://github.com/conglu1997/ACD"
+      },
+      "arxiv_id": "2502.07577",
+      "abstract": "Foundation models have become general-purpose assistants, exhibiting diverse capabilities across numerous domains through training on web-scale data. It remains challenging to precisely characterize even a fraction of the full spectrum of these abilities and potential risks in any new model. Existing evaluation approaches often require significant human effort, and it is taking increasing effort to design ever harder challenges for more capable models. We introduce Automated Capability Discovery (ACD), a framework that designates one foundation model as a scientist to systematically propose open-ended tasks probing the abilities of a subject model (potentially itself). By combining frontier models with ideas from the field of open-endedness, ACD automatically and systematically uncovers a diverse spectrum of surprising capabilities and failures in the subject model. We demonstrate ACD across a range of foundation models (including the GPT, Claude, and Llama series), showing that it automatically generates thousands of distinct tasks, which are then clustered to reveal dozens of broader capability areas and failure modes, that would be challenging for any single team to uncover. We further validate our method's automated scoring with extensive human surveys, observing high agreement between model-generated and human evaluations. By leveraging foundation models' ability to both create tasks and self-evaluate, ACD is a significant step toward scalable, automated evaluation of novel AI systems. All code and evaluation logs are open-sourced at https://github.com/conglu1997/ACD.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2502.07577",
+      "arxiv_published": "2025-02-11T14:23:13Z",
+      "arxiv_categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "pdf_path": "data/pdfs/2502.07577.pdf",
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Preprint (arXiv)",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "a69dfcf733d5865e",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "68cdeebb19a1",
+      "title": "Automated design of agentic systems",
+      "authors": [
+        "Shengran Hu",
+        "Cong Lu",
+        "Jeff Clune"
+      ],
+      "authors_raw": "Shengran Hu, Cong Lu, Jeff Clune",
+      "venue": "ICLR",
+      "year": 2025,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2408.08435",
+        "code": "https://github.com/ShengranHu/ADAS"
+      },
+      "arxiv_id": "2408.08435",
+      "abstract": "Researchers are investing substantial effort in developing powerful general-purpose agents, wherein Foundation Models are used as modules within agentic systems (e.g. Chain-of-Thought, Self-Reflection, Toolformer). However, the history of machine learning teaches us that hand-designed solutions are eventually replaced by learned solutions. We describe a newly forming research area, Automated Design of Agentic Systems (ADAS), which aims to automatically create powerful agentic system designs, including inventing novel building blocks and/or combining them in new ways. We further demonstrate that there is an unexplored yet promising approach within ADAS where agents can be defined in code and new agents can be automatically discovered by a meta agent programming ever better ones in code. Given that programming languages are Turing Complete, this approach theoretically enables the learning of any possible agentic system: including novel prompts, tool use, workflows, and combinations thereof. We present a simple yet effective algorithm named Meta Agent Search to demonstrate this idea, where a meta agent iteratively programs interesting new agents based on an ever-growing archive of previous discoveries. Through extensive experiments across multiple domains including coding, science, and math, we show that our algorithm can progressively invent agents with novel designs that greatly outperform state-of-the-art hand-designed agents. Importantly, we consistently observe the surprising result that agents invented by Meta Agent Search maintain superior performance even when transferred across domains and models, demonstrating their robustness and generality. Provided we develop it safely, our work illustrates the potential of an exciting new research direction toward automatically designing ever-more powerful agentic systems to benefit humanity.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2408.08435",
+      "arxiv_published": "2024-08-15T21:59:23Z",
+      "arxiv_categories": [
+        "cs.AI"
+      ],
+      "pdf_path": "data/pdfs/2408.08435.pdf",
+      "journal_ref": null,
+      "doi": null,
+      "comment": "Website: https://shengranhu.com/ADAS",
+      "venue_display": "ICLR",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "4f820ef0a2ca4c92",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "b6589642ced0",
+      "title": "Evolving Prompts In-Context: An Open-ended, Self-replicating Perspective",
+      "authors": [
+        "Jianyu Wang",
+        "Zhiqiang Hu",
+        "Lidong Bing"
+      ],
+      "authors_raw": "Jianyu Wang, Zhiqiang Hu, Lidong Bing",
+      "venue": "ICML",
+      "year": 2025,
+      "category": "papers",
+      "links": {
+        "paper": "https://openreview.net/pdf?id=jXZR3XinPg",
+        "code": "https://github.com/jianyu-cs/PromptQuine/"
+      },
+      "arxiv_id": null,
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "ICML",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "10bdd717c0a769c1",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "abfb901d2814",
+      "title": "Foundation Model Self-Play: Open-Ended Strategy Innovation via Foundation Models",
+      "authors": [
+        "Aaron Dharna",
+        "Cong Lu",
+        "Jeff Clune"
+      ],
+      "authors_raw": "Aaron Dharna, Cong Lu, Jeff Clune",
+      "venue": "RL Journal",
+      "year": 2025,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2507.06466"
+      },
+      "arxiv_id": "2507.06466",
+      "abstract": "Multi-agent interactions have long fueled innovation, from natural predator-prey dynamics to the space race. Self-play (SP) algorithms try to harness these dynamics by pitting agents against ever-improving opponents, thereby creating an implicit curriculum toward learning high-quality solutions. However, SP often fails to produce diverse solutions and can get stuck in locally optimal behaviors. We introduce Foundation-Model Self-Play (FMSP), a new direction that leverages the code-generation capabilities and vast knowledge of foundation models (FMs) to overcome these challenges by leaping across local optima in policy space. We propose a family of approaches: (1) \\textbf{Vanilla Foundation-Model Self-Play (vFMSP)} continually refines agent policies via competitive self-play; (2) \\textbf{Novelty-Search Self-Play (NSSP)} builds a diverse population of strategies, ignoring performance; and (3) the most promising variant, \\textbf{Quality-Diveristy Self-Play (QDSP)}, creates a diverse set of high-quality policies by combining the diversity of NSSP and refinement of vFMSP. We evaluate FMSPs in Car Tag, a continuous-control pursuer-evader setting, and in Gandalf, a simple AI safety simulation in which an attacker tries to jailbreak an LLM's defenses. In Car Tag, FMSPs explore a wide variety of reinforcement learning, tree search, and heuristic-based methods, to name just a few. In terms of discovered policy quality, \\ouralgo and vFMSP surpass strong human-designed strategies. In Gandalf, FMSPs can successfully automatically red-team an LLM, breaking through and jailbreaking six different, progressively stronger levels of defense. Furthermore, FMSPs can automatically proceed to patch the discovered vulnerabilities. Overall, FMSPs represent a promising new research frontier of improving self-play with foundation models, opening fresh paths toward more creative and open-ended strategy discovery",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2507.06466",
+      "arxiv_published": "2025-07-09T00:58:19Z",
+      "arxiv_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": "67 pages, accepted to RLC 2025",
+      "venue_display": "RL Journal",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "a7398f051b74c438",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "373ba909e70f",
+      "title": "Gödel Agent: A Self-Referential Agent Framework for Recursive Self-Improvement",
+      "authors": [
+        "Xunjian Yin",
+        "Xinyi Wang",
+        "Liangming Pan",
+        "Li Lin",
+        "Xiaojun Wan",
+        "William Yang Wang"
+      ],
+      "authors_raw": "Xunjian Yin, Xinyi Wang, Liangming Pan, Li Lin, Xiaojun Wan, William Yang Wang",
+      "venue": "ACL",
+      "year": 2025,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2410.04444",
+        "code": "https://github.com/Arvid-pku/Godel_Agent"
+      },
+      "arxiv_id": "2410.04444",
+      "abstract": "The rapid advancement of large language models (LLMs) has significantly enhanced the capabilities of AI-driven agents across various tasks. However, existing agentic systems, whether based on fixed pipeline algorithms or pre-defined meta-learning frameworks, cannot search the whole agent design space due to the restriction of human-designed components, and thus might miss the globally optimal agent design. In this paper, we introduce Gödel Agent, a self-evolving framework inspired by the Gödel machine, enabling agents to recursively improve themselves without relying on predefined routines or fixed optimization algorithms. Gödel Agent leverages LLMs to dynamically modify its own logic and behavior, guided solely by high-level objectives through prompting. Experimental results on mathematical reasoning and complex agent tasks demonstrate that implementation of Gödel Agent can achieve continuous self-improvement, surpassing manually crafted agents in performance, efficiency, and generalizability.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2410.04444",
+      "arxiv_published": "2024-10-06T10:49:40Z",
+      "arxiv_categories": [
+        "cs.AI"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": "ACL 2025 main. The code can be found at https://github.com/Arvid-pku/Godel_Agent",
+      "venue_display": "ACL",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "a070ea6f755a0fbd",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "f7473061fedd",
+      "title": "Questioning Representational Optimism in Deep Learning: The Fractured Entangled Representation Hypothesis",
+      "authors": [
+        "Akarsh Kumar",
+        "Jeff Clune",
+        "Joel Lehman",
+        "Kenneth O. Stanley"
+      ],
+      "authors_raw": "Akarsh Kumar, Jeff Clune, Joel Lehman, Kenneth O. Stanley",
+      "venue": "arXiv",
+      "year": 2025,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2505.11581"
+      },
+      "arxiv_id": "2505.11581",
+      "abstract": "Much of the excitement in modern AI is driven by the observation that scaling up existing systems leads to better performance. But does better performance necessarily imply better internal representations? While the representational optimist assumes it must, this position paper challenges that view. We compare neural networks evolved through an open-ended search process to networks trained via conventional stochastic gradient descent (SGD) on the simple task of generating a single image. This minimal setup offers a unique advantage: each hidden neuron's full functional behavior can be easily visualized as an image, thus revealing how the network's output behavior is internally constructed neuron by neuron. The result is striking: while both networks produce the same output behavior, their internal representations differ dramatically. The SGD-trained networks exhibit a form of disorganization that we term fractured entangled representation (FER). Interestingly, the evolved networks largely lack FER, even approaching a unified factored representation (UFR). In large models, FER may be degrading core model capacities like generalization, creativity, and (continual) learning. Therefore, understanding and mitigating FER could be critical to the future of representation learning.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2505.11581",
+      "arxiv_published": "2025-05-16T16:28:34Z",
+      "arxiv_categories": [
+        "cs.CV",
+        "cs.LG",
+        "cs.NE"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": "43 pages, 25 figures",
+      "venue_display": "Preprint (arXiv)",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "9ba016c5dcd2a3d1",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "209b2f4bff39",
+      "title": "The AI Scientist-v2: Workshop-Level Automated Scientific Discovery via Agentic Tree Search",
+      "authors": [
+        "Yutaro Yamada",
+        "Robert Tjarko Lange",
+        "Cong Lu",
+        "Shengran Hu",
+        "Chris Lu",
+        "Jakob Foerster",
+        "Jeff Clune",
+        "David Ha"
+      ],
+      "authors_raw": "Yutaro Yamada, Robert Tjarko Lange, Cong Lu, Shengran Hu, Chris Lu, Jakob Foerster, Jeff Clune, David Ha",
+      "venue": "arXiv",
+      "year": 2025,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2408.06292",
+        "code": "https://github.com/SakanaAI/AI-Scientist-v2"
+      },
+      "arxiv_id": "2408.06292",
+      "abstract": "One of the grand challenges of artificial general intelligence is developing agents capable of conducting scientific research and discovering new knowledge. While frontier models have already been used as aides to human scientists, e.g. for brainstorming ideas, writing code, or prediction tasks, they still conduct only a small part of the scientific process. This paper presents the first comprehensive framework for fully automatic scientific discovery, enabling frontier large language models to perform research independently and communicate their findings. We introduce The AI Scientist, which generates novel research ideas, writes code, executes experiments, visualizes results, describes its findings by writing a full scientific paper, and then runs a simulated review process for evaluation. In principle, this process can be repeated to iteratively develop ideas in an open-ended fashion, acting like the human scientific community. We demonstrate its versatility by applying it to three distinct subfields of machine learning: diffusion modeling, transformer-based language modeling, and learning dynamics. Each idea is implemented and developed into a full paper at a cost of less than $15 per paper. To evaluate the generated papers, we design and validate an automated reviewer, which we show achieves near-human performance in evaluating paper scores. The AI Scientist can produce papers that exceed the acceptance threshold at a top machine learning conference as judged by our automated reviewer. This approach signifies the beginning of a new era in scientific discovery in machine learning: bringing the transformative benefits of AI agents to the entire research process of AI itself, and taking us closer to a world where endless affordable creativity and innovation can be unleashed on the world's most challenging problems. Our code is open-sourced at https://github.com/SakanaAI/AI-Scientist",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2408.06292",
+      "arxiv_published": "2024-08-12T16:58:11Z",
+      "arxiv_categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.LG"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Preprint (arXiv)",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "b3047f81677b84c1",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "9a86afa5b0a2",
+      "title": "Artificial Generational Intelligence: Cultural Accumulation in Reinforcement Learning",
+      "authors": [
+        "Jonathan Cook",
+        "Chris Lu",
+        "Edward Hughes",
+        "Joel Z. Leibo",
+        "Jakob Foerster"
+      ],
+      "authors_raw": "Jonathan Cook, Chris Lu, Edward Hughes, Joel Z. Leibo, Jakob Foerster",
+      "venue": "arXiv",
+      "year": 2024,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2406.00392"
+      },
+      "arxiv_id": "2406.00392",
+      "abstract": "Cultural accumulation drives the open-ended and diverse progress in capabilities spanning human history. It builds an expanding body of knowledge and skills by combining individual exploration with inter-generational information transmission. Despite its widespread success among humans, the capacity for artificial learning agents to accumulate culture remains under-explored. In particular, approaches to reinforcement learning typically strive for improvements over only a single lifetime. Generational algorithms that do exist fail to capture the open-ended, emergent nature of cultural accumulation, which allows individuals to trade-off innovation and imitation. Building on the previously demonstrated ability for reinforcement learning agents to perform social learning, we find that training setups which balance this with independent learning give rise to cultural accumulation. These accumulating agents outperform those trained for a single lifetime with the same cumulative experience. We explore this accumulation by constructing two models under two distinct notions of a generation: episodic generations, in which accumulation occurs via in-context learning and train-time generations, in which accumulation occurs via in-weights learning. In-context and in-weights cultural accumulation can be interpreted as analogous to knowledge and skill accumulation, respectively. To the best of our knowledge, this work is the first to present general models that achieve emergent cultural accumulation in reinforcement learning, opening up new avenues towards more open-ended learning systems, as well as presenting new opportunities for modelling human culture.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2406.00392",
+      "arxiv_published": "2024-06-01T10:33:32Z",
+      "arxiv_categories": [
+        "cs.AI"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Preprint (arXiv)",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "4f5109dddac526b5",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "a6ee9d58c117",
+      "title": "Computational Life: How Well-formed, Self-replicating Programs Emerge from Simple Interaction",
+      "authors": [
+        "Blaise Agüera y Arcas",
+        "Jyrki Alakuijala",
+        "James Evans",
+        "Ben Laurie",
+        "Alexander Mordvintsev",
+        "Eyvind Niklasson",
+        "Ettore Randazzo",
+        "Luca Versari"
+      ],
+      "authors_raw": "Blaise Agüera y Arcas, Jyrki Alakuijala, James Evans, Ben Laurie, Alexander Mordvintsev, Eyvind Niklasson, Ettore Randazzo, Luca Versari",
+      "venue": "arXiv",
+      "year": 2024,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2406.19108"
+      },
+      "arxiv_id": "2406.19108",
+      "abstract": "The fields of Origin of Life and Artificial Life both question what life is and how it emerges from a distinct set of \"pre-life\" dynamics. One common feature of most substrates where life emerges is a marked shift in dynamics when self-replication appears. While there are some hypotheses regarding how self-replicators arose in nature, we know very little about the general dynamics, computational principles, and necessary conditions for self-replicators to emerge. This is especially true on \"computational substrates\" where interactions involve logical, mathematical, or programming rules. In this paper we take a step towards understanding how self-replicators arise by studying several computational substrates based on various simple programming languages and machine instruction sets. We show that when random, non self-replicating programs are placed in an environment lacking any explicit fitness landscape, self-replicators tend to arise. We demonstrate how this occurs due to random interactions and self-modification, and can happen with and without background random mutations. We also show how increasingly complex dynamics continue to emerge following the rise of self-replicators. Finally, we show a counterexample of a minimalistic programming language where self-replicators are possible, but so far have not been observed to arise.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2406.19108",
+      "arxiv_published": "2024-06-27T11:34:35Z",
+      "arxiv_categories": [
+        "cs.NE",
+        "cs.AI"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": "20 pages; updated introduction with further related work",
+      "venue_display": "Preprint (arXiv)",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "9eb3ea924725d033",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "34a3cfaa5ced",
+      "title": "Debating with More Persuasive LLMs Leads to More Truthful Answers",
+      "authors": [
+        "Akbir Khan",
+        "John Hughes",
+        "Dan Valentine",
+        "Laura Ruis",
+        "Kshitij Sachan",
+        "Ansh Radhakrishnan",
+        "Edward Grefenstette",
+        "Samuel R. Bowman",
+        "Tim Rocktäschel",
+        "Ethan Perez"
+      ],
+      "authors_raw": "Akbir Khan, John Hughes, Dan Valentine, Laura Ruis, Kshitij Sachan, Ansh Radhakrishnan, Edward Grefenstette, Samuel R. Bowman, Tim Rocktäschel, Ethan Perez",
+      "venue": "arXiv",
+      "year": 2024,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2402.06782"
+      },
+      "arxiv_id": "2402.06782",
+      "abstract": "Common methods for aligning large language models (LLMs) with desired behaviour heavily rely on human-labelled data. However, as models grow increasingly sophisticated, they will surpass human expertise, and the role of human evaluation will evolve into non-experts overseeing experts. In anticipation of this, we ask: can weaker models assess the correctness of stronger models? We investigate this question in an analogous setting, where stronger models (experts) possess the necessary information to answer questions and weaker models (non-experts) lack this information. The method we evaluate is debate, where two LLM experts each argue for a different answer, and a non-expert selects the answer. We find that debate consistently helps both non-expert models and humans answer questions, achieving 76% and 88% accuracy respectively (naive baselines obtain 48% and 60%). Furthermore, optimising expert debaters for persuasiveness in an unsupervised manner improves non-expert ability to identify the truth in debates. Our results provide encouraging empirical evidence for the viability of aligning models with debate in the absence of ground truth.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2402.06782",
+      "arxiv_published": "2024-02-09T21:05:01Z",
+      "arxiv_categories": [
+        "cs.AI",
+        "cs.CL"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": "For code please check: https://github.com/ucl-dark/llm_debate",
+      "venue_display": "Preprint (arXiv)",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "832fb9579fdea11b",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "834b92ee61d7",
+      "title": "Discovering Preference Optimization Algorithms with and for Large Language Models",
+      "authors": [
+        "Chris Lu",
+        "Samuel Holt",
+        "Claudio Fanconi",
+        "Alex J. Chan",
+        "Jakob Foerster",
+        "Mihaela van der Schaar",
+        "Robert Tjarko Lange"
+      ],
+      "authors_raw": "Chris Lu, Samuel Holt, Claudio Fanconi, Alex J. Chan, Jakob Foerster, Mihaela van der Schaar, Robert Tjarko Lange",
+      "venue": "arXiv",
+      "year": 2024,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2406.08414"
+      },
+      "arxiv_id": "2406.08414",
+      "abstract": "Offline preference optimization is a key method for enhancing and controlling the quality of Large Language Model (LLM) outputs. Typically, preference optimization is approached as an offline supervised learning task using manually-crafted convex loss functions. While these methods are based on theoretical insights, they are inherently constrained by human creativity, so the large search space of possible loss functions remains under explored. We address this by performing LLM-driven objective discovery to automatically discover new state-of-the-art preference optimization algorithms without (expert) human intervention. Specifically, we iteratively prompt an LLM to propose and implement new preference optimization loss functions based on previously-evaluated performance metrics. This process leads to the discovery of previously-unknown and performant preference optimization algorithms. The best performing of these we call Discovered Preference Optimization (DiscoPOP), a novel algorithm that adaptively blends logistic and exponential losses. Experiments demonstrate the state-of-the-art performance of DiscoPOP and its successful transfer to held-out tasks.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2406.08414",
+      "arxiv_published": "2024-06-12T16:58:41Z",
+      "arxiv_categories": [
+        "cs.LG"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Preprint (arXiv)",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "ffa3628dd8418e49",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "9ec6a690c554",
+      "title": "DreamCraft: Text-Guided Generation of Functional 3D Environments in Minecraft",
+      "authors": [
+        "Sam Earle",
+        "Filippos Kokkinos",
+        "Yuhe Nie",
+        "Julian Togelius",
+        "Roberta Raileanu"
+      ],
+      "authors_raw": "Sam Earle, Filippos Kokkinos, Yuhe Nie, Julian Togelius, Roberta Raileanu",
+      "venue": "FDG",
+      "year": 2024,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2404.15538"
+      },
+      "arxiv_id": "2404.15538",
+      "abstract": "Procedural Content Generation (PCG) algorithms enable the automatic generation of complex and diverse artifacts. However, they don't provide high-level control over the generated content and typically require domain expertise. In contrast, text-to-3D methods allow users to specify desired characteristics in natural language, offering a high amount of flexibility and expressivity. But unlike PCG, such approaches cannot guarantee functionality, which is crucial for certain applications like game design. In this paper, we present a method for generating functional 3D artifacts from free-form text prompts in the open-world game Minecraft. Our method, DreamCraft, trains quantized Neural Radiance Fields (NeRFs) to represent artifacts that, when viewed in-game, match given text descriptions. We find that DreamCraft produces more aligned in-game artifacts than a baseline that post-processes the output of an unconstrained NeRF. Thanks to the quantized representation of the environment, functional constraints can be integrated using specialized loss terms. We show how this can be leveraged to generate 3D structures that match a target distribution or obey certain adjacency rules over the block types. DreamCraft inherits a high degree of expressivity and controllability from the NeRF, while still being able to incorporate functional constraints through domain-specific objectives.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2404.15538",
+      "arxiv_published": "2024-04-23T21:57:14Z",
+      "arxiv_categories": [
+        "cs.GR",
+        "cs.AI",
+        "cs.CL",
+        "cs.LG"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": "16 pages, 9 figures, accepted to Foundation of Digital Games 2024",
+      "venue_display": "FDG",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "6ec17a2b94501b18",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "5c2aa4656c7a",
+      "title": "Evolutionary Optimization of Model Merging Recipes",
+      "authors": [
+        "Takuya Akiba",
+        "Makoto Shing",
+        "Yujin Tang",
+        "Qi Sun",
+        "David Ha"
+      ],
+      "authors_raw": "Takuya Akiba, Makoto Shing, Yujin Tang, Qi Sun, David Ha",
+      "venue": "arXiv",
+      "year": 2024,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2403.13187"
+      },
+      "arxiv_id": "2403.13187",
+      "abstract": "Large language models (LLMs) have become increasingly capable, but their development often requires substantial computational resources. While model merging has emerged as a cost-effective promising approach for creating new models by combining existing ones, it currently relies on human intuition and domain knowledge, limiting its potential. Here, we propose an evolutionary approach that overcomes this limitation by automatically discovering effective combinations of diverse open-source models, harnessing their collective intelligence without requiring extensive additional training data or compute. Our approach operates in both parameter space and data flow space, allowing for optimization beyond just the weights of the individual models. This approach even facilitates cross-domain merging, generating models like a Japanese LLM with Math reasoning capabilities. Surprisingly, our Japanese Math LLM achieved state-of-the-art performance on a variety of established Japanese LLM benchmarks, even surpassing models with significantly more parameters, despite not being explicitly trained for such tasks. Furthermore, a culturally-aware Japanese VLM generated through our approach demonstrates its effectiveness in describing Japanese culture-specific content, outperforming previous Japanese VLMs. This work not only contributes new state-of-the-art models back to the open-source community, but also introduces a new paradigm for automated model composition, paving the way for exploring alternative, efficient approaches to foundation model development.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2403.13187",
+      "arxiv_published": "2024-03-19T22:56:53Z",
+      "arxiv_categories": [
+        "cs.NE"
+      ],
+      "pdf_path": null,
+      "journal_ref": "Nat Mach Intell (2025)",
+      "doi": "10.1038/s42256-024-00975-8",
+      "comment": "Authors' submitted version before final edits. Published in Nature Machine Intelligence on January 27, 2025: https://www.nature.com/articles/s42256-024-00975-8",
+      "venue_display": "Nat Mach Intell (2025)",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "d3a2a61bc723079d",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "654de7f4e937",
+      "title": "Generative Design through Quality-Diversity Data Synthesis and Language Models",
+      "authors": [
+        "Adam Gaier",
+        "James Stoddart",
+        "Lorenzo Villaggi",
+        "Shyam Sudhakaran"
+      ],
+      "authors_raw": "Adam Gaier, James Stoddart, Lorenzo Villaggi, Shyam Sudhakaran",
+      "venue": "arXiv",
+      "year": 2024,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2405.09997"
+      },
+      "arxiv_id": "2405.09997",
+      "abstract": "Two fundamental challenges face generative models in engineering applications: the acquisition of high-performing, diverse datasets, and the adherence to precise constraints in generated designs. We propose a novel approach combining optimization, constraint satisfaction, and language models to tackle these challenges in architectural design. Our method uses Quality-Diversity (QD) to generate a diverse, high-performing dataset. We then fine-tune a language model with this dataset to generate high-level designs. These designs are then refined into detailed, constraint-compliant layouts using the Wave Function Collapse algorithm. Our system demonstrates reliable adherence to textual guidance, enabling the generation of layouts with targeted architectural and performance features. Crucially, our results indicate that data synthesized through the evolutionary search of QD not only improves overall model performance but is essential for the model's ability to closely adhere to textual guidance. This improvement underscores the pivotal role evolutionary computation can play in creating the datasets key to training generative models for design. Web article at https://tilegpt.github.io",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2405.09997",
+      "arxiv_published": "2024-05-16T11:30:08Z",
+      "arxiv_categories": [
+        "cs.NE",
+        "cs.LG"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": "10.1145/3638529.3654138",
+      "comment": "8 pages, 8 figures, GECCO 2024",
+      "venue_display": "GECCO",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "a2df8a0ffbfd96d6",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "6ee0946446ad",
+      "title": "Genie: Generative Interactive Environments",
+      "authors": [
+        "Jake Bruce",
+        "Michael Dennis",
+        "Ashley Edwards",
+        "Jack Parker-Holder",
+        "Yuge Shi",
+        "Edward Hughes",
+        "Matthew Lai",
+        "Aditi Mavalankar",
+        "Richie Steigerwald",
+        "Chris Apps",
+        "Yusuf Aytar",
+        "Sarah Bechtle",
+        "Feryal Behbahani",
+        "Stephanie Chan",
+        "Nicolas Heess",
+        "Lucy Gonzalez",
+        "Simon Osindero",
+        "Sherjil Ozair",
+        "Scott Reed",
+        "Jingwei Zhang",
+        "Konrad Zolna",
+        "Jeff Clune",
+        "Nando de Freitas",
+        "Satinder Singh",
+        "Tim Rocktäschel"
+      ],
+      "authors_raw": "Jake Bruce, Michael Dennis, Ashley Edwards, Jack Parker-Holder, Yuge Shi, Edward Hughes, Matthew Lai, Aditi Mavalankar, Richie Steigerwald, Chris Apps, Yusuf Aytar, Sarah Bechtle, Feryal Behbahani, Stephanie Chan, Nicolas Heess, Lucy Gonzalez, Simon Osindero, Sherjil Ozair, Scott Reed, Jingwei Zhang, Konrad Zolna, Jeff Clune, Nando de Freitas, Satinder Singh, Tim Rocktäschel",
+      "venue": "arXiv",
+      "year": 2024,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2402.15391"
+      },
+      "arxiv_id": "2402.15391",
+      "abstract": "We introduce Genie, the first generative interactive environment trained in an unsupervised manner from unlabelled Internet videos. The model can be prompted to generate an endless variety of action-controllable virtual worlds described through text, synthetic images, photographs, and even sketches. At 11B parameters, Genie can be considered a foundation world model. It is comprised of a spatiotemporal video tokenizer, an autoregressive dynamics model, and a simple and scalable latent action model. Genie enables users to act in the generated environments on a frame-by-frame basis despite training without any ground-truth action labels or other domain-specific requirements typically found in the world model literature. Further the resulting learned latent action space facilitates training agents to imitate behaviors from unseen videos, opening the path for training generalist agents of the future.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2402.15391",
+      "arxiv_published": "2024-02-23T15:47:26Z",
+      "arxiv_categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CV"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": "https://sites.google.com/corp/view/genie-2024/",
+      "venue_display": "Preprint (arXiv)",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "def65c40488f364a",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "50d22eee834c",
+      "title": "Intelligent Go-Explore: Standing on the Shoulders of Giant Foundation Models",
+      "authors": [
+        "Cong Lu",
+        "Shengran Hu",
+        "Jeff Clune"
+      ],
+      "authors_raw": "Cong Lu, Shengran Hu, Jeff Clune",
+      "venue": "arXiv",
+      "year": 2024,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2405.15143"
+      },
+      "arxiv_id": "2405.15143",
+      "abstract": "Go-Explore is a powerful family of algorithms designed to solve hard-exploration problems built on the principle of archiving discovered states, and iteratively returning to and exploring from the most promising states. This approach has led to superhuman performance across a wide variety of challenging problems including Atari games and robotic control, but requires manually designing heuristics to guide exploration (i.e., determine which states to save and explore from, and what actions to consider next), which is time-consuming and infeasible in general. To resolve this, we propose Intelligent Go-Explore (IGE) which greatly extends the scope of the original Go-Explore by replacing these handcrafted heuristics with the intelligence and internalized human notions of interestingness captured by giant pretrained foundation models (FMs). This provides IGE with a human-like ability to instinctively identify how interesting or promising any new state is (e.g., discovering new objects, locations, or behaviors), even in complex environments where heuristics are hard to define. Moreover, IGE offers the exciting opportunity to recognize and capitalize on serendipitous discoveries -- states encountered during exploration that are valuable in terms of exploration, yet where what makes them interesting was not anticipated by the human user. We evaluate our algorithm on a diverse range of language and vision-based tasks that require search and exploration. Across these tasks, IGE strongly exceeds classic reinforcement learning and graph search baselines, and also succeeds where prior state-of-the-art FM agents like Reflexion completely fail. Overall, Intelligent Go-Explore combines the tremendous strengths of FMs and the powerful Go-Explore algorithm, opening up a new frontier of research into creating more generally capable agents with impressive exploration capabilities.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2405.15143",
+      "arxiv_published": "2024-05-24T01:45:27Z",
+      "arxiv_categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": "Published as a conference paper at ICLR 2025",
+      "venue_display": "ICLR",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "50c705c7cf7d364c",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "7294b4efd2f4",
+      "title": "Large Language Models as In-context AI Generators for Quality-Diversity",
+      "authors": [
+        "Bryan Lim",
+        "Manon Flageat",
+        "Antoine Cully"
+      ],
+      "authors_raw": "Bryan Lim, Manon Flageat, Antoine Cully",
+      "venue": "arXiv",
+      "year": 2024,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2404.15794"
+      },
+      "arxiv_id": "2404.15794",
+      "abstract": "Quality-Diversity (QD) approaches are a promising direction to develop open-ended processes as they can discover archives of high-quality solutions across diverse niches. While already successful in many applications, QD approaches usually rely on combining only one or two solutions to generate new candidate solutions. As observed in open-ended processes such as technological evolution, wisely combining large diversity of these solutions could lead to more innovative solutions and potentially boost the productivity of QD search. In this work, we propose to exploit the pattern-matching capabilities of generative models to enable such efficient solution combinations. We introduce In-context QD, a framework of techniques that aim to elicit the in-context capabilities of pre-trained Large Language Models (LLMs) to generate interesting solutions using few-shot and many-shot prompting with quality-diverse examples from the QD archive as context. Applied to a series of common QD domains, In-context QD displays promising results compared to both QD baselines and similar strategies developed for single-objective optimization. Additionally, this result holds across multiple values of parameter sizes and archive population sizes, as well as across domains with distinct characteristics from BBO functions to policy search. Finally, we perform an extensive ablation that highlights the key prompt design considerations that encourage the generation of promising solutions for QD.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2404.15794",
+      "arxiv_published": "2024-04-24T10:35:36Z",
+      "arxiv_categories": [
+        "cs.NE",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Preprint (arXiv)",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "d903017c06dc5d81",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "2e575751d786",
+      "title": "Multi-Agent Diagnostics for Robustness via Illuminated Diversity",
+      "authors": [
+        "Mikayel Samvelyan",
+        "Davide Paglieri",
+        "Minqi Jiang",
+        "Jack Parker-Holder",
+        "Tim Rocktäschel"
+      ],
+      "authors_raw": "Mikayel Samvelyan, Davide Paglieri, Minqi Jiang, Jack Parker-Holder, Tim Rocktäschel",
+      "venue": "AAMAS",
+      "year": 2024,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2401.13460",
+        "website": "https://sites.google.com/view/madrid-marl"
+      },
+      "arxiv_id": "2401.13460",
+      "abstract": "In the rapidly advancing field of multi-agent systems, ensuring robustness in unfamiliar and adversarial settings is crucial. Notwithstanding their outstanding performance in familiar environments, these systems often falter in new situations due to overfitting during the training phase. This is especially pronounced in settings where both cooperative and competitive behaviours are present, encapsulating a dual nature of overfitting and generalisation challenges. To address this issue, we present Multi-Agent Diagnostics for Robustness via Illuminated Diversity (MADRID), a novel approach for generating diverse adversarial scenarios that expose strategic vulnerabilities in pre-trained multi-agent policies. Leveraging the concepts from open-ended learning, MADRID navigates the vast space of adversarial settings, employing a target policy's regret to gauge the vulnerabilities of these settings. We evaluate the effectiveness of MADRID on the 11vs11 version of Google Research Football, one of the most complex environments for multi-agent reinforcement learning. Specifically, we employ MADRID for generating a diverse array of adversarial settings for TiZero, the state-of-the-art approach which \"masters\" the game through 45 days of training on a large-scale distributed infrastructure. We expose key shortcomings in TiZero's tactical decision-making, underlining the crucial importance of rigorous evaluation in multi-agent systems.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2401.13460",
+      "arxiv_published": "2024-01-24T14:02:09Z",
+      "arxiv_categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.MA"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "AAMAS",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "cda6ebd275e4c24e",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "f35969512a76",
+      "title": "OMNI-EPIC: Open-endedness via Models of human Notions of Interestingness with Environments Programmed in Code",
+      "authors": [
+        "Maxence Faldor",
+        "Jenny Zhang",
+        "Antoine Cully",
+        "Jeff Clune"
+      ],
+      "authors_raw": "Maxence Faldor, Jenny Zhang, Antoine Cully, Jeff Clune",
+      "venue": "arXiv",
+      "year": 2024,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2405.15568",
+        "website": "https://omni-epic.vercel.app/"
+      },
+      "arxiv_id": "2405.15568",
+      "abstract": "Open-ended and AI-generating algorithms aim to continuously generate and solve increasingly complex tasks indefinitely, offering a promising path toward more general intelligence. To accomplish this grand vision, learning must occur within a vast array of potential tasks. Existing approaches to automatically generating environments are constrained within manually predefined, often narrow distributions of environment, limiting their ability to create any learning environment. To address this limitation, we introduce a novel framework, OMNI-EPIC, that augments previous work in Open-endedness via Models of human Notions of Interestingness (OMNI) with Environments Programmed in Code (EPIC). OMNI-EPIC leverages foundation models to autonomously generate code specifying the next learnable (i.e., not too easy or difficult for the agent's current skill set) and interesting (e.g., worthwhile and novel) tasks. OMNI-EPIC generates both environments (e.g., an obstacle course) and reward functions (e.g., progress through the obstacle course quickly without touching red objects), enabling it, in principle, to create any simulatable learning task. We showcase the explosive creativity of OMNI-EPIC, which continuously innovates to suggest new, interesting learning challenges. We also highlight how OMNI-EPIC can adapt to reinforcement learning agents' learning progress, generating tasks that are of suitable difficulty. Overall, OMNI-EPIC can endlessly create learnable and interesting environments, further propelling the development of self-improving AI systems and AI-Generating Algorithms. Project website with videos: https://dub.sh/omniepic",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2405.15568",
+      "arxiv_published": "2024-05-24T13:57:32Z",
+      "arxiv_categories": [
+        "cs.AI"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Preprint (arXiv)",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "de77bed3c1dce28c",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "64e802e1db13",
+      "title": "OMNI: Open-endedness via Models of human Notions of Interestingness",
+      "authors": [
+        "Jenny Zhang",
+        "Joel Lehman",
+        "Kenneth Stanley",
+        "Jeff Clune"
+      ],
+      "authors_raw": "Jenny Zhang, Joel Lehman, Kenneth Stanley, Jeff Clune",
+      "venue": "ICLR",
+      "year": 2024,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2306.01711",
+        "code": "https://github.com/jennyzzt/omni",
+        "website": "http://www.jennyzhangzt.com/omni/"
+      },
+      "arxiv_id": "2306.01711",
+      "abstract": "Open-ended algorithms aim to learn new, interesting behaviors forever. That requires a vast environment search space, but there are thus infinitely many possible tasks. Even after filtering for tasks the current agent can learn (i.e., learning progress), countless learnable yet uninteresting tasks remain (e.g., minor variations of previously learned tasks). An Achilles Heel of open-endedness research is the inability to quantify (and thus prioritize) tasks that are not just learnable, but also $\\textit{interesting}$ (e.g., worthwhile and novel). We propose solving this problem by $\\textit{Open-endedness via Models of human Notions of Interestingness}$ (OMNI). The insight is that we can utilize foundation models (FMs) as a model of interestingness (MoI), because they $\\textit{already}$ internalize human concepts of interestingness from training on vast amounts of human-generated data, where humans naturally write about what they find interesting or boring. We show that FM-based MoIs improve open-ended learning by focusing on tasks that are both learnable $\\textit{and interesting}$, outperforming baselines based on uniform task sampling or learning progress alone. This approach has the potential to dramatically advance the ability to intelligently select which tasks to focus on next (i.e., auto-curricula), and could be seen as AI selecting its own next task to learn, facilitating self-improving AI and AI-Generating Algorithms. Project website at https://www.jennyzhangzt.com/omni/",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2306.01711",
+      "arxiv_published": "2023-06-02T17:32:17Z",
+      "arxiv_categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": "47 pages, 33 figures",
+      "venue_display": "ICLR",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "630a50407c82ecba",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "f85ce815131a",
+      "title": "OS-Copilot: Towards Generalist Computer Agents with Self-Improvement",
+      "authors": [
+        "Zhiyong Wu"
+      ],
+      "authors_raw": "Zhiyong Wu",
+      "venue": null,
+      "year": 2024,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/pdf/2402.07456.pdf",
+        "code": "https://github.com/OS-Copilot/FRIDAY",
+        "website": "https://os-copilot.github.io/"
+      },
+      "arxiv_id": "2402.07456",
+      "abstract": "Autonomous interaction with the computer has been a longstanding challenge with great potential, and the recent proliferation of large language models (LLMs) has markedly accelerated progress in building digital agents. However, most of these agents are designed to interact with a narrow domain, such as a specific software or website. This narrow focus constrains their applicability for general computer tasks. To this end, we introduce OS-Copilot, a framework to build generalist agents capable of interfacing with comprehensive elements in an operating system (OS), including the web, code terminals, files, multimedia, and various third-party applications. We use OS-Copilot to create FRIDAY, a self-improving embodied agent for automating general computer tasks. On GAIA, a general AI assistants benchmark, FRIDAY outperforms previous methods by 35%, showcasing strong generalization to unseen applications via accumulated skills from previous tasks. We also present numerical and quantitative evidence that FRIDAY learns to control and self-improve on Excel and Powerpoint with minimal supervision. Our OS-Copilot framework and empirical findings provide infrastructure and insights for future research toward more capable and general-purpose computer agents.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2402.07456",
+      "arxiv_published": "2024-02-12T07:29:22Z",
+      "arxiv_categories": [
+        "cs.AI"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": "Project page: https://os-copilot.github.io",
+      "venue_display": "Preprint (arXiv)",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "143452c643235b24",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "367066ab34bd",
+      "title": "Quality Diversity through Human Feedback",
+      "authors": [
+        "Li Ding",
+        "Jenny Zhang",
+        "Jeff Clune",
+        "Lee Spector",
+        "Joel Lehman"
+      ],
+      "authors_raw": "Li Ding, Jenny Zhang, Jeff Clune, Lee Spector, Joel Lehman",
+      "venue": "ICML",
+      "year": 2024,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2310.12103"
+      },
+      "arxiv_id": "2310.12103",
+      "abstract": "Reinforcement Learning from Human Feedback (RLHF) has shown potential in qualitative tasks where easily defined performance measures are lacking. However, there are drawbacks when RLHF is commonly used to optimize for average human preferences, especially in generative tasks that demand diverse model responses. Meanwhile, Quality Diversity (QD) algorithms excel at identifying diverse and high-quality solutions but often rely on manually crafted diversity metrics. This paper introduces Quality Diversity through Human Feedback (QDHF), a novel approach that progressively infers diversity metrics from human judgments of similarity among solutions, thereby enhancing the applicability and effectiveness of QD algorithms in complex and open-ended domains. Empirical studies show that QDHF significantly outperforms state-of-the-art methods in automatic diversity discovery and matches the efficacy of QD with manually crafted diversity metrics on standard benchmarks in robotics and reinforcement learning. Notably, in open-ended generative tasks, QDHF substantially enhances the diversity of text-to-image generation from a diffusion model and is more favorably received in user studies. We conclude by analyzing QDHF's scalability, robustness, and quality of derived diversity metrics, emphasizing its strength in open-ended optimization tasks. Code and tutorials are available at https://liding.info/qdhf.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2310.12103",
+      "arxiv_published": "2023-10-18T16:46:16Z",
+      "arxiv_categories": [
+        "cs.AI",
+        "cs.NE"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": "ICML 2024",
+      "venue_display": "ICML",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "c911f28af78e21ca",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "b52c2165ff82",
+      "title": "Quality-Diversity through AI Feedback",
+      "authors": [
+        "Herbie Bradley",
+        "Andrew Dai",
+        "Hannah Teufel",
+        "Jenny Zhang",
+        "Koen Oostermeijer",
+        "Marco Bellagente",
+        "Jeff Clune",
+        "Kenneth Stanley",
+        "Grégory Schott",
+        "Joel Lehman"
+      ],
+      "authors_raw": "Herbie Bradley, Andrew Dai, Hannah Teufel, Jenny Zhang, Koen Oostermeijer, Marco Bellagente, Jeff Clune, Kenneth Stanley, Grégory Schott, Joel Lehman",
+      "venue": "ICLR",
+      "year": 2024,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2310.13032",
+        "website": "https://qdaif.github.io/"
+      },
+      "arxiv_id": "2310.13032",
+      "abstract": "In many text-generation problems, users may prefer not only a single response, but a diverse range of high-quality outputs from which to choose. Quality-diversity (QD) search algorithms aim at such outcomes, by continually improving and diversifying a population of candidates. However, the applicability of QD to qualitative domains, like creative writing, has been limited by the difficulty of algorithmically specifying measures of quality and diversity. Interestingly, recent developments in language models (LMs) have enabled guiding search through AI feedback, wherein LMs are prompted in natural language to evaluate qualitative aspects of text. Leveraging this development, we introduce Quality-Diversity through AI Feedback (QDAIF), wherein an evolutionary algorithm applies LMs to both generate variation and evaluate the quality and diversity of candidate text. When assessed on creative writing domains, QDAIF covers more of a specified search space with high-quality samples than do non-QD controls. Further, human evaluation of QDAIF-generated creative texts validates reasonable agreement between AI and human evaluation. Our results thus highlight the potential of AI feedback to guide open-ended search for creative and original solutions, providing a recipe that seemingly generalizes to many domains and modalities. In this way, QDAIF is a step towards AI systems that can independently search, diversify, evaluate, and improve, which are among the core skills underlying human society's capacity for innovation.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2310.13032",
+      "arxiv_published": "2023-10-19T12:13:58Z",
+      "arxiv_categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG",
+        "cs.NE"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": "minor additions to supplementary results",
+      "venue_display": "ICLR",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "ff91da9d313c3ccd",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "aeaa23c60e49",
+      "title": "Structurally Flexible Neural Networks: Evolving the Building Blocks for General Agents",
+      "authors": [
+        "Joachim Winther Pedersen",
+        "Erwan Plantec",
+        "Eleni Nisioti",
+        "Milton Montero",
+        "Sebastian Risi"
+      ],
+      "authors_raw": "Joachim Winther Pedersen, Erwan Plantec, Eleni Nisioti, Milton Montero, Sebastian Risi",
+      "venue": "arXiv",
+      "year": 2024,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2404.15193"
+      },
+      "arxiv_id": "2404.15193",
+      "abstract": "Artificial neural networks used for reinforcement learning are structurally rigid, meaning that each optimized parameter of the network is tied to its specific placement in the network structure. It also means that a network only works with pre-defined and fixed input- and output sizes. This is a consequence of having the number of optimized parameters being directly dependent on the structure of the network. Structural rigidity limits the ability to optimize parameters of policies across multiple environments that do not share input and output spaces. Here, we evolve a set of neurons and plastic synapses each represented by a gated recurrent unit (GRU). During optimization, the parameters of these fundamental units of a neural network are optimized in different random structural configurations. Earlier work has shown that parameter sharing between units is important for making structurally flexible neurons We show that it is possible to optimize a set of distinct neuron- and synapse types allowing for a mitigation of the symmetry dilemma. We demonstrate this by optimizing a single set of neurons and synapses to solve multiple reinforcement learning control tasks simultaneously.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2404.15193",
+      "arxiv_published": "2024-04-06T14:04:14Z",
+      "arxiv_categories": [
+        "cs.NE",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": "10.1145/3638529.3654113",
+      "comment": null,
+      "venue_display": "Preprint (arXiv)",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "a1b4d48ddc795197",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "319c0271c765",
+      "title": "The AI Scientist: Towards fully automated open-ended scientific discovery",
+      "authors": [
+        "Chris Lu",
+        "Cong Lu",
+        "Robert Tjarko Lange",
+        "Jakob Foerster",
+        "Jeff Clune",
+        "David Ha"
+      ],
+      "authors_raw": "Chris Lu, Cong Lu, Robert Tjarko Lange, Jakob Foerster, Jeff Clune, David Ha",
+      "venue": "arXiv",
+      "year": 2024,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2408.06292",
+        "code": "https://github.com/SakanaAI/AI-Scientist"
+      },
+      "arxiv_id": "2408.06292",
+      "abstract": "One of the grand challenges of artificial general intelligence is developing agents capable of conducting scientific research and discovering new knowledge. While frontier models have already been used as aides to human scientists, e.g. for brainstorming ideas, writing code, or prediction tasks, they still conduct only a small part of the scientific process. This paper presents the first comprehensive framework for fully automatic scientific discovery, enabling frontier large language models to perform research independently and communicate their findings. We introduce The AI Scientist, which generates novel research ideas, writes code, executes experiments, visualizes results, describes its findings by writing a full scientific paper, and then runs a simulated review process for evaluation. In principle, this process can be repeated to iteratively develop ideas in an open-ended fashion, acting like the human scientific community. We demonstrate its versatility by applying it to three distinct subfields of machine learning: diffusion modeling, transformer-based language modeling, and learning dynamics. Each idea is implemented and developed into a full paper at a cost of less than $15 per paper. To evaluate the generated papers, we design and validate an automated reviewer, which we show achieves near-human performance in evaluating paper scores. The AI Scientist can produce papers that exceed the acceptance threshold at a top machine learning conference as judged by our automated reviewer. This approach signifies the beginning of a new era in scientific discovery in machine learning: bringing the transformative benefits of AI agents to the entire research process of AI itself, and taking us closer to a world where endless affordable creativity and innovation can be unleashed on the world's most challenging problems. Our code is open-sourced at https://github.com/SakanaAI/AI-Scientist",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2408.06292",
+      "arxiv_published": "2024-08-12T16:58:11Z",
+      "arxiv_categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.LG"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Preprint (arXiv)",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "d1bfa025adcd8860",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "9e4f18d907ac",
+      "title": "Toward Artificial Open-Ended Evolution within Lenia using Quality-Diversity",
+      "authors": [
+        "Maxence Faldor",
+        "Antoine Cully"
+      ],
+      "authors_raw": "Maxence Faldor, Antoine Cully",
+      "venue": "ALife",
+      "year": 2024,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2406.04235"
+      },
+      "arxiv_id": "2406.04235",
+      "abstract": "From the formation of snowflakes to the evolution of diverse life forms, emergence is ubiquitous in our universe. In the quest to understand how complexity can arise from simple rules, abstract computational models, such as cellular automata, have been developed to study self-organization. However, the discovery of self-organizing patterns in artificial systems is challenging and has largely relied on manual or semi-automatic search in the past. In this paper, we show that Quality-Diversity, a family of Evolutionary Algorithms, is an effective framework for the automatic discovery of diverse self-organizing patterns in complex systems. Quality-Diversity algorithms aim to evolve a large population of diverse individuals, each adapted to its ecological niche. Combined with Lenia, a family of continuous cellular automata, we demonstrate that our method is able to evolve a diverse population of lifelike self-organizing autonomous patterns. Our framework, called Leniabreeder, can leverage both manually defined diversity criteria to guide the search toward interesting areas, as well as unsupervised measures of diversity to broaden the scope of discoverable patterns. We demonstrate both qualitatively and quantitatively that Leniabreeder offers a powerful solution for discovering self-organizing patterns. The effectiveness of unsupervised Quality-Diversity methods combined with the rich landscape of Lenia exhibits a sustained generation of diversity and complexity characteristic of biological evolution. We provide empirical evidence that suggests unbounded diversity and argue that Leniabreeder is a step toward replicating open-ended evolution in silico.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2406.04235",
+      "arxiv_published": "2024-06-06T16:35:27Z",
+      "arxiv_categories": [
+        "cs.NE"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": "The International Conference for Artificial Life (ALife)",
+      "venue_display": "ALIFE",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "7b6935ef5bc881c3",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "4031bd0733dd",
+      "title": "Word2World: Generating Stories and Worlds through Large Language Models",
+      "authors": [
+        "Muhammad U. Nasir",
+        "Steven James",
+        "Julian Togelius"
+      ],
+      "authors_raw": "Muhammad U. Nasir, Steven James, Julian Togelius",
+      "venue": "arXiv",
+      "year": 2024,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/pdf/2405.06686",
+        "code": "https://github.com/umair-nasir14/Word2World"
+      },
+      "arxiv_id": "2405.06686",
+      "abstract": "Large Language Models (LLMs) have proven their worth across a diverse spectrum of disciplines. LLMs have shown great potential in Procedural Content Generation (PCG) as well, but directly generating a level through a pre-trained LLM is still challenging. This work introduces Word2World, a system that enables LLMs to procedurally design playable games through stories, without any task-specific fine-tuning. Word2World leverages the abilities of LLMs to create diverse content and extract information. Combining these abilities, LLMs can create a story for the game, design narrative, and place tiles in appropriate places to create coherent worlds and playable games. We test Word2World with different LLMs and perform a thorough ablation study to validate each step. We open-source the code at https://github.com/umair-nasir14/Word2World.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2405.06686",
+      "arxiv_published": "2024-05-06T14:21:52Z",
+      "arxiv_categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Preprint (arXiv)",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "c7ddcaf4363d5506",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "656f3ab760c1",
+      "title": "Augmentative Topology Agents For Open-Ended Learning",
+      "authors": [
+        "Muhammad U. Nasir",
+        "Michael Beukman",
+        "Steven James",
+        "Christopher W. Cleghorn"
+      ],
+      "authors_raw": "Muhammad U. Nasir, Michael Beukman, Steven James, Christopher W. Cleghorn",
+      "venue": "GECCO",
+      "year": 2023,
+      "category": "papers",
+      "links": {
+        "paper": "https://dl.acm.org/doi/pdf/10.1145/3583133.3590576?casa_token=HxaGW9kHx3UAAAAA:7_JPaFAbzDZ_rlZqDDku_X-eb46ZRj87iz-rVDVpWs6NBHHoHXHL_3FdmpkajDdSQQi07kOxCElYMLA",
+        "code": "https://github.com/umair-nasir14/ATEP"
+      },
+      "arxiv_id": null,
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "GECCO",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "9a2149df39f357db",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "a5b737ac04c1",
+      "title": "Augmenting Autotelic Agents with Large Language Models",
+      "authors": [
+        "Cédric Colas",
+        "Laetitia Teodorescu",
+        "Pierre-Yves Oudeyer",
+        "Xingdi Yuan",
+        "Marc-Alexandre Côté"
+      ],
+      "authors_raw": "Cédric Colas, Laetitia Teodorescu, Pierre-Yves Oudeyer, Xingdi Yuan, Marc-Alexandre Côté",
+      "venue": "arXiv",
+      "year": 2023,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2305.12487"
+      },
+      "arxiv_id": "2305.12487",
+      "abstract": "Humans learn to master open-ended repertoires of skills by imagining and practicing their own goals. This autotelic learning process, literally the pursuit of self-generated (auto) goals (telos), becomes more and more open-ended as the goals become more diverse, abstract and creative. The resulting exploration of the space of possible skills is supported by an inter-individual exploration: goal representations are culturally evolved and transmitted across individuals, in particular using language. Current artificial agents mostly rely on predefined goal representations corresponding to goal spaces that are either bounded (e.g. list of instructions), or unbounded (e.g. the space of possible visual inputs) but are rarely endowed with the ability to reshape their goal representations, to form new abstractions or to imagine creative goals. In this paper, we introduce a language model augmented autotelic agent (LMA3) that leverages a pretrained language model (LM) to support the representation, generation and learning of diverse, abstract, human-relevant goals. The LM is used as an imperfect model of human cultural transmission; an attempt to capture aspects of humans' common-sense, intuitive physics and overall interests. Specifically, it supports three key components of the autotelic architecture: 1)~a relabeler that describes the goals achieved in the agent's trajectories, 2)~a goal generator that suggests new high-level goals along with their decomposition into subgoals the agent already masters, and 3)~reward functions for each of these goals. Without relying on any hand-coded goal representations, reward functions or curriculum, we show that LMA3 agents learn to master a large diversity of skills in a task-agnostic text-based environment.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2305.12487",
+      "arxiv_published": "2023-05-21T15:42:41Z",
+      "arxiv_categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.LG"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Preprint (arXiv)",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "6b32787ebb6a580b",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "bd7680ff75a6",
+      "title": "Deep Laplacian-based Options for Temporally-Extended Exploration",
+      "authors": [
+        "Martin Klissarov",
+        "Marlos C. Machado"
+      ],
+      "authors_raw": "Martin Klissarov, Marlos C. Machado",
+      "venue": "ICML",
+      "year": 2023,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2301.11181",
+        "blogpost 1": "https://medium.com/@marlos.cholodovskis/the-representation-driven-option-discovery-cycle-e3f5877696c2",
+        "blogpost2": "https://medium.com/@marlos.cholodovskis/deep-laplacian-based-options-for-temporally-extended-exploration-7bf8dd469838"
+      },
+      "arxiv_id": "2301.11181",
+      "abstract": "Selecting exploratory actions that generate a rich stream of experience for better learning is a fundamental challenge in reinforcement learning (RL). An approach to tackle this problem consists in selecting actions according to specific policies for an extended period of time, also known as options. A recent line of work to derive such exploratory options builds upon the eigenfunctions of the graph Laplacian. Importantly, until now these methods have been mostly limited to tabular domains where (1) the graph Laplacian matrix was either given or could be fully estimated, (2) performing eigendecomposition on this matrix was computationally tractable, and (3) value functions could be learned exactly. Additionally, these methods required a separate option discovery phase. These assumptions are fundamentally not scalable. In this paper we address these limitations and show how recent results for directly approximating the eigenfunctions of the Laplacian can be leveraged to truly scale up options-based exploration. To do so, we introduce a fully online deep RL algorithm for discovering Laplacian-based options and evaluate our approach on a variety of pixel-based tasks. We compare to several state-of-the-art exploration methods and show that our approach is effective, general, and especially promising in non-stationary settings.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2301.11181",
+      "arxiv_published": "2023-01-26T15:45:39Z",
+      "arxiv_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "ICML",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "955ce70c5d563b54",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "0a56e85182b2",
+      "title": "Discovering General Reinforcement Learning Algorithms with Adversarial Environment Design",
+      "authors": [
+        "Matthew T. Jackson",
+        "Minqi Jiang",
+        "Jack Parker-Holder",
+        "Risto Vuorio",
+        "Chris Lu",
+        "Gregory Farquhar",
+        "Shimon Whiteson",
+        "Jakob N. Foerster"
+      ],
+      "authors_raw": "Matthew T. Jackson, Minqi Jiang, Jack Parker-Holder, Risto Vuorio, Chris Lu, Gregory Farquhar, Shimon Whiteson, Jakob N. Foerster",
+      "venue": "NeurIPS",
+      "year": 2023,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2310.02782",
+        "code": "https://github.com/EmptyJackson/groove"
+      },
+      "arxiv_id": "2310.02782",
+      "abstract": "The past decade has seen vast progress in deep reinforcement learning (RL) on the back of algorithms manually designed by human researchers. Recently, it has been shown that it is possible to meta-learn update rules, with the hope of discovering algorithms that can perform well on a wide range of RL tasks. Despite impressive initial results from algorithms such as Learned Policy Gradient (LPG), there remains a generalization gap when these algorithms are applied to unseen environments. In this work, we examine how characteristics of the meta-training distribution impact the generalization performance of these algorithms. Motivated by this analysis and building on ideas from Unsupervised Environment Design (UED), we propose a novel approach for automatically generating curricula to maximize the regret of a meta-learned optimizer, in addition to a novel approximation of regret, which we name algorithmic regret (AR). The result is our method, General RL Optimizers Obtained Via Environment Design (GROOVE). In a series of experiments, we show that GROOVE achieves superior generalization to LPG, and evaluate AR against baseline metrics from UED, identifying it as a critical component of environment design in this setting. We believe this approach is a step towards the discovery of truly general RL algorithms, capable of solving a wide range of real-world environments.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2310.02782",
+      "arxiv_published": "2023-10-04T12:52:56Z",
+      "arxiv_categories": [
+        "cs.LG",
+        "cs.AI"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": "Published at NeurIPS 2023",
+      "venue_display": "NeurIPS",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "dfa46da6f0212ea7",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "fa83fa415809",
+      "title": "Eureka: Human-Level Reward Design via Coding Large Language Models",
+      "authors": [
+        "Yecheng Jason Ma",
+        "William Liang",
+        "Guanzhi Wang",
+        "De-An Huang",
+        "Osbert Bastani",
+        "Dinesh Jayaraman",
+        "Yuke Zhu",
+        "Linxi Fan",
+        "Anima Anandkumar"
+      ],
+      "authors_raw": "Yecheng Jason Ma, William Liang, Guanzhi Wang, De-An Huang, Osbert Bastani, Dinesh Jayaraman, Yuke Zhu, Linxi Fan, Anima Anandkumar",
+      "venue": "arXiv",
+      "year": 2023,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2310.12931",
+        "code": "https://github.com/eureka-research/Eureka",
+        "website": "https://eureka-research.github.io/"
+      },
+      "arxiv_id": "2310.12931",
+      "abstract": "Large Language Models (LLMs) have excelled as high-level semantic planners for sequential decision-making tasks. However, harnessing them to learn complex low-level manipulation tasks, such as dexterous pen spinning, remains an open problem. We bridge this fundamental gap and present Eureka, a human-level reward design algorithm powered by LLMs. Eureka exploits the remarkable zero-shot generation, code-writing, and in-context improvement capabilities of state-of-the-art LLMs, such as GPT-4, to perform evolutionary optimization over reward code. The resulting rewards can then be used to acquire complex skills via reinforcement learning. Without any task-specific prompting or pre-defined reward templates, Eureka generates reward functions that outperform expert human-engineered rewards. In a diverse suite of 29 open-source RL environments that include 10 distinct robot morphologies, Eureka outperforms human experts on 83% of the tasks, leading to an average normalized improvement of 52%. The generality of Eureka also enables a new gradient-free in-context learning approach to reinforcement learning from human feedback (RLHF), readily incorporating human inputs to improve the quality and the safety of the generated rewards without model updating. Finally, using Eureka rewards in a curriculum learning setting, we demonstrate for the first time, a simulated Shadow Hand capable of performing pen spinning tricks, adeptly manipulating a pen in circles at rapid speed.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2310.12931",
+      "arxiv_published": "2023-10-19T17:31:01Z",
+      "arxiv_categories": [
+        "cs.RO",
+        "cs.AI",
+        "cs.LG"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": "ICLR 2024. Project website and open-source code: https://eureka-research.github.io/",
+      "venue_display": "ICLR",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "d87092fa08776970",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "fe2ebfb613f5",
+      "title": "Flow-Lenia: Towards open-ended evolution in cellular automata through mass conservation and parameter localization",
+      "authors": [
+        "Erwan Plantec",
+        "Gautier Hamon",
+        "Mayalen Etcheverry",
+        "Pierre-Yves Oudeyer",
+        "Clément Moulin-Frier",
+        "Bert Wang-Chak Chan"
+      ],
+      "authors_raw": "Erwan Plantec, Gautier Hamon, Mayalen Etcheverry, Pierre-Yves Oudeyer, Clément Moulin-Frier, Bert Wang-Chak Chan",
+      "venue": "ALife",
+      "year": 2023,
+      "category": "papers",
+      "links": {
+        "paper": "https://direct.mit.edu/isal/proceedings/isal/35/131/116921"
+      },
+      "arxiv_id": null,
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "ALife",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "87c8895167eb55f4",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "ce71e98b1b87",
+      "title": "Human-Timescale Adaptation in an Open-Ended Task Space",
+      "authors": [
+        "Adaptive Agent Team",
+        "Jakob Bauer",
+        "Kate Baumli",
+        "Satinder Baveja",
+        "Feryal Behbahani",
+        "Avishkar Bhoopchand",
+        "Nathalie Bradley-Schmieg",
+        "Michael Chang",
+        "Natalie Clay",
+        "Adrian Collister",
+        "Vibhavari Dasagi",
+        "Lucy Gonzalez",
+        "Karol Gregor",
+        "Edward Hughes",
+        "Sheleem Kashem",
+        "Maria Loks-Thompson",
+        "Hannah Openshaw",
+        "Jack Parker-Holder",
+        "Shreya Pathak",
+        "Nicolas Perez-Nieves",
+        "Nemanja Rakicevic",
+        "Tim Rocktäschel",
+        "Yannick Schroecker",
+        "Jakub Sygnowski",
+        "Karl Tuyls",
+        "Sarah York",
+        "Alexander Zacherl",
+        "Lei Zhang"
+      ],
+      "authors_raw": "Adaptive Agent Team, Jakob Bauer, Kate Baumli, Satinder Baveja, Feryal Behbahani, Avishkar Bhoopchand, Nathalie Bradley-Schmieg, Michael Chang, Natalie Clay, Adrian Collister, Vibhavari Dasagi, Lucy Gonzalez, Karol Gregor, Edward Hughes, Sheleem Kashem, Maria Loks-Thompson, Hannah Openshaw, Jack Parker-Holder, Shreya Pathak, Nicolas Perez-Nieves, Nemanja Rakicevic, Tim Rocktäschel, Yannick Schroecker, Jakub Sygnowski, Karl Tuyls, Sarah York, Alexander Zacherl, Lei Zhang",
+      "venue": "ICML",
+      "year": 2023,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2301.07608",
+        "website": "https://sites.google.com/view/adaptive-agent/"
+      },
+      "arxiv_id": "2301.07608",
+      "abstract": "Foundation models have shown impressive adaptation and scalability in supervised and self-supervised learning problems, but so far these successes have not fully translated to reinforcement learning (RL). In this work, we demonstrate that training an RL agent at scale leads to a general in-context learning algorithm that can adapt to open-ended novel embodied 3D problems as quickly as humans. In a vast space of held-out environment dynamics, our adaptive agent (AdA) displays on-the-fly hypothesis-driven exploration, efficient exploitation of acquired knowledge, and can successfully be prompted with first-person demonstrations. Adaptation emerges from three ingredients: (1) meta-reinforcement learning across a vast, smooth and diverse task distribution, (2) a policy parameterised as a large-scale attention-based memory architecture, and (3) an effective automated curriculum that prioritises tasks at the frontier of an agent's capabilities. We demonstrate characteristic scaling laws with respect to network size, memory length, and richness of the training task distribution. We believe our results lay the foundation for increasingly general and adaptive RL agents that perform well across ever-larger open-ended domains.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2301.07608",
+      "arxiv_published": "2023-01-18T15:39:21Z",
+      "arxiv_categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.NE"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "ICML",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "ddcc364b3e5ff97d",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "dee425a2f6c6",
+      "title": "MAESTRO: Open-Ended Environment Design for Multi-Agent Reinforcement Learning",
+      "authors": [
+        "Mikayel Samvelyan",
+        "Akbir Khan",
+        "Michael Dennis",
+        "Minqi Jiang",
+        "Jack Parker-Holder",
+        "Jakob Foerster",
+        "Roberta Raileanu",
+        "Tim Rocktäschel"
+      ],
+      "authors_raw": "Mikayel Samvelyan, Akbir Khan, Michael Dennis, Minqi Jiang, Jack Parker-Holder, Jakob Foerster, Roberta Raileanu, Tim Rocktäschel",
+      "venue": "ICLR",
+      "year": 2023,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2303.03376",
+        "website": "https://sites.google.com/view/maestro-ued"
+      },
+      "arxiv_id": "2303.03376",
+      "abstract": "Open-ended learning methods that automatically generate a curriculum of increasingly challenging tasks serve as a promising avenue toward generally capable reinforcement learning agents. Existing methods adapt curricula independently over either environment parameters (in single-agent settings) or co-player policies (in multi-agent settings). However, the strengths and weaknesses of co-players can manifest themselves differently depending on environmental features. It is thus crucial to consider the dependency between the environment and co-player when shaping a curriculum in multi-agent domains. In this work, we use this insight and extend Unsupervised Environment Design (UED) to multi-agent environments. We then introduce Multi-Agent Environment Design Strategist for Open-Ended Learning (MAESTRO), the first multi-agent UED approach for two-player zero-sum settings. MAESTRO efficiently produces adversarial, joint curricula over both environments and co-players and attains minimax-regret guarantees at Nash equilibrium. Our experiments show that MAESTRO outperforms a number of strong baselines on competitive two-player games, spanning discrete and continuous control settings.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2303.03376",
+      "arxiv_published": "2023-03-06T18:57:41Z",
+      "arxiv_categories": [
+        "cs.LG",
+        "cs.MA"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": "International Conference on Learning Representations (ICLR) 2023",
+      "venue_display": "ICLR",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "51568ea7117506b0",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "e5a2af9712d8",
+      "title": "Motif: Intrinsic Motivation from Artificial Intelligence Feedback",
+      "authors": [
+        "Martin Klissarov",
+        "Pierluca D'Oro",
+        "Shagun Sodhani",
+        "Roberta Raileanu",
+        "Pierre-Luc Bacon",
+        "Pascal Vincent",
+        "Amy Zhang",
+        "Mikael Henaff"
+      ],
+      "authors_raw": "Martin Klissarov, Pierluca D'Oro, Shagun Sodhani, Roberta Raileanu, Pierre-Luc Bacon, Pascal Vincent, Amy Zhang, Mikael Henaff",
+      "venue": "arXiv",
+      "year": 2023,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2310.00166",
+        "code": "https://github.com/facebookresearch/motif"
+      },
+      "arxiv_id": "2310.00166",
+      "abstract": "Exploring rich environments and evaluating one's actions without prior knowledge is immensely challenging. In this paper, we propose Motif, a general method to interface such prior knowledge from a Large Language Model (LLM) with an agent. Motif is based on the idea of grounding LLMs for decision-making without requiring them to interact with the environment: it elicits preferences from an LLM over pairs of captions to construct an intrinsic reward, which is then used to train agents with reinforcement learning. We evaluate Motif's performance and behavior on the challenging, open-ended and procedurally-generated NetHack game. Surprisingly, by only learning to maximize its intrinsic reward, Motif achieves a higher game score than an algorithm directly trained to maximize the score itself. When combining Motif's intrinsic reward with the environment reward, our method significantly outperforms existing approaches and makes progress on tasks where no advancements have ever been made without demonstrations. Finally, we show that Motif mostly generates intuitive human-aligned behaviors which can be steered easily through prompt modifications, while scaling well with the LLM size and the amount of information given in the prompt.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2310.00166",
+      "arxiv_published": "2023-09-29T22:10:01Z",
+      "arxiv_categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": "The first two authors equally contributed - order decided by coin flip",
+      "venue_display": "Preprint (arXiv)",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "08ca8fed9087da1b",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "67bced758e89",
+      "title": "Powderworld: A Platform for Understanding Generalization via Rich Task Distributions",
+      "authors": [
+        "Kevin Frans",
+        "Philip Isola"
+      ],
+      "authors_raw": "Kevin Frans, Philip Isola",
+      "venue": "ICLR",
+      "year": 2023,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2211.13051",
+        "website": "https://kvfrans.com/static/powder/",
+        "code": "https://github.com/kvfrans/powderworld"
+      },
+      "arxiv_id": "2211.13051",
+      "abstract": "One of the grand challenges of reinforcement learning is the ability to generalize to new tasks. However, general agents require a set of rich, diverse tasks to train on. Designing a `foundation environment' for such tasks is tricky -- the ideal environment would support a range of emergent phenomena, an expressive task space, and fast runtime. To take a step towards addressing this research bottleneck, this work presents Powderworld, a lightweight yet expressive simulation environment running directly on the GPU. Within Powderworld, two motivating challenges distributions are presented, one for world-modelling and one for reinforcement learning. Each contains hand-designed test tasks to examine generalization. Experiments indicate that increasing the environment's complexity improves generalization for world models and certain reinforcement learning agents, yet may inhibit learning in high-variance environments. Powderworld aims to support the study of generalization by providing a source of diverse tasks arising from the same core rules.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2211.13051",
+      "arxiv_published": "2022-11-23T15:51:44Z",
+      "arxiv_categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "ICLR",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "ce65e38aa8661f13",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "ea9eb71d997a",
+      "title": "Practical PCG Through Large Language Models",
+      "authors": [
+        "Muhammad U Nasir",
+        "Julian Togelius"
+      ],
+      "authors_raw": "Muhammad U Nasir, Julian Togelius",
+      "venue": "CoG",
+      "year": 2023,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2305.18243"
+      },
+      "arxiv_id": "2305.18243",
+      "abstract": "Large Language Models (LLMs) have proven to be useful tools in various domains outside of the field of their inception, which was natural language processing. In this study, we provide practical directions on how to use LLMs to generate 2D-game rooms for an under-development game, named Metavoidal. Our technique can harness the power of GPT-3 by Human-in-the-loop fine-tuning which allows our method to create 37% Playable-Novel levels from as scarce data as only 60 hand-designed rooms under a scenario of the non-trivial game, with respect to (Procedural Content Generation) PCG, that has a good amount of local and global constraints.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2305.18243",
+      "arxiv_published": "2023-05-20T16:08:45Z",
+      "arxiv_categories": [
+        "cs.CL",
+        "cs.AI"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": "Published at 2023 IEEE Conference on Games",
+      "venue_display": "CoG",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "1f52d1362ec757a0",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "b4b7544bd6c6",
+      "title": "Promptbreeder: Self-Referential Self-Improvement Via Prompt Evolution",
+      "authors": [
+        "Chrisantha Fernando",
+        "Dylan Banarse",
+        "Henryk Michalewski",
+        "Simon Osindero",
+        "Tim Rocktäschel"
+      ],
+      "authors_raw": "Chrisantha Fernando, Dylan Banarse, Henryk Michalewski, Simon Osindero, Tim Rocktäschel",
+      "venue": "arXiv",
+      "year": 2023,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2309.16797"
+      },
+      "arxiv_id": "2309.16797",
+      "abstract": "Popular prompt strategies like Chain-of-Thought Prompting can dramatically improve the reasoning abilities of Large Language Models (LLMs) in various domains. However, such hand-crafted prompt-strategies are often sub-optimal. In this paper, we present Promptbreeder, a general-purpose self-referential self-improvement mechanism that evolves and adapts prompts for a given domain. Driven by an LLM, Promptbreeder mutates a population of task-prompts, and subsequently evaluates them for fitness on a training set. Crucially, the mutation of these task-prompts is governed by mutation-prompts that the LLM generates and improves throughout evolution in a self-referential way. That is, Promptbreeder is not just improving task-prompts, but it is also improving the mutationprompts that improve these task-prompts. Promptbreeder outperforms state-of-the-art prompt strategies such as Chain-of-Thought and Plan-and-Solve Prompting on commonly used arithmetic and commonsense reasoning benchmarks. Furthermore, Promptbreeder is able to evolve intricate task-prompts for the challenging problem of hate speech classification.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2309.16797",
+      "arxiv_published": "2023-09-28T19:01:07Z",
+      "arxiv_categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG",
+        "cs.NE"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Preprint (arXiv)",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "c3edca99aa8ace31",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "d1a4ba1f3e3b",
+      "title": "Reward-Free Curricula for Training Robust World Models",
+      "authors": [
+        "Marc Rigter",
+        "Minqi Jiang",
+        "Ingmar Posner"
+      ],
+      "authors_raw": "Marc Rigter, Minqi Jiang, Ingmar Posner",
+      "venue": "arXiv",
+      "year": 2023,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2306.09205"
+      },
+      "arxiv_id": "2306.09205",
+      "abstract": "There has been a recent surge of interest in developing generally-capable agents that can adapt to new tasks without additional training in the environment. Learning world models from reward-free exploration is a promising approach, and enables policies to be trained using imagined experience for new tasks. However, achieving a general agent requires robustness across different environments. In this work, we address the novel problem of generating curricula in the reward-free setting to train robust world models. We consider robustness in terms of minimax regret over all environment instantiations and show that the minimax regret can be connected to minimising the maximum error in the world model across environment instances. This result informs our algorithm, WAKER: Weighted Acquisition of Knowledge across Environments for Robustness. WAKER selects environments for data collection based on the estimated error of the world model for each environment. Our experiments demonstrate that WAKER outperforms several baselines, resulting in improved robustness, efficiency, and generalisation.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2306.09205",
+      "arxiv_published": "2023-06-15T15:40:04Z",
+      "arxiv_categories": [
+        "cs.LG"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": "ICLR 2024",
+      "venue_display": "ICLR",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "a9f0dc063fbe0be0",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "6a1f88e60a1b",
+      "title": "Self-Taught Optimizer (STOP): Recursively Self-Improving Code Generation",
+      "authors": [
+        "Eric Zelikman",
+        "Eliana Lorch",
+        "Lester Mackey",
+        "Adam Tauman Kalai"
+      ],
+      "authors_raw": "Eric Zelikman, Eliana Lorch, Lester Mackey, Adam Tauman Kalai",
+      "venue": "arXiv",
+      "year": 2023,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2310.02304"
+      },
+      "arxiv_id": "2310.02304",
+      "abstract": "Several recent advances in AI systems solve problems by providing a \"scaffolding\" program that structures multiple calls to language models (LMs) to generate better outputs. A scaffolding program is written in a programming language such as Python. In this work, we use a language-model-infused scaffolding program to improve itself. We start with a seed \"improver\" that improves an input program according to a given utility function by querying an LM several times and returning the best solution. We then run this seed improver to improve itself. Across a small set of downstream tasks, the resulting improved improver generates programs with significantly better performance than its seed improver. A variety of self-improvement strategies are proposed by the language model, including beam search, genetic algorithms, and simulated annealing. Since the language models themselves are not altered, this is not full recursive self-improvement. Nonetheless, it demonstrates that a modern language model, GPT-4 in our experiments, is capable of writing code that can call itself to improve itself. We consider concerns around the development of self-improving technologies and evaluate the frequency with which the generated code bypasses a sandbox.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2310.02304",
+      "arxiv_published": "2023-10-03T17:59:32Z",
+      "arxiv_categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG",
+        "stat.ML"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": "Published as a conference paper at COLM 2024",
+      "venue_display": "COLM",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "7677f1f13fb37694",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "ac8dae447cdf",
+      "title": "Voyager: An Open-Ended Embodied Agent with Large Language Models",
+      "authors": [
+        "Guanzhi Wang",
+        "Yuqi Xie",
+        "Yunfan Jiang",
+        "Ajay Mandlekar",
+        "Chaowei Xiao",
+        "Yuke Zhu",
+        "Linxi Fan",
+        "Anima Anandkumar"
+      ],
+      "authors_raw": "Guanzhi Wang, Yuqi Xie, Yunfan Jiang, Ajay Mandlekar, Chaowei Xiao, Yuke Zhu, Linxi Fan, Anima Anandkumar",
+      "venue": "arXiv",
+      "year": 2023,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2305.16291",
+        "code": "https://github.com/MineDojo/Voyager",
+        "website": "https://voyager.minedojo.org/"
+      },
+      "arxiv_id": "2305.16291",
+      "abstract": "We introduce Voyager, the first LLM-powered embodied lifelong learning agent in Minecraft that continuously explores the world, acquires diverse skills, and makes novel discoveries without human intervention. Voyager consists of three key components: 1) an automatic curriculum that maximizes exploration, 2) an ever-growing skill library of executable code for storing and retrieving complex behaviors, and 3) a new iterative prompting mechanism that incorporates environment feedback, execution errors, and self-verification for program improvement. Voyager interacts with GPT-4 via blackbox queries, which bypasses the need for model parameter fine-tuning. The skills developed by Voyager are temporally extended, interpretable, and compositional, which compounds the agent's abilities rapidly and alleviates catastrophic forgetting. Empirically, Voyager shows strong in-context lifelong learning capability and exhibits exceptional proficiency in playing Minecraft. It obtains 3.3x more unique items, travels 2.3x longer distances, and unlocks key tech tree milestones up to 15.3x faster than prior SOTA. Voyager is able to utilize the learned skill library in a new Minecraft world to solve novel tasks from scratch, while other techniques struggle to generalize. We open-source our full codebase and prompts at https://voyager.minedojo.org/.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2305.16291",
+      "arxiv_published": "2023-05-25T17:46:38Z",
+      "arxiv_categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": "Project website and open-source codebase: https://voyager.minedojo.org/",
+      "venue_display": "Preprint (arXiv)",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "4f2f8a551df47c67",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "cf2ce6e01c73",
+      "title": "Evolution through Large Models",
+      "authors": [
+        "Joel Lehman",
+        "Jonathan Gordon",
+        "Shawn Jain",
+        "Kamal Ndousse",
+        "Cathy Yeh",
+        "Kenneth Stanley"
+      ],
+      "authors_raw": "Joel Lehman, Jonathan Gordon, Shawn Jain, Kamal Ndousse, Cathy Yeh, Kenneth Stanley",
+      "venue": "arXiv",
+      "year": 2022,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2206.08896",
+        "code": "https://github.com/CarperAI/OpenELM"
+      },
+      "arxiv_id": "2206.08896",
+      "abstract": "This paper pursues the insight that large language models (LLMs) trained to generate code can vastly improve the effectiveness of mutation operators applied to programs in genetic programming (GP). Because such LLMs benefit from training data that includes sequential changes and modifications, they can approximate likely changes that humans would make. To highlight the breadth of implications of such evolution through large models (ELM), in the main experiment ELM combined with MAP-Elites generates hundreds of thousands of functional examples of Python programs that output working ambulating robots in the Sodarace domain, which the original LLM had never seen in pre-training. These examples then help to bootstrap training a new conditional language model that can output the right walker for a particular terrain. The ability to bootstrap new models that can output appropriate artifacts for a given context in a domain where zero training data was previously available carries implications for open-endedness, deep learning, and reinforcement learning. These implications are explored here in depth in the hope of inspiring new directions of research now opened up by ELM.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2206.08896",
+      "arxiv_published": "2022-06-17T17:07:04Z",
+      "arxiv_categories": [
+        "cs.NE"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Preprint (arXiv)",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "f49139c61aced5e6",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "86b14c47ea44",
+      "title": "Evolving Curricula with Regret-Based Environment Design",
+      "authors": [
+        "Jack Parker-Holder\\"
+      ],
+      "authors_raw": "Jack Parker-Holder\\",
+      "venue": null,
+      "year": 2022,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2203.01302",
+        "code": "https://github.com/facebookresearch/dcd",
+        "demo": "https://accelagent.github.io/"
+      },
+      "arxiv_id": "2203.01302",
+      "abstract": "It remains a significant challenge to train generally capable agents with reinforcement learning (RL). A promising avenue for improving the robustness of RL agents is through the use of curricula. One such class of methods frames environment design as a game between a student and a teacher, using regret-based objectives to produce environment instantiations (or levels) at the frontier of the student agent's capabilities. These methods benefit from their generality, with theoretical guarantees at equilibrium, yet they often struggle to find effective levels in challenging design spaces. By contrast, evolutionary approaches seek to incrementally alter environment complexity, resulting in potentially open-ended learning, but often rely on domain-specific heuristics and vast amounts of computational resources. In this paper we propose to harness the power of evolution in a principled, regret-based curriculum. Our approach, which we call Adversarially Compounding Complexity by Editing Levels (ACCEL), seeks to constantly produce levels at the frontier of an agent's capabilities, resulting in curricula that start simple but become increasingly complex. ACCEL maintains the theoretical benefits of prior regret-based methods, while providing significant empirical gains in a diverse set of environments. An interactive version of the paper is available at accelagent.github.io.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2203.01302",
+      "arxiv_published": "2022-03-02T18:40:00Z",
+      "arxiv_categories": [
+        "cs.LG"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": "First two authors contributed equally",
+      "venue_display": "Preprint (arXiv)",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "ae112e361995746c",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "e4de20884d77",
+      "title": "Grounding Aleatoric Uncertainty in Unsupervised Environment Design",
+      "authors": [
+        "Minqi Jiang",
+        "Michael Dennis",
+        "Jack Parker-Holder",
+        "Andrei Lupu",
+        "Heinrich Küttler",
+        "Edward Grefenstette",
+        "Tim Rocktäschel",
+        "Jakob Foerster"
+      ],
+      "authors_raw": "Minqi Jiang, Michael Dennis, Jack Parker-Holder, Andrei Lupu, Heinrich Küttler, Edward Grefenstette, Tim Rocktäschel, Jakob Foerster",
+      "venue": "NeurIPS",
+      "year": 2022,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2207.05219"
+      },
+      "arxiv_id": "2207.05219",
+      "abstract": "Adaptive curricula in reinforcement learning (RL) have proven effective for producing policies robust to discrepancies between the train and test environment. Recently, the Unsupervised Environment Design (UED) framework generalized RL curricula to generating sequences of entire environments, leading to new methods with robust minimax regret properties. Problematically, in partially-observable or stochastic settings, optimal policies may depend on the ground-truth distribution over aleatoric parameters of the environment in the intended deployment setting, while curriculum learning necessarily shifts the training distribution. We formalize this phenomenon as curriculum-induced covariate shift (CICS), and describe how its occurrence in aleatoric parameters can lead to suboptimal policies. Directly sampling these parameters from the ground-truth distribution avoids the issue, but thwarts curriculum learning. We propose SAMPLR, a minimax regret UED method that optimizes the ground-truth utility function, even when the underlying training data is biased due to CICS. We prove, and validate on challenging domains, that our approach preserves optimality under the ground-truth distribution, while promoting robustness across the full range of environment settings.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2207.05219",
+      "arxiv_published": "2022-07-11T22:45:29Z",
+      "arxiv_categories": [
+        "cs.LG",
+        "cs.AI",
+        "stat.ML"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": "NeurIPS 2022",
+      "venue_display": "NeurIPS",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "555eb1f4ecc03acf",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "5081949e5dac",
+      "title": "Language and Culture Internalisation for Human-Like Autotelic AI",
+      "authors": [
+        "Cédric Colas",
+        "Tristan Karch",
+        "Clément Moulin-Frier",
+        "Pierre-Yves Oudeyer"
+      ],
+      "authors_raw": "Cédric Colas, Tristan Karch, Clément Moulin-Frier, Pierre-Yves Oudeyer",
+      "venue": "Nature Machine Intelligence",
+      "year": 2022,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2206.01134",
+        "website": "https://vygotskian-autotelic-ai.github.io/"
+      },
+      "arxiv_id": "2206.01134",
+      "abstract": "Building autonomous agents able to grow open-ended repertoires of skills across their lives is a fundamental goal of artificial intelligence (AI). A promising developmental approach recommends the design of intrinsically motivated agents that learn new skills by generating and pursuing their own goals - autotelic agents. But despite recent progress, existing algorithms still show serious limitations in terms of goal diversity, exploration, generalisation or skill composition. This perspective calls for the immersion of autotelic agents into rich socio-cultural worlds, an immensely important attribute of our environment that shapes human cognition but is mostly omitted in modern AI. Inspired by the seminal work of Vygotsky, we propose Vygotskian autotelic agents - agents able to internalise their interactions with others and turn them into cognitive tools. We focus on language and show how its structure and informational content may support the development of new cognitive functions in artificial agents as it does in humans. We justify the approach by uncovering several examples of new artificial cognitive functions emerging from interactions between language and embodiment in recent works at the intersection of deep reinforcement learning and natural language processing. Looking forward, we highlight future opportunities and challenges for Vygotskian Autotelic AI research, including the use of language models as cultural models supporting artificial cognitive development.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2206.01134",
+      "arxiv_published": "2022-06-02T16:35:41Z",
+      "arxiv_categories": [
+        "cs.AI",
+        "cs.CL",
+        "cs.LG"
+      ],
+      "pdf_path": null,
+      "journal_ref": "Nature Machine Intelligence 4, 1068-1076 (2022)",
+      "doi": "10.1038/s42256-022-00591-4",
+      "comment": null,
+      "venue_display": "Nature",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "6632635d487dcd92",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "3a2ff4088d2c",
+      "title": "MineDojo: Building Open-Ended Embodied Agents with Internet-Scale Knowledge",
+      "authors": [
+        "Linxi Fan",
+        "Guanzhi Wang",
+        "Yunfan Jiang",
+        "Ajay Mandlekar",
+        "Yuncong Yang",
+        "Haoyi Zhu",
+        "Andrew Tang",
+        "De-An Huang",
+        "Yuke Zhu",
+        "Anima Anandkumar"
+      ],
+      "authors_raw": "Linxi Fan, Guanzhi Wang, Yunfan Jiang, Ajay Mandlekar, Yuncong Yang, Haoyi Zhu, Andrew Tang, De-An Huang, Yuke Zhu, Anima Anandkumar",
+      "venue": "NeurIPS",
+      "year": 2022,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2206.08853",
+        "code": "https://github.com/MineDojo/MineDojo",
+        "website": "https://minedojo.org/"
+      },
+      "arxiv_id": "2206.08853",
+      "abstract": "Autonomous agents have made great strides in specialist domains like Atari games and Go. However, they typically learn tabula rasa in isolated environments with limited and manually conceived objectives, thus failing to generalize across a wide spectrum of tasks and capabilities. Inspired by how humans continually learn and adapt in the open world, we advocate a trinity of ingredients for building generalist agents: 1) an environment that supports a multitude of tasks and goals, 2) a large-scale database of multimodal knowledge, and 3) a flexible and scalable agent architecture. We introduce MineDojo, a new framework built on the popular Minecraft game that features a simulation suite with thousands of diverse open-ended tasks and an internet-scale knowledge base with Minecraft videos, tutorials, wiki pages, and forum discussions. Using MineDojo's data, we propose a novel agent learning algorithm that leverages large pre-trained video-language models as a learned reward function. Our agent is able to solve a variety of open-ended tasks specified in free-form language without any manually designed dense shaping reward. We open-source the simulation suite, knowledge bases, algorithm implementation, and pretrained models (https://minedojo.org) to promote research towards the goal of generally capable embodied agents.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2206.08853",
+      "arxiv_published": "2022-06-17T15:53:05Z",
+      "arxiv_categories": [
+        "cs.LG",
+        "cs.AI",
+        "cs.CL",
+        "cs.CV"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": "Outstanding Paper Award at NeurIPS 2022. Project website: https://minedojo.org",
+      "venue_display": "NeurIPS",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "372ddd03a45d66c4",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "ef5404e842a7",
+      "title": "Minimal Criterion Artist Collective",
+      "authors": [
+        "Kai Arulkumaran; Thu Nguyen-Phuoc"
+      ],
+      "authors_raw": "Kai Arulkumaran; Thu Nguyen-Phuoc",
+      "venue": "GECCO",
+      "year": 2022,
+      "category": "papers",
+      "links": {
+        "paper": "https://dl.acm.org/doi/10.1145/3520304.3528763",
+        "code": "https://github.com/Kaixhin/MCAC"
+      },
+      "arxiv_id": null,
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "GECCO",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "8c962d63af6e2332",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "0767c6175560",
+      "title": "Open-ended search for environments and adapted agents using map-elites",
+      "authors": [
+        "Emma Stensby Norstein",
+        "Kai Olav Ellefsen",
+        "Kyrre Glette"
+      ],
+      "authors_raw": "Emma Stensby Norstein, Kai Olav Ellefsen, Kyrre Glette",
+      "venue": "EvoStar",
+      "year": 2022,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/pdf/2305.01153.pdf",
+        "code": "https://github.com/EmmaStensby/environment-map"
+      },
+      "arxiv_id": "2305.01153",
+      "abstract": "Creatures in the real world constantly encounter new and diverse challenges they have never seen before. They will often need to adapt to some of these tasks and solve them in order to survive. This almost endless world of novel challenges is not as common in virtual environments, where artificially evolving agents often have a limited set of tasks to solve. An exception to this is the field of open-endedness where the goal is to create unbounded exploration of interesting artefacts. We want to move one step closer to creating simulated environments similar to the diverse real world, where agents can both find solvable tasks, and adapt to them. Through the use of MAP-Elites we create a structured repertoire, a map, of terrains and virtual creatures that locomote through them. By using novelty as a dimension in the grid, the map can continuously develop to encourage exploration of new environments. The agents must adapt to the environments found, but can also search for environments within each cell of the grid to find the one that best fits their set of skills. Our approach combines the structure of MAP-Elites, which can allow the virtual creatures to use adjacent cells as stepping stones to solve increasingly difficult environments, with open-ended innovation. This leads to a search that is unbounded, but still has a clear structure. We find that while handcrafted bounded dimensions for the map lead to quicker exploration of a large set of environments, both the bounded and unbounded approach manage to solve a diverse set of terrains.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2305.01153",
+      "arxiv_published": "2023-05-02T02:03:51Z",
+      "arxiv_categories": [
+        "cs.NE"
+      ],
+      "pdf_path": null,
+      "journal_ref": "Applications of Evolutionary Computation. EvoApplications 2022. Lecture Notes in Computer Science, vol 13224. Springer, Cham",
+      "doi": "10.1007/978-3-031-02462-7_41",
+      "comment": null,
+      "venue_display": "Science",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "1e8c5dd768ff9440",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "6a3212695c0a",
+      "title": "RAPid-Learn: A Framework for Learning to Recover for Handling Novelties in Open-World Environments",
+      "authors": [
+        "Shivam Goel",
+        "Yash Shukla",
+        "Vasanth Sarathy",
+        "Matthias Scheutz",
+        "Jivko Sinapov"
+      ],
+      "authors_raw": "Shivam Goel, Yash Shukla, Vasanth Sarathy, Matthias Scheutz, Jivko Sinapov",
+      "venue": "arXiv",
+      "year": 2022,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2206.12493",
+        "code": "https://github.com/goelshivam1210/RAPid-Learn"
+      },
+      "arxiv_id": "2206.12493",
+      "abstract": "We propose RAPid-Learn: Learning to Recover and Plan Again, a hybrid planning and learning method, to tackle the problem of adapting to sudden and unexpected changes in an agent's environment (i.e., novelties). RAPid-Learn is designed to formulate and solve modifications to a task's Markov Decision Process (MDPs) on-the-fly and is capable of exploiting domain knowledge to learn any new dynamics caused by the environmental changes. It is capable of exploiting the domain knowledge to learn action executors which can be further used to resolve execution impasses, leading to a successful plan execution. This novelty information is reflected in its updated domain model. We demonstrate its efficacy by introducing a wide variety of novelties in a gridworld environment inspired by Minecraft, and compare our algorithm with transfer learning baselines from the literature. Our method is (1) effective even in the presence of multiple novelties, (2) more sample efficient than transfer learning RL baselines, and (3) robust to incomplete model information, as opposed to pure symbolic planning approaches.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2206.12493",
+      "arxiv_published": "2022-06-24T21:40:10Z",
+      "arxiv_categories": [
+        "cs.AI",
+        "cs.LG"
+      ],
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": "Proceedings of the IEEE Conference on Development and Learning (ICDL 2022)",
+      "venue_display": "Preprint (arXiv)",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "515efc6f7df2eed3",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "5337001054fd",
+      "title": "Transfer Dynamics in Emergent Evolutionary Curricula",
+      "authors": [
+        "Aaron Dharna",
+        "Amy K. Hoover",
+        "Julian Togelius",
+        "Lisa Soros"
+      ],
+      "authors_raw": "Aaron Dharna, Amy K. Hoover, Julian Togelius, Lisa Soros",
+      "venue": "IEEE Transactions on Games",
+      "year": 2022,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2203.10941",
+        "code": "https://github.com/aadharna/UntouchableThunder"
+      },
+      "arxiv_id": "2203.10941",
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "IEEE Transactions on Games",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "6ba8c69ab5d57bf0",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "19051e5e5e28",
+      "title": "Watts: Infrastructure for Open-Ended Learning",
+      "authors": [
+        "Aaron Dharna",
+        "Charlie Summers",
+        "Rohin Dasari",
+        "Julian Togelius",
+        "Amy K. Hoover"
+      ],
+      "authors_raw": "Aaron Dharna, Charlie Summers, Rohin Dasari, Julian Togelius, Amy K. Hoover",
+      "venue": "ALOE Workshop",
+      "year": 2022,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2204.13250",
+        "code": "https://github.com/aadharna/watts"
+      },
+      "arxiv_id": "2204.13250",
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "ALOE Workshop",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "4a9138183028155f",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "b9ba7026fa7b",
+      "title": "Co-optimising Robot Morphology and Controller in a Simulated Open-Ended Environment",
+      "authors": [
+        "Emma Hjellbrekke Stensby",
+        "Kai Olav Ellefsen",
+        "Kyrre Glette"
+      ],
+      "authors_raw": "Emma Hjellbrekke Stensby, Kai Olav Ellefsen, Kyrre Glette",
+      "venue": "EvoStar",
+      "year": 2021,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/pdf/2104.03062.pdf",
+        "code": "https://github.com/EmmaStensby/poet-morphology"
+      },
+      "arxiv_id": "2104.03062",
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "EvoStar",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "4cc858a0dff60ec5",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "631b6b83b60e",
+      "title": "Environment Generation for Zero-Shot Compositional Reinforcement Learning",
+      "authors": [
+        "Izzeddin Gur",
+        "Natasha Jaques",
+        "Yingjie Miao",
+        "Jongwook Choi",
+        "Manoj Tiwari",
+        "Honglak Lee",
+        "Aleksandra Faust"
+      ],
+      "authors_raw": "Izzeddin Gur, Natasha Jaques, Yingjie Miao, Jongwook Choi, Manoj Tiwari, Honglak Lee, Aleksandra Faust",
+      "venue": "NeurIPS",
+      "year": 2021,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2201.08896"
+      },
+      "arxiv_id": "2201.08896",
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "NeurIPS",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "e35a3b52ff8b5a6e",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "9203b71dbb5a",
+      "title": "EvoCraft: A New Challenge for Open-Endedness",
+      "authors": [
+        "Djordje Grbic",
+        "Rasmus Berg Palm",
+        "Elias Najarro",
+        "Claire Glanois",
+        "Sebastian Risi"
+      ],
+      "authors_raw": "Djordje Grbic, Rasmus Berg Palm, Elias Najarro, Claire Glanois, Sebastian Risi",
+      "venue": "EvoStar",
+      "year": 2021,
+      "category": "papers",
+      "links": {
+        "paper": "https://link.springer.com/chapter/10.1007/978-3-030-72699-7_21",
+        "website": "https://evocraft.life/"
+      },
+      "arxiv_id": null,
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "EvoStar",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "317162480b716da2",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "1eceb545944c",
+      "title": "MiniHack the Planet: A Sandbox for Open-Ended Reinforcement Learning Research",
+      "authors": [
+        "Mikayel Samvelyan",
+        "Robert Kirk",
+        "Vitaly Kurin",
+        "Jack Parker-Holder",
+        "Minqi Jiang",
+        "Eric Hambro",
+        "Fabio Petroni",
+        "Heinrich Küttler",
+        "Edward Grefenstette",
+        "Tim Rocktäschel"
+      ],
+      "authors_raw": "Mikayel Samvelyan, Robert Kirk, Vitaly Kurin, Jack Parker-Holder, Minqi Jiang, Eric Hambro, Fabio Petroni, Heinrich Küttler, Edward Grefenstette, Tim Rocktäschel",
+      "venue": "NeurIPS",
+      "year": 2021,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2109.13202",
+        "code": "https://github.com/facebookresearch/minihack",
+        "website": "https://minihack.readthedocs.io"
+      },
+      "arxiv_id": "2109.13202",
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "NeurIPS",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "087659676ad4485f",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "3696642d6c83",
+      "title": "Open-Ended Learning Leads to Generally Capable Agents",
+      "authors": [
+        "Open Ended Learning Team",
+        "Adam Stooke",
+        "Anuj Mahajan",
+        "Catarina Barros",
+        "Charlie Deck",
+        "Jakob Bauer",
+        "Jakub Sygnowski",
+        "Maja Trebacz",
+        "Max Jaderberg",
+        "Michael Mathieu",
+        "Nat McAleese",
+        "Nathalie Bradley-Schmieg",
+        "Nathaniel Wong",
+        "Nicolas Porcel",
+        "Roberta Raileanu",
+        "Steph Hughes-Fitt",
+        "Valentin Dalibard",
+        "Wojciech Marian Czarnecki"
+      ],
+      "authors_raw": "Open Ended Learning Team, Adam Stooke, Anuj Mahajan, Catarina Barros, Charlie Deck, Jakob Bauer, Jakub Sygnowski, Maja Trebacz, Max Jaderberg, Michael Mathieu, Nat McAleese, Nathalie Bradley-Schmieg, Nathaniel Wong, Nicolas Porcel, Roberta Raileanu, Steph Hughes-Fitt, Valentin Dalibard, Wojciech Marian Czarnecki",
+      "venue": "arXiv",
+      "year": 2021,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2107.12808",
+        "website": "https://www.deepmind.com/blog/generally-capable-agents-emerge-from-open-ended-play"
+      },
+      "arxiv_id": "2107.12808",
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Preprint (arXiv)",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "0837256d59f1a43e",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "472007945fd6",
+      "title": "Prioritized Level Replay",
+      "authors": [
+        "Minqi Jiang",
+        "Edward Grefenstette",
+        "Tim Rocktäschel"
+      ],
+      "authors_raw": "Minqi Jiang, Edward Grefenstette, Tim Rocktäschel",
+      "venue": "ICML",
+      "year": 2021,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2010.03934",
+        "code": "https://github.com/facebookresearch/level-replay"
+      },
+      "arxiv_id": "2010.03934",
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "ICML",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "6d1adfa8bfeea6b3",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "8cf1ce78bc61",
+      "title": "Replay-Guided Adversarial Environment Design",
+      "authors": [
+        "Minqi Jiang\\"
+      ],
+      "authors_raw": "Minqi Jiang\\",
+      "venue": null,
+      "year": 2021,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2110.02439",
+        "code": "https://github.com/facebookresearch/dcd"
+      },
+      "arxiv_id": "2110.02439",
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Preprint (arXiv)",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "5e2a28657d56c84f",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "62ae2396529f",
+      "title": "SPOTTER: Extending Symbolic Planning Operators through Targeted Reinforcement Learning",
+      "authors": [
+        "Vasanth Sarathy",
+        "Daniel Kasenberg",
+        "Shivam Goel",
+        "Jivko Sinapov",
+        "Matthias Scheutz"
+      ],
+      "authors_raw": "Vasanth Sarathy, Daniel Kasenberg, Shivam Goel, Jivko Sinapov, Matthias Scheutz",
+      "venue": "arXiv",
+      "year": 2021,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2012.13037",
+        "code": "https://github.com/spotter-ai/spotter"
+      },
+      "arxiv_id": "2012.13037",
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Preprint (arXiv)",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "9fa089da4f8a24f6",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "1f3c64d15eaf",
+      "title": "Video Games as a Testbed for Open-Ended Phenomena",
+      "authors": [
+        "Sam Earle; Julian Togelius; L. B. Soros"
+      ],
+      "authors_raw": "Sam Earle; Julian Togelius; L. B. Soros",
+      "venue": "IEEE Conference on Games",
+      "year": 2021,
+      "category": "papers",
+      "links": {
+        "paper": "https://ieeexplore.ieee.org/abstract/document/9619042"
+      },
+      "arxiv_id": null,
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "IEEE Conference on Games",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "73978dd4371e09ee",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "f374fec0aa97",
+      "title": "Co-generation of game levels and game-playing agents",
+      "authors": [
+        "Aaron Dharna",
+        "Julian Togelius",
+        "L.B.Soros"
+      ],
+      "authors_raw": "Aaron Dharna, Julian Togelius, L.B.Soros",
+      "venue": "AIIDE",
+      "year": 2020,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2007.08497",
+        "code": "https://github.com/aadharna/UntouchableThunder"
+      },
+      "arxiv_id": "2007.08497",
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "AIIDE",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "36bf017e50ba0f3d",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "a3250210c5da",
+      "title": "Emergent Complexity and Zero-shot Transfer via Unsupervised Environment Design",
+      "authors": [
+        "Michael Dennis",
+        "Natasha Jaques",
+        "Eugene Vinitsky",
+        "Alexandre Bayen",
+        "Stuart Russell",
+        "Andrew Critch",
+        "Sergey Levine"
+      ],
+      "authors_raw": "Michael Dennis, Natasha Jaques, Eugene Vinitsky, Alexandre Bayen, Stuart Russell, Andrew Critch, Sergey Levine",
+      "venue": "NeurIPS",
+      "year": 2020,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2012.02096",
+        "code": "https://github.com/google-research/google-research/tree/master/social_rl/adversarial_env",
+        "website": "https://ai.googleblog.com/2021/03/paired-new-multi-agent-approach-for.html"
+      },
+      "arxiv_id": "2012.02096",
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "NeurIPS",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "e81493de5b72866f",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "06d96674eb44",
+      "title": "Enhanced POET: Open-Ended Reinforcement Learning through Unbounded Invention of Learning Challenges and their Solutions",
+      "authors": [
+        "Rui Wang",
+        "Joel Lehman",
+        "Aditya Rawal",
+        "Jiale Zhi",
+        "Yulun Li",
+        "Jeff Clune",
+        "Kenneth O. Stanley"
+      ],
+      "authors_raw": "Rui Wang, Joel Lehman, Aditya Rawal, Jiale Zhi, Yulun Li, Jeff Clune, Kenneth O. Stanley",
+      "venue": "ICML",
+      "year": 2020,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2003.08536",
+        "code": "https://github.com/uber-research/poet",
+        "website": "https://www.uber.com/en-CA/blog/enhanced-poet-machine-learning/"
+      },
+      "arxiv_id": "2003.08536",
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "ICML",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "680b47825acf4728",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "98551ea5e9bc",
+      "title": "Paired Open-Ended Trailblazer (POET): Endlessly Generating Increasingly Complex and Diverse Learning Environments and Their Solutions",
+      "authors": [
+        "Rui Wang",
+        "Joel Lehman",
+        "Jeff Clune",
+        "Kenneth O. Stanley"
+      ],
+      "authors_raw": "Rui Wang, Joel Lehman, Jeff Clune, Kenneth O. Stanley",
+      "venue": "GECCO",
+      "year": 2019,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/1901.01753",
+        "code": "https://github.com/uber-research/poet",
+        "website": "https://www.uber.com/en-CA/blog/poet-open-ended-deep-learning/"
+      },
+      "arxiv_id": "1901.01753",
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "GECCO",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "ace87145b1a89006",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "fb025c708e29",
+      "title": "Minimal Criterion Coevolution: A New Approach to Open-Ended Search",
+      "authors": [
+        "Jonathan C. Brant",
+        "Kenneth O. Stanley"
+      ],
+      "authors_raw": "Jonathan C. Brant, Kenneth O. Stanley",
+      "venue": "GECCO",
+      "year": 2017,
+      "category": "papers",
+      "links": {
+        "paper": "https://dl.acm.org/doi/10.1145/3071178.3071186",
+        "code": "https://github.com/jbrant/MinimalCriterionCoevolution"
+      },
+      "arxiv_id": null,
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "GECCO",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "64f78a8bd3280d81",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "34ffea33ab5a",
+      "title": "Identifying Necessary Conditions for Open-Ended Evolution through the Artificial Life World of Chromaria",
+      "authors": [
+        "L. B. Soros",
+        "Kenneth O. Stanley"
+      ],
+      "authors_raw": "L. B. Soros, Kenneth O. Stanley",
+      "venue": "ALife",
+      "year": 2014,
+      "category": "papers",
+      "links": {
+        "paper": "https://pdfs.semanticscholar.org/4671/423a1b65f3e35dce603f8746e72ae31193dc.pdf",
+        "code": "https://github.com/lsoros/chromaria"
+      },
+      "arxiv_id": null,
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "ALife",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "f1dd4fef1121fbf5",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "171a76306d1b",
+      "title": "Exploiting Open-Endedness to Solve Problems Through the Search for Novelty",
+      "authors": [
+        "Joel Lehman",
+        "Kenneth O. Stanley"
+      ],
+      "authors_raw": "Joel Lehman, Kenneth O. Stanley",
+      "venue": "ALife",
+      "year": 2008,
+      "category": "papers",
+      "links": {
+        "paper": "https://gwern.net/doc/reinforcement-learning/exploration/2008-lehman.pdf"
+      },
+      "arxiv_id": null,
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "ALife",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "279a83de3580a130",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "025f27d9956e",
+      "title": "AgenticRed: Optimizing Agentic Systems for Automated Red-teaming",
+      "authors": [
+        "Jiayi Yuan",
+        "Jonathan Nöther",
+        "Natasha Jaques",
+        "Goran Radanović"
+      ],
+      "authors_raw": "Jiayi Yuan, Jonathan Nöther, Natasha Jaques, Goran Radanović",
+      "venue": "arXiv",
+      "year": 2026,
+      "category": "safety",
+      "links": {
+        "paper": "https://arxiv.org/abs/2601.13518",
+        "website": "https://yuanjiayiy.github.io/AgenticRed"
+      },
+      "arxiv_id": "2601.13518",
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Preprint (arXiv)",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "a054668600e0bbd4",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "252d846546bb",
+      "title": "Safety is Essential for Responsible Open-Ended Systems",
+      "authors": [
+        "Ivaxi Sheth",
+        "Jan Wehner",
+        "Sahar Abdelnabi",
+        "Ruta Binkyte",
+        "Mario Fritz"
+      ],
+      "authors_raw": "Ivaxi Sheth, Jan Wehner, Sahar Abdelnabi, Ruta Binkyte, Mario Fritz",
+      "venue": "arXiv",
+      "year": 2025,
+      "category": "safety",
+      "links": {
+        "paper": "https://arxiv.org/abs/2502.04512"
+      },
+      "arxiv_id": "2502.04512",
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Preprint (arXiv)",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "847b0f265bd28bcc",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "2f69a71a07de",
+      "title": "Managing extreme AI risks amid rapid progress",
+      "authors": [
+        "Yoshua Bengio",
+        "Geoffrey Hinton",
+        "Andrew Yao",
+        "Dawn Song",
+        "Pieter Abbeel",
+        "Trevor Darrell",
+        "Yuval Noah Harari",
+        "Ya-Qin Zhang",
+        "Lan Xue",
+        "Shai Shalev-Shwartz",
+        "Gillian Hadfield",
+        "Jeff Clune",
+        "Tegan Maharaj",
+        "Frank Hutter",
+        "Atılım Güneş Baydin",
+        "Sheila McIlraith",
+        "Qiqi Gao",
+        "Ashwin Acharya",
+        "David Krueger",
+        "Anca Dragan",
+        "Philip Torr",
+        "Stuart Russell",
+        "Daniel Kahneman",
+        "Jan Brauner",
+        "Sören Mindermann"
+      ],
+      "authors_raw": "Yoshua Bengio, Geoffrey Hinton, Andrew Yao, Dawn Song, Pieter Abbeel, Trevor Darrell, Yuval Noah Harari, Ya-Qin Zhang, Lan Xue, Shai Shalev-Shwartz, Gillian Hadfield, Jeff Clune, Tegan Maharaj, Frank Hutter, Atılım Güneş Baydin, Sheila McIlraith, Qiqi Gao, Ashwin Acharya, David Krueger, Anca Dragan, Philip Torr, Stuart Russell, Daniel Kahneman, Jan Brauner, Sören Mindermann",
+      "venue": "Science",
+      "year": 2024,
+      "category": "safety",
+      "links": {
+        "paper": "https://arxiv.org/abs/2310.17688"
+      },
+      "arxiv_id": "2310.17688",
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Science",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "1535d905eadd618d",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "2cdbdc50539a",
+      "title": "Rainbow Teaming: Open-Ended Generation of Diverse Adversarial Prompts",
+      "authors": [
+        "Mikayel Samvelyan",
+        "Sharath Chandra Raparthy",
+        "Andrei Lupu",
+        "Eric Hambro",
+        "Aram H. Markosyan",
+        "Manish Bhatt",
+        "Yuning Mao",
+        "Minqi Jiang",
+        "Jack Parker-Holder",
+        "Jakob Foerster",
+        "Tim Rocktäschel",
+        "Roberta Raileanu"
+      ],
+      "authors_raw": "Mikayel Samvelyan, Sharath Chandra Raparthy, Andrei Lupu, Eric Hambro, Aram H. Markosyan, Manish Bhatt, Yuning Mao, Minqi Jiang, Jack Parker-Holder, Jakob Foerster, Tim Rocktäschel, Roberta Raileanu",
+      "venue": "NeurIPS",
+      "year": 2024,
+      "category": "safety",
+      "links": {
+        "paper": "https://arxiv.org/abs/2402.16822",
+        "website": "https://sites.google.com/view/rainbow-teaming"
+      },
+      "arxiv_id": "2402.16822",
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "NeurIPS",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "d54f44edbdb6d2cd",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "cb5b33a822eb",
+      "title": "Open Questions in Creating Safe Open-ended AI: Tensions Between Control and Creativity",
+      "authors": [
+        "Adrien Ecoffet",
+        "Jeff Clune",
+        "Joel Lehman"
+      ],
+      "authors_raw": "Adrien Ecoffet, Jeff Clune, Joel Lehman",
+      "venue": "arXiv",
+      "year": 2020,
+      "category": "safety",
+      "links": {
+        "paper": "https://arxiv.org/abs/2006.07495"
+      },
+      "arxiv_id": "2006.07495",
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Preprint (arXiv)",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "e6c5068fb8870677",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "56afc45c1af7",
+      "title": "Evolution and The Knightian Blindspot of Machine Learning",
+      "authors": [
+        "Joel Lehman",
+        "Elliot Meyerson",
+        "Tarek El-Gaaly",
+        "Kenneth O. Stanley",
+        "Tarin Ziyaee"
+      ],
+      "authors_raw": "Joel Lehman, Elliot Meyerson, Tarek El-Gaaly, Kenneth O. Stanley, Tarin Ziyaee",
+      "venue": "arXiv",
+      "year": 2025,
+      "category": "surveys",
+      "links": {
+        "paper": "https://arxiv.org/abs/2501.13075"
+      },
+      "arxiv_id": "2501.13075",
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Preprint (arXiv)",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "271ab0016992ba71",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "ba6ebb566e3a",
+      "title": "Open-Endedness is Essential for Artificial Superhuman Intelligence",
+      "authors": [
+        "Edward Hughes",
+        "Michael Dennis",
+        "Jack Parker-Holder",
+        "Feryal Behbahani",
+        "Aditi Mavalankar",
+        "Yuge Shi",
+        "Tom Schaul",
+        "Tim Rocktaschel"
+      ],
+      "authors_raw": "Edward Hughes, Michael Dennis, Jack Parker-Holder, Feryal Behbahani, Aditi Mavalankar, Yuge Shi, Tom Schaul, Tim Rocktaschel",
+      "venue": "ICML",
+      "year": 2024,
+      "category": "surveys",
+      "links": {
+        "paper": "https://arxiv.org/abs/2406.04268"
+      },
+      "arxiv_id": "2406.04268",
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "ICML",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "74c02d9747396cce",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "6c61cd6b8f1f",
+      "title": "General Intelligence Requires Rethinking Exploration",
+      "authors": [
+        "Minqi Jiang",
+        "Tim Rocktäschel",
+        "Edward Grefenstette"
+      ],
+      "authors_raw": "Minqi Jiang, Tim Rocktäschel, Edward Grefenstette",
+      "venue": "Royal Society Open Science",
+      "year": 2023,
+      "category": "surveys",
+      "links": {
+        "paper": "https://arxiv.org/abs/2211.07819"
+      },
+      "arxiv_id": "2211.07819",
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Royal Society Open Science",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "093c110f67dac157",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "0972e2ba2faf",
+      "title": "Creative Problem Solving in Artificially Intelligent Agents: A Survey and Framework",
+      "authors": [
+        "Evana Gizzi",
+        "Lakshmi Nair",
+        "Sonia Chernova",
+        "Jivko Sinapov"
+      ],
+      "authors_raw": "Evana Gizzi, Lakshmi Nair, Sonia Chernova, Jivko Sinapov",
+      "venue": "arXiv",
+      "year": 2022,
+      "category": "surveys",
+      "links": {
+        "paper": "https://arxiv.org/abs/2204.10358"
+      },
+      "arxiv_id": "2204.10358",
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Preprint (arXiv)",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "9915a71956cbd474",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "5899614c3836",
+      "title": "Executive Function: A Contrastive Value Policy for Resampling and Relabeling Perceptions via Hindsight Summarization?",
+      "authors": [
+        "Chris Lengerich",
+        "Ben Lengerich"
+      ],
+      "authors_raw": "Chris Lengerich, Ben Lengerich.",
+      "venue": "arXiv",
+      "year": 2022,
+      "category": "surveys",
+      "links": {
+        "paper": "https://arxiv.org/abs/2204.12639"
+      },
+      "arxiv_id": "2204.12639",
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Preprint (arXiv)",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "0ae22b4583f34f5b",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "138df40b3ad2",
+      "title": "AI-GAs: AI-generating algorithms, an alternate paradigm for producing general artificial intelligence",
+      "authors": [
+        "Jeff Clune"
+      ],
+      "authors_raw": "Jeff Clune",
+      "venue": "arXiv",
+      "year": 2019,
+      "category": "surveys",
+      "links": {
+        "paper": "https://arxiv.org/abs/1905.10985"
+      },
+      "arxiv_id": "1905.10985",
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Preprint (arXiv)",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "a34357bb15bbcfdd",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "2afd0f74b741",
+      "title": "Open-endedness: The last grand challenge you’ve never heard of",
+      "authors": [
+        "Kenneth O. Stanley",
+        "Joel Lehman",
+        "Lisa Soros"
+      ],
+      "authors_raw": "Kenneth O. Stanley, Joel Lehman, Lisa Soros",
+      "venue": "O'Reilly Radar",
+      "year": 2017,
+      "category": "surveys",
+      "links": {
+        "paper": "https://www.oreilly.com/radar/open-endedness-the-last-grand-challenge-youve-never-heard-of/"
+      },
+      "arxiv_id": null,
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "O'Reilly Radar",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "4be6ecacd6e95c12",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "0e969b82e912",
+      "title": "Why Greatness Cannot Be Planned: The Myth of the Objective",
+      "authors": [
+        "Kenneth O. Stanley",
+        "Joel Lehman"
+      ],
+      "authors_raw": "Kenneth O. Stanley, Joel Lehman",
+      "venue": "Springer",
+      "year": 2015,
+      "category": "surveys",
+      "links": {
+        "book": "https://link.springer.com/book/10.1007/978-3-319-15524-1"
+      },
+      "arxiv_id": null,
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Springer",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "10b11e60ed14c646",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "55de0cb58c8f",
+      "title": "AI That Can Improve Itself",
+      "authors": [
+        "Richard Cornelius Suwandi"
+      ],
+      "authors_raw": "Richard Cornelius Suwandi",
+      "venue": null,
+      "year": 2025,
+      "category": "blogs",
+      "links": {
+        "blog": "https://richardcsuwandi.github.io/blog/2025/dgm/"
+      },
+      "arxiv_id": null,
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Unpublished",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "44e79b87f94ac75e",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "229836e6a336",
+      "title": "Bootstrapping Intelligence: Self-Improving Systems for Open-Ended Discovery",
+      "authors": [
+        "Pranoy Panda"
+      ],
+      "authors_raw": "Pranoy Panda",
+      "venue": null,
+      "year": 2025,
+      "category": "blogs",
+      "links": {
+        "blog": "https://pranoy-panda.github.io/2025/07/30/3rd.html",
+        "code": "https://github.com/pranoy-panda/open-ended-discovery"
+      },
+      "arxiv_id": null,
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Unpublished",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "3442d4542a2c7ebe",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "ee0684c945a0",
+      "title": "The Future of AI is Open-Ended",
+      "authors": [
+        "Richard Cornelius Suwandi"
+      ],
+      "authors_raw": "Richard Cornelius Suwandi",
+      "venue": null,
+      "year": 2025,
+      "category": "blogs",
+      "links": {
+        "blog": "https://richardcsuwandi.github.io/blog/2025/open-endedness/"
+      },
+      "arxiv_id": null,
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Unpublished",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "3cd3e337318d1109",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "c309255d4dda",
+      "title": "The Science of Intelligent Exploration",
+      "authors": [
+        "Richard Cornelius Suwandi"
+      ],
+      "authors_raw": "Richard Cornelius Suwandi",
+      "venue": null,
+      "year": 2025,
+      "category": "blogs",
+      "links": {
+        "blog": "https://richardcsuwandi.github.io/blog/2025/exploration-in-ai/"
+      },
+      "arxiv_id": null,
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Unpublished",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "9d4c5a5e6aaec469",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "0f943684dbdc",
+      "title": "Identifying Life-Changing Books with LLMs",
+      "authors": [
+        "Joel Lehman"
+      ],
+      "authors_raw": "Joel Lehman",
+      "venue": null,
+      "year": 2024,
+      "category": "blogs",
+      "links": {
+        "blog": "https://flourish.ing/identifying-life-changing-books-with-llms.html"
+      },
+      "arxiv_id": null,
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Unpublished",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "c995f3a418e4daed",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "3406c8aa2b0e",
+      "title": "Interactive poetry breeding through Mixtral base model LLMs",
+      "authors": [
+        "Joel Lehman"
+      ],
+      "authors_raw": "Joel Lehman",
+      "venue": null,
+      "year": 2024,
+      "category": "blogs",
+      "links": {
+        "blog": "https://flourish.ing/interactive-poetry-breeding-through-mixtral-base-model-llms.html"
+      },
+      "arxiv_id": null,
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Unpublished",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "103d3b2f13f30c1d",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "c866534c3903",
+      "title": "SerendipityLM: Interactive evolutionary exploration of generative design spaces with large language models",
+      "authors": [
+        "Samim"
+      ],
+      "authors_raw": "Samim",
+      "venue": null,
+      "year": 2024,
+      "category": "blogs",
+      "links": {
+        "blog": "https://samim.io/studio/work/serendipityLM/"
+      },
+      "arxiv_id": null,
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Unpublished",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "2f51e59b8b0fcc32",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "151605083e7c",
+      "title": "Open-ended and AI-generating algorithms in the era of foundation models",
+      "authors": [
+        "Jeff Clune"
+      ],
+      "authors_raw": "Jeff Clune",
+      "venue": null,
+      "year": 2025,
+      "category": "videos",
+      "links": {
+        "video": "https://youtu.be/gIHAVTj9fjo"
+      },
+      "arxiv_id": null,
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Unpublished",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "4f76f24f515aa1f7",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "bb1071a6b312",
+      "title": "Open-Endedness, World Models, and the Automation of Innovation",
+      "authors": [
+        "Tim Rocktaeschel"
+      ],
+      "authors_raw": "Tim Rocktaeschel",
+      "venue": null,
+      "year": 2025,
+      "category": "videos",
+      "links": {
+        "video": "https://iclr.cc/virtual/2025/invited-talk/36780"
+      },
+      "arxiv_id": null,
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Unpublished",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "32831e0471e93bfc",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "c14aba4f925e",
+      "title": "Improving Deep Reinforcement Learning via Quality Diversity, Open-Ended and AI-Generating Algorithms",
+      "authors": [
+        "Jeff Clune"
+      ],
+      "authors_raw": "Jeff Clune",
+      "venue": null,
+      "year": 2023,
+      "category": "videos",
+      "links": {
+        "video": "https://youtu.be/5jL5wRGrCvk"
+      },
+      "arxiv_id": null,
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Unpublished",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "9f4b0a68dd459bac",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "79b08d2d1d7c",
+      "title": "Novel Opportunities in Open-Endedness",
+      "authors": [
+        "Kenneth O. Stanley"
+      ],
+      "authors_raw": "Kenneth O. Stanley",
+      "venue": null,
+      "year": 2022,
+      "category": "videos",
+      "links": {
+        "video": "https://youtu.be/T08wc4xD3KA"
+      },
+      "arxiv_id": null,
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Unpublished",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "174ce64325076785",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
+    {
+      "entry_id": "242062870c01",
+      "title": "Endlessly Generating Increasingly Complex and Diverse Learning Environments and their Solutions through the Paired Open-Ended Trailblazer (POET)",
+      "authors": [
+        "Jeff Clune"
+      ],
+      "authors_raw": "Jeff Clune",
+      "venue": null,
+      "year": 2019,
+      "category": "videos",
+      "links": {
+        "video": "https://youtu.be/CsizpWJ-nD0"
+      },
+      "arxiv_id": null,
+      "abstract": null,
+      "abstract_source": null,
+      "abstract_url": null,
+      "arxiv_published": null,
+      "arxiv_categories": null,
+      "pdf_path": null,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Unpublished",
+      "first_seen_utc": "2026-06-18T15:41:09Z",
+      "last_seen_utc": "2026-06-18T15:41:09Z",
+      "content_hash": "c6baac1f0dfe3186",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    }
+  ]
+}

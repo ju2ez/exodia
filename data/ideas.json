@@ -1,0 +1,42 @@
+[
+  {
+    "idea_id": "b9353b70204a",
+    "name": "curriculum_via_self_generated_goals",
+    "title": "Open-Ended Curricula from Self-Generated Goals",
+    "short_hypothesis": "An agent that proposes and filters its own goals using a learned interestingness model will sustain open-ended skill growth longer than fixed-curriculum baselines.",
+    "related_work": "Builds on POET, OMNI, and Voyager, which show that environment/goal generation drives open-ended progress, but typically rely on hand-specified novelty signals.",
+    "abstract": "We propose a self-curricular agent that generates candidate goals, scores them with a learned model of human notions of interestingness, and trains on the most promising frontier. We hypothesize this yields broader skill coverage and slower plateauing than static curricula.",
+    "experiments": "Compare against POET-style minimal criterion coevolution and a fixed curriculum in a procedurally generated benchmark; measure skill coverage, novelty over time, and transfer.",
+    "risk_factors_and_limitations": "Interestingness models can collapse to trivial novelty; compute cost of goal generation may dominate; benchmark may not capture true open-endedness.",
+    "run_id": "20260618T154106",
+    "run_utc": "2026-06-18T15:42:39Z",
+    "model": "gpt-4o-2024-05-13 (dry-run)",
+    "source_sha": "7f26eb83db131186703ff2d2864424866ad12565",
+    "generated": true,
+    "realized": true,
+    "realized_paper_title": "Augmenting Autotelic Agents with Large Language Models",
+    "realized_paper_url": "https://arxiv.org/abs/2305.12487",
+    "realized_entry_id": "a5b737ac04c1",
+    "realized_score": 0.145
+  },
+  {
+    "idea_id": "ce1119117948",
+    "name": "llm_judge_consensus_drift",
+    "title": "Measuring Consensus Drift in Open-Ended Research with LLM Judges",
+    "short_hypothesis": "Aggregating many LLM judgments over a research corpus reveals stable 'consensus directions' whose drift predicts where a field will move next.",
+    "related_work": "Connects automated reviewing and idea-generation systems (e.g., AI Scientist) with quality-diversity notions of measuring a search frontier.",
+    "abstract": "We treat a curated literature list as an evolving population and use ensembles of LLM judges to estimate consensus themes and their year-over-year drift, then evaluate whether drift forecasts the emergence of new subfields.",
+    "experiments": "Backtest on historical snapshots of an awesome-list; correlate predicted drift with subsequently added entries; ablate judge ensemble size.",
+    "risk_factors_and_limitations": "LLM judges share biases that can manufacture false consensus; historical snapshots are sparse; correlation need not imply predictive power.",
+    "run_id": "20260618T154106",
+    "run_utc": "2026-06-18T15:42:39Z",
+    "model": "gpt-4o-2024-05-13 (dry-run)",
+    "source_sha": "7f26eb83db131186703ff2d2864424866ad12565",
+    "generated": true,
+    "realized": false,
+    "realized_paper_title": null,
+    "realized_paper_url": null,
+    "realized_entry_id": null,
+    "realized_score": null
+  }
+]

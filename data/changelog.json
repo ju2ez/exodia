@@ -1,0 +1,507 @@
+[
+  {
+    "run_id": "20260618T154106",
+    "run_utc": "2026-06-18T15:42:39Z",
+    "from_sha": null,
+    "to_sha": "7f26eb83db131186703ff2d2864424866ad12565",
+    "upstream_compare_url": "https://github.com/jennyzzt/awesome-open-ended/commit/7f26eb83db131186703ff2d2864424866ad12565",
+    "added": [
+      {
+        "entry_id": "171a76306d1b",
+        "title": "Exploiting Open-Endedness to Solve Problems Through the Search for Novelty",
+        "category": "papers"
+      },
+      {
+        "entry_id": "34ffea33ab5a",
+        "title": "Identifying Necessary Conditions for Open-Ended Evolution through the Artificial Life World of Chromaria",
+        "category": "papers"
+      },
+      {
+        "entry_id": "fb025c708e29",
+        "title": "Minimal Criterion Coevolution: A New Approach to Open-Ended Search",
+        "category": "papers"
+      },
+      {
+        "entry_id": "98551ea5e9bc",
+        "title": "Paired Open-Ended Trailblazer (POET): Endlessly Generating Increasingly Complex and Diverse Learning Environments and Their Solutions",
+        "category": "papers"
+      },
+      {
+        "entry_id": "06d96674eb44",
+        "title": "Enhanced POET: Open-Ended Reinforcement Learning through Unbounded Invention of Learning Challenges and their Solutions",
+        "category": "papers"
+      },
+      {
+        "entry_id": "f374fec0aa97",
+        "title": "Co-generation of game levels and game-playing agents",
+        "category": "papers"
+      },
+      {
+        "entry_id": "a3250210c5da",
+        "title": "Emergent Complexity and Zero-shot Transfer via Unsupervised Environment Design",
+        "category": "papers"
+      },
+      {
+        "entry_id": "b9ba7026fa7b",
+        "title": "Co-optimising Robot Morphology and Controller in a Simulated Open-Ended Environment",
+        "category": "papers"
+      },
+      {
+        "entry_id": "472007945fd6",
+        "title": "Prioritized Level Replay",
+        "category": "papers"
+      },
+      {
+        "entry_id": "8cf1ce78bc61",
+        "title": "Replay-Guided Adversarial Environment Design",
+        "category": "papers"
+      },
+      {
+        "entry_id": "631b6b83b60e",
+        "title": "Environment Generation for Zero-Shot Compositional Reinforcement Learning",
+        "category": "papers"
+      },
+      {
+        "entry_id": "1eceb545944c",
+        "title": "MiniHack the Planet: A Sandbox for Open-Ended Reinforcement Learning Research",
+        "category": "papers"
+      },
+      {
+        "entry_id": "3696642d6c83",
+        "title": "Open-Ended Learning Leads to Generally Capable Agents",
+        "category": "papers"
+      },
+      {
+        "entry_id": "62ae2396529f",
+        "title": "SPOTTER: Extending Symbolic Planning Operators through Targeted Reinforcement Learning",
+        "category": "papers"
+      },
+      {
+        "entry_id": "9203b71dbb5a",
+        "title": "EvoCraft: A New Challenge for Open-Endedness",
+        "category": "papers"
+      },
+      {
+        "entry_id": "1f3c64d15eaf",
+        "title": "Video Games as a Testbed for Open-Ended Phenomena",
+        "category": "papers"
+      },
+      {
+        "entry_id": "0767c6175560",
+        "title": "Open-ended search for environments and adapted agents using map-elites",
+        "category": "papers"
+      },
+      {
+        "entry_id": "ef5404e842a7",
+        "title": "Minimal Criterion Artist Collective",
+        "category": "papers"
+      },
+      {
+        "entry_id": "86b14c47ea44",
+        "title": "Evolving Curricula with Regret-Based Environment Design",
+        "category": "papers"
+      },
+      {
+        "entry_id": "cf2ce6e01c73",
+        "title": "Evolution through Large Models",
+        "category": "papers"
+      },
+      {
+        "entry_id": "6a3212695c0a",
+        "title": "RAPid-Learn: A Framework for Learning to Recover for Handling Novelties in Open-World Environments",
+        "category": "papers"
+      },
+      {
+        "entry_id": "5337001054fd",
+        "title": "Transfer Dynamics in Emergent Evolutionary Curricula",
+        "category": "papers"
+      },
+      {
+        "entry_id": "19051e5e5e28",
+        "title": "Watts: Infrastructure for Open-Ended Learning",
+        "category": "papers"
+      },
+      {
+        "entry_id": "3a2ff4088d2c",
+        "title": "MineDojo: Building Open-Ended Embodied Agents with Internet-Scale Knowledge",
+        "category": "papers"
+      },
+      {
+        "entry_id": "e4de20884d77",
+        "title": "Grounding Aleatoric Uncertainty in Unsupervised Environment Design",
+        "category": "papers"
+      },
+      {
+        "entry_id": "5081949e5dac",
+        "title": "Language and Culture Internalisation for Human-Like Autotelic AI",
+        "category": "papers"
+      },
+      {
+        "entry_id": "fe2ebfb613f5",
+        "title": "Flow-Lenia: Towards open-ended evolution in cellular automata through mass conservation and parameter localization",
+        "category": "papers"
+      },
+      {
+        "entry_id": "dee425a2f6c6",
+        "title": "MAESTRO: Open-Ended Environment Design for Multi-Agent Reinforcement Learning",
+        "category": "papers"
+      },
+      {
+        "entry_id": "67bced758e89",
+        "title": "Powderworld: A Platform for Understanding Generalization via Rich Task Distributions",
+        "category": "papers"
+      },
+      {
+        "entry_id": "ce71e98b1b87",
+        "title": "Human-Timescale Adaptation in an Open-Ended Task Space",
+        "category": "papers"
+      },
+      {
+        "entry_id": "bd7680ff75a6",
+        "title": "Deep Laplacian-based Options for Temporally-Extended Exploration",
+        "category": "papers"
+      },
+      {
+        "entry_id": "0a56e85182b2",
+        "title": "Discovering General Reinforcement Learning Algorithms with Adversarial Environment Design",
+        "category": "papers"
+      },
+      {
+        "entry_id": "ac8dae447cdf",
+        "title": "Voyager: An Open-Ended Embodied Agent with Large Language Models",
+        "category": "papers"
+      },
+      {
+        "entry_id": "a5b737ac04c1",
+        "title": "Augmenting Autotelic Agents with Large Language Models",
+        "category": "papers"
+      },
+      {
+        "entry_id": "d1a4ba1f3e3b",
+        "title": "Reward-Free Curricula for Training Robust World Models",
+        "category": "papers"
+      },
+      {
+        "entry_id": "b4b7544bd6c6",
+        "title": "Promptbreeder: Self-Referential Self-Improvement Via Prompt Evolution",
+        "category": "papers"
+      },
+      {
+        "entry_id": "6a1f88e60a1b",
+        "title": "Self-Taught Optimizer (STOP): Recursively Self-Improving Code Generation",
+        "category": "papers"
+      },
+      {
+        "entry_id": "e5a2af9712d8",
+        "title": "Motif: Intrinsic Motivation from Artificial Intelligence Feedback",
+        "category": "papers"
+      },
+      {
+        "entry_id": "fa83fa415809",
+        "title": "Eureka: Human-Level Reward Design via Coding Large Language Models",
+        "category": "papers"
+      },
+      {
+        "entry_id": "ea9eb71d997a",
+        "title": "Practical PCG Through Large Language Models",
+        "category": "papers"
+      },
+      {
+        "entry_id": "656f3ab760c1",
+        "title": "Augmentative Topology Agents For Open-Ended Learning",
+        "category": "papers"
+      },
+      {
+        "entry_id": "64e802e1db13",
+        "title": "OMNI: Open-endedness via Models of human Notions of Interestingness",
+        "category": "papers"
+      },
+      {
+        "entry_id": "b52c2165ff82",
+        "title": "Quality-Diversity through AI Feedback",
+        "category": "papers"
+      },
+      {
+        "entry_id": "367066ab34bd",
+        "title": "Quality Diversity through Human Feedback",
+        "category": "papers"
+      },
+      {
+        "entry_id": "f85ce815131a",
+        "title": "OS-Copilot: Towards Generalist Computer Agents with Self-Improvement",
+        "category": "papers"
+      },
+      {
+        "entry_id": "2e575751d786",
+        "title": "Multi-Agent Diagnostics for Robustness via Illuminated Diversity",
+        "category": "papers"
+      },
+      {
+        "entry_id": "5c2aa4656c7a",
+        "title": "Evolutionary Optimization of Model Merging Recipes",
+        "category": "papers"
+      },
+      {
+        "entry_id": "834b92ee61d7",
+        "title": "Discovering Preference Optimization Algorithms with and for Large Language Models",
+        "category": "papers"
+      },
+      {
+        "entry_id": "654de7f4e937",
+        "title": "Generative Design through Quality-Diversity Data Synthesis and Language Models",
+        "category": "papers"
+      },
+      {
+        "entry_id": "f35969512a76",
+        "title": "OMNI-EPIC: Open-endedness via Models of human Notions of Interestingness with Environments Programmed in Code",
+        "category": "papers"
+      },
+      {
+        "entry_id": "9a86afa5b0a2",
+        "title": "Artificial Generational Intelligence: Cultural Accumulation in Reinforcement Learning",
+        "category": "papers"
+      },
+      {
+        "entry_id": "a6ee9d58c117",
+        "title": "Computational Life: How Well-formed, Self-replicating Programs Emerge from Simple Interaction",
+        "category": "papers"
+      },
+      {
+        "entry_id": "50d22eee834c",
+        "title": "Intelligent Go-Explore: Standing on the Shoulders of Giant Foundation Models",
+        "category": "papers"
+      },
+      {
+        "entry_id": "6ee0946446ad",
+        "title": "Genie: Generative Interactive Environments",
+        "category": "papers"
+      },
+      {
+        "entry_id": "34a3cfaa5ced",
+        "title": "Debating with More Persuasive LLMs Leads to More Truthful Answers",
+        "category": "papers"
+      },
+      {
+        "entry_id": "9e4f18d907ac",
+        "title": "Toward Artificial Open-Ended Evolution within Lenia using Quality-Diversity",
+        "category": "papers"
+      },
+      {
+        "entry_id": "aeaa23c60e49",
+        "title": "Structurally Flexible Neural Networks: Evolving the Building Blocks for General Agents",
+        "category": "papers"
+      },
+      {
+        "entry_id": "9ec6a690c554",
+        "title": "DreamCraft: Text-Guided Generation of Functional 3D Environments in Minecraft",
+        "category": "papers"
+      },
+      {
+        "entry_id": "7294b4efd2f4",
+        "title": "Large Language Models as In-context AI Generators for Quality-Diversity",
+        "category": "papers"
+      },
+      {
+        "entry_id": "4031bd0733dd",
+        "title": "Word2World: Generating Stories and Worlds through Large Language Models",
+        "category": "papers"
+      },
+      {
+        "entry_id": "319c0271c765",
+        "title": "The AI Scientist: Towards fully automated open-ended scientific discovery",
+        "category": "papers"
+      },
+      {
+        "entry_id": "68cdeebb19a1",
+        "title": "Automated design of agentic systems",
+        "category": "papers"
+      },
+      {
+        "entry_id": "432ffeda05c2",
+        "title": "Automated Capability Discovery via Model Self-Exploration",
+        "category": "papers"
+      },
+      {
+        "entry_id": "209b2f4bff39",
+        "title": "The AI Scientist-v2: Workshop-Level Automated Scientific Discovery via Agentic Tree Search",
+        "category": "papers"
+      },
+      {
+        "entry_id": "373ba909e70f",
+        "title": "Gödel Agent: A Self-Referential Agent Framework for Recursive Self-Improvement",
+        "category": "papers"
+      },
+      {
+        "entry_id": "b6589642ced0",
+        "title": "Evolving Prompts In-Context: An Open-ended, Self-replicating Perspective",
+        "category": "papers"
+      },
+      {
+        "entry_id": "f7473061fedd",
+        "title": "Questioning Representational Optimism in Deep Learning: The Fractured Entangled Representation Hypothesis",
+        "category": "papers"
+      },
+      {
+        "entry_id": "abfb901d2814",
+        "title": "Foundation Model Self-Play: Open-Ended Strategy Innovation via Foundation Models",
+        "category": "papers"
+      },
+      {
+        "entry_id": "7e601be59f78",
+        "title": "Darwin Gödel Machine: Open-Ended Evolution of Self-Improving Agents",
+        "category": "papers"
+      },
+      {
+        "entry_id": "f03c42bde961",
+        "title": "Learning to Continually Learn via Meta-learning Agentic Memory Designs",
+        "category": "papers"
+      },
+      {
+        "entry_id": "a3c3bf2108e7",
+        "title": "Hyperagents",
+        "category": "papers"
+      },
+      {
+        "entry_id": "f8cb8723f2f7",
+        "title": "CORAL: Towards Autonomous Multi-Agent Evolution for Open-Ended Discovery",
+        "category": "papers"
+      },
+      {
+        "entry_id": "cb5b33a822eb",
+        "title": "Open Questions in Creating Safe Open-ended AI: Tensions Between Control and Creativity",
+        "category": "safety"
+      },
+      {
+        "entry_id": "2f69a71a07de",
+        "title": "Managing extreme AI risks amid rapid progress",
+        "category": "safety"
+      },
+      {
+        "entry_id": "2cdbdc50539a",
+        "title": "Rainbow Teaming: Open-Ended Generation of Diverse Adversarial Prompts",
+        "category": "safety"
+      },
+      {
+        "entry_id": "252d846546bb",
+        "title": "Safety is Essential for Responsible Open-Ended Systems",
+        "category": "safety"
+      },
+      {
+        "entry_id": "025f27d9956e",
+        "title": "AgenticRed: Optimizing Agentic Systems for Automated Red-teaming",
+        "category": "safety"
+      },
+      {
+        "entry_id": "0e969b82e912",
+        "title": "Why Greatness Cannot Be Planned: The Myth of the Objective",
+        "category": "surveys"
+      },
+      {
+        "entry_id": "2afd0f74b741",
+        "title": "Open-endedness: The last grand challenge you’ve never heard of",
+        "category": "surveys"
+      },
+      {
+        "entry_id": "138df40b3ad2",
+        "title": "AI-GAs: AI-generating algorithms, an alternate paradigm for producing general artificial intelligence",
+        "category": "surveys"
+      },
+      {
+        "entry_id": "0972e2ba2faf",
+        "title": "Creative Problem Solving in Artificially Intelligent Agents: A Survey and Framework",
+        "category": "surveys"
+      },
+      {
+        "entry_id": "5899614c3836",
+        "title": "Executive Function: A Contrastive Value Policy for Resampling and Relabeling Perceptions via Hindsight Summarization?",
+        "category": "surveys"
+      },
+      {
+        "entry_id": "6c61cd6b8f1f",
+        "title": "General Intelligence Requires Rethinking Exploration",
+        "category": "surveys"
+      },
+      {
+        "entry_id": "ba6ebb566e3a",
+        "title": "Open-Endedness is Essential for Artificial Superhuman Intelligence",
+        "category": "surveys"
+      },
+      {
+        "entry_id": "56afc45c1af7",
+        "title": "Evolution and The Knightian Blindspot of Machine Learning",
+        "category": "surveys"
+      },
+      {
+        "entry_id": "3406c8aa2b0e",
+        "title": "Interactive poetry breeding through Mixtral base model LLMs",
+        "category": "blogs"
+      },
+      {
+        "entry_id": "0f943684dbdc",
+        "title": "Identifying Life-Changing Books with LLMs",
+        "category": "blogs"
+      },
+      {
+        "entry_id": "c866534c3903",
+        "title": "SerendipityLM: Interactive evolutionary exploration of generative design spaces with large language models",
+        "category": "blogs"
+      },
+      {
+        "entry_id": "55de0cb58c8f",
+        "title": "AI That Can Improve Itself",
+        "category": "blogs"
+      },
+      {
+        "entry_id": "ee0684c945a0",
+        "title": "The Future of AI is Open-Ended",
+        "category": "blogs"
+      },
+      {
+        "entry_id": "c309255d4dda",
+        "title": "The Science of Intelligent Exploration",
+        "category": "blogs"
+      },
+      {
+        "entry_id": "229836e6a336",
+        "title": "Bootstrapping Intelligence: Self-Improving Systems for Open-Ended Discovery",
+        "category": "blogs"
+      },
+      {
+        "entry_id": "242062870c01",
+        "title": "Endlessly Generating Increasingly Complex and Diverse Learning Environments and their Solutions through the Paired Open-Ended Trailblazer (POET)",
+        "category": "videos"
+      },
+      {
+        "entry_id": "79b08d2d1d7c",
+        "title": "Novel Opportunities in Open-Endedness",
+        "category": "videos"
+      },
+      {
+        "entry_id": "c14aba4f925e",
+        "title": "Improving Deep Reinforcement Learning via Quality Diversity, Open-Ended and AI-Generating Algorithms",
+        "category": "videos"
+      },
+      {
+        "entry_id": "bb1071a6b312",
+        "title": "Open-Endedness, World Models, and the Automation of Innovation",
+        "category": "videos"
+      },
+      {
+        "entry_id": "151605083e7c",
+        "title": "Open-ended and AI-generating algorithms in the era of foundation models",
+        "category": "videos"
+      }
+    ],
+    "removed": [],
+    "changed": [],
+    "counts": {
+      "added": 97,
+      "removed": 0,
+      "changed": 0,
+      "total_entries": 97
+    },
+    "new_ideas": 2,
+    "themes_changed": true,
+    "note": "Initial build."
+  }
+]
