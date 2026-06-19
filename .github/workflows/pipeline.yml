@@ -37,7 +37,13 @@ jobs:
           python-version: "3.11"
 
       - name: Install
-        run: uv pip install --system -e .
+        # Install into a uv venv and put it on PATH for the later steps. (Avoids
+        # `uv pip install --system`, which fails on setup-uv's externally-managed
+        # interpreter, PEP 668.)
+        run: |
+          uv venv
+          uv pip install -e .
+          echo "$PWD/.venv/bin" >> "$GITHUB_PATH"
 
       - name: Decide run flags
         id: flags
