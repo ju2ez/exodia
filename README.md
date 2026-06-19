@@ -11,17 +11,17 @@ and publishes the result — with overview plots and a changelog — to GitHub P
 The project *is* the open-ended loop it documents:
 
 ```
-Expert Curator (Jenny Zhang) pushes new entries
+Expert Curator pushes new entries (awesome-open-ended)
         │
         ▼
 GitHub Action polls upstream commit SHA  ──(no change)──▶ wait, loop stays open
         │ (new content)
         ▼
-Ingest → Knowledge Base (metadata + abstracts only)
+Ingest → Knowledge Base (structured metadata)
         ▼
-Enrich abstracts via the arXiv API
+Enrich: abstracts + full-text PDFs + video transcripts + citations
         ▼
-Consensus / majority-vote theme analysis
+Concept gazetteer + consensus / majority-vote theme analysis
         ▼
 Idea generation & summarization  ──▶  AI-Scientist-v2 (Sakana AI)
         ▼
