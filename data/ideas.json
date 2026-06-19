@@ -17,7 +17,13 @@
     "realized_paper_title": "Augmenting Autotelic Agents with Large Language Models",
     "realized_paper_url": "https://arxiv.org/abs/2305.12487",
     "realized_entry_id": "a5b737ac04c1",
-    "realized_score": 0.145
+    "realized_score": 0.145,
+    "issue_number": 2,
+    "issue_url": "https://github.com/ju2ez/exodia/issues/2",
+    "votes_up": 0,
+    "votes_down": 0,
+    "score": 0,
+    "feedback_count": 0
   },
   {
     "idea_id": "ce1119117948",
@@ -37,6 +43,12 @@
     "realized_paper_title": null,
     "realized_paper_url": null,
     "realized_entry_id": null,
-    "realized_score": null
+    "realized_score": null,
+    "issue_number": 3,
+    "issue_url": "https://github.com/ju2ez/exodia/issues/3",
+    "votes_up": 0,
+    "votes_down": 0,
+    "score": 0,
+    "feedback_count": 0
   }
 ]
