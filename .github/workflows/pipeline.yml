@@ -39,9 +39,9 @@ jobs:
       - name: Install
         # Install into a uv venv and put it on PATH for the later steps. (Avoids
         # `uv pip install --system`, which fails on setup-uv's externally-managed
-        # interpreter, PEP 668.)
+        # interpreter, PEP 668.) `--clear` because setup-uv may have pre-created .venv.
         run: |
-          uv venv
+          uv venv --clear
           uv pip install -e .
           echo "$PWD/.venv/bin" >> "$GITHUB_PATH"
 
