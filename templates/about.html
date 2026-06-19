@@ -2,21 +2,25 @@
 {% block title %}About &middot; {{ site_title }}{% endblock %}
 {% block content %}
 <h1>About Exodia</h1>
-<p class="tagline">Distilling SotA of open-endedness with open-endedness.</p>
+<p class="tagline">Distilling SotA open-endedness through open-endedness.</p>
 
 <p>
   Exodia is a self-updating pipeline. When the upstream reading list
-  changes, it re-ingests the entries, enriches them with abstracts, analyzes the
-  consensus themes, asks an automated scientist for new ideas, and rebuilds this
-  site &mdash; the loop shown on the <a href="index.html">home page</a>.
+  changes, it re-ingests the entries, enriches them with abstracts, full text and
+  citation counts, analyzes the consensus concepts and themes, asks an automated
+  scientist for new ideas, and rebuilds this site &mdash; the loop shown on the
+  <a href="index.html">home page</a>.
 </p>
 
 <h2>Method</h2>
 <ol>
   <li><strong>Gate.</strong> Poll the upstream commit SHA; run only when it changed.</li>
   <li><strong>Ingest.</strong> Parse the upstream README into structured entries.</li>
-  <li><strong>Enrich.</strong> Add abstracts via the arXiv API (rate-limited, cache-first).</li>
-  <li><strong>Analyze.</strong> TF-IDF + clustering surface consensus themes ({{ report.method }}).</li>
+  <li><strong>Enrich.</strong> Add abstracts, full-text PDFs and video transcripts, and
+    citation counts (arXiv + Semantic Scholar; rate-limited, cache-first). The full text
+    is mined for analysis only and never redistributed.</li>
+  <li><strong>Analyze.</strong> A curated concept gazetteer plus TF-IDF + clustering surface
+    the field's concepts and consensus themes ({{ report.method }}).</li>
   <li><strong>Ideate.</strong> Invoke AI-Scientist-v2 to generate &amp; summarize ideas.</li>
   <li><strong>Render.</strong> Build this site, plots, and the changelog; deploy to Pages.</li>
 </ol>
@@ -38,7 +42,10 @@
   </li>
   <li>
     Abstracts are retrieved via the <a href="https://arxiv.org">arXiv</a> API and shown
-    with attribution and a link back; full PDFs are never downloaded.
+    with attribution and a link back. Full-text PDFs and video transcripts are fetched
+    into a local, git-ignored cache for analysis only &mdash; they are never re-hosted or
+    republished; the site always links back to the source. Citation counts come from
+    <a href="https://www.semanticscholar.org">Semantic Scholar</a>.
   </li>
 </ul>
 <p>

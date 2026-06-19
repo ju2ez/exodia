@@ -32,6 +32,19 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Persist the git-ignored corpus (full-text PDFs + extracted text + video
+      # transcripts) across runs so analysis covers the whole list and we don't
+      # re-download every day. Keyed on the KB; restore-keys reuses the latest
+      # cache when new papers are added (only the new PDFs are then fetched).
+      - uses: actions/cache@v4
+        with:
+          path: |
+            data/pdfs
+            data/transcripts
+          key: exodia-corpus-${{ hashFiles('data/knowledge_base.json') }}
+          restore-keys: |
+            exodia-corpus-
+
       - uses: astral-sh/setup-uv@v5
         with:
           python-version: "3.11"
@@ -44,6 +57,14 @@ jobs:
           uv venv --clear
           uv pip install -e .
           echo "$PWD/.venv/bin" >> "$GITHUB_PATH"
+
+      - name: Set up AI-Scientist-v2 (idea generation)
+        # Clone the ideation engine and install only the lightweight deps its
+        # ideation script needs (not the full experiment/training stack). exodia
+        # shells out to it when EXODIA_AISCIENTIST_DIR points here.
+        run: |
+          git clone --depth 1 https://github.com/SakanaAI/AI-Scientist-v2.git AI-Scientist-v2
+          uv pip install openai anthropic backoff tiktoken
 
       - name: Decide run flags
         id: flags

@@ -1,5 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
+<section class="intro">
+  <p class="lead">
+    A self-updating knowledge base of open-ended AI research &mdash; distilled from a
+    <a href="{{ upstream_url }}">curated reading list</a>, mined for its core concepts and
+    trends, and used to generate new research ideas. Every page below regenerates
+    automatically when the upstream list changes.
+  </p>
+</section>
+
 <section class="loop">
   <h2>The loop</h2>
   {% include "partials/mermaid.html" %}

@@ -16,26 +16,27 @@ site:
 
 ideation:
   # Google Gemini via AI-Scientist-v2 (needs GEMINI_API_KEY; talks to Gemini's
-  # OpenAI-compatible endpoint). Other supported ids: gpt-4o-2024-05-13 (OPENAI_API_KEY),
-  # claude-3-5-sonnet-20241022 (ANTHROPIC), gemini-2.0-flash, gemini-2.5-flash-preview-04-17.
-  model: "gemini-2.5-pro-preview-03-25"
-  max_num_generations: 3
-  num_reflections: 3
+  # OpenAI-compatible endpoint). exodia registers this id in AI-Scientist-v2's
+  # model allowlist automatically, so any current id works (gemini-2.5-pro,
+  # gemini-3-pro-preview, gemini-2.0-flash, or gpt-*/claude-* with their keys).
+  model: "gemini-2.5-pro"
+  max_num_generations: 4
+  num_reflections: 4
   # Max seconds to allow the AI-Scientist-v2 subprocess to run before timing out.
-  timeout_seconds: 1800
+  timeout_seconds: 2400
 
 enrich:
-  max_new_fetches: 50          # safety cap on arXiv requests per run
+  max_new_fetches: 250         # cover the whole list in one run (cache-first afterwards)
   request_delay_seconds: 3.0   # arXiv politeness: <= 1 request / 3 seconds
 
 pdfs:
   fetch: true                  # also download full-text PDFs (kept locally, git-ignored)
-  max_new_downloads: 50        # safety cap on PDF downloads per run
+  max_new_downloads: 250       # cover the whole list in one run (cache-first afterwards)
   request_delay_seconds: 3.0   # arXiv politeness between PDF downloads
 
 citations:
   fetch: true                  # fetch citation counts (Semantic Scholar) for impact trends
-  max_new_fetches: 300         # safety cap on citation lookups per run
+  max_new_fetches: 500         # cover the whole list in one run
   request_delay_seconds: 1.0   # delay between Semantic Scholar batches (S2_API_KEY raises limits)
 
 fulltext:
@@ -44,7 +45,7 @@ fulltext:
 
 transcripts:
   fetch: true                  # fetch video (YouTube) transcripts into the analysis corpus
-  max_new_fetches: 50          # safety cap on transcript fetches per run
+  max_new_fetches: 100         # cover all videos in one run
   request_delay_seconds: 1.0   # politeness delay between transcript fetches
 
 analysis:

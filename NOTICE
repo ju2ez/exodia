@@ -60,3 +60,23 @@ link back to the arXiv abstract page rather than serving any PDF. The client
 respects arXiv's rate guidance (no more than one request every three seconds,
 a single connection, and a descriptive User-Agent) for both abstract and PDF
 requests. Thank you to arXiv for use of its open API.
+
+================================================================================
+4. Semantic Scholar  —  citation counts
+================================================================================
+Source: https://www.semanticscholar.org  /  API: https://api.semanticscholar.org
+
+Citation counts (and influential-citation counts) are retrieved via the
+Semantic Scholar Graph API and stored as factual integers used for the
+citation-weighted ("impact") trends. Only these counts are stored; no abstracts
+or prose from Semantic Scholar are re-hosted. Requests are batched and
+rate-limited; an optional S2_API_KEY raises the rate limit.
+
+================================================================================
+5. Video transcripts  —  YouTube captions
+================================================================================
+For talks/lectures in the curated list that are hosted on YouTube, the caption
+track is retrieved and cached locally (under data/transcripts/) for analysis
+only. Like the PDFs, transcripts are git-ignored, are not committed to this
+repository, and are never re-hosted or redistributed — the site continues to
+link back to the original video. Fetching is cache-first and rate-limited.

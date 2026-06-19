@@ -136,6 +136,9 @@ main.container { padding-top: 2rem; padding-bottom: 3rem; }
 /* Consensus */
 .consensus { border-left: 4px solid var(--accent); padding-left: 1rem; color: var(--fg); font-style: italic; }
 
+/* Intro lead */
+.intro .lead { font-size: 1.15rem; line-height: 1.6; color: var(--fg); max-width: 70ch; margin: 0.5rem 0 1.5rem; }
+
 /* Concept prevalence bars */
 .concept-bars { list-style: none; margin: 0.6rem 0 1.4rem; padding: 0; }
 .concept-bar { display: grid; grid-template-columns: minmax(140px, 16rem) 1fr auto; align-items: center; gap: 0.6rem; padding: 0.18rem 0; }

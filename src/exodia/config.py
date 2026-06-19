@@ -49,15 +49,15 @@ class Settings:
     ideation_num_reflections: int = 3
     ideation_timeout_seconds: int = 1800
 
-    enrich_max_new_fetches: int = 50
+    enrich_max_new_fetches: int = 250
     enrich_request_delay_seconds: float = 3.0
 
     pdf_fetch: bool = False
-    pdf_max_new_downloads: int = 50
+    pdf_max_new_downloads: int = 250
     pdf_request_delay_seconds: float = 3.0
 
     citations_fetch: bool = True
-    citations_max_new_fetches: int = 300
+    citations_max_new_fetches: int = 500
     citations_request_delay_seconds: float = 1.0
 
     # Mine the locally-cached full-text PDFs into the analysis corpus.
@@ -66,7 +66,7 @@ class Settings:
 
     # Fetch video transcripts (YouTube captions) into the analysis corpus.
     transcripts_fetch: bool = True
-    transcripts_max_new_fetches: int = 50
+    transcripts_max_new_fetches: int = 100
     transcripts_request_delay_seconds: float = 1.0
 
     analysis_method: str = "tfidf_kmeans"

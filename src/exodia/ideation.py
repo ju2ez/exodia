@@ -109,12 +109,33 @@ def synthesize_topic_md(
     return out_path
 
 
+def _allow_model_in_ais(ais_dir: Path, model: str) -> None:
+    """Best-effort: register ``model`` in AI-Scientist-v2's AVAILABLE_LLMS allowlist.
+
+    Its ideation CLI restricts ``--model`` to a hardcoded list (whose pinned Gemini
+    previews get retired upstream), but ``create_client`` routes any id containing
+    'gemini'/'gpt'/... by substring — so adding the id is enough to use a current
+    model without forking the repo.
+    """
+    llm_py = ais_dir / "ai_scientist" / "llm.py"
+    try:
+        text = llm_py.read_text(encoding="utf-8")
+    except OSError:
+        return
+    if f'"{model}"' in text or "AVAILABLE_LLMS = [" not in text:
+        return
+    text = text.replace("AVAILABLE_LLMS = [", f'AVAILABLE_LLMS = [\n    "{model}",', 1)
+    llm_py.write_text(text, encoding="utf-8")
+    log.info("Registered model %s in AI-Scientist-v2 AVAILABLE_LLMS", model)
+
+
 def run_ideation(topic_md: Path, settings: Settings, ais_dir: Path, env: dict | None = None) -> Path:
     """Invoke AI-Scientist-v2's ideation script; return the output JSON path."""
     topic_md = topic_md.resolve()
     script = ais_dir / IDEATION_SCRIPT
     if not script.exists():
         raise FileNotFoundError(f"AI-Scientist-v2 ideation script not found: {script}")
+    _allow_model_in_ais(ais_dir, settings.ideation_model)
     cmd = [
         sys.executable,
         IDEATION_SCRIPT,
