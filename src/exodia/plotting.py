@@ -118,17 +118,21 @@ _ARXIV_CAT_NAMES = {
 
 def _layout(fig: go.Figure, title: str, height: int = 440) -> go.Figure:
     fig.update_layout(
-        title=dict(text=title, font=dict(size=18)),
+        # Left-aligned title with its own auto-margin so long titles never clip.
+        title=dict(text=title, font=dict(size=16), x=0.01, xanchor="left", automargin=True),
         height=height,
-        margin=dict(l=10, r=20, t=56, b=40),
+        # Generous margins; automargin on the axes grows l/b further to fit labels.
+        margin=dict(l=16, r=28, t=64, b=64),
         font=_FONT,
         paper_bgcolor="white",
         plot_bgcolor="white",
         hoverlabel=dict(font_size=13),
         autosize=True,
     )
-    fig.update_xaxes(showgrid=True, gridcolor="#eef0f2", zeroline=False)
-    fig.update_yaxes(showgrid=True, gridcolor="#eef0f2", zeroline=False)
+    # automargin = expand the margin to fit tick labels (long venue / concept /
+    # paper-title labels on horizontal bars were being cut off on the left).
+    fig.update_xaxes(showgrid=True, gridcolor="#eef0f2", zeroline=False, automargin=True)
+    fig.update_yaxes(showgrid=True, gridcolor="#eef0f2", zeroline=False, automargin=True)
     return fig
 
 

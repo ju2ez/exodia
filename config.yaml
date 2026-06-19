@@ -52,7 +52,9 @@ transcripts:
 analysis:
   method: "tfidf_kmeans"
   use_llm: false               # optional LLM consensus paragraph (AI-labeled on site)
-  k_range: [3, 8]              # KMeans cluster-count search range
+  # KMeans cluster-count search range. Floor is 5: a topically-homogeneous corpus
+  # otherwise lets the silhouette sweep pick k=3-4 (one giant blob + outliers).
+  k_range: [5, 9]
 
 ideas:
   match_threshold: 0.13        # min idea<->new-paper cosine to mark an idea "realized" (★)

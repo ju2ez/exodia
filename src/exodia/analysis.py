@@ -1,11 +1,13 @@
 """Consensus / majority-vote theme analysis over the knowledge base.
 
-Deterministic and dependency-light: TF-IDF over each entry's text (title +
-abstract + any cached video transcript / PDF full text, via :mod:`corpus`) yields
-the field's dominant keyphrases; KMeans (k chosen by a silhouette sweep, fixed seed)
-groups the corpus into theme clusters whose *sizes* are the "majority vote" over
-what the field works on; a per-year keyphrase tally shows what is rising. If
-scikit-learn is unavailable it degrades to a plain keyword count.
+Deterministic and dependency-light: TF-IDF over each entry's title + abstract
+yields the field's dominant keyphrases; KMeans (k chosen by a silhouette sweep,
+fixed seed) groups the corpus into theme clusters whose *sizes* are the "majority
+vote" over what the field works on; a per-year keyphrase tally shows what is
+rising. If scikit-learn is unavailable it degrades to a plain keyword count.
+
+Full PDF text + transcripts feed the *concept* gazetteer (:mod:`concepts`), not
+this TF-IDF — full text wrecks clustering (length skew + single-paper jargon).
 
 An optional LLM "consensus statement" can be layered on later (analysis.use_llm);
 it is left as None here and clearly AI-labeled on the site when enabled.
@@ -18,7 +20,6 @@ from collections import Counter, defaultdict
 
 from .concepts import detect_concepts
 from .config import Settings
-from .corpus import corpus_text
 from .logging_setup import get_logger
 from .models import Entry, ThemeReport
 from .util import now_utc_iso, write_json
@@ -113,12 +114,18 @@ def _entry_link(e: Entry) -> str:
     return e.abstract_url or (next(iter(e.links.values()), "") if e.links else "")
 
 
+def _light_text(e: Entry) -> str:
+    """Title + abstract — the text used for TF-IDF keyphrases and clustering.
+
+    The full PDF text (used by the concept gazetteer) is deliberately *not* used
+    here: its huge, uneven length and single-paper jargon collapse KMeans into one
+    giant cluster plus junk-labelled singletons.
+    """
+    return f"{e.title} {e.abstract or ''}".strip()
+
+
 def _corpus(entries: list[Entry], settings: Settings) -> tuple[list[str], list[Entry]]:
-    texts, metas = [], []
-    for e in entries:
-        texts.append(corpus_text(e, settings))
-        metas.append(e)
-    return texts, metas
+    return [_light_text(e) for e in entries], list(entries)
 
 
 def analyze(entries: list[Entry], settings: Settings) -> ThemeReport:
@@ -139,16 +146,16 @@ def analyze(entries: list[Entry], settings: Settings) -> ThemeReport:
 
     analyzer = _stem_analyzer(set(ENGLISH_STOP_WORDS) | EXTRA_STOPWORDS)
 
-    def _fit(max_df: float):
-        v = TfidfVectorizer(analyzer=analyzer, min_df=1, max_df=max_df, sublinear_tf=True)
+    def _fit(max_df: float, min_df: int = 1, max_features: int | None = None):
+        v = TfidfVectorizer(analyzer=analyzer, min_df=min_df, max_df=max_df,
+                            max_features=max_features, sublinear_tf=True)
         return v, v.fit_transform(texts)
 
+    # Keyphrase view: keep ubiquitous terms (this is the "vocabulary").
     try:
-        # Drop terms shared by >90% of docs (ubiquitous = uninformative).
         vec, X = _fit(0.9)
     except ValueError:
-        # Tiny/uniform corpus: every term is ubiquitous, so keep them all.
-        vec, X = _fit(1.0)
+        vec, X = _fit(1.0)  # tiny/uniform corpus: keep everything
     features = vec.get_feature_names_out()
 
     sums = X.sum(axis=0).A1
@@ -159,7 +166,20 @@ def analyze(entries: list[Entry], settings: Settings) -> ThemeReport:
         if sums[i] > 0
     ]
 
-    clusters = _cluster(X, features, metas, settings, np, KMeans, silhouette_score, cosine_similarity)
+    # Clustering view: a homogeneous corpus (all "open-endedness") collapses into
+    # one giant cluster + junk singletons under the keyphrase matrix, because the
+    # shared vocabulary dominates every vector. Drop ubiquitous (max_df) and
+    # single-doc (min_df) terms so the remaining *discriminative* terms split the
+    # corpus into balanced, well-labelled themes. Only for corpora big enough to
+    # prune safely; otherwise reuse the keyphrase matrix.
+    Xc, fc = X, features
+    if n >= 12:
+        try:
+            cvec, Xc = _fit(0.5, min_df=2, max_features=2000)
+            fc = cvec.get_feature_names_out()
+        except ValueError:
+            Xc, fc = X, features
+    clusters = _cluster(Xc, fc, metas, settings, np, KMeans, silhouette_score, cosine_similarity)
     themes_by_year = _themes_by_year(metas, [k["phrase"] for k in top_keyphrases[:12]], settings)
     concepts = detect_concepts(metas, settings)
 
@@ -237,7 +257,7 @@ def _themes_by_year(
     for e in metas:
         if not e.year:
             continue
-        text = corpus_text(e, settings).lower()
+        text = _light_text(e).lower()
         for p in plower:
             if p in text:
                 by_year[str(e.year)][p] += 1

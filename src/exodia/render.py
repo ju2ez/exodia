@@ -81,7 +81,15 @@ def site_context(settings: Settings) -> tuple[Environment, dict, dict]:
         key=lambda d: (d.get("score", 0), d.get("votes_up", 0), bool(d.get("realized")), d.get("run_utc", "")),
         reverse=True,
     )[:10]
-    changelog_sorted = list(reversed(changelog))
+    # Only show runs that actually changed something (skip no-op polls/forced reruns).
+    def _nonempty(c: dict) -> bool:
+        counts = c.get("counts") or {}
+        return bool(
+            counts.get("added") or counts.get("removed") or counts.get("changed")
+            or c.get("new_ideas")
+        )
+
+    changelog_sorted = [c for c in reversed(changelog) if _nonempty(c)]
     last_updated = state.last_run_utc or _now_iso()
 
     global_ctx = {

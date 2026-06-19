@@ -71,7 +71,7 @@ class Settings:
 
     analysis_method: str = "tfidf_kmeans"
     analysis_use_llm: bool = False
-    analysis_k_range: tuple[int, int] = (3, 8)
+    analysis_k_range: tuple[int, int] = (5, 9)
 
     # Idea<->paper realization matching and idea novelty dedup.
     match_threshold: float = 0.13

@@ -1,6 +1,6 @@
 {% raw %}<pre class="mermaid">
 flowchart TD
-    A["Expert Curator<br/><b>Jenny Zhang</b><br/>awesome-open-ended (upstream)"] -->|"pushes new entries"| B
+    A["Expert Curator<br/>awesome-open-ended (upstream)"] -->|"pushes new entries"| B
     B["GitHub Action<br/>(cron poll + manual)<br/>checks latest commit SHA"] --> C{New content?}
     C -- "no" --> Z["Sleep until next poll<br/>(loop stays open)"]
     Z -.-> B
