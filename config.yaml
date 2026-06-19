@@ -38,6 +38,15 @@ citations:
   max_new_fetches: 300         # safety cap on citation lookups per run
   request_delay_seconds: 1.0   # delay between Semantic Scholar batches (S2_API_KEY raises limits)
 
+fulltext:
+  analyze: true                # mine the downloaded PDFs' full text into the analysis corpus
+  max_chars: 40000             # per-paper cap on extracted text (bounds noise + memory)
+
+transcripts:
+  fetch: true                  # fetch video (YouTube) transcripts into the analysis corpus
+  max_new_fetches: 50          # safety cap on transcript fetches per run
+  request_delay_seconds: 1.0   # politeness delay between transcript fetches
+
 analysis:
   method: "tfidf_kmeans"
   use_llm: false               # optional LLM consensus paragraph (AI-labeled on site)

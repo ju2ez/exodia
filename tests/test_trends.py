@@ -97,6 +97,19 @@ def test_citations_by_year_median_and_mean():
     assert {"median", "mean"} <= names
 
 
+def test_trend_clips_to_2017():
+    from exodia.models import ThemeReport
+    from exodia.plotting import _report_since, _trend_entries
+    es = [_e(str(i), 2013 + i, f"agent paper {i}") for i in range(8)]  # 2013..2020
+    kept = {e.year for e in _trend_entries(es)}
+    assert kept == {2017, 2018, 2019, 2020}  # pre-2017 dropped
+    assert all(e.year for e in _trend_entries(es))
+
+    report = ThemeReport(generated_utc="", method="none", n_docs=0,
+                         themes_by_year={"2015": {"a": 1}, "2019": {"a": 2}})
+    assert set(_report_since(report, 2017).themes_by_year) == {"2019"}
+
+
 def test_make_trend_plots_html_and_single_js():
     es = [_e(str(i), 2019 + i % 5,
              f"GPT-4 minecraft navigation code generation paper {i}",

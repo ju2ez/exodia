@@ -60,6 +60,15 @@ class Settings:
     citations_max_new_fetches: int = 300
     citations_request_delay_seconds: float = 1.0
 
+    # Mine the locally-cached full-text PDFs into the analysis corpus.
+    fulltext_analyze: bool = True
+    fulltext_max_chars: int = 40000
+
+    # Fetch video transcripts (YouTube captions) into the analysis corpus.
+    transcripts_fetch: bool = True
+    transcripts_max_new_fetches: int = 50
+    transcripts_request_delay_seconds: float = 1.0
+
     analysis_method: str = "tfidf_kmeans"
     analysis_use_llm: bool = False
     analysis_k_range: tuple[int, int] = (3, 8)
@@ -99,6 +108,10 @@ class Settings:
     @property
     def pdfs_dir(self) -> Path:
         return self.data_dir / "pdfs"
+
+    @property
+    def transcripts_dir(self) -> Path:
+        return self.data_dir / "transcripts"
 
     @property
     def plots_dir(self) -> Path:
@@ -165,6 +178,18 @@ def load_settings(config_path: str | Path | None = None) -> Settings:
     )
     s.citations_request_delay_seconds = float(
         _get(raw, "citations", "request_delay_seconds", default=s.citations_request_delay_seconds)
+    )
+
+    s.fulltext_analyze = bool(_get(raw, "fulltext", "analyze", default=s.fulltext_analyze))
+    s.fulltext_max_chars = int(_get(raw, "fulltext", "max_chars", default=s.fulltext_max_chars))
+
+    s.transcripts_fetch = bool(_get(raw, "transcripts", "fetch", default=s.transcripts_fetch))
+    s.transcripts_max_new_fetches = int(
+        _get(raw, "transcripts", "max_new_fetches", default=s.transcripts_max_new_fetches)
+    )
+    s.transcripts_request_delay_seconds = float(
+        _get(raw, "transcripts", "request_delay_seconds",
+             default=s.transcripts_request_delay_seconds)
     )
 
     s.analysis_method = _get(raw, "analysis", "method", default=s.analysis_method)

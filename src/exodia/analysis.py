@@ -1,7 +1,8 @@
 """Consensus / majority-vote theme analysis over the knowledge base.
 
-Deterministic and dependency-light: TF-IDF over (title + abstract) yields the
-field's dominant keyphrases; KMeans (k chosen by a silhouette sweep, fixed seed)
+Deterministic and dependency-light: TF-IDF over each entry's text (title +
+abstract + any cached video transcript / PDF full text, via :mod:`corpus`) yields
+the field's dominant keyphrases; KMeans (k chosen by a silhouette sweep, fixed seed)
 groups the corpus into theme clusters whose *sizes* are the "majority vote" over
 what the field works on; a per-year keyphrase tally shows what is rising. If
 scikit-learn is unavailable it degrades to a plain keyword count.
@@ -16,6 +17,7 @@ import re
 from collections import Counter, defaultdict
 
 from .config import Settings
+from .corpus import corpus_text
 from .logging_setup import get_logger
 from .models import Entry, ThemeReport
 from .util import now_utc_iso, write_json
@@ -28,10 +30,63 @@ EXTRA_STOPWORDS = {
     "towards", "learning", "model", "models", "based", "approach", "method",
     "methods", "novel", "paper", "study", "results", "propose", "proposed", "new",
 }
+# Paper-boilerplate stopwords — only relevant once we mine full PDF text, where
+# inline citations, figure/table refs and bibliography cruft would otherwise
+# dominate. (sklearn drops these tokens before building n-grams, so removing
+# "et"/"al" also removes the "et al" bigram.)
+_BOILERPLATE_STOPWORDS = {
+    "et", "al", "fig", "figs", "figure", "figures", "table", "tables", "eq", "eqs",
+    "equation", "equations", "section", "sec", "appendix", "appendices", "arxiv",
+    "preprint", "preprints", "doi", "https", "http", "www", "pp", "vol", "eg", "ie",
+    "cf", "etc", "ref", "refs", "supplementary", "proceedings", "conference",
+    "journal", "press", "university", "abstract", "introduction", "conclusion",
+}
+EXTRA_STOPWORDS |= _BOILERPLATE_STOPWORDS
 _BASIC_STOPWORDS = {
     "the", "a", "an", "of", "and", "or", "to", "in", "for", "on", "with", "we",
     "our", "is", "are", "by", "as", "that", "this", "from", "at", "be", "can",
 }
+
+_TOKEN_RE = re.compile(r"[a-z][a-z+]+")
+# Word endings that look plural but aren't (so we don't mangle them).
+_PLURAL_GUARD = ("ss", "is", "us", "ics", "ous", "ness", "sis", "ias")
+
+
+def _singularize(word: str) -> str:
+    """Conservative plural -> singular fold so "agents" and "agent" share a term.
+
+    Handles regular English plurals (-s, -es, -ies) only, with guards for common
+    words that merely end in 's' (analysis, bias, status, ...). Irregular plurals
+    are left alone — good enough to cluster inflected forms in the TF-IDF.
+    """
+    if len(word) <= 3 or word.endswith(_PLURAL_GUARD):
+        return word
+    if word.endswith("ies"):
+        return word[:-3] + "y"  # studies -> study
+    if word.endswith(("ches", "shes", "sses", "xes", "zes")):
+        return word[:-2]  # searches -> search, classes -> class
+    if word.endswith("s"):
+        return word[:-1]  # agents -> agent
+    return word
+
+
+def _stem_analyzer(stop_words: set[str]):
+    """A TF-IDF analyzer that singularizes tokens, drops stop words, then 1–3-grams.
+
+    Replaces scikit-learn's default analyzer so morphological variants collapse to
+    one feature; stop words are matched in singularized form too.
+    """
+    stop = {_singularize(s) for s in stop_words} | set(stop_words)
+
+    def analyze(doc: str) -> list[str]:
+        toks = [_singularize(t) for t in _TOKEN_RE.findall(doc.lower())]
+        toks = [t for t in toks if len(t) > 1 and t not in stop]
+        grams = list(toks)
+        for n in (2, 3):
+            grams.extend(" ".join(toks[i : i + n]) for i in range(len(toks) - n + 1))
+        return grams
+
+    return analyze
 
 
 def _entry_link(e: Entry) -> str:
@@ -42,19 +97,16 @@ def _entry_link(e: Entry) -> str:
     return e.abstract_url or (next(iter(e.links.values()), "") if e.links else "")
 
 
-def _corpus(entries: list[Entry]) -> tuple[list[str], list[Entry]]:
+def _corpus(entries: list[Entry], settings: Settings) -> tuple[list[str], list[Entry]]:
     texts, metas = [], []
     for e in entries:
-        parts = [e.title]
-        if e.abstract:
-            parts.append(e.abstract)
-        texts.append(" ".join(parts))
+        texts.append(corpus_text(e, settings))
         metas.append(e)
     return texts, metas
 
 
 def analyze(entries: list[Entry], settings: Settings) -> ThemeReport:
-    texts, metas = _corpus(entries)
+    texts, metas = _corpus(entries, settings)
     n = len(texts)
     if n < 2:
         return ThemeReport(generated_utc=now_utc_iso(), method="insufficient_data", n_docs=n)
@@ -69,11 +121,18 @@ def analyze(entries: list[Entry], settings: Settings) -> ThemeReport:
         log.warning("scikit-learn unavailable (%s); using keyword counts", ex)
         return _fallback(texts, n)
 
-    stop_words = list(ENGLISH_STOP_WORDS.union(EXTRA_STOPWORDS))
-    vec = TfidfVectorizer(
-        ngram_range=(1, 3), stop_words=stop_words, min_df=1, max_df=0.9, sublinear_tf=True
-    )
-    X = vec.fit_transform(texts)
+    analyzer = _stem_analyzer(set(ENGLISH_STOP_WORDS) | EXTRA_STOPWORDS)
+
+    def _fit(max_df: float):
+        v = TfidfVectorizer(analyzer=analyzer, min_df=1, max_df=max_df, sublinear_tf=True)
+        return v, v.fit_transform(texts)
+
+    try:
+        # Drop terms shared by >90% of docs (ubiquitous = uninformative).
+        vec, X = _fit(0.9)
+    except ValueError:
+        # Tiny/uniform corpus: every term is ubiquitous, so keep them all.
+        vec, X = _fit(1.0)
     features = vec.get_feature_names_out()
 
     sums = X.sum(axis=0).A1
@@ -85,7 +144,7 @@ def analyze(entries: list[Entry], settings: Settings) -> ThemeReport:
     ]
 
     clusters = _cluster(X, features, metas, settings, np, KMeans, silhouette_score, cosine_similarity)
-    themes_by_year = _themes_by_year(metas, [k["phrase"] for k in top_keyphrases[:12]])
+    themes_by_year = _themes_by_year(metas, [k["phrase"] for k in top_keyphrases[:12]], settings)
 
     log.info("Analysis: %d docs, %d keyphrases, %d clusters", n, len(top_keyphrases), len(clusters))
     return ThemeReport(
@@ -149,13 +208,15 @@ def _cluster(X, features, metas, settings, np, KMeans, silhouette_score, cosine_
     return clusters
 
 
-def _themes_by_year(metas: list[Entry], phrases: list[str]) -> dict[str, dict[str, int]]:
+def _themes_by_year(
+    metas: list[Entry], phrases: list[str], settings: Settings
+) -> dict[str, dict[str, int]]:
     by_year: dict[str, dict[str, int]] = defaultdict(lambda: defaultdict(int))
     plower = [p.lower() for p in phrases]
     for e in metas:
         if not e.year:
             continue
-        text = f"{e.title} {e.abstract or ''}".lower()
+        text = corpus_text(e, settings).lower()
         for p in plower:
             if p in text:
                 by_year[str(e.year)][p] += 1

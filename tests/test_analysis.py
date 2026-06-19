@@ -31,6 +31,48 @@ def test_analyze_small_corpus_no_clusters():
     assert report.clusters == []
 
 
+def test_singularize_folds_plurals_but_guards_non_plurals():
+    from exodia.analysis import _singularize
+    assert _singularize("agents") == "agent"
+    assert _singularize("environments") == "environment"
+    assert _singularize("studies") == "study"
+    assert _singularize("searches") == "search"
+    assert _singularize("classes") == "class"
+    # Guarded: words that merely end in 's' are left intact.
+    for w in ("analysis", "bias", "status", "physics", "consensus"):
+        assert _singularize(w) == w
+
+
+def test_plural_and_singular_share_one_keyphrase():
+    es = [
+        Entry("1", "an agent explores the environment", [], "", None, 2020, "papers", {},
+              abstract="multiple agents act in many environments with diverse tasks"),
+        Entry("2", "agent curricula", [], "", None, 2021, "papers", {},
+              abstract="the agent learns one task then more tasks in an environment"),
+        Entry("3", "open-ended agents", [], "", None, 2022, "papers", {},
+              abstract="agents and environments and tasks evolve together"),
+    ]
+    phrases = {k["phrase"] for k in analyze(es, Settings()).top_keyphrases}
+    tokens = {t for p in phrases for t in p.split()}
+    assert "agent" in tokens                       # singular form survives
+    assert not ({"agents", "environments", "tasks"} & tokens)  # plurals folded away
+
+
+def test_boilerplate_filtered_from_keyphrases():
+    # Full-text mining drags in inline citations / figure refs; they must be filtered.
+    es = [
+        Entry("1", "open-ended exploration of agents", [], "", None, 2020, "papers", {},
+              abstract="As shown in Figure 2 (Smith et al. 2021), the agent explores novelty."),
+        Entry("2", "quality diversity in evolution", [], "", None, 2021, "papers", {},
+              abstract="See Section 3 and Table 1; et al. report curiosity-driven search."),
+        Entry("3", "world models for planning", [], "", None, 2022, "papers", {},
+              abstract="Per Appendix A (Lee et al. 2022), the environment rewards discovery."),
+    ]
+    report = analyze(es, Settings())
+    phrases = {k["phrase"] for k in report.top_keyphrases}
+    assert not ({"et al", "et", "al", "figure", "section", "table"} & phrases)
+
+
 def test_abstract_coverage_excludes_blogs_and_videos():
     es = [
         Entry("1", "paper a", [], "", None, 2021, "papers", {}, abstract="x"),

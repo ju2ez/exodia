@@ -17,6 +17,7 @@ from .citations import fetch_citations
 from .config import Settings
 from .diffing import append_changelog, build_changelog_entry
 from .enrich import enrich_entries
+from .fulltext import extract_pdf_texts
 from .ideation import ideate, load_ideas, store_ideas
 from .logging_setup import get_logger
 from .matching import filter_novel, match_ideas_to_papers
@@ -25,6 +26,7 @@ from .parser import parse_readme
 from .pdfs import download_pdfs
 from .render import render_site
 from .store import load_entries, merge, save_kb
+from .transcripts import fetch_transcripts
 from .util import now_utc_iso, write_json
 from .venues import resolve_venues
 
@@ -115,6 +117,20 @@ def run_all(
             download_pdfs(merged, settings)
         except Exception as ex:
             log.warning("PDF download skipped due to error: %s", ex)
+
+    # Mine the downloaded PDFs' full text into the analysis corpus (cached locally).
+    if settings.fulltext_analyze:
+        try:
+            extract_pdf_texts(merged, settings)
+        except Exception as ex:
+            log.warning("Full-text extraction skipped due to error: %s", ex)
+
+    # Fetch video transcripts so talks/lectures also feed the analysis corpus.
+    if settings.transcripts_fetch:
+        try:
+            fetch_transcripts(merged, settings)
+        except Exception as ex:
+            log.warning("Transcript fetch skipped due to error: %s", ex)
 
     # Resolve the real publication venue (arXiv is a preprint server, not a venue).
     resolve_venues(merged)

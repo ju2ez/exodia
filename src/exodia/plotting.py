@@ -15,10 +15,12 @@ from __future__ import annotations
 import re
 import statistics
 from collections import Counter
+from dataclasses import replace
 
 import plotly.graph_objects as go
 
 from .config import Settings
+from .corpus import corpus_text
 from .logging_setup import get_logger
 from .models import CATEGORIES, Entry, ThemeReport
 from .venues import PREPRINT_LABEL, resolve_venue
@@ -31,6 +33,9 @@ _ACCENT2 = "#2b6cb0"
 _SEQ = "Viridis"
 _PLOT_CONFIG = {"displayModeBar": False, "responsive": True}
 _FONT = dict(family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif", size=14)
+
+# The Trends page covers the modern era of the field: every trend starts here.
+_TREND_MIN_YEAR = 2017
 
 # Topics tracked for the "prevalence over time" trend (title+abstract keyword match).
 # Deliberately excludes "open-endedness" itself — that's ~the whole corpus.
@@ -313,7 +318,7 @@ def topic_prevalence_over_time(entries: list[Entry], settings: Settings) -> dict
         if not e.year:
             continue
         year_total[e.year] += 1
-        text = f"{e.title} {e.abstract or ''}".lower()
+        text = corpus_text(e, settings).lower()
         for topic, kws in _TREND_TOPICS.items():
             if any(k in text for k in kws):
                 topic_year[topic][e.year] += 1
@@ -438,14 +443,15 @@ def category_mix_over_time(entries: list[Entry], settings: Settings) -> dict | N
 
 
 def _entity_trend(
-    entries: list[Entry], gazetteer: dict[str, list[str]], *, card_id: str,
+    entries: list[Entry], gazetteer: dict[str, list[str]], settings: Settings, *, card_id: str,
     title: str, caption: str, top_n: int = 8, height: int = 520, share: bool = True,
 ) -> dict | None:
-    """Per-year prevalence of named entities (keyword gazetteer) in title+abstract.
+    """Per-year prevalence of named entities (keyword gazetteer) in an entry's text.
 
     Matches each keyword as a whole word (leading boundary, so 'gpt-4' also catches
-    'gpt-4o'). Plots the top-N entities by total mentions as lines: % of that year's
-    entries (``share``) or absolute mention counts.
+    'gpt-4o') against the full corpus text (title + abstract + any cached transcript
+    / PDF full text). Plots the top-N entities by total mentions as lines: % of that
+    year's entries (``share``) or absolute mention counts.
     """
     matchers = {
         label: re.compile("|".join(r"\b" + re.escape(k) for k in kws), re.IGNORECASE)
@@ -458,7 +464,7 @@ def _entity_trend(
         if not e.year:
             continue
         year_total[e.year] += 1
-        text = f"{e.title} {e.abstract or ''}"
+        text = corpus_text(e, settings)
         for label, rx in matchers.items():
             if rx.search(text):
                 ent_year[label][e.year] += 1
@@ -486,7 +492,7 @@ def _entity_trend(
 
 def models_over_time(entries: list[Entry], settings: Settings) -> dict | None:
     return _entity_trend(
-        entries, _MODELS, card_id="models_trend", title="Models used over time",
+        entries, _MODELS, settings, card_id="models_trend", title="Models used over time",
         caption="Share of each year's entries mentioning a model / algorithm family "
                 "(keyword-based, approximate) — the LLM families climb fast.",
     )
@@ -494,7 +500,8 @@ def models_over_time(entries: list[Entry], settings: Settings) -> dict | None:
 
 def providers_over_time(entries: list[Entry], settings: Settings) -> dict | None:
     return _entity_trend(
-        entries, _PROVIDERS, card_id="providers_trend", title="Model providers over time",
+        entries, _PROVIDERS, settings, card_id="providers_trend",
+        title="Model providers over time",
         caption="Share of each year's entries mentioning an AI lab / model provider "
                 "(keyword-based, approximate).",
     )
@@ -502,7 +509,7 @@ def providers_over_time(entries: list[Entry], settings: Settings) -> dict | None
 
 def datasets_over_time(entries: list[Entry], settings: Settings) -> dict | None:
     return _entity_trend(
-        entries, _DATASETS, card_id="datasets_trend",
+        entries, _DATASETS, settings, card_id="datasets_trend",
         title="Datasets, benchmarks & environments over time",
         caption="Share of each year's entries mentioning a dataset / benchmark / environment "
                 "(keyword-based, approximate).",
@@ -511,7 +518,7 @@ def datasets_over_time(entries: list[Entry], settings: Settings) -> dict | None:
 
 def tasks_over_time(entries: list[Entry], settings: Settings) -> dict | None:
     return _entity_trend(
-        entries, _TASKS, card_id="tasks_trend", title="Tasks studied over time",
+        entries, _TASKS, settings, card_id="tasks_trend", title="Tasks studied over time",
         caption="Share of each year's entries mentioning a task type (keyword-based, approximate).",
     )
 
@@ -600,7 +607,7 @@ def citation_weighted_topics_over_time(entries: list[Entry], settings: Settings)
         if not e.year or not e.citation_count:
             continue
         year_cit[e.year] += e.citation_count
-        text = f"{e.title} {e.abstract or ''}".lower()
+        text = corpus_text(e, settings).lower()
         for topic, kws in _TREND_TOPICS.items():
             if any(k in text for k in kws):
                 topic_year_cit[topic][e.year] += e.citation_count
@@ -694,8 +701,25 @@ def make_plots(entries: list[Entry], report: ThemeReport, settings: Settings) ->
     return cards
 
 
+def _trend_entries(entries: list[Entry], min_year: int = _TREND_MIN_YEAR) -> list[Entry]:
+    """Entries dated on/after ``min_year`` (undated entries are kept; builders skip them)."""
+    return [e for e in entries if not e.year or e.year >= min_year]
+
+
+def _report_since(report: ThemeReport, min_year: int) -> ThemeReport:
+    """Copy of ``report`` with its year-keyed theme tallies clipped to >= min_year."""
+    tby = {y: m for y, m in report.themes_by_year.items() if y.isdigit() and int(y) >= min_year}
+    return replace(report, themes_by_year=tby)
+
+
 def make_trend_plots(entries: list[Entry], report: ThemeReport, settings: Settings) -> list[dict]:
-    """Trends page charts (how the field changes over the years)."""
+    """Trends page charts (how the field changes over the years).
+
+    The whole page covers the modern era: entries (and the year-keyed theme data)
+    are clipped to >= ``_TREND_MIN_YEAR`` so every chart starts at the same year.
+    """
+    entries = _trend_entries(entries)
+    report = _report_since(report, _TREND_MIN_YEAR)
     cards = _assemble([
         lambda: topic_prevalence_over_time(entries, settings),
         lambda: models_over_time(entries, settings),
