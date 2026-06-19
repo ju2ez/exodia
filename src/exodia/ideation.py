@@ -129,6 +129,26 @@ def _allow_model_in_ais(ais_dir: Path, model: str) -> None:
     log.info("Registered model %s in AI-Scientist-v2 AVAILABLE_LLMS", model)
 
 
+def _make_ideation_robust(ais_dir: Path) -> None:
+    """Best-effort: accept FinalizeIdea args whether or not wrapped in an ``idea`` key.
+
+    AI-Scientist-v2's handler does ``arguments_json.get("idea")`` and stores nothing
+    if absent — but its own FinalizeIdea tool description tells the model to emit the
+    idea *fields directly*, so well-behaved models omit the wrapper and no idea is
+    saved. Fall back to the whole arguments object so ideas actually persist.
+    """
+    script = ais_dir / IDEATION_SCRIPT
+    try:
+        text = script.read_text(encoding="utf-8")
+    except OSError:
+        return
+    old = 'idea = arguments_json.get("idea")'
+    new = 'idea = arguments_json.get("idea") or arguments_json'
+    if old in text and new not in text:
+        script.write_text(text.replace(old, new, 1), encoding="utf-8")
+        log.info("Patched AI-Scientist-v2 FinalizeIdea parsing for robustness")
+
+
 def run_ideation(topic_md: Path, settings: Settings, ais_dir: Path, env: dict | None = None) -> Path:
     """Invoke AI-Scientist-v2's ideation script; return the output JSON path."""
     topic_md = topic_md.resolve()
@@ -136,6 +156,7 @@ def run_ideation(topic_md: Path, settings: Settings, ais_dir: Path, env: dict | 
     if not script.exists():
         raise FileNotFoundError(f"AI-Scientist-v2 ideation script not found: {script}")
     _allow_model_in_ais(ais_dir, settings.ideation_model)
+    _make_ideation_robust(ais_dir)
     cmd = [
         sys.executable,
         IDEATION_SCRIPT,
@@ -157,13 +178,40 @@ def run_ideation(topic_md: Path, settings: Settings, ais_dir: Path, env: dict | 
     return out
 
 
+def _field_text(value: object) -> str:
+    """Coerce an AI-Scientist field to readable text.
+
+    ``Experiments`` arrives as a list of dicts and ``Risk Factors`` as a list of
+    strings (not the plain strings the fixture uses), so flatten them instead of
+    calling ``.strip()`` on a list (which would crash and lose every real idea).
+    """
+    if value is None:
+        return ""
+    if isinstance(value, str):
+        return value.strip()
+    if isinstance(value, list):
+        lines: list[str] = []
+        for item in value:
+            if isinstance(item, dict):
+                name = str(item.get("name") or item.get("Name") or "").strip()
+                desc = str(item.get("description") or item.get("Description") or "").strip()
+                head = f"{name} — {desc}".strip(" —") if (name or desc) else ""
+                lines.append(head or "; ".join(f"{k}: {v}" for k, v in item.items()))
+            else:
+                lines.append(str(item).strip())
+        return "\n".join(s for s in lines if s)
+    if isinstance(value, dict):
+        return "; ".join(f"{k}: {v}" for k, v in value.items())
+    return str(value)
+
+
 def parse_ideas(json_path: str | Path, run_id: str, model: str, source_sha: str | None) -> list[Idea]:
     """Parse AI-Scientist-v2 ideation JSON into Idea records with provenance."""
     data = read_json(json_path, default=[]) or []
     now = now_utc_iso()
     ideas: list[Idea] = []
     for d in data:
-        fields = {attr: (d.get(key) or "").strip() for attr, key in _IDEA_KEYS.items()}
+        fields = {attr: _field_text(d.get(key)) for attr, key in _IDEA_KEYS.items()}
         name = fields["name"] or fields["title"]
         if not name:
             continue

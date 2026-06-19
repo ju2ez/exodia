@@ -3,9 +3,52 @@ from pathlib import Path
 
 from exodia.analysis import analyze
 from exodia.config import Settings
-from exodia.ideation import ideate, parse_ideas, run_ideation, store_ideas, synthesize_topic_md
+from exodia.ideation import (
+    _allow_model_in_ais,
+    _make_ideation_robust,
+    ideate,
+    parse_ideas,
+    run_ideation,
+    store_ideas,
+    synthesize_topic_md,
+)
 
 FIX = Path(__file__).parent / "fixtures"
+
+
+def test_parse_ideas_flattens_list_fields(tmp_path):
+    # Real AI-Scientist output: Experiments = list of dicts, Risks = list of strings.
+    p = tmp_path / "ideas.json"
+    p.write_text(json.dumps([{
+        "Name": "x", "Title": "T", "Short Hypothesis": "H", "Related Work": "R",
+        "Abstract": "A",
+        "Experiments": [{"name": "exp1", "description": "do a thing"}, {"name": "exp2",
+                        "description": "do another"}],
+        "Risk Factors and Limitations": ["risk one", "risk two"],
+    }]))
+    ideas = parse_ideas(p, "run1", "gemini-2.5-pro", None)
+    assert len(ideas) == 1
+    i = ideas[0]
+    assert "exp1 — do a thing" in i.experiments and "exp2 — do another" in i.experiments
+    assert "risk one" in i.risk_factors_and_limitations and "risk two" in i.risk_factors_and_limitations
+
+
+def test_allow_model_and_robustness_patches(tmp_path):
+    ais = tmp_path / "ais"
+    (ais / "ai_scientist").mkdir(parents=True)
+    (ais / "ai_scientist" / "llm.py").write_text("AVAILABLE_LLMS = [\n    'gpt-4o',\n]\n")
+    (ais / "ai_scientist" / "perform_ideation_temp_free.py").write_text(
+        '        idea = arguments_json.get("idea")\n'
+    )
+    _allow_model_in_ais(ais, "gemini-2.5-pro")
+    _make_ideation_robust(ais)
+    llm = (ais / "ai_scientist" / "llm.py").read_text()
+    script = (ais / "ai_scientist" / "perform_ideation_temp_free.py").read_text()
+    assert '"gemini-2.5-pro"' in llm
+    assert 'arguments_json.get("idea") or arguments_json' in script
+    # Idempotent: running again doesn't double-patch.
+    _allow_model_in_ais(ais, "gemini-2.5-pro")
+    assert (ais / "ai_scientist" / "llm.py").read_text().count('"gemini-2.5-pro"') == 1
 
 
 def test_parse_ideas_maps_seven_keys():

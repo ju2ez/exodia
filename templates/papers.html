@@ -17,8 +17,9 @@
       <div class="entry-title">{{ e.title }}</div>
       <div class="entry-meta">
         {% if e.authors %}{{ e.authors|join(", ") }}{% endif %}
-        {% if e.venue %} &middot; {{ e.venue }}{% endif %}
+        {% if e.venue_display and e.venue_display != "Unpublished" %} &middot; {{ e.venue_display }}{% endif %}
         {% if e.year %} &middot; {{ e.year }}{% endif %}
+        {% if e.citation_count %} &middot; {{ e.citation_count }} citation{{ "s" if e.citation_count != 1 else "" }}{% endif %}
       </div>
       {% if e.links %}
       <div class="entry-links">

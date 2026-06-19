@@ -93,6 +93,8 @@ main.container { padding-top: 2rem; padding-bottom: 3rem; }
 .idea { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; margin: 1.25rem 0; }
 .idea h2 { margin-top: 0; }
 .idea h4 { margin-bottom: 0.2rem; color: var(--accent); }
+/* Experiments / risks arrive as multi-line text; preserve the line breaks. */
+.idea p { white-space: pre-line; }
 
 /* Best ideas + realized star */
 .best-ideas { background: #f0fff4; border: 1px solid #c6f6d5; border-radius: 10px; padding: 0.75rem 1.25rem 1rem; margin: 1.25rem 0; }

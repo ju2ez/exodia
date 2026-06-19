@@ -20,10 +20,10 @@ ideation:
   # model allowlist automatically, so any current id works (gemini-2.5-pro,
   # gemini-3-pro-preview, gemini-2.0-flash, or gpt-*/claude-* with their keys).
   model: "gemini-2.5-pro"
-  max_num_generations: 4
-  num_reflections: 4
+  max_num_generations: 3
+  num_reflections: 4   # enough rounds to search + reflect + FinalizeIdea
   # Max seconds to allow the AI-Scientist-v2 subprocess to run before timing out.
-  timeout_seconds: 2400
+  timeout_seconds: 3000
 
 enrich:
   max_new_fetches: 250         # cover the whole list in one run (cache-first afterwards)

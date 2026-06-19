@@ -4,9 +4,9 @@ flowchart TD
     B["GitHub Action<br/>(cron poll + manual)<br/>checks latest commit SHA"] --> C{New content?}
     C -- "no" --> Z["Sleep until next poll<br/>(loop stays open)"]
     Z -.-> B
-    C -- "yes" --> D["Ingest: parse README to Knowledge Base<br/>(metadata + abstracts only)"]
-    D --> E["Enrich abstracts via arXiv API<br/>(rate-limited, attributed)"]
-    E --> F["Analysis: consensus / majority-vote themes<br/>(TF-IDF + clustering)"]
+    C -- "yes" --> D["Ingest: parse README to Knowledge Base<br/>(structured metadata)"]
+    D --> E["Enrich: abstracts + full-text PDFs + video<br/>transcripts + citations (arXiv, Semantic Scholar)"]
+    E --> F["Analysis: curated concepts + consensus themes<br/>(gazetteer + TF-IDF + clustering)"]
     F --> G["Idea generation &amp; summarization<br/><b>AI-Scientist-v2</b> (Sakana AI)"]
     G --> H["Build / update site<br/>Jinja2 + plots + changelog"]
     H --> I["Deploy to GitHub Pages<br/>update 'last updated' date"]
