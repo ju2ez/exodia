@@ -196,7 +196,10 @@ def category_distribution(entries: list[Entry], settings: Settings) -> dict | No
 def venue_distribution(entries: list[Entry], settings: Settings, top_n: int = 12) -> dict | None:
     real: Counter[str] = Counter()
     preprints = unpublished = 0
+    # Only paper-like entries have a venue; blogs/videos would inflate "unpublished".
     for e in entries:
+        if e.category in ("blogs", "videos"):
+            continue
         v = e.venue_display or resolve_venue(e)
         if v == PREPRINT_LABEL:
             preprints += 1
@@ -573,23 +576,25 @@ def code_availability_over_time(entries: list[Entry], settings: Settings) -> dic
                  "Share of each year's entries that link to code — a reproducibility signal.", fig, 440)
 
 
-def most_cited_papers(entries: list[Entry], settings: Settings, top_n: int = 15) -> dict | None:
-    """Top-N entries by citation count (Semantic Scholar)."""
-    cited = [e for e in entries if e.citation_count]
-    if not cited:
-        return None
-    cited.sort(key=lambda e: e.citation_count or 0, reverse=True)
-    top = cited[:top_n][::-1]  # reversed so the biggest bar is on top
-    labels = [(e.title[:60] + "…") if len(e.title) > 60 else e.title for e in top]
-    vals = [e.citation_count for e in top]
-    fig = go.Figure(go.Bar(
-        x=vals, y=labels, orientation="h", marker=dict(color=vals, colorscale=_SEQ),
-        hovertemplate="%{y}: %{x} citations<extra></extra>",
-    ))
-    fig.update_xaxes(title="Citations (Semantic Scholar)")
-    height = max(380, 30 * len(top) + 120)
-    return _card("most_cited", "Most-cited papers",
-                 "The most-cited entries in the list (Semantic Scholar citation counts).", fig, height)
+def _paper_link(e: Entry) -> str:
+    if e.links and e.links.get("paper"):
+        return e.links["paper"]
+    return e.abstract_url or (next(iter(e.links.values()), "") if e.links else "")
+
+
+def most_cited_list(entries: list[Entry], top_n: int = 15) -> list[dict]:
+    """Top-N entries by citation count, as data for an HTML list.
+
+    Rendered as HTML (not a Plotly chart) so the full paper titles wrap and link
+    out — a horizontal-bar chart clips long titles into its y-axis margin.
+    """
+    cited = sorted((e for e in entries if e.citation_count),
+                   key=lambda e: e.citation_count or 0, reverse=True)[:top_n]
+    return [
+        {"title": e.title, "url": _paper_link(e), "citations": e.citation_count,
+         "venue": e.venue_display, "year": e.year}
+        for e in cited
+    ]
 
 
 def citation_weighted_concepts_over_time(entries: list[Entry], settings: Settings,
@@ -727,7 +732,6 @@ def make_trend_plots(entries: list[Entry], report: ThemeReport, settings: Settin
         lambda: tasks_over_time(entries, settings),
         lambda: arxiv_categories_over_time(entries, settings),
         lambda: code_availability_over_time(entries, settings),
-        lambda: most_cited_papers(entries, settings),
         lambda: citations_by_year(entries, settings),
         lambda: themes_over_time(report, settings),
         lambda: rising_falling_keyphrases(report, settings),

@@ -10,12 +10,31 @@
 </p>
 
 {% if plot_cards %}
-<div class="plot-grid">
+<div class="plot-grid trend-wide">
   {% for card in plot_cards %}
     {% include "partials/plot_card.html" %}
   {% endfor %}
 </div>
 {% else %}
 <p class="muted">Not enough dated entries yet to chart trends &mdash; run the pipeline to populate them.</p>
+{% endif %}
+
+{% if most_cited %}
+<h2>Most-cited papers</h2>
+<p class="muted">The most-cited entries in the list (Semantic Scholar citation counts).</p>
+{% set top_cites = most_cited[0].citations %}
+<ol class="cited-list">
+  {% for p in most_cited %}
+  <li class="cited-item">
+    <span class="cited-rank muted">{{ loop.index }}</span>
+    <span class="cited-main">
+      {% if p.url %}<a href="{{ p.url }}">{{ p.title }}</a>{% else %}{{ p.title }}{% endif %}
+      {% if p.venue and p.venue != "Unpublished" %}<span class="muted"> &middot; {{ p.venue }}{% if p.year %} {{ p.year }}{% endif %}</span>{% endif %}
+      <span class="cited-track"><span class="cited-fill" style="width: {{ (100 * p.citations / top_cites)|round(1) }}%"></span></span>
+    </span>
+    <span class="cited-count">{{ "{:,}".format(p.citations) }}</span>
+  </li>
+  {% endfor %}
+</ol>
 {% endif %}
 {% endblock %}

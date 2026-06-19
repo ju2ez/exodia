@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-06-19T14:33:17Z",
+  "generated_utc": "2026-06-19T14:45:22Z",
   "method": "tfidf_kmeans",
   "n_docs": 100,
   "top_keyphrases": [
@@ -107,10 +107,9 @@
   "clusters": [
     {
       "id": 2,
-      "label": "environment, agent, rl",
+      "label": "agent, rl, training",
       "size": 26,
       "top_terms": [
-        "environment",
         "agent",
         "rl",
         "training",
@@ -231,12 +230,11 @@
     },
     {
       "id": 1,
-      "label": "agent, llm, language",
+      "label": "agent, llm, objective",
       "size": 23,
       "top_terms": [
         "agent",
         "llm",
-        "language",
         "objective",
         "self",
         "large language"
@@ -343,15 +341,14 @@
     },
     {
       "id": 0,
-      "label": "ai, research, intelligence",
+      "label": "research, intelligence, artificial",
       "size": 17,
       "top_terms": [
-        "ai",
         "research",
         "intelligence",
         "artificial",
         "foundation",
-        "ai generating"
+        "ai generating algorithm"
       ],
       "representative_titles": [
         "The Future of AI is Open-Ended",
@@ -431,15 +428,14 @@
     },
     {
       "id": 3,
-      "label": "quality, diversity, quality diversity",
+      "label": "quality diversity, self, grand",
       "size": 16,
       "top_terms": [
-        "quality",
-        "diversity",
         "quality diversity",
         "self",
         "grand",
-        "qd"
+        "qd",
+        "discovery"
       ],
       "representative_titles": [
         "Toward Artificial Open-Ended Evolution within Lenia using Quality-Diversity",
@@ -522,8 +518,7 @@
         "poet",
         "solve",
         "world",
-        "novelty",
-        "algorithm"
+        "novelty"
       ],
       "representative_titles": [
         "Paired Open-Ended Trailblazer (POET): Endlessly Generating Increasingly Complex and Diverse Learning Environments and Their Solutions",
@@ -579,15 +574,13 @@
     },
     {
       "id": 4,
-      "label": "life, identifying, changing",
+      "label": "identifying, changing, necessary condition",
       "size": 4,
       "top_terms": [
-        "life",
         "identifying",
         "changing",
-        "artificial life",
         "necessary condition",
-        "evolution artificial"
+        "evolution artificial life"
       ],
       "representative_titles": [
         "Identifying Necessary Conditions for Open-Ended Evolution through the Artificial Life World of Chromaria",
@@ -615,15 +608,14 @@
     },
     {
       "id": 6,
-      "label": "criterion, minimal criterion, minimal",
+      "label": "minimal criterion, collective, search",
       "size": 3,
       "top_terms": [
-        "criterion",
         "minimal criterion",
-        "minimal",
         "collective",
         "search",
-        "specy"
+        "specy",
+        "transfer"
       ],
       "representative_titles": [
         "Minimal Criterion Coevolution: A New Approach to Open-Ended Search",

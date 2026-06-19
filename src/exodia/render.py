@@ -19,7 +19,7 @@ from . import paths
 from .config import Settings
 from .logging_setup import get_logger
 from .models import CATEGORIES, State, ThemeReport
-from .plotting import make_plots, make_trend_plots
+from .plotting import make_plots, make_trend_plots, most_cited_list
 from .store import load_entries
 from .util import read_json
 from .venues import resolve_venues
@@ -112,7 +112,11 @@ def site_context(settings: Settings) -> tuple[Environment, dict, dict]:
             "n_clusters": len(report.clusters),
         },
         "concepts.html": {"report": report},
-        "trends.html": {"plot_cards": trend_cards, "n_entries": len(entries)},
+        "trends.html": {
+            "plot_cards": trend_cards,
+            "n_entries": len(entries),
+            "most_cited": most_cited_list(entries),
+        },
         "papers.html": {
             "grouped": grouped,
             "categories": list(CATEGORIES.items()),

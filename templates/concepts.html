@@ -19,7 +19,7 @@
 </p>
 {% set top_docs = report.concepts[0].docs %}
 <ul class="concept-bars">
-  {% for c in report.concepts %}
+  {% for c in report.concepts if c.docs >= 2 %}
   <li class="concept-bar">
     <span class="concept-name">{{ c.concept }}</span>
     <span class="concept-track">

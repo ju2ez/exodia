@@ -1,5 +1,7 @@
 {% extends "base.html" %}
+{% block title %}Exodia — Distilling SotA open-endedness{% endblock %}
 {% block content %}
+<h1 class="visually-hidden">Exodia — a self-updating open-endedness knowledge base</h1>
 <section class="intro">
   <p class="lead">
     A self-updating knowledge base of open-ended AI research &mdash; distilled from a
@@ -38,4 +40,12 @@
   <p class="muted">No plots yet &mdash; run the pipeline to generate them.</p>
   {% endif %}
 </section>
+{% endblock %}
+
+{# Mermaid is only needed on this page (the loop diagram), so load it here. #}
+{% block scripts %}
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+</script>
 {% endblock %}

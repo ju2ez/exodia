@@ -9,7 +9,7 @@ from exodia.plotting import (
     datasets_over_time,
     make_trend_plots,
     models_over_time,
-    most_cited_papers,
+    most_cited_list,
     providers_over_time,
 )
 
@@ -63,19 +63,18 @@ def test_code_availability_trend():
 def test_citation_charts_need_citation_data():
     # No citation counts -> the citation charts have nothing to plot.
     es = [_e("1", 2021, "x"), _e("2", 2023, "y")]
-    assert most_cited_papers(es, Settings()) is None
+    assert most_cited_list(es) == []
     assert citation_weighted_concepts_over_time(es, Settings()) is None
     assert citations_by_year(es, Settings()) is None
 
 
-def test_most_cited_ranks_by_citations():
+def test_most_cited_list_ranks_by_citations():
     es = [_e("1", 2021, "low", cites=5),
           _e("2", 2022, "high", cites=500),
           _e("3", 2023, "mid", cites=50)]
-    card = most_cited_papers(es, Settings())
-    assert card and card["id"] == "most_cited"
-    ys = list(card["fig"].data[0].y)  # reversed: biggest bar on top (last)
-    assert ys[-1] == "high" and ys[0] == "low"
+    out = most_cited_list(es)
+    assert [p["title"] for p in out] == ["high", "mid", "low"]  # descending
+    assert out[0]["citations"] == 500
 
 
 def test_citation_weighted_concepts_uses_citations():

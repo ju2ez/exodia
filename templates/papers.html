@@ -23,14 +23,14 @@
       </div>
       {% if e.links %}
       <div class="entry-links">
-        {% for lbl, url in e.links.items() %}<a href="{{ url }}">{{ lbl }}</a>{% endfor %}
+        {% for lbl, url in e.links.items() %}<a href="{{ url }}" aria-label="{{ lbl }} — {{ e.title }}">{{ lbl }}</a>{% endfor %}
       </div>
       {% endif %}
       {% if e.abstract %}
       <details class="entry-abstract">
-        <summary>Abstract</summary>
+        <summary>Abstract<span class="visually-hidden"> — {{ e.title }}</span></summary>
         <p>{{ e.abstract }}</p>
-        <p class="muted">Abstract via <a href="{{ e.abstract_url }}">arXiv</a>.</p>
+        <p class="muted">Abstract via <a href="{{ e.abstract_url }}" aria-label="arXiv abstract — {{ e.title }}">arXiv</a>.</p>
       </details>
       {% endif %}
     </li>

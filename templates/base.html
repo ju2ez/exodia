@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="index.html">
@@ -40,7 +41,7 @@
     </div>
   </div>
 
-  <main class="container">
+  <main class="container" id="main">
     {% block content %}{% endblock %}
   </main>
 
@@ -50,9 +51,6 @@
     </div>
   </footer>
 
-  <script type="module">
-    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-    mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
-  </script>
+  {% block scripts %}{% endblock %}
 </body>
 </html>

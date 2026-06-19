@@ -198,6 +198,22 @@ def analyze(entries: list[Entry], settings: Settings) -> ThemeReport:
     )
 
 
+def _dedupe_terms(terms: list[str]) -> list[str]:
+    """Drop terms that are whole-phrase substrings of a longer term, preserving order.
+
+    Turns ["criterion", "minimal criterion", "minimal"] -> ["minimal criterion"] so
+    cluster labels read as phrases, not redundant term dumps. Padded matching avoids
+    false hits (e.g. "rl" inside "world").
+    """
+    kept: list[str] = []
+    for t in terms:
+        if any(t != o and f" {t} " in f" {o} " for o in terms):
+            continue
+        if t not in kept:
+            kept.append(t)
+    return kept
+
+
 def _cluster(X, features, metas, settings, np, KMeans, silhouette_score, cosine_similarity):
     n = X.shape[0]
     kmin, kmax = settings.analysis_k_range
@@ -229,7 +245,8 @@ def _cluster(X, features, metas, settings, np, KMeans, silhouette_score, cosine_
         if not idxs:
             continue
         center = centers[cid]
-        top_terms = [features[i] for i in center.argsort()[::-1][:6] if center[i] > 0]
+        raw_terms = [features[i] for i in center.argsort()[::-1][:8] if center[i] > 0]
+        top_terms = _dedupe_terms(raw_terms)[:5]
         sims = cosine_similarity(X[idxs], center.reshape(1, -1)).ravel()
         order = sims.argsort()[::-1]  # most representative first
         # Every paper in the cluster, made explicit with a link back to the source.
