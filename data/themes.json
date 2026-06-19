@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-06-19T12:07:36Z",
+  "generated_utc": "2026-06-19T13:28:44Z",
   "method": "tfidf_kmeans",
   "n_docs": 100,
   "top_keyphrases": [
@@ -555,8 +555,8 @@
         "diversity metrics",
         "latent projection",
         "lsi",
-        "diversity driven",
-        "truth diversity"
+        "truth diversity",
+        "diversity driven"
       ],
       "representative_titles": [
         "Quality Diversity through Human Feedback"
@@ -578,7 +578,7 @@
         "plr",
         "bipedalwalker",
         "dr plr accel",
-        "evolving curricula regret"
+        "curricula regret"
       ],
       "representative_titles": [
         "Evolving Curricula with Regret-Based Environment Design"
