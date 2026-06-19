@@ -11,6 +11,26 @@
 <blockquote class="consensus">{{ report.consensus_statement }}</blockquote>
 {% endif %}
 
+{% if report.concepts %}
+<h2>Key concepts <span class="muted">(curated, ranked by prevalence)</span></h2>
+<p class="muted">
+  How many of the {{ report.n_docs }} curated works engage each open-endedness concept,
+  detected across full text + abstracts.
+</p>
+{% set top_docs = report.concepts[0].docs %}
+<ul class="concept-bars">
+  {% for c in report.concepts %}
+  <li class="concept-bar">
+    <span class="concept-name">{{ c.concept }}</span>
+    <span class="concept-track">
+      <span class="concept-fill" style="width: {{ (100 * c.docs / top_docs)|round(1) }}%"></span>
+    </span>
+    <span class="concept-count muted">{{ c.docs }}</span>
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
+
 <h2>Theme clusters <span class="muted">(the "majority vote")</span></h2>
 {% if report.clusters %}
 <div class="cluster-grid">

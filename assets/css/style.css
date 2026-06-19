@@ -136,6 +136,18 @@ main.container { padding-top: 2rem; padding-bottom: 3rem; }
 /* Consensus */
 .consensus { border-left: 4px solid var(--accent); padding-left: 1rem; color: var(--fg); font-style: italic; }
 
+/* Concept prevalence bars */
+.concept-bars { list-style: none; margin: 0.6rem 0 1.4rem; padding: 0; }
+.concept-bar { display: grid; grid-template-columns: minmax(140px, 16rem) 1fr auto; align-items: center; gap: 0.6rem; padding: 0.18rem 0; }
+.concept-name { font-size: 0.92rem; }
+.concept-track { background: var(--card); border: 1px solid var(--border); border-radius: 6px; height: 0.8rem; overflow: hidden; }
+.concept-fill { display: block; height: 100%; background: linear-gradient(90deg, var(--accent2), var(--accent)); }
+.concept-count { font-variant-numeric: tabular-nums; font-size: 0.85rem; min-width: 2ch; text-align: right; }
+@media (max-width: 560px) {
+  .concept-bar { grid-template-columns: 1fr auto; }
+  .concept-track { grid-column: 1 / -1; order: 3; }
+}
+
 /* Footer */
 .site-footer { border-top: 1px solid var(--border); background: var(--card); margin-top: 2rem; }
 .site-footer .container { padding-top: 1.25rem; padding-bottom: 1.25rem; }

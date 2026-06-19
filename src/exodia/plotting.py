@@ -19,6 +19,7 @@ from dataclasses import replace
 
 import plotly.graph_objects as go
 
+from .concepts import CONCEPTS, concept_matchers
 from .config import Settings
 from .corpus import corpus_text
 from .logging_setup import get_logger
@@ -37,16 +38,8 @@ _FONT = dict(family="-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-s
 # The Trends page covers the modern era of the field: every trend starts here.
 _TREND_MIN_YEAR = 2017
 
-# Topics tracked for the "prevalence over time" trend (title+abstract keyword match).
-# Deliberately excludes "open-endedness" itself — that's ~the whole corpus.
-_TREND_TOPICS = {
-    "LLMs / foundation models": ["language model", "llm", "foundation model", "gpt", "transformer", "in-context", "prompt"],
-    "Reinforcement learning": ["reinforcement learning", "policy gradient", "reward", "q-learning", " rl "],
-    "Evolution / quality-diversity": ["evolution", "quality diversity", "quality-diversity", "novelty search", "map-elites", "genetic", "coevolution"],
-    "Agents / embodiment": ["agent", "embodied", "robot", "minecraft", "manipulation"],
-    "Multi-agent / self-play": ["multi-agent", "multi agent", "self-play", "self play", "population", "competitive"],
-    "Generative / world models": ["generative", "diffusion", "world model", "gan", "autoencoder"],
-}
+# Concept trends are driven by the curated gazetteer in concepts.py (CONCEPTS),
+# so what we plot is always a sensible research concept, not TF-IDF noise.
 
 # Curated gazetteers for entity trends (matched as whole words against title+abstract).
 _MODELS = {
@@ -310,36 +303,32 @@ def abstract_coverage(entries: list[Entry], settings: Settings) -> dict | None:
                  fig, 400)
 
 
-def topic_prevalence_over_time(entries: list[Entry], settings: Settings) -> dict | None:
-    """Share of each year's entries mentioning each tracked topic (title+abstract)."""
-    year_total: Counter[int] = Counter()
-    topic_year = {t: Counter() for t in _TREND_TOPICS}
-    for e in entries:
-        if not e.year:
-            continue
-        year_total[e.year] += 1
-        text = corpus_text(e, settings).lower()
-        for topic, kws in _TREND_TOPICS.items():
-            if any(k in text for k in kws):
-                topic_year[topic][e.year] += 1
-    years = sorted(year_total)
-    if len(years) < 2:
+def concepts_over_time(entries: list[Entry], settings: Settings) -> dict | None:
+    """Share of each year's entries engaging the top curated concepts over time."""
+    return _entity_trend(
+        entries, CONCEPTS, settings, card_id="concepts_trend",
+        title="Concepts over time", top_n=8, height=520,
+        caption="Share of each year's entries engaging each curated open-endedness concept "
+                "(matched across full text) — watch the shift toward LLM / agent work.",
+    )
+
+
+def top_concepts(report: ThemeReport, settings: Settings, top_n: int = 18) -> dict | None:
+    """Curated concepts ranked by how many curated works engage them."""
+    cs = report.concepts[:top_n][::-1]
+    if not cs:
         return None
-    fig = go.Figure()
-    for topic, yc in topic_year.items():
-        if sum(yc.values()) == 0:
-            continue
-        ys = [100.0 * yc.get(y, 0) / year_total[y] for y in years]
-        fig.add_trace(go.Scatter(
-            x=years, y=ys, mode="lines+markers", name=topic,
-            hovertemplate=f"{topic} — %{{x}}: %{{y:.0f}}%<extra></extra>",
-        ))
-    fig.update_xaxes(title="Year", dtick=1)
-    fig.update_yaxes(title="% of that year's entries", ticksuffix="%")
-    fig.update_layout(legend=dict(orientation="h", y=-0.25))
-    return _card("topic_prevalence", "Topic prevalence over time",
-                 "Share of each year's entries mentioning a topic — watch the shift toward "
-                 "LLM/agent work as the field's vocabulary changes.", fig, 520)
+    labels = [c["concept"] for c in cs]
+    vals = [c["docs"] for c in cs]
+    fig = go.Figure(go.Bar(
+        x=vals, y=labels, orientation="h", marker=dict(color=vals, colorscale=_SEQ),
+        hovertemplate="%{y}: %{x} works<extra></extra>",
+    ))
+    fig.update_xaxes(title="Curated works engaging the concept")
+    height = max(380, 26 * len(cs) + 120)
+    return _card("top_concepts", "Key concepts in the field",
+                 "Curated open-endedness concepts ranked by how many curated works engage them "
+                 "(detected across full text + abstracts).", fig, height)
 
 
 def rising_falling_keyphrases(report: ThemeReport, settings: Settings, top: int = 8) -> dict | None:
@@ -599,37 +588,41 @@ def most_cited_papers(entries: list[Entry], settings: Settings, top_n: int = 15)
                  "The most-cited entries in the list (Semantic Scholar citation counts).", fig, height)
 
 
-def citation_weighted_topics_over_time(entries: list[Entry], settings: Settings) -> dict | None:
-    """Share of each publication-year's *citations* captured by each topic (impact-weighted)."""
+def citation_weighted_concepts_over_time(entries: list[Entry], settings: Settings,
+                                         top_n: int = 7) -> dict | None:
+    """Share of each publication-year's *citations* captured by each concept (impact-weighted)."""
+    matchers = concept_matchers()
     year_cit: Counter[int] = Counter()
-    topic_year_cit = {t: Counter() for t in _TREND_TOPICS}
+    concept_year_cit: dict[str, Counter] = {label: Counter() for label in CONCEPTS}
+    totals: Counter[str] = Counter()
     for e in entries:
         if not e.year or not e.citation_count:
             continue
         year_cit[e.year] += e.citation_count
-        text = corpus_text(e, settings).lower()
-        for topic, kws in _TREND_TOPICS.items():
-            if any(k in text for k in kws):
-                topic_year_cit[topic][e.year] += e.citation_count
+        text = corpus_text(e, settings)
+        for label, rx in matchers.items():
+            if rx.search(text):
+                concept_year_cit[label][e.year] += e.citation_count
+                totals[label] += e.citation_count
     years = sorted(y for y in year_cit if year_cit[y] > 0)
-    if len(years) < 2:
+    top = [label for label, c in totals.most_common(top_n) if c > 0]
+    if len(years) < 2 or not top:
         return None
     fig = go.Figure()
-    for topic, yc in topic_year_cit.items():
-        if sum(yc.values()) == 0:
-            continue
+    for label in top:
+        yc = concept_year_cit[label]
         ys = [100.0 * yc.get(y, 0) / year_cit[y] for y in years]
         fig.add_trace(go.Scatter(
-            x=years, y=ys, mode="lines+markers", name=topic,
-            hovertemplate=f"{topic} — %{{x}}: %{{y:.0f}}% of citations<extra></extra>",
+            x=years, y=ys, mode="lines+markers", name=label,
+            hovertemplate=f"{label} — %{{x}}: %{{y:.0f}}% of citations<extra></extra>",
         ))
     fig.update_xaxes(title="Year of publication", dtick=1)
     fig.update_yaxes(title="% of that year's citations", ticksuffix="%")
-    fig.update_layout(legend=dict(orientation="h", y=-0.25))
-    return _card("citation_weighted_topics", "Research impact by topic (citation-weighted)",
-                 "Share of each publication-year's total citations captured by each topic — "
+    fig.update_layout(legend=dict(orientation="h", y=-0.3))
+    return _card("citation_weighted_concepts", "Research impact by concept (citation-weighted)",
+                 "Share of each publication-year's total citations captured by each concept — "
                  "weights every entry by how often it's cited, so it tracks where impact "
-                 "concentrates, not merely how many papers appear.", fig, 520)
+                 "concentrates, not merely how many papers appear.", fig, 540)
 
 
 def citations_by_year(entries: list[Entry], settings: Settings) -> dict | None:
@@ -689,6 +682,7 @@ def _assemble(builders: list) -> list[dict]:
 def make_plots(entries: list[Entry], report: ThemeReport, settings: Settings) -> list[dict]:
     """Home overview charts (current state of the corpus)."""
     cards = _assemble([
+        lambda: top_concepts(report, settings),
         lambda: papers_per_year(entries, settings),
         lambda: cumulative_growth(entries, settings),
         lambda: category_distribution(entries, settings),
@@ -721,7 +715,8 @@ def make_trend_plots(entries: list[Entry], report: ThemeReport, settings: Settin
     entries = _trend_entries(entries)
     report = _report_since(report, _TREND_MIN_YEAR)
     cards = _assemble([
-        lambda: topic_prevalence_over_time(entries, settings),
+        lambda: concepts_over_time(entries, settings),
+        lambda: citation_weighted_concepts_over_time(entries, settings),
         lambda: models_over_time(entries, settings),
         lambda: providers_over_time(entries, settings),
         lambda: datasets_over_time(entries, settings),
@@ -729,7 +724,6 @@ def make_trend_plots(entries: list[Entry], report: ThemeReport, settings: Settin
         lambda: arxiv_categories_over_time(entries, settings),
         lambda: code_availability_over_time(entries, settings),
         lambda: most_cited_papers(entries, settings),
-        lambda: citation_weighted_topics_over_time(entries, settings),
         lambda: citations_by_year(entries, settings),
         lambda: themes_over_time(report, settings),
         lambda: rising_falling_keyphrases(report, settings),

@@ -136,6 +136,8 @@ class ThemeReport:
     top_keyphrases: list[dict[str, Any]] = field(default_factory=list)
     clusters: list[dict[str, Any]] = field(default_factory=list)
     themes_by_year: dict[str, dict[str, int]] = field(default_factory=dict)
+    # Curated, sensible research concepts detected across the corpus.
+    concepts: list[dict[str, Any]] = field(default_factory=list)
     consensus_statement: str | None = None
 
     def to_dict(self) -> dict[str, Any]:

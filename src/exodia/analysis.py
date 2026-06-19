@@ -16,6 +16,7 @@ from __future__ import annotations
 import re
 from collections import Counter, defaultdict
 
+from .concepts import detect_concepts
 from .config import Settings
 from .corpus import corpus_text
 from .logging_setup import get_logger
@@ -30,6 +31,21 @@ EXTRA_STOPWORDS = {
     "towards", "learning", "model", "models", "based", "approach", "method",
     "methods", "novel", "paper", "study", "results", "propose", "proposed", "new",
 }
+# Generic research-prose words that are not concepts worth surfacing (they topped
+# the list once full PDF text was mined). Kept separate for clarity.
+_GENERIC_STOPWORDS = {
+    "opportunity", "opportunities", "future", "improve", "improving", "improved",
+    "performance", "work", "works", "space", "human", "humans", "problem", "problems",
+    "system", "systems", "ability", "abilities", "idea", "ideas", "framework",
+    "setting", "settings", "scenario", "example", "examples", "level", "number",
+    "way", "ways", "case", "cases", "value", "values", "set", "sets", "task", "tasks",
+    "general", "specific", "existing", "important", "recent", "different", "various",
+    "several", "show", "shows", "shown", "given", "used", "use", "uses", "provide",
+    "provides", "allow", "allows", "achieve", "achieves", "demonstrate", "present",
+    "process", "processes", "function", "functions", "section", "introduction",
+    "challenge", "challenges", "goal", "goals", "data", "datasets", "dataset",
+}
+EXTRA_STOPWORDS |= _GENERIC_STOPWORDS
 # Paper-boilerplate stopwords — only relevant once we mine full PDF text, where
 # inline citations, figure/table refs and bibliography cruft would otherwise
 # dominate. (sklearn drops these tokens before building n-grams, so removing
@@ -145,8 +161,12 @@ def analyze(entries: list[Entry], settings: Settings) -> ThemeReport:
 
     clusters = _cluster(X, features, metas, settings, np, KMeans, silhouette_score, cosine_similarity)
     themes_by_year = _themes_by_year(metas, [k["phrase"] for k in top_keyphrases[:12]], settings)
+    concepts = detect_concepts(metas, settings)
 
-    log.info("Analysis: %d docs, %d keyphrases, %d clusters", n, len(top_keyphrases), len(clusters))
+    log.info(
+        "Analysis: %d docs, %d keyphrases, %d clusters, %d concepts",
+        n, len(top_keyphrases), len(clusters), len(concepts),
+    )
     return ThemeReport(
         generated_utc=now_utc_iso(),
         method="tfidf_kmeans",
@@ -154,6 +174,7 @@ def analyze(entries: list[Entry], settings: Settings) -> ThemeReport:
         top_keyphrases=top_keyphrases,
         clusters=clusters,
         themes_by_year=themes_by_year,
+        concepts=concepts,
     )
 
 

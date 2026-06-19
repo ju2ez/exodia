@@ -2,9 +2,10 @@ from exodia.analysis import analyze
 from exodia.config import Settings
 from exodia.models import Entry
 from exodia.plotting import (
-    citation_weighted_topics_over_time,
+    citation_weighted_concepts_over_time,
     citations_by_year,
     code_availability_over_time,
+    concepts_over_time,
     datasets_over_time,
     make_trend_plots,
     models_over_time,
@@ -63,7 +64,7 @@ def test_citation_charts_need_citation_data():
     # No citation counts -> the citation charts have nothing to plot.
     es = [_e("1", 2021, "x"), _e("2", 2023, "y")]
     assert most_cited_papers(es, Settings()) is None
-    assert citation_weighted_topics_over_time(es, Settings()) is None
+    assert citation_weighted_concepts_over_time(es, Settings()) is None
     assert citations_by_year(es, Settings()) is None
 
 
@@ -77,15 +78,27 @@ def test_most_cited_ranks_by_citations():
     assert ys[-1] == "high" and ys[0] == "low"
 
 
-def test_citation_weighted_topics_uses_citations():
+def test_citation_weighted_concepts_uses_citations():
     es = [
         _e("1", 2020, "reinforcement learning policy gradient", cites=10),
         _e("2", 2023, "a large language model agent", "llm foundation model", cites=200),
         _e("3", 2024, "another language model paper", "gpt transformer", cites=100),
     ]
-    card = citation_weighted_topics_over_time(es, Settings())
-    assert card and card["id"] == "citation_weighted_topics"
+    card = citation_weighted_concepts_over_time(es, Settings())
+    assert card and card["id"] == "citation_weighted_concepts"
     assert any("LLM" in tr.name for tr in card["fig"].data)
+
+
+def test_concepts_over_time_detects_curated_concepts():
+    es = [
+        _e("1", 2019, "novelty search for evolution", "quality diversity map-elites"),
+        _e("2", 2022, "a large language model agent", "in-context learning foundation model"),
+        _e("3", 2024, "open-ended learning with llms", "recursive self-improvement of agents"),
+    ]
+    card = concepts_over_time(es, Settings())
+    assert card and card["id"] == "concepts_trend"
+    names = {tr.name for tr in card["fig"].data}
+    assert any("LLM" in n for n in names)
 
 
 def test_citations_by_year_median_and_mean():
