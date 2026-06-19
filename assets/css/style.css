@@ -55,8 +55,7 @@ code { background: var(--card); padding: 0.1em 0.35em; border-radius: 4px; font-
 
 main.container { padding-top: 2rem; padding-bottom: 3rem; }
 
-/* Hero */
-.hero h1 { font-size: 2.2rem; margin: 0 0 0.25rem; }
+/* About-page tagline */
 .tagline { color: var(--muted); font-size: 1.1rem; margin-top: 0; }
 
 .muted { color: var(--muted); }
@@ -149,7 +148,6 @@ main.container { padding-top: 2rem; padding-bottom: 3rem; }
 
 /* Changelog */
 .changelog-entry { border-bottom: 1px solid var(--border); padding: 1rem 0; }
-.changelog-entry h4 { margin-bottom: 0.2rem; }
 
 /* Consensus */
 .consensus { border-left: 4px solid var(--accent); padding-left: 1rem; color: var(--fg); font-style: italic; }
@@ -158,7 +156,7 @@ main.container { padding-top: 2rem; padding-bottom: 3rem; }
 .intro .lead { font-size: 1.15rem; line-height: 1.6; color: var(--fg); max-width: 70ch; margin: 0.5rem 0 1.5rem; }
 
 /* Most-cited papers list (full titles wrap; bar shows relative citations) */
-.cited-list { list-style: none; margin: 0.6rem 0 1.5rem; padding: 0; counter-reset: none; }
+.cited-list { list-style: none; margin: 0.6rem 0 1.5rem; padding: 0; }
 .cited-item { display: grid; grid-template-columns: 1.6rem 1fr auto; align-items: baseline; gap: 0.6rem; padding: 0.45rem 0; border-bottom: 1px solid var(--border); }
 .cited-rank { font-variant-numeric: tabular-nums; font-size: 0.85rem; text-align: right; }
 .cited-main { min-width: 0; }

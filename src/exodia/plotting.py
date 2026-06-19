@@ -22,6 +22,7 @@ import plotly.graph_objects as go
 from .concepts import CONCEPTS, concept_matchers
 from .config import Settings
 from .corpus import corpus_text
+from .enrich import base_id
 from .logging_setup import get_logger
 from .models import CATEGORIES, Entry, ThemeReport
 from .venues import PREPRINT_LABEL, resolve_venue
@@ -283,7 +284,6 @@ def themes_over_time(report: ThemeReport, settings: Settings, top_k: int = 5) ->
         ))
     fig.update_xaxes(title="Year", dtick=1)
     fig.update_yaxes(title="Mentions")
-    fig.update_layout(legend=dict(orientation="h", y=-0.2))
     return _card("themes_over_time", "Top themes over time",
                  "How the leading themes wax and wane year over year.", fig, 480)
 
@@ -406,7 +406,6 @@ def venue_mix_over_time(entries: list[Entry], settings: Settings, top_n: int = 6
         ))
     fig.update_xaxes(title="Year", dtick=1)
     fig.update_yaxes(title="Entries")
-    fig.update_layout(legend=dict(orientation="h", y=-0.3))
     return _card("venue_mix", "Venue mix over time",
                  "How the leading venues' yearly counts stack up (the arXiv-preprint share "
                  "shows how much work stays unpublished).", fig, 520)
@@ -433,7 +432,6 @@ def category_mix_over_time(entries: list[Entry], settings: Settings) -> dict | N
         ))
     fig.update_xaxes(title="Year", dtick=1)
     fig.update_yaxes(title="Entries")
-    fig.update_layout(legend=dict(orientation="h", y=-0.3))
     return _card("category_mix", "Category mix over time",
                  "Entries by curated category each year.", fig, 480)
 
@@ -482,7 +480,6 @@ def _entity_trend(
     fig.update_xaxes(title="Year", dtick=1)
     fig.update_yaxes(title="% of that year's entries" if share else "Entries mentioning",
                      ticksuffix="%" if share else "")
-    fig.update_layout(legend=dict(orientation="h", y=-0.3))
     return _card(card_id, title, caption, fig, height)
 
 
@@ -545,7 +542,6 @@ def arxiv_categories_over_time(entries: list[Entry], settings: Settings, top_n: 
         ))
     fig.update_xaxes(title="Year", dtick=1)
     fig.update_yaxes(title="Papers")
-    fig.update_layout(legend=dict(orientation="h", y=-0.3))
     return _card("arxiv_categories", "arXiv subfields over time",
                  "Primary arXiv categories of the papers each year — which subfields drive "
                  "open-endedness (from arXiv metadata, not keywords).", fig)
@@ -586,15 +582,24 @@ def most_cited_list(entries: list[Entry], top_n: int = 15) -> list[dict]:
     """Top-N entries by citation count, as data for an HTML list.
 
     Rendered as HTML (not a Plotly chart) so the full paper titles wrap and link
-    out — a horizontal-bar chart clips long titles into its y-axis margin.
+    out — a horizontal-bar chart clips long titles into its y-axis margin. Deduped
+    by arXiv id so two entries sharing one preprint (e.g. a paper's v1/v2) don't
+    both occupy a slot with the same citation count.
     """
-    cited = sorted((e for e in entries if e.citation_count),
-                   key=lambda e: e.citation_count or 0, reverse=True)[:top_n]
-    return [
-        {"title": e.title, "url": _paper_link(e), "citations": e.citation_count,
-         "venue": e.venue_display, "year": e.year}
-        for e in cited
-    ]
+    ordered = sorted((e for e in entries if e.citation_count),
+                     key=lambda e: e.citation_count or 0, reverse=True)
+    out: list[dict] = []
+    seen: set[str] = set()
+    for e in ordered:
+        key = base_id(e.arxiv_id) if e.arxiv_id else e.entry_id
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append({"title": e.title, "url": _paper_link(e), "citations": e.citation_count,
+                    "venue": e.venue_display, "year": e.year})
+        if len(out) >= top_n:
+            break
+    return out
 
 
 def citation_weighted_concepts_over_time(entries: list[Entry], settings: Settings,
@@ -627,7 +632,6 @@ def citation_weighted_concepts_over_time(entries: list[Entry], settings: Setting
         ))
     fig.update_xaxes(title="Year of publication", dtick=1)
     fig.update_yaxes(title="% of that year's citations", ticksuffix="%")
-    fig.update_layout(legend=dict(orientation="h", y=-0.3))
     return _card("citation_weighted_concepts", "Research impact by concept (citation-weighted)",
                  "Share of each publication-year's total citations captured by each concept — "
                  "weights every entry by how often it's cited, so it tracks where impact "
@@ -653,7 +657,6 @@ def citations_by_year(entries: list[Entry], settings: Settings) -> dict | None:
                              hovertemplate="%{x}: mean %{y} citations<extra></extra>"))
     fig.update_xaxes(title="Year of publication", dtick=1)
     fig.update_yaxes(title="Citations per paper")
-    fig.update_layout(legend=dict(orientation="h", y=-0.2))
     return _card("citations_by_year", "Citations per paper by year",
                  "Median (bars) and mean (line) citations per paper by publication year. "
                  "Recent years are necessarily under-counted — citations accrue with age.", fig, 460)

@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-06-19T14:45:22Z",
+  "generated_utc": "2026-06-19T14:57:00Z",
   "method": "tfidf_kmeans",
   "n_docs": 100,
   "top_keyphrases": [
@@ -776,6 +776,18 @@
       "citations": 8512
     },
     {
+      "concept": "Unsupervised environment design",
+      "docs": 51,
+      "share": 0.51,
+      "citations": 8419
+    },
+    {
+      "concept": "Reward & objective design",
+      "docs": 40,
+      "share": 0.4,
+      "citations": 3753
+    },
+    {
       "concept": "Evolutionary computation",
       "docs": 37,
       "share": 0.37,
@@ -936,6 +948,24 @@
       "docs": 7,
       "share": 0.07,
       "citations": 538
+    },
+    {
+      "concept": "Red-teaming & adversarial generation",
+      "docs": 7,
+      "share": 0.07,
+      "citations": 483
+    },
+    {
+      "concept": "Cultural accumulation",
+      "docs": 7,
+      "share": 0.07,
+      "citations": 265
+    },
+    {
+      "concept": "Cellular automata & self-replication",
+      "docs": 7,
+      "share": 0.07,
+      "citations": 142
     },
     {
       "concept": "Self-organization",
