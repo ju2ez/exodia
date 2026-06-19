@@ -13,6 +13,7 @@ zoom, and toggle series. The venue chart reports the *real* publication venue
 from __future__ import annotations
 
 import re
+import statistics
 from collections import Counter
 
 import plotly.graph_objects as go
@@ -564,6 +565,83 @@ def code_availability_over_time(entries: list[Entry], settings: Settings) -> dic
                  "Share of each year's entries that link to code — a reproducibility signal.", fig, 440)
 
 
+def most_cited_papers(entries: list[Entry], settings: Settings, top_n: int = 15) -> dict | None:
+    """Top-N entries by citation count (Semantic Scholar)."""
+    cited = [e for e in entries if e.citation_count]
+    if not cited:
+        return None
+    cited.sort(key=lambda e: e.citation_count or 0, reverse=True)
+    top = cited[:top_n][::-1]  # reversed so the biggest bar is on top
+    labels = [(e.title[:60] + "…") if len(e.title) > 60 else e.title for e in top]
+    vals = [e.citation_count for e in top]
+    fig = go.Figure(go.Bar(
+        x=vals, y=labels, orientation="h", marker=dict(color=vals, colorscale=_SEQ),
+        hovertemplate="%{y}: %{x} citations<extra></extra>",
+    ))
+    fig.update_xaxes(title="Citations (Semantic Scholar)")
+    height = max(380, 30 * len(top) + 120)
+    return _card("most_cited", "Most-cited papers",
+                 "The most-cited entries in the list (Semantic Scholar citation counts).", fig, height)
+
+
+def citation_weighted_topics_over_time(entries: list[Entry], settings: Settings) -> dict | None:
+    """Share of each publication-year's *citations* captured by each topic (impact-weighted)."""
+    year_cit: Counter[int] = Counter()
+    topic_year_cit = {t: Counter() for t in _TREND_TOPICS}
+    for e in entries:
+        if not e.year or not e.citation_count:
+            continue
+        year_cit[e.year] += e.citation_count
+        text = f"{e.title} {e.abstract or ''}".lower()
+        for topic, kws in _TREND_TOPICS.items():
+            if any(k in text for k in kws):
+                topic_year_cit[topic][e.year] += e.citation_count
+    years = sorted(y for y in year_cit if year_cit[y] > 0)
+    if len(years) < 2:
+        return None
+    fig = go.Figure()
+    for topic, yc in topic_year_cit.items():
+        if sum(yc.values()) == 0:
+            continue
+        ys = [100.0 * yc.get(y, 0) / year_cit[y] for y in years]
+        fig.add_trace(go.Scatter(
+            x=years, y=ys, mode="lines+markers", name=topic,
+            hovertemplate=f"{topic} — %{{x}}: %{{y:.0f}}% of citations<extra></extra>",
+        ))
+    fig.update_xaxes(title="Year of publication", dtick=1)
+    fig.update_yaxes(title="% of that year's citations", ticksuffix="%")
+    fig.update_layout(legend=dict(orientation="h", y=-0.25))
+    return _card("citation_weighted_topics", "Research impact by topic (citation-weighted)",
+                 "Share of each publication-year's total citations captured by each topic — "
+                 "weights every entry by how often it's cited, so it tracks where impact "
+                 "concentrates, not merely how many papers appear.", fig, 520)
+
+
+def citations_by_year(entries: list[Entry], settings: Settings) -> dict | None:
+    """Median (bars) and mean (line) citations per paper by publication year."""
+    by_year: dict[int, list[int]] = {}
+    for e in entries:
+        if e.year and e.citation_count is not None:
+            by_year.setdefault(e.year, []).append(e.citation_count)
+    years = sorted(by_year)
+    if len(years) < 2 or not any(by_year[y] for y in years):
+        return None
+    medians = [statistics.median(by_year[y]) for y in years]
+    means = [round(statistics.fmean(by_year[y]), 1) for y in years]
+    fig = go.Figure()
+    fig.add_trace(go.Bar(x=years, y=medians, name="median", marker_color=_ACCENT,
+                         hovertemplate="%{x}: median %{y} citations<extra></extra>"))
+    fig.add_trace(go.Scatter(x=years, y=means, name="mean", mode="lines+markers",
+                             line=dict(color=_ACCENT2, width=3),
+                             hovertemplate="%{x}: mean %{y} citations<extra></extra>"))
+    fig.update_xaxes(title="Year of publication", dtick=1)
+    fig.update_yaxes(title="Citations per paper")
+    fig.update_layout(legend=dict(orientation="h", y=-0.2))
+    return _card("citations_by_year", "Citations per paper by year",
+                 "Median (bars) and mean (line) citations per paper by publication year. "
+                 "Recent years are necessarily under-counted — citations accrue with age.", fig, 460)
+
+
 def _fig_html(fig: go.Figure, include_js: bool) -> str:
     return fig.to_html(
         full_html=False,
@@ -618,6 +696,9 @@ def make_trend_plots(entries: list[Entry], report: ThemeReport, settings: Settin
         lambda: tasks_over_time(entries, settings),
         lambda: arxiv_categories_over_time(entries, settings),
         lambda: code_availability_over_time(entries, settings),
+        lambda: most_cited_papers(entries, settings),
+        lambda: citation_weighted_topics_over_time(entries, settings),
+        lambda: citations_by_year(entries, settings),
         lambda: themes_over_time(report, settings),
         lambda: rising_falling_keyphrases(report, settings),
         lambda: venue_mix_over_time(entries, settings),

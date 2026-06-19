@@ -56,6 +56,10 @@ class Settings:
     pdf_max_new_downloads: int = 50
     pdf_request_delay_seconds: float = 3.0
 
+    citations_fetch: bool = True
+    citations_max_new_fetches: int = 300
+    citations_request_delay_seconds: float = 1.0
+
     analysis_method: str = "tfidf_kmeans"
     analysis_use_llm: bool = False
     analysis_k_range: tuple[int, int] = (3, 8)
@@ -153,6 +157,14 @@ def load_settings(config_path: str | Path | None = None) -> Settings:
     )
     s.pdf_request_delay_seconds = float(
         _get(raw, "pdfs", "request_delay_seconds", default=s.pdf_request_delay_seconds)
+    )
+
+    s.citations_fetch = bool(_get(raw, "citations", "fetch", default=s.citations_fetch))
+    s.citations_max_new_fetches = int(
+        _get(raw, "citations", "max_new_fetches", default=s.citations_max_new_fetches)
+    )
+    s.citations_request_delay_seconds = float(
+        _get(raw, "citations", "request_delay_seconds", default=s.citations_request_delay_seconds)
     )
 
     s.analysis_method = _get(raw, "analysis", "method", default=s.analysis_method)

@@ -13,6 +13,7 @@ from pathlib import Path
 
 from . import upstream as up
 from .analysis import analyze, save_themes
+from .citations import fetch_citations
 from .config import Settings
 from .diffing import append_changelog, build_changelog_entry
 from .enrich import enrich_entries
@@ -102,6 +103,12 @@ def run_all(
             enrich_entries(merged, settings)
         except Exception as ex:
             log.warning("Enrichment skipped due to error: %s", ex)
+
+    if settings.citations_fetch:
+        try:
+            fetch_citations(merged, settings)
+        except Exception as ex:
+            log.warning("Citation fetch skipped due to error: %s", ex)
 
     if settings.pdf_fetch:
         try:

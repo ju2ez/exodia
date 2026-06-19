@@ -99,6 +99,10 @@ def merge(
         # Carry forward the locally cached PDF path so we don't re-download.
         if not ne.pdf_path and oe.pdf_path:
             ne.pdf_path = oe.pdf_path
+        # Carry forward fetched citation counts (refreshed by the citations step).
+        if ne.citation_count is None and oe.citation_count is not None:
+            ne.citation_count = oe.citation_count
+            ne.influential_citation_count = oe.influential_citation_count
         if ne.content_hash != oe.content_hash:
             changed.append((oe, ne))
         merged.append(ne)
