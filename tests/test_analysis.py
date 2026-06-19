@@ -1,7 +1,7 @@
 from exodia.analysis import analyze
 from exodia.config import Settings
 from exodia.models import Entry
-from exodia.plotting import make_plots
+from exodia.plotting import abstract_coverage, make_plots
 
 
 def test_analyze_produces_keyphrases(entries_v1):
@@ -29,6 +29,25 @@ def test_analyze_small_corpus_no_clusters():
     report = analyze(es, Settings())
     assert report.n_docs == 2
     assert report.clusters == []
+
+
+def test_abstract_coverage_excludes_blogs_and_videos():
+    es = [
+        Entry("1", "paper a", [], "", None, 2021, "papers", {}, abstract="x"),
+        Entry("2", "paper b", [], "", None, 2021, "papers", {}),       # missing abstract
+        Entry("3", "a blog", [], "", None, 2021, "blogs", {}),         # excluded
+        Entry("4", "a talk", [], "", None, 2021, "videos", {}),        # excluded
+    ]
+    card = abstract_coverage(es, Settings())
+    assert card and card["id"] == "abstract_coverage"
+    # Only the two papers count: 1 with, 1 without (blogs/videos are not in the denominator).
+    assert list(card["fig"].data[0].values) == [1, 1]
+
+
+def test_abstract_coverage_none_when_only_blogs_videos():
+    es = [Entry("1", "blog", [], "", None, 2021, "blogs", {}),
+          Entry("2", "vid", [], "", None, 2021, "videos", {})]
+    assert abstract_coverage(es, Settings()) is None
 
 
 def test_make_plots_returns_interactive_html(entries_v1):

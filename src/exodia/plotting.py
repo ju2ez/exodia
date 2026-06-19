@@ -284,17 +284,25 @@ def themes_over_time(report: ThemeReport, settings: Settings, top_k: int = 5) ->
 
 
 def abstract_coverage(entries: list[Entry], settings: Settings) -> dict | None:
-    if not entries:
+    """Abstract coverage among paper-like entries only.
+
+    Blog posts and videos have no abstract by nature, so counting them would
+    understate coverage — they're excluded from the denominator.
+    """
+    scholarly = [e for e in entries if e.category not in ("blogs", "videos")]
+    if not scholarly:
         return None
-    with_abs = sum(1 for e in entries if e.abstract)
-    without = len(entries) - with_abs
+    with_abs = sum(1 for e in scholarly if e.abstract)
+    without = len(scholarly) - with_abs
     fig = go.Figure(go.Pie(
         labels=["With abstract", "No abstract"], values=[with_abs, without], hole=0.55,
         marker=dict(colors=[_ACCENT, "#e2e8f0"]),
         hovertemplate="%{label}: %{value} (%{percent})<extra></extra>",
     ))
-    return _card("abstract_coverage", "Abstract coverage",
-                 "How many entries have an arXiv abstract attached (data quality).", fig, 400)
+    return _card("abstract_coverage", "Abstract coverage (papers)",
+                 "Share of paper-like entries with an arXiv abstract attached — blog posts and "
+                 "videos are excluded since they have none (an enrichment/data-quality signal).",
+                 fig, 400)
 
 
 def topic_prevalence_over_time(entries: list[Entry], settings: Settings) -> dict | None:
