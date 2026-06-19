@@ -4,7 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}{{ site_title }}{% endblock %}</title>
-  <meta name="description" content="Distilling SotA open-endedness through open-endedness.">
+  <meta name="description" content="Distilling SotA open-endedness through open-endedness — a self-updating knowledge base, concept/trend analysis, and AI-generated research ideas.">
+  <meta name="theme-color" content="#2f855a">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{% block og_title %}{{ self.title() }}{% endblock %}">
+  <meta property="og:description" content="Distilling SotA open-endedness through open-endedness — a self-updating knowledge base, concept/trend analysis, and AI-generated research ideas.">
+  <meta name="twitter:card" content="summary">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%232f855a'/><text x='32' y='47' font-size='42' text-anchor='middle' fill='white' font-family='-apple-system,sans-serif' font-weight='700'>e</text></svg>">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
