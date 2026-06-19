@@ -503,5 +503,40 @@
     "new_ideas": 2,
     "themes_changed": true,
     "note": "Initial build."
+  },
+  {
+    "run_id": "20260619T090215",
+    "run_utc": "2026-06-19T09:07:59Z",
+    "from_sha": "7f26eb83db131186703ff2d2864424866ad12565",
+    "to_sha": "8933d2817ab5b89cc3401cd16eb37ccd84b55812",
+    "upstream_compare_url": "https://github.com/jennyzzt/awesome-open-ended/compare/7f26eb83db131186703ff2d2864424866ad12565...8933d2817ab5b89cc3401cd16eb37ccd84b55812",
+    "added": [
+      {
+        "entry_id": "b77ca1088d91",
+        "title": "DéjàQ: Open-Ended Evolution of Diverse, Learnable and Verifiable Problems",
+        "category": "papers"
+      },
+      {
+        "entry_id": "d904f7586e5a",
+        "title": "Dreaming in Code for Curriculum Learning in Open-Ended Worlds",
+        "category": "papers"
+      },
+      {
+        "entry_id": "3638d7fdab3c",
+        "title": "In Search of the Ingredients of Open-Endedness: Replicating Picbreeder with Large Vision-Language Models",
+        "category": "papers"
+      }
+    ],
+    "removed": [],
+    "changed": [],
+    "counts": {
+      "added": 3,
+      "removed": 0,
+      "changed": 0,
+      "total_entries": 100
+    },
+    "new_ideas": 0,
+    "themes_changed": true,
+    "note": ""
   }
 ]

@@ -50,6 +50,9 @@ class Entry:
     arxiv_published: str | None = None
     arxiv_categories: list[str] | None = None
     pdf_path: str | None = None
+    # Citation counts (Semantic Scholar); None = not fetched yet.
+    citation_count: int | None = None
+    influential_citation_count: int | None = None
     # Real-publication signals (arXiv is a preprint server, not a venue).
     journal_ref: str | None = None
     doi: str | None = None
