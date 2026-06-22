@@ -29,6 +29,35 @@ def text_path_for(settings: Settings, arxiv_id: str) -> Path:
     return settings.pdfs_dir / f"{base_id(arxiv_id)}.txt"
 
 
+def _cap_marker(settings: Settings) -> Path:
+    """File recording the ``fulltext_max_chars`` the cached sidecars were cut at."""
+    return settings.pdfs_dir / ".fulltext_cap"
+
+
+def _invalidate_stale_sidecars(settings: Settings) -> None:
+    """Drop cached ``.txt`` sidecars whose cap differs from the current setting.
+
+    Extraction is cache-first, so a sidecar written at an old cap (e.g. 40k,
+    truncated before the conclusion) would otherwise live forever — including in
+    the CI corpus cache, which has no marker. When the cap changes (or the marker
+    is absent but sidecars exist, i.e. a legacy cache), re-extract from the still
+    cached PDFs at the new cap; the PDFs themselves are never re-downloaded.
+    """
+    if not settings.pdfs_dir.exists():
+        return
+    marker = _cap_marker(settings)
+    prior = marker.read_text(encoding="utf-8").strip() if marker.exists() else None
+    if prior == str(settings.fulltext_max_chars):
+        return
+    stale = list(settings.pdfs_dir.glob("*.txt"))
+    if not stale:
+        return
+    for p in stale:
+        p.unlink(missing_ok=True)
+    log.info("Full text: cap changed (%s -> %d); re-extracting %d sidecar(s)",
+             prior or "unset", settings.fulltext_max_chars, len(stale))
+
+
 def _pdf_to_text(path: Path, max_chars: int) -> str:
     """Extract text from a PDF, stopping once ``max_chars`` is reached.
 
@@ -54,6 +83,7 @@ def extract_pdf_texts(entries: list[Entry], settings: Settings) -> int:
 
     Returns the number of PDFs newly extracted.
     """
+    _invalidate_stale_sidecars(settings)
     extracted = 0
     for e in entries:
         if not e.arxiv_id:
@@ -72,6 +102,9 @@ def extract_pdf_texts(entries: list[Entry], settings: Settings) -> int:
         dest.parent.mkdir(parents=True, exist_ok=True)
         dest.write_text(text, encoding="utf-8")
         extracted += 1
+    # Record the cap these sidecars were cut at, so a later cap change re-extracts.
+    settings.pdfs_dir.mkdir(parents=True, exist_ok=True)
+    _cap_marker(settings).write_text(str(settings.fulltext_max_chars), encoding="utf-8")
     log.info("Full text: extracted %d PDF(s) into the analysis corpus", extracted)
     return extracted
 

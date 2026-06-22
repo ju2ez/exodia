@@ -62,7 +62,12 @@ class Settings:
 
     # Mine the locally-cached full-text PDFs into the analysis corpus.
     fulltext_analyze: bool = True
-    fulltext_max_chars: int = 40000
+    # Per-paper cap on extracted text. Set generously so the *whole* paper —
+    # including the conclusion / future-work sections that live at the very end —
+    # is captured (a typical paper is ~80-150k chars; 40k cut off ~95% of them
+    # before their conclusion). The clustering view still uses title+abstract
+    # only, so a large cap helps concept/entity recall without skewing themes.
+    fulltext_max_chars: int = 400000
 
     # Fetch video transcripts (YouTube captions) into the analysis corpus.
     transcripts_fetch: bool = True

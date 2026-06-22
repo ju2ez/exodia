@@ -9,16 +9,6 @@
   interactive &mdash; hover for values, and click legend entries to toggle series.
 </p>
 
-{% if plot_cards %}
-<div class="plot-grid trend-wide">
-  {% for card in plot_cards %}
-    {% include "partials/plot_card.html" %}
-  {% endfor %}
-</div>
-{% else %}
-<p class="muted">Not enough dated entries yet to chart trends &mdash; run the pipeline to populate them.</p>
-{% endif %}
-
 {% if most_cited %}
 <h2>Most-cited papers</h2>
 <p class="muted">The most-cited entries in the list (Semantic Scholar citation counts).</p>
@@ -36,5 +26,39 @@
   </li>
   {% endfor %}
 </ol>
+{% endif %}
+
+{% if future_directions %}
+<h2>What the field says comes next</h2>
+<p class="muted">
+  The forward-looking sections of every paper &mdash; &ldquo;future work&rdquo;, &ldquo;conclusion&rdquo;,
+  &ldquo;limitations&rdquo;, &ldquo;open questions&rdquo; &mdash; mined for the curated concepts authors
+  flag as open. Ranked by how many papers propose each direction; <span class="fd-recent">&#9650; recent</span>
+  marks concepts where most of those calls land in the last few years (rising momentum).
+</p>
+{% set top_fd = future_directions[0].docs %}
+<ul class="concept-bars">
+  {% for d in future_directions %}
+  <li class="concept-bar">
+    <span class="concept-name">
+      {{ d.concept }}
+      {% if d.recent_share >= 0.6 and d.docs >= 3 %}<span class="fd-recent" title="{{ d.recent }} of {{ d.docs }} in the last 3 years">&#9650; recent</span>{% endif %}
+    </span>
+    <span class="concept-track"><span class="concept-fill" style="width: {{ (100 * d.docs / top_fd)|round(1) }}%"></span></span>
+    <span class="concept-count">{{ d.docs }}</span>
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+{% if plot_cards %}
+<h2>Charts over time</h2>
+<div class="plot-grid trend-wide">
+  {% for card in plot_cards %}
+    {% include "partials/plot_card.html" %}
+  {% endfor %}
+</div>
+{% else %}
+<p class="muted">Not enough dated entries yet to chart trends &mdash; run the pipeline to populate them.</p>
 {% endif %}
 {% endblock %}

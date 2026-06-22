@@ -42,7 +42,11 @@ citations:
 
 fulltext:
   analyze: true                # mine the downloaded PDFs' full text into the analysis corpus
-  max_chars: 40000             # per-paper cap on extracted text (bounds noise + memory)
+  # Per-paper cap on extracted text. Generous on purpose: a typical paper runs
+  # ~80-150k chars and the conclusion / future-work section sits at the very end,
+  # so a 40k cap cut off the forward-looking sections of ~95% of papers (which
+  # the "future directions" trend mines). Clustering still uses title+abstract.
+  max_chars: 400000
 
 transcripts:
   fetch: true                  # fetch video (YouTube) transcripts into the analysis corpus

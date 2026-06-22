@@ -171,6 +171,10 @@ main.container { padding-top: 2rem; padding-bottom: 3rem; }
 .concept-track { background: var(--card); border: 1px solid var(--border); border-radius: 6px; height: 0.8rem; overflow: hidden; }
 .concept-fill { display: block; height: 100%; background: linear-gradient(90deg, var(--accent2), var(--accent)); }
 .concept-count { font-variant-numeric: tabular-nums; font-size: 0.85rem; min-width: 2ch; text-align: right; }
+/* "rising momentum" badge on the future-directions summary */
+.fd-recent { display: inline-block; margin-left: 0.4rem; padding: 0 0.4rem; border-radius: 999px;
+  background: #f0fff4; border: 1px solid #c6f6d5; color: var(--accent); font-size: 0.72rem;
+  font-weight: 600; vertical-align: middle; white-space: nowrap; }
 @media (max-width: 560px) {
   .concept-bar { grid-template-columns: 1fr auto; }
   .concept-track { grid-column: 1 / -1; order: 3; }

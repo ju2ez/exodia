@@ -21,6 +21,7 @@ from __future__ import annotations
 import re
 from dataclasses import dataclass
 
+from .corrections import corrected_arxiv_id
 from .logging_setup import get_logger
 from .models import Entry
 from .util import arxiv_id_from_links, content_hash, normalize_title, stable_id
@@ -154,6 +155,12 @@ def parse_entry(block_lines: list[str], category: str, source_repo: str) -> Entr
 
     authors = split_authors(authors_raw)
     arxiv_id = arxiv_id_from_links(links)
+    # Fix known upstream link errors (wrong arXiv id -> wrong abstract/citations).
+    fixed = corrected_arxiv_id(title, arxiv_id)
+    if fixed != arxiv_id:
+        arxiv_id = fixed
+        if links.get("paper"):  # keep the displayed link pointing at the right paper
+            links["paper"] = f"https://arxiv.org/abs/{fixed}"
     entry_id = stable_id(category, normalize_title(title))
     ch = content_hash(
         title,

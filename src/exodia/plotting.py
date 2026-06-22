@@ -23,6 +23,7 @@ from .concepts import CONCEPTS, concept_matchers
 from .config import Settings
 from .corpus import corpus_text
 from .enrich import base_id
+from .futurework import future_work_text
 from .logging_setup import get_logger
 from .models import CATEGORIES, Entry, ThemeReport
 from .venues import PREPRINT_LABEL, resolve_venue
@@ -548,11 +549,16 @@ def arxiv_categories_over_time(entries: list[Entry], settings: Settings, top_n: 
 
 
 def code_availability_over_time(entries: list[Entry], settings: Settings) -> dict | None:
-    """Share of each year's entries that link to code — a reproducibility signal."""
+    """Share of each year's *papers* that link to code — a reproducibility signal.
+
+    Only paper-like entries can ship code, so blog posts and videos are excluded
+    from the denominator (a video that obviously can't release a repo would
+    otherwise understate the share), matching :func:`abstract_coverage`.
+    """
     year_total: Counter[int] = Counter()
     year_code: Counter[int] = Counter()
     for e in entries:
-        if not e.year:
+        if not e.year or e.category in ("blogs", "videos"):
             continue
         year_total[e.year] += 1
         if "code" in (e.links or {}):
@@ -567,9 +573,10 @@ def code_availability_over_time(entries: list[Entry], settings: Settings) -> dic
         hovertemplate="%{x}: %{y:.0f}% link to code<extra></extra>",
     ))
     fig.update_xaxes(title="Year", dtick=1)
-    fig.update_yaxes(title="% of entries with a code link", ticksuffix="%")
+    fig.update_yaxes(title="% of papers with a code link", ticksuffix="%")
     return _card("code_availability", "Code availability over time",
-                 "Share of each year's entries that link to code — a reproducibility signal.", fig, 440)
+                 "Share of each year's papers that link to code — a reproducibility signal. "
+                 "Blog posts and videos are excluded since they can't ship a repository.", fig, 440)
 
 
 def _paper_link(e: Entry) -> str:
@@ -662,6 +669,105 @@ def citations_by_year(entries: list[Entry], settings: Settings) -> dict | None:
                  "Recent years are necessarily under-counted — citations accrue with age.", fig, 460)
 
 
+def _future_concepts_by_entry(entries: list[Entry], settings: Settings) -> list[tuple[Entry, list[str]]]:
+    """For each entry with a forward-looking section, the curated concepts it proposes.
+
+    Runs the concept gazetteer over *only* the "future work / conclusion /
+    limitations" text (:mod:`futurework`), so a hit means the paper explicitly
+    flags that concept as a next step — not merely that it studied it.
+    """
+    matchers = concept_matchers()
+    out: list[tuple[Entry, list[str]]] = []
+    for e in entries:
+        txt = future_work_text(e, settings)
+        if not txt:
+            continue
+        hits = [label for label, rx in matchers.items() if rx.search(txt)]
+        if hits:
+            out.append((e, hits))
+    return out
+
+
+def future_directions_over_time(entries: list[Entry], settings: Settings,
+                                top_n: int = 8, height: int = 540) -> dict | None:
+    """Share of each year's papers whose forward-looking sections propose each concept.
+
+    Mines every paper's "future work / conclusion / limitations" sections, detects
+    which curated concepts authors flag there, and trends them by year — concepts
+    the field keeps (and increasingly) names as open are the emerging hot topics.
+    """
+    fce = _future_concepts_by_entry(entries, settings)
+    if not fce:
+        return None
+    year_total: Counter[int] = Counter()
+    concept_year: dict[str, Counter] = {label: Counter() for label in CONCEPTS}
+    totals: Counter[str] = Counter()
+    for e, hits in fce:
+        if not e.year:
+            continue
+        year_total[e.year] += 1
+        for label in hits:
+            concept_year[label][e.year] += 1
+            totals[label] += 1
+    years = sorted(year_total)
+    top = [label for label, n in totals.most_common(top_n) if n > 0]
+    if len(years) < 2 or not top:
+        return None
+    fig = go.Figure()
+    for label in top:
+        yc = concept_year[label]
+        ys = [100.0 * yc.get(y, 0) / year_total[y] if year_total[y] else 0 for y in years]
+        fig.add_trace(go.Scatter(
+            x=years, y=ys, mode="lines+markers", name=label,
+            hovertemplate=f"{label} — %{{x}}: %{{y:.0f}}% of that year's papers<extra></extra>",
+        ))
+    fig.update_xaxes(title="Year", dtick=1)
+    fig.update_yaxes(title="% of papers proposing it as future work", ticksuffix="%")
+    return _card(
+        "future_directions_trend", "Future directions over time — the next hot things",
+        "Share of each year's papers whose &ldquo;future work / conclusion / limitations&rdquo; "
+        "sections explicitly propose each curated concept (detected only in those forward-looking "
+        "sections). Concepts the field keeps &mdash; and increasingly &mdash; names as open are the "
+        "emerging hot topics.", fig, height,
+    )
+
+
+def future_directions_ranked(entries: list[Entry], settings: Settings,
+                             top_n: int = 12, recent_years: int = 3) -> list[dict]:
+    """Concepts most often proposed as future work, with a recency (momentum) signal.
+
+    Returns data for an HTML "what the field says comes next" summary: per concept,
+    how many papers flag it as a future direction, its share of those papers, and
+    how concentrated those mentions are in the most recent ``recent_years`` years.
+    """
+    fce = _future_concepts_by_entry(entries, settings)
+    if not fce:
+        return []
+    years = [e.year for e, _ in fce if e.year]
+    if not years:
+        return []
+    cutoff = max(years) - recent_years + 1
+    docs: Counter[str] = Counter()
+    recent: Counter[str] = Counter()
+    total = sum(1 for e, _ in fce) or 1
+    for e, hits in fce:
+        is_recent = bool(e.year and e.year >= cutoff)
+        for label in hits:
+            docs[label] += 1
+            if is_recent:
+                recent[label] += 1
+    out: list[dict] = []
+    for label, n in docs.most_common(top_n):
+        out.append({
+            "concept": label,
+            "docs": n,
+            "share": round(n / total, 4),
+            "recent": recent[label],
+            "recent_share": round(recent[label] / n, 4) if n else 0.0,
+        })
+    return out
+
+
 def _fig_html(fig: go.Figure, include_js: bool) -> str:
     return fig.to_html(
         full_html=False,
@@ -728,6 +834,7 @@ def make_trend_plots(entries: list[Entry], report: ThemeReport, settings: Settin
     report = _report_since(report, _TREND_MIN_YEAR)
     cards = _assemble([
         lambda: concepts_over_time(entries, settings),
+        lambda: future_directions_over_time(entries, settings),
         lambda: citation_weighted_concepts_over_time(entries, settings),
         lambda: models_over_time(entries, settings),
         lambda: providers_over_time(entries, settings),

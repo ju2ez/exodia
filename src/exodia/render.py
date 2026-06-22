@@ -19,7 +19,12 @@ from . import paths
 from .config import Settings
 from .logging_setup import get_logger
 from .models import CATEGORIES, State, ThemeReport
-from .plotting import make_plots, make_trend_plots, most_cited_list
+from .plotting import (
+    future_directions_ranked,
+    make_plots,
+    make_trend_plots,
+    most_cited_list,
+)
 from .store import load_entries
 from .util import read_json
 from .venues import resolve_venues
@@ -116,6 +121,7 @@ def site_context(settings: Settings) -> tuple[Environment, dict, dict]:
             "plot_cards": trend_cards,
             "n_entries": len(entries),
             "most_cited": most_cited_list(entries),
+            "future_directions": future_directions_ranked(entries, settings),
         },
         "papers.html": {
             "grouped": grouped,
