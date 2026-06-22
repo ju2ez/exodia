@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-06-19T14:57:00Z",
+  "generated_utc": "2026-06-22T09:05:49Z",
   "method": "tfidf_kmeans",
   "n_docs": 100,
   "top_keyphrases": [
@@ -500,12 +500,12 @@
           "url": "https://www.oreilly.com/radar/open-endedness-the-last-grand-challenge-youve-never-heard-of/"
         },
         {
-          "title": "Novel Opportunities in Open-Endedness",
-          "url": "https://youtu.be/T08wc4xD3KA"
-        },
-        {
           "title": "EvoCraft: A New Challenge for Open-Endedness",
           "url": "https://link.springer.com/chapter/10.1007/978-3-030-72699-7_21"
+        },
+        {
+          "title": "Novel Opportunities in Open-Endedness",
+          "url": "https://youtu.be/T08wc4xD3KA"
         }
       ]
     },
