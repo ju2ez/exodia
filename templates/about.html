@@ -11,6 +11,13 @@
   scientist for new ideas, and rebuilds this site &mdash; the loop shown on the
   <a href="index.html">home page</a>.
 </p>
+<p class="muted">
+  A note on the name: exodia <em>tracks and distills</em> open-endedness research.
+  It is inspired by an open-ended loop, but it is not (yet) an open-ended
+  <em>system</em> itself in the technical sense &mdash; perpetual novelty <em>and</em>
+  learnability, as formalized by Hughes et al. (2024). See
+  <a href="#future-work">Future work</a> for how it could get there.
+</p>
 
 <h2>Method</h2>
 <ol>
@@ -53,11 +60,20 @@
   code is vendored. See the repository <code>NOTICE</code> file for full details.
 </p>
 
-<h2>Future work</h2>
+<h2 id="future-work">Future work</h2>
 <p>
   The loop is intentionally left open. A future step could close it by invoking
   AI-Scientist-v2's full experiment-and-write-up pipeline to draft an actual paper
   from the highest-consensus ideas. That step is <strong>not implemented</strong>
   here and appears as a dashed branch in the loop diagram.
+</p>
+<p>
+  Closing that feedback is also what could make exodia <em>genuinely</em>
+  open-ended rather than a pipeline that merely tracks the field: generated ideas
+  seeding work whose results re-enter the knowledge base and reshape the next
+  round, steered by a model of interestingness toward the novel-but-learnable
+  frontier, with novelty and learnability measured across runs (in the sense of
+  Hughes et al., 2024). That is the project's intended direction, not its current
+  state.
 </p>
 {% endblock %}

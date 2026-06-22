@@ -8,7 +8,11 @@ list, distills it into a structured knowledge base, generates and summarizes new
 research ideas with [AI-Scientist-v2](https://github.com/SakanaAI/AI-Scientist-v2),
 and publishes the result — with overview plots and a changelog — to GitHub Pages.
 
-The project *is* the open-ended loop it documents:
+The project runs in a continuous loop *alongside* the field it documents. To be
+precise: it **tracks and distills** open-endedness research — it is not (yet) an
+open-ended *system* itself in the technical sense (perpetual novelty +
+learnability), though it's built to grow toward one (see
+[Toward genuine open-endedness](#toward-genuine-open-endedness)):
 
 ```
 Expert Curator pushes new entries (awesome-open-ended)
@@ -32,6 +36,20 @@ Deploy to GitHub Pages, commit state, loop
 
 The full, rendered diagram (including the *future* paper-writing branch) appears
 at the top of the published site.
+
+## Toward genuine open-endedness
+
+Today exodia is **reactive**: its novelty comes from the human-curated upstream
+list and from the idea-generating LLM — not from its own dynamics. By the field's
+working definition (Hughes et al., 2024), an open-ended system perpetually produces
+artifacts that stay both *novel* and *learnable* to an observer; exodia doesn't
+claim that. To actually become open-ended it would need to **close the loop on
+itself**: generated ideas seeding searches/experiments whose results re-enter the
+knowledge base and reshape what gets generated next, an *interestingness* model
+steering ideation toward the novel-but-learnable frontier, less dependence on the
+curated upstream as the sole source of novelty, and an explicit novelty +
+learnability metric tracked across runs. That is the intended direction — not the
+current state.
 
 ## How it works
 
