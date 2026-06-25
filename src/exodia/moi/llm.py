@@ -42,7 +42,9 @@ class ModelSpec:
 Transport = Callable[[ModelSpec, dict], str]
 
 
-def _http_transport(spec: ModelSpec, payload: dict) -> str:
+def _http_transport(spec: ModelSpec, payload: dict, *, max_retries: int = 5) -> str:
+    import time
+
     import requests
 
     key = os.environ.get(spec.api_key_env)
@@ -51,24 +53,36 @@ def _http_transport(spec: ModelSpec, payload: dict) -> str:
             f"{spec.api_key_env} not set — needed to call {spec.id}. "
             "Use --mock for an offline run."
         )
-    resp = requests.post(
-        f"{spec.base_url.rstrip('/')}/chat/completions",
-        headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
-        json=payload,
-        timeout=120,
-    )
-    resp.raise_for_status()
-    data = resp.json()
-    return data["choices"][0]["message"]["content"]
+    url = f"{spec.base_url.rstrip('/')}/chat/completions"
+    headers = {"Authorization": f"Bearer {key}", "Content-Type": "application/json"}
+    last_err: Exception | None = None
+    for attempt in range(max_retries):
+        try:
+            resp = requests.post(url, headers=headers, json=payload, timeout=120)
+            if resp.status_code in (429, 500, 502, 503, 504):
+                # Rate-limited / transient: honor Retry-After, else exponential backoff.
+                wait = float(resp.headers.get("Retry-After") or 0) or min(60, 2 ** (attempt + 1))
+                log.warning("LLM %s -> HTTP %d; backing off %.0fs (attempt %d/%d)",
+                            spec.id, resp.status_code, wait, attempt + 1, max_retries)
+                time.sleep(wait)
+                continue
+            resp.raise_for_status()
+            return resp.json()["choices"][0]["message"]["content"]
+        except requests.RequestException as ex:  # network blip: retry
+            last_err = ex
+            time.sleep(min(60, 2 ** (attempt + 1)))
+    raise RuntimeError(f"LLM call to {spec.id} failed after {max_retries} attempts: {last_err}")
 
 
 class LLMClient:
     """Cache-first chat client. ``transport`` is injectable for offline tests."""
 
     def __init__(self, spec: ModelSpec, cache_dir: Path, *, transport: Transport | None = None,
-                 seed: int = 0, temperature: float = 0.7):
+                 seed: int = 0, temperature: float = 0.7, tag: str = ""):
         self.spec = spec
-        self.cache_dir = Path(cache_dir)
+        # Namespace the cache (e.g. "mock" vs "real") so a mock smoke run can never
+        # serve its canned responses to a real run with a matching prompt.
+        self.cache_dir = Path(cache_dir) / tag if tag else Path(cache_dir)
         self.transport = transport or _http_transport
         self.seed = seed
         self.temperature = temperature

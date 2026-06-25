@@ -140,6 +140,7 @@ def test_score_ideas_sets_moi_score(tmp_path):
 
 def test_walkforward_smoke_mock(tmp_path):
     s = _settings(tmp_path)
+    s.moi_honest_models = {2021: "gemini-2.0-flash"}  # genuine ≤2022 model -> honest arm runs
     # Mock LLM, single cutoff, tiny budget -> fully offline, deterministic.
     out = run_backtest(s, cutoffs=[2022], arms=["honest", "oracle"],
                        modes=["steered", "baseline"], mock=True, seed=0,
@@ -153,14 +154,27 @@ def test_walkforward_smoke_mock(tmp_path):
     assert all(r.n_llm_calls + r.n_cache_hits > 0 for r in c.runs)
 
 
+def test_honest_arm_skipped_without_genuine_model(tmp_path):
+    # honest model only for 2023 -> honest runs at 2023 but NOT at 2022 (oracle-only).
+    # (Corpus tops out at 2024, so 2023 is the latest cutoff with a non-empty test set.)
+    s = _settings(tmp_path)
+    s.moi_honest_models = {2023: "gemini-2.0-flash"}
+    out = run_backtest(s, cutoffs=[2022, 2023], arms=["honest", "oracle"], modes=["steered"],
+                       mock=True, seed=0, out=str(tmp_path / "moi.json"), entries=_corpus())
+    bt = MoiBacktest.from_dict(json.loads(open(out).read()))
+    by_year = {c.cutoff_year: set(c.metrics) for c in bt.cutoffs}
+    assert "honest.steered" not in by_year[2022] and "oracle.steered" in by_year[2022]
+    assert "honest.steered" in by_year[2023]
+
+
 def test_moi_plot_builder_and_cdn(tmp_path):
     canned = {"cutoffs": [
         {"cutoff_year": 2021, "metrics": {
-            "honest.steered": {"precision": 0.3, "hit_ci": [0.1, 0.5]},
-            "oracle.steered": {"precision": 0.5, "hit_ci": [0.3, 0.7]}}},
+            "honest.steered": {"precision": 0.3, "mean_best_sim": 0.12, "hit_ci": [0.1, 0.5]},
+            "oracle.steered": {"precision": 0.5, "mean_best_sim": 0.18, "hit_ci": [0.3, 0.7]}}},
         {"cutoff_year": 2022, "metrics": {
-            "honest.steered": {"precision": 0.4, "hit_ci": [0.2, 0.6]},
-            "oracle.steered": {"precision": 0.6, "hit_ci": [0.4, 0.8]}}},
+            "honest.steered": {"precision": 0.4, "mean_best_sim": 0.15, "hit_ci": [0.2, 0.6]},
+            "oracle.steered": {"precision": 0.6, "mean_best_sim": 0.2, "hit_ci": [0.4, 0.8]}}},
     ]}
     card = moi_hitrate_by_cutoff(canned, Settings())
     assert card and card["id"] == "moi_backtest"

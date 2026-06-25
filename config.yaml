@@ -68,10 +68,12 @@ ideas:
 # `python -m exodia moi-backtest` (add --mock for a no-API smoke run). NEVER runs
 # in the daily Action — the committed data/moi_backtest.json is what the site renders.
 moi:
-  oracle_model: "gemini-2.5-flash"   # modern model = leakage upper bound (it knows the future)
+  oracle_model: "gemini-2.5-flash-lite"   # modern model = leakage upper bound (free-tier quota headroom)
   # Genuine ≤Y-cutoff models for the HONEST arm: {cutoff_year: model_id}. Pick ids
   # whose training cutoff is on/before that year (auditable; recorded in the output).
-  honest_models: {}
+  # Gemini's catalog has no pre-2.0 models, so the oldest genuine horizon is
+  # gemini-2.0-flash (cutoff ~mid-2024) -> honest arm valid only for Y>=2024.
+  honest_models: {2024: "gemini-2.0-flash", 2025: "gemini-2.0-flash"}
   generations: 6                # quality-diversity rounds
   init_pop: 16                  # seed population size
   batch: 8                      # children proposed per generation

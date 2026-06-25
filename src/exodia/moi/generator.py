@@ -85,9 +85,9 @@ _SYSTEM = (
     "know work published on or before December {year}. Do NOT use any knowledge of "
     "developments after {year}. Propose concrete, novel research directions that "
     "you believe will emerge and matter in the years AFTER {year}.\n"
-    "Respond with ONLY a JSON array. Each element is an object with keys: "
-    '"name" (short slug), "title", "short_hypothesis" (1-2 sentences), '
-    '"abstract" (3-5 sentences). No prose outside the JSON.'
+    "Respond with ONLY a JSON array (no markdown, no commentary). Each element is an "
+    'object with keys: "name" (short slug), "title", "short_hypothesis" (1 sentence), '
+    '"abstract" (2 sentences). Keep each idea short so the JSON is complete and valid.'
 )
 
 
@@ -117,8 +117,36 @@ def _extract_json_array(text: str) -> list[dict]:
         try:
             return [o for o in json.loads(m.group(0)) if isinstance(o, dict)]
         except Exception:
-            return []
-    return []
+            pass
+    return _salvage_objects(text)
+
+
+def _salvage_objects(text: str) -> list[dict]:
+    """Recover complete ``{...}`` objects from a truncated/invalid JSON array.
+
+    Thinking-heavy models sometimes cut the array off mid-element; we still want
+    the ideas that *did* complete. Scan for balanced top-level braces and parse
+    each block independently.
+    """
+    out: list[dict] = []
+    depth = 0
+    start = -1
+    for i, ch in enumerate(text):
+        if ch == "{":
+            if depth == 0:
+                start = i
+            depth += 1
+        elif ch == "}":
+            depth -= 1
+            if depth == 0 and start >= 0:
+                try:
+                    obj = json.loads(text[start:i + 1])
+                    if isinstance(obj, dict):
+                        out.append(obj)
+                except Exception:
+                    pass
+                start = -1
+    return out
 
 
 def parse_gen_ideas(raw: str, *, generation: int = 0, parents: list[str] | None = None) -> list[GenIdea]:
@@ -166,7 +194,9 @@ class Generator:
             f"{self._context_block()}\n"
             f"Propose {n} distinct, concrete research directions likely to emerge after {self.year}."
         )
-        raw = self.client.complete(self._system(), user, max_tokens=1600)
+        # Generous budget: Gemini "thinking" tokens count against max_tokens, so a
+        # small cap truncates the JSON mid-array. 8k leaves room for thinking + output.
+        raw = self.client.complete(self._system(), user, max_tokens=8000)
         return parse_gen_ideas(raw, generation=0)
 
     def mutate(self, parent: GenIdea, cell_hint: str, generation: int) -> list[GenIdea]:
@@ -176,7 +206,7 @@ class Generator:
             f"Produce 1 bolder, more specific variant that pushes toward: {cell_hint}. "
             "Return a JSON array with a single object."
         )
-        raw = self.client.complete(self._system(), user, max_tokens=900)
+        raw = self.client.complete(self._system(), user, max_tokens=2048)
         return parse_gen_ideas(raw, generation=generation, parents=[parent.idea_id])
 
     def crossover(self, a: GenIdea, b: GenIdea, generation: int) -> list[GenIdea]:
@@ -186,5 +216,5 @@ class Generator:
             f"B: {b.title} — {b.short_hypothesis}\n{self._context_block()}\n"
             "Return a JSON array with a single object."
         )
-        raw = self.client.complete(self._system(), user, max_tokens=900)
+        raw = self.client.complete(self._system(), user, max_tokens=2048)
         return parse_gen_ideas(raw, generation=generation, parents=[a.idea_id, b.idea_id])
