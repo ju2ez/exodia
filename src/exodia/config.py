@@ -82,6 +82,19 @@ class Settings:
     match_threshold: float = 0.13
     novelty_threshold: float = 0.82
 
+    # Model of Interestingness / forecasting backtest (manual, offline; never in CI).
+    moi_oracle_model: str = "gemini-2.5-flash"  # modern model for the leakage-upper-bound arm
+    moi_honest_models: dict = field(default_factory=lambda: {})  # {year: model_id} genuine ≤Y cutoffs
+    moi_generations: int = 6
+    moi_init_pop: int = 16
+    moi_batch: int = 8
+    moi_archive_shape: tuple[int, int] = (6, 3)  # concept-family × novelty-bin
+    moi_hit_threshold: float = 0.18  # cosine ≥ this = a predicted idea "hit" a real paper
+    moi_fitness_lambda: float = 0.5  # penalty on reward-ensemble disagreement (anti-hack)
+    moi_reward_ensemble: int = 4
+    moi_reward_pairs: int = 400
+    moi_temperature: float = 0.7
+
     data_dir: Path = field(default_factory=lambda: paths.DEFAULT_DATA_DIR)
     site_dir: Path = field(default_factory=lambda: paths.DEFAULT_SITE_DIR)
 
@@ -113,6 +126,14 @@ class Settings:
     @property
     def pdfs_dir(self) -> Path:
         return self.data_dir / "pdfs"
+
+    @property
+    def moi_backtest_path(self) -> Path:
+        return self.data_dir / "moi_backtest.json"
+
+    @property
+    def moi_cache_dir(self) -> Path:
+        return self.data_dir / "moi_cache"
 
     @property
     def transcripts_dir(self) -> Path:
@@ -204,6 +225,19 @@ def load_settings(config_path: str | Path | None = None) -> Settings:
 
     s.match_threshold = float(_get(raw, "ideas", "match_threshold", default=s.match_threshold))
     s.novelty_threshold = float(_get(raw, "ideas", "novelty_threshold", default=s.novelty_threshold))
+
+    s.moi_oracle_model = _get(raw, "moi", "oracle_model", default=s.moi_oracle_model)
+    honest = _get(raw, "moi", "honest_models", default=None)
+    if isinstance(honest, dict):
+        s.moi_honest_models = {int(y): str(m) for y, m in honest.items()}
+    s.moi_generations = int(_get(raw, "moi", "generations", default=s.moi_generations))
+    s.moi_init_pop = int(_get(raw, "moi", "init_pop", default=s.moi_init_pop))
+    s.moi_batch = int(_get(raw, "moi", "batch", default=s.moi_batch))
+    s.moi_hit_threshold = float(_get(raw, "moi", "hit_threshold", default=s.moi_hit_threshold))
+    s.moi_fitness_lambda = float(_get(raw, "moi", "fitness_lambda", default=s.moi_fitness_lambda))
+    s.moi_reward_ensemble = int(_get(raw, "moi", "reward_ensemble", default=s.moi_reward_ensemble))
+    s.moi_reward_pairs = int(_get(raw, "moi", "reward_pairs", default=s.moi_reward_pairs))
+    s.moi_temperature = float(_get(raw, "moi", "temperature", default=s.moi_temperature))
 
     s.data_dir = paths.resolve(_get(raw, "paths", "data_dir", default="data"))
     s.site_dir = paths.resolve(_get(raw, "paths", "site_dir", default="site"))

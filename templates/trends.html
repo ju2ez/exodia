@@ -61,4 +61,35 @@
 {% else %}
 <p class="muted">Not enough dated entries yet to chart trends &mdash; run the pipeline to populate them.</p>
 {% endif %}
+
+{% if moi_present %}
+<h2>Was the future predictable? (forecasting backtest)</h2>
+<p class="muted">
+  An experiment in <em>open-endedness applied to itself</em> (chart above): for each cutoff year Y
+  we train a Model of Interestingness on papers up to Y, have an LLM constrained to a year-Y horizon
+  generate &ldquo;what comes next,&rdquo; steer it toward the novel-but-learnable frontier with an
+  evolutionary quality-diversity loop, then score those predictions against the papers that
+  <em>actually</em> appeared after Y. It contrasts a <strong>steered</strong> agent vs. an unsteered
+  <strong>baseline</strong>, and an <strong>honest</strong> (genuine &le;Y-cutoff) model vs. an
+  <strong>oracle</strong> (modern model &mdash; a leakage upper bound, since it already knows the
+  future). A research probe, not a benchmark: per-year samples are small, so read the trend across
+  cutoffs.
+</p>
+{% if moi_examples %}
+<p class="muted">Predictions that landed &mdash; a generated direction that matched a real later paper:</p>
+<ul class="cited-list">
+  {% for ex in moi_examples %}
+  <li class="cited-item">
+    <span class="cited-rank muted">{{ ex.cutoff_year }}&rarr;</span>
+    <span class="cited-main">
+      <strong>{{ ex.idea_title }}</strong>
+      <span class="muted">&mdash; matched
+        {% if ex.paper_url %}<a href="{{ ex.paper_url }}">{{ ex.paper_title }}</a>{% else %}{{ ex.paper_title }}{% endif %}{% if ex.year %} ({{ ex.year }}){% endif %} &middot; {{ ex.arm }}/{{ ex.mode }}</span>
+    </span>
+    <span class="cited-count">{{ "%.2f"|format(ex.score) }}</span>
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
+{% endif %}
 {% endblock %}

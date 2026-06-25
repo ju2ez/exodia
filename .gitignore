@@ -171,6 +171,8 @@ venv.bak/
 data/pdfs/
 # Exodia: locally cached video transcripts (analysis only; never committed)
 data/transcripts/
+# Exodia: MOI backtest LLM response cache (regenerable; only moi_backtest.json is committed)
+data/moi_cache/
 # Exodia: ideation scratch dir + dynamic-site vote/feedback database
 .exodia-work/
 data/community.db

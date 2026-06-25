@@ -117,6 +117,10 @@ main.container { padding-top: 2rem; padding-bottom: 3rem; }
 .best-ideas li { margin: 0.3rem 0; }
 .best-score { display: inline-block; min-width: 1.6rem; margin-left: 0.5rem; padding: 0 0.4rem; border-radius: 999px; background: var(--accent); color: #fff; font-size: 0.8rem; text-align: center; }
 .star { color: #d69e2e; font-weight: 700; }
+/* Model-of-Interestingness score pill on each idea */
+.moi-badge { display: inline-block; margin-left: 0.4rem; padding: 0.05rem 0.5rem; border-radius: 999px;
+  background: #ebf8ff; border: 1px solid #bee3f8; color: var(--accent2); font-size: 0.72rem;
+  font-weight: 700; vertical-align: middle; white-space: nowrap; }
 .realized-note { background: #fffaf0; border: 1px solid #f6e05e; border-radius: 8px; padding: 0.5rem 0.75rem; font-size: 0.92rem; }
 
 /* Voting */

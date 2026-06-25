@@ -52,6 +52,17 @@ def build_parser() -> argparse.ArgumentParser:
     si = sub.add_parser("sync-issues", help="Create/refresh a GitHub Issue per idea; pull vote+comment tallies.")
     si.add_argument("--repo", default=None, help="owner/repo hosting the idea issues.")
     si.add_argument("--no-create", action="store_true", help="Only refresh tallies; don't open new issues.")
+
+    mb = sub.add_parser("moi-backtest",
+                        help="Walk-forward Model-of-Interestingness forecasting backtest (manual; LLM cost).")
+    mb.add_argument("--cutoffs", default="2021,2022,2023", help="Comma-separated cutoff years Y.")
+    mb.add_argument("--arms", default="honest,oracle", help="Comma-separated: honest,oracle.")
+    mb.add_argument("--modes", default="steered,baseline", help="Comma-separated: steered,baseline.")
+    mb.add_argument("--generations", type=int, default=None, help="Override QD generations.")
+    mb.add_argument("--init-pop", type=int, default=None, help="Override seed population size.")
+    mb.add_argument("--seed", type=int, default=0, help="Deterministic seed.")
+    mb.add_argument("--mock", action="store_true", help="Use the offline mock LLM (no API calls).")
+    mb.add_argument("--out", default=None, help="Output path (default data/moi_backtest.json).")
     return p
 
 
@@ -116,6 +127,26 @@ def main(argv: list[str] | None = None) -> int:
             return 2
         created, synced = sync(settings, repo, token, create_missing=not args.no_create)
         print(f"issues: +{created} created, {synced} refreshed (repo={repo})")
+        return 0
+
+    if args.cmd == "moi-backtest":
+        from .moi import run_backtest
+
+        if args.generations is not None:
+            settings.moi_generations = args.generations
+        if args.init_pop is not None:
+            settings.moi_init_pop = args.init_pop
+        cutoffs = [int(y) for y in args.cutoffs.split(",") if y.strip()]
+        out = run_backtest(
+            settings,
+            cutoffs=cutoffs,
+            arms=[a.strip() for a in args.arms.split(",") if a.strip()],
+            modes=[m.strip() for m in args.modes.split(",") if m.strip()],
+            mock=args.mock,
+            seed=args.seed,
+            out=args.out,
+        )
+        print(f"moi-backtest -> {out}")
         return 0
 
     return 1

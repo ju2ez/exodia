@@ -19,6 +19,7 @@ from . import paths
 from .config import Settings
 from .logging_setup import get_logger
 from .models import CATEGORIES, State, ThemeReport
+from .moi.plots import moi_examples
 from .plotting import (
     future_directions_ranked,
     make_plots,
@@ -71,8 +72,12 @@ def site_context(settings: Settings) -> tuple[Environment, dict, dict]:
         read_json(settings.state_path, default={"upstream_repo": settings.upstream_repo})
     )
 
+    # MOI forecasting backtest (committed JSON; rendered with zero LLM calls). Absent
+    # until `exodia moi-backtest` has been run, in which case the chart is skipped.
+    moi = read_json(settings.moi_backtest_path, default=None)
+
     plot_cards = make_plots(entries, report, settings)
-    trend_cards = make_trend_plots(entries, report, settings)
+    trend_cards = make_trend_plots(entries, report, settings, moi=moi)
 
     grouped: dict[str, list] = {k: [] for k in CATEGORIES}
     for e in entries:
@@ -122,6 +127,8 @@ def site_context(settings: Settings) -> tuple[Environment, dict, dict]:
             "n_entries": len(entries),
             "most_cited": most_cited_list(entries),
             "future_directions": future_directions_ranked(entries, settings),
+            "moi_present": bool(moi and moi.get("cutoffs")),
+            "moi_examples": moi_examples(moi),
         },
         "papers.html": {
             "grouped": grouped,

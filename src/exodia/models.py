@@ -101,6 +101,9 @@ class Idea:
     votes_down: int = 0
     score: int = 0
     feedback_count: int = 0
+    # Model-of-Interestingness score (0-1): how interesting the MOI judges this idea,
+    # given the whole current corpus. Set by the offline-but-cheap moi.score step.
+    moi_score: float | None = None
 
     def to_dict(self) -> dict[str, Any]:
         return asdict(self)

@@ -158,6 +158,17 @@ def run_all(
     except Exception as ex:
         log.warning("Idea<->paper matching skipped due to error: %s", ex)
 
+    # Score every idea with the Model of Interestingness (cheap, sklearn-only, no LLM;
+    # persisted onto ideas.json so the site can rank/show it). The expensive LLM
+    # *backtest* is a separate manual command and is not run here.
+    try:
+        from .moi.score import score_ideas
+        all_ideas = load_ideas(settings.ideas_path)
+        if score_ideas(merged, all_ideas, settings):
+            write_json(settings.ideas_path, all_ideas)
+    except Exception as ex:
+        log.warning("MOI idea scoring skipped due to error: %s", ex)
+
     note = "Initial build." if is_first else ""
     compare = up.compare_url(settings.upstream_repo, from_sha, None if local else to_sha)
     changelog_entry = build_changelog_entry(

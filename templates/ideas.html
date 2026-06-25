@@ -23,7 +23,8 @@
 <p class="muted">{{ n_ideas }} ideas generated across runs, newest first.</p>
 {% for i in ideas %}
 <article class="idea" id="idea-{{ i.idea_id }}" data-idea="{{ i.idea_id }}">
-  <h2>{% if i.realized %}<span class="star" title="Realized by a published paper">★</span> {% endif %}{{ i.title }}</h2>
+  <h2>{% if i.realized %}<span class="star" title="Realized by a published paper">★</span> {% endif %}{{ i.title }}
+    {% if i.moi_score is defined and i.moi_score is not none %}<span class="moi-badge" title="Model-of-Interestingness score (novel-but-learnable, judged against the whole corpus)">MOI {{ (i.moi_score * 100)|round|int }}</span>{% endif %}</h2>
   <p class="muted">run {{ i.run_id }} &middot; {{ i.run_utc[:10] }} &middot; model <code>{{ i.model }}</code></p>
 
   {% if i.realized %}

@@ -824,12 +824,17 @@ def _report_since(report: ThemeReport, min_year: int) -> ThemeReport:
     return replace(report, themes_by_year=tby)
 
 
-def make_trend_plots(entries: list[Entry], report: ThemeReport, settings: Settings) -> list[dict]:
+def make_trend_plots(entries: list[Entry], report: ThemeReport, settings: Settings,
+                     moi: dict | None = None) -> list[dict]:
     """Trends page charts (how the field changes over the years).
 
     The whole page covers the modern era: entries (and the year-keyed theme data)
     are clipped to >= ``_TREND_MIN_YEAR`` so every chart starts at the same year.
+    ``moi`` is the committed MOI backtest dict (or None); its forecasting chart is
+    appended here so the single-plotly.js-load invariant is preserved.
     """
+    from .moi.plots import moi_hitrate_by_cutoff  # lazy: moi.plots imports from this module
+
     entries = _trend_entries(entries)
     report = _report_since(report, _TREND_MIN_YEAR)
     cards = _assemble([
@@ -847,6 +852,7 @@ def make_trend_plots(entries: list[Entry], report: ThemeReport, settings: Settin
         lambda: rising_falling_keyphrases(report, settings),
         lambda: venue_mix_over_time(entries, settings),
         lambda: category_mix_over_time(entries, settings),
+        lambda: moi_hitrate_by_cutoff(moi, settings),
     ])
     log.info("Trends: produced %d interactive figures", len(cards))
     return cards

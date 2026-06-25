@@ -23,7 +23,8 @@
     "votes_up": 0,
     "votes_down": 0,
     "score": 0,
-    "feedback_count": 0
+    "feedback_count": 0,
+    "moi_score": 0.5809
   },
   {
     "idea_id": "ab9b8bacca01",
@@ -49,6 +50,7 @@
     "votes_up": 0,
     "votes_down": 0,
     "score": 0,
-    "feedback_count": 0
+    "feedback_count": 0,
+    "moi_score": 0.4739
   }
 ]
