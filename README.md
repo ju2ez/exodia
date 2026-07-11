@@ -2,6 +2,13 @@
 
 > **Distilling SotA open-endedness through open-endedness.**
 
+[![Tests](https://github.com/ju2ez/exodia/actions/workflows/tests.yml/badge.svg)](https://github.com/ju2ez/exodia/actions/workflows/tests.yml)
+[![Pipeline](https://github.com/ju2ez/exodia/actions/workflows/pipeline.yml/badge.svg)](https://github.com/ju2ez/exodia/actions/workflows/pipeline.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Live site](https://img.shields.io/badge/site-julianhatzky.me%2Fexodia-2ea44f)](https://julianhatzky.me/exodia/)
+
+[![The Exodia site](assets/exodia-site.png)](https://julianhatzky.me/exodia/)
+
 Exodia is a self-updating pipeline and website that watches Jenny
 Zhang's curated [`awesome-open-ended`](https://github.com/jennyzzt/awesome-open-ended)
 list, distills it into a structured knowledge base, generates and summarizes new
@@ -92,7 +99,9 @@ uv venv && uv pip install -e ".[dev]"
 # Downloads full-text PDFs by default; cap or skip with --max-pdfs / --no-pdfs:
 python -m exodia run-all --dry-run
 
-# Optional local dynamic mode — in-page voting/feedback (FastAPI + SQLite):
+# Optional local dynamic mode — in-page voting/feedback (FastAPI + SQLite).
+# Local development ONLY: /api/rebuild and the feedback endpoint are
+# unauthenticated — do not bind this to a public interface.
 python -m exodia serve                 # http://127.0.0.1:8000
 
 # Static preview of the Pages build (voting/feedback link out to GitHub Issues):
@@ -157,6 +166,12 @@ without it the weekly run uses the no-cost fixture).
 See [`NOTICE`](NOTICE) for the full attribution and compliance details. This
 project's own code is released under the [MIT License](LICENSE); no third-party
 source code is vendored into this repository.
+
+## Contributing
+
+The most valuable contribution is **judgment**: vote on the generated ideas (👍/👎 on
+their GitHub Issues) and critique them in comments. Details — including how to run
+the pipeline locally and what's out of scope — in [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Future work
 

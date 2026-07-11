@@ -18,7 +18,7 @@ dependencies = [
     "plotly>=5.20",
     "scikit-learn>=1.4",
     "numpy>=1.26",
-    "python-dateutil>=2.9",
+    "pydantic>=2.0",
     "fastapi>=0.110",
     "uvicorn[standard]>=0.29",
     "pypdf>=4.0",
@@ -26,14 +26,15 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = ["pytest>=8.0", "ruff>=0.4", "httpx>=0.27"]
+dev = ["pytest>=8.0", "ruff>=0.4", "httpx2>=0.1"]
 
 [project.scripts]
 exodia = "exodia.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/jennyzzt/awesome-open-ended"
+Homepage = "https://julianhatzky.me/exodia/"
 Source = "https://github.com/ju2ez/exodia"
+Upstream = "https://github.com/jennyzzt/awesome-open-ended"
 
 [tool.setuptools.packages.find]
 where = ["src"]

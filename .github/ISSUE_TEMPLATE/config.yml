@@ -1,0 +1,11 @@
+# Idea issues are created by the pipeline (one per generated idea) — voting
+# happens via 👍/👎 reactions on those. Keep the issue namespace tidy by
+# routing everything else to the right place.
+blank_issues_enabled: false
+contact_links:
+  - name: "🗳️ Vote on research ideas"
+    url: https://julianhatzky.me/exodia/ideas.html
+    about: "Browse the generated ideas and follow the link on each one to its voting issue — 👍/👎 reactions are votes, comments are feedback."
+  - name: "📚 Suggest a paper or source"
+    url: https://github.com/jennyzzt/awesome-open-ended
+    about: "The knowledge base follows the awesome-open-ended list — suggest additions upstream."
