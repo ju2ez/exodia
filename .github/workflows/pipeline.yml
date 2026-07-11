@@ -30,7 +30,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      # No persisted credentials: the third-party ideation subprocess must not
+      # be able to read a push-capable token from .git/config. The commit step
+      # below injects the token explicitly for its single push.
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       # Persist the git-ignored corpus (full-text PDFs + extracted text + video
       # transcripts) across runs so analysis covers the whole list and we don't
@@ -62,8 +67,15 @@ jobs:
         # Clone the ideation engine and install only the lightweight deps its
         # ideation script needs (not the full experiment/training stack). exodia
         # shells out to it when EXODIA_AISCIENTIST_DIR points here.
+        # Pinned to a reviewed commit — this is third-party code executed with
+        # API keys in env; bump the SHA deliberately, not implicitly.
+        env:
+          AIS_SHA: 96bd51617cfdbb494a9fc283af00fe090edfae48
         run: |
-          git clone --depth 1 https://github.com/SakanaAI/AI-Scientist-v2.git AI-Scientist-v2
+          git init AI-Scientist-v2
+          git -C AI-Scientist-v2 remote add origin https://github.com/SakanaAI/AI-Scientist-v2.git
+          git -C AI-Scientist-v2 fetch --depth 1 origin "$AIS_SHA"
+          git -C AI-Scientist-v2 checkout FETCH_HEAD
           uv pip install openai anthropic backoff tiktoken
 
       - name: Decide run flags
@@ -102,12 +114,18 @@ jobs:
         run: python -m exodia render
 
       - name: Commit refreshed data
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config user.name "exodia-bot"
           git config user.email "exodia-bot@users.noreply.github.com"
           git add data/
           git diff --cached --quiet || git commit -m "chore: refresh knowledge base, ideas & themes [skip ci]"
-          git push
+          # Rebase first: a human push mid-run must not reject ours — a rejected
+          # push loses the idea->issue mapping and duplicates issues next run.
+          REMOTE="https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
+          git pull --rebase "$REMOTE" main
+          git push "$REMOTE" HEAD:main
 
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3

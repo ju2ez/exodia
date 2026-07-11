@@ -165,7 +165,14 @@ def run_ideation(topic_md: Path, settings: Settings, ais_dir: Path, env: dict | 
         "--max-num-generations", str(settings.ideation_max_num_generations),
         "--num-reflections", str(settings.ideation_num_reflections),
     ]
-    run_env = os.environ.copy()
+    # Whitelist the subprocess env: AI-Scientist-v2 is third-party code and must
+    # not inherit ambient secrets (e.g. GITHUB_TOKEN in CI) — pass only the
+    # basics plus the model API keys it actually needs.
+    _passthrough = (
+        "PATH", "HOME", "TMPDIR", "LANG", "LC_ALL", "TERM",
+        "GEMINI_API_KEY", "OPENAI_API_KEY", "ANTHROPIC_API_KEY",
+    )
+    run_env = {k: v for k, v in os.environ.items() if k in _passthrough}
     if env:
         run_env.update(env)
     log.info("Invoking AI-Scientist-v2: %s (cwd=%s)", " ".join(cmd), ais_dir)
@@ -268,8 +275,12 @@ def ideate(
         log.info("Dry-run: using idea fixture instead of invoking AI-Scientist-v2")
         return parse_ideas(FIXTURE_IDEAS, run_id, f"{settings.ideation_model} (dry-run)", source_sha)
 
-    ais = Path(ais_dir or os.environ.get("EXODIA_AISCIENTIST_DIR", "")).expanduser()
-    if not str(ais) or not ais.exists():
+    configured = ais_dir or os.environ.get("EXODIA_AISCIENTIST_DIR", "")
+    if not configured:
+        log.warning("EXODIA_AISCIENTIST_DIR not set; skipping idea generation")
+        return []
+    ais = Path(configured).expanduser()
+    if not ais.exists():
         log.warning("AI-Scientist-v2 dir not available (%s); skipping idea generation", ais)
         return []
     out = run_ideation(topic_md, settings, ais)
