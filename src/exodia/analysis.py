@@ -31,6 +31,9 @@ EXTRA_STOPWORDS = {
     "open", "ended", "openendedness", "endedness", "using", "via", "toward",
     "towards", "learning", "model", "models", "based", "approach", "method",
     "methods", "novel", "paper", "study", "results", "propose", "proposed", "new",
+    # Zero-signal in an AI corpus; "self" is the hyphen-split fragment of
+    # self-play / self-improvement and only ever surfaces as noise.
+    "ai", "algorithm", "algorithms", "self", "generating",
 }
 # Generic research-prose words that are not concepts worth surfacing (they topped
 # the list once full PDF text was mined). Kept separate for clarity.

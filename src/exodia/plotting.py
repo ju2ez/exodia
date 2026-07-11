@@ -331,7 +331,7 @@ def top_concepts(report: ThemeReport, settings: Settings, top_n: int = 18) -> di
         x=vals, y=labels, orientation="h", marker=dict(color=vals, colorscale=_SEQ),
         hovertemplate="%{y}: %{x} works<extra></extra>",
     ))
-    fig.update_xaxes(title="Curated works engaging the concept")
+    fig.update_xaxes(title="Works engaging the concept")
     height = max(380, 26 * len(cs) + 120)
     return _card("top_concepts", "Key concepts in the field",
                  "Curated open-endedness concepts ranked by how many curated works engage them "
@@ -722,9 +722,9 @@ def future_directions_over_time(entries: list[Entry], settings: Settings,
     fig.update_yaxes(title="% of papers proposing it as future work", ticksuffix="%")
     return _card(
         "future_directions_trend", "Future directions over time — the next hot things",
-        "Share of each year's papers whose &ldquo;future work / conclusion / limitations&rdquo; "
+        "Share of each year's papers whose “future work / conclusion / limitations” "
         "sections explicitly propose each curated concept (detected only in those forward-looking "
-        "sections). Concepts the field keeps &mdash; and increasingly &mdash; names as open are the "
+        "sections). Concepts that papers keep naming as open — increasingly so — are the "
         "emerging hot topics.", fig, height,
     )
 
