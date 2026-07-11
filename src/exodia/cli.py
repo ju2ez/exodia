@@ -63,6 +63,11 @@ def build_parser() -> argparse.ArgumentParser:
     mb.add_argument("--seed", type=int, default=0, help="Deterministic seed.")
     mb.add_argument("--mock", action="store_true", help="Use the offline mock LLM (no API calls).")
     mb.add_argument("--out", default=None, help="Output path (default data/moi_backtest.json).")
+
+    mt = sub.add_parser("moi-train",
+                        help="Train the hindsight realization model from the backtest's own "
+                             "outcomes (offline; no LLM cost). Writes data/moi_model.json.")
+    mt.add_argument("--seed", type=int, default=0, help="Deterministic seed.")
     return p
 
 
@@ -147,6 +152,21 @@ def main(argv: list[str] | None = None) -> int:
             out=args.out,
         )
         print(f"moi-backtest -> {out}")
+        return 0
+
+    if args.cmd == "moi-train":
+        from .moi.learner import train_and_save
+
+        model = train_and_save(settings, seed=args.seed)
+        if model is None:
+            print("moi-train: not enough backtest data to learn from "
+                  "(run `exodia moi-backtest` with >= 2 cutoffs first)")
+            return 2
+        print(f"moi-train -> {settings.moi_model_path} "
+              f"({model.n_rows} rows, {model.n_pos} realized)")
+        for wf in model.walk_forward:
+            print(f"  cutoff {wf['cutoff']}: AUC {wf['auc']} · P@10 {wf['precision_at_10']} "
+                  f"· base rate {wf['base_rate']} (train n={wf['n_train']}, test n={wf['n_test']})")
         return 0
 
     return 1

@@ -35,9 +35,18 @@ def score_ideas(entries: list[Entry], ideas: list[dict], settings: Settings, *, 
                           ensemble=settings.moi_reward_ensemble, seed=seed)
     if reward is None:
         return 0
+    # If a hindsight model has been trained (`exodia moi-train`), also persist its
+    # P(realized) — learned from the backtest's own outcomes, unlike moi_score
+    # which is fit on ≤now paper impact. Kept as a separate field on purpose.
+    from .learner import load_model
+
+    hindsight = load_model(settings)
     n = 0
     for idea in ideas:
         idea["moi_score"] = round(reward.score(_idea_text(idea)), 4)
+        if hindsight is not None:
+            idea["moi_hindsight"] = round(hindsight.score(_idea_text(idea), space), 4)
         n += 1
-    log.info("MOI: scored %d ideas (corpus n=%d)", n, len(entries))
+    log.info("MOI: scored %d ideas (corpus n=%d%s)", n, len(entries),
+             ", + hindsight" if hindsight is not None else "")
     return n

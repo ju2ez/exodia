@@ -136,6 +136,10 @@ class Settings:
         return self.data_dir / "moi_cache"
 
     @property
+    def moi_model_path(self) -> Path:
+        return self.data_dir / "moi_model.json"
+
+    @property
     def transcripts_dir(self) -> Path:
         return self.data_dir / "transcripts"
 
