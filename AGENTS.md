@@ -1,6 +1,6 @@
-# CLAUDE.md
+# AGENTS.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Guidance for coding agents working in this repository.
 
 ## Project
 
@@ -24,10 +24,11 @@ with AI-Scientist-v2, and publishes the result. See `README.md` for the full loo
 ## Architecture
 
 CLI entry: `python -m exodia <cmd>` (`cli.py`). Commands: `gate`, `run-all`,
-`render`, `serve`, `sync-issues`. `cli.main` calls `config.load_dotenv()` first, so a
-local `.env` (git-ignored; see `.env.example`) supplies `GEMINI_API_KEY` /
-`OPENAI_API_KEY` / `GITHUB_TOKEN` / `EXODIA_AISCIENTIST_DIR` to the process and the
-AI-Scientist-v2 subprocess. The full loop (`run_all` in `pipeline.py`):
+`render`, `serve`, `sync-issues`, `moi-backtest`, `moi-train`. `cli.main` calls
+`config.load_dotenv()` first, so a local `.env` (git-ignored; see `.env.example`)
+supplies `GEMINI_API_KEY` / `OPENAI_API_KEY` / `GITHUB_TOKEN` /
+`EXODIA_AISCIENTIST_DIR` to the process and the AI-Scientist-v2 subprocess. The full
+loop (`run_all` in `pipeline.py`):
 parse → merge (`store.py`) → enrich abstracts+journal_ref (`enrich.py`) → download
 PDFs (`pdfs.py`) → resolve real venue (`venues.py`) → analyze themes (`analysis.py`)
 → ideate (`ideation.py`, content-based ids + novelty filter) → star-match new papers
@@ -35,8 +36,8 @@ to ideas (`matching.py`) → changelog (`diffing.py`) → render.
 
 Idea generation defaults to **Google Gemini** (`ideation.model` in `config.yaml`;
 needs `GEMINI_API_KEY`). AI-Scientist-v2 reaches Gemini via its OpenAI-compatible
-endpoint, so only the key + a `gemini-*` model id are needed; other ids
-(`gpt-*`, `claude-*`) work with their respective keys.
+endpoint, so only the key + a `gemini-*` model id are needed; other provider model
+ids work with their respective keys.
 
 Data: committed JSON under `data/` (`knowledge_base.json`, `ideas.json`,
 `themes.json`, `changelog.json`, `state.json`). **Not committed / git-ignored:**
