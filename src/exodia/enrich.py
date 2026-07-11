@@ -28,7 +28,7 @@ from .util import arxiv_id_from_url
 
 log = get_logger(__name__)
 
-ARXIV_API = "http://export.arxiv.org/api/query"
+ARXIV_API = "https://export.arxiv.org/api/query"
 USER_AGENT = "exodia/0.1 (+https://github.com/ju2ez/exodia)"
 _ATOM = "{http://www.w3.org/2005/Atom}"
 _ARXIV = "{http://arxiv.org/schemas/atom}"  # journal_ref / comment / doi live here

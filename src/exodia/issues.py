@@ -17,6 +17,8 @@ in ``GITHUB_TOKEN``). Refreshing tallies needs only read access.
 
 from __future__ import annotations
 
+import re
+
 import requests
 
 from .config import Settings
@@ -50,6 +52,39 @@ def _issue_body(idea: dict) -> str:
         f"**Abstract.** {idea.get('abstract', '')}\n\n"
         "_Tracked by Exodia — please keep the marker comment above intact._"
     )
+
+
+_MARKER_RE = re.compile(rf"<!--\s*{MARKER}:\s*(\S+)\s*-->")
+
+
+def existing_issue_map(repo: str, token: str) -> dict[str, tuple[int, str]]:
+    """Recover ``idea_id -> (issue_number, html_url)`` from existing labeled issues.
+
+    The mapping persisted in ``ideas.json`` can be lost (e.g. a rejected data
+    commit after issues were created); the marker in each issue body is the
+    durable source of truth and prevents creating duplicates forever after.
+    """
+    mapping: dict[str, tuple[int, str]] = {}
+    page = 1
+    while True:
+        resp = requests.get(
+            f"{API}/repos/{repo}/issues",
+            headers=_headers(token),
+            params={"labels": ISSUE_LABEL, "state": "all", "per_page": 100, "page": page},
+            timeout=_TIMEOUT,
+        )
+        resp.raise_for_status()
+        batch = resp.json()
+        if not batch:
+            break
+        for d in batch:
+            if "pull_request" in d:  # the issues API also returns PRs
+                continue
+            m = _MARKER_RE.search(d.get("body") or "")
+            if m:
+                mapping.setdefault(m.group(1), (d["number"], d["html_url"]))
+        page += 1
+    return mapping
 
 
 def create_issue(repo: str, idea: dict, token: str) -> tuple[int, str]:
@@ -91,20 +126,36 @@ def sync_ideas(ideas: list[dict], repo: str, token: str, create_missing: bool = 
     ``issue_number`` are not re-created, just refreshed.
     """
     created = synced = 0
+    recovered: dict[str, tuple[int, str]] | None = None
     for idea in ideas:
         number = idea.get("issue_number")
         if not number:
-            if not create_missing:
+            # Before creating, try to recover the mapping from issue markers —
+            # otherwise a lost ideas.json mapping duplicates issues every run.
+            if recovered is None:
+                try:
+                    recovered = existing_issue_map(repo, token)
+                except Exception as ex:
+                    log.warning("Could not list existing issues: %s", ex)
+                    recovered = {}
+            hit = recovered.get(idea.get("idea_id", ""))
+            if hit:
+                number, url = hit
+                idea["issue_number"] = number
+                idea["issue_url"] = url
+                log.info("Recovered issue #%s for idea '%s' from marker", number, idea.get("name"))
+            elif not create_missing:
                 continue
-            try:
-                number, url = create_issue(repo, idea, token)
-            except Exception as ex:
-                log.warning("Could not create issue for idea '%s': %s", idea.get("name"), ex)
-                continue
-            idea["issue_number"] = number
-            idea["issue_url"] = url
-            created += 1
-            log.info("Opened issue #%s for idea '%s'", number, idea.get("name"))
+            else:
+                try:
+                    number, url = create_issue(repo, idea, token)
+                except Exception as ex:
+                    log.warning("Could not create issue for idea '%s': %s", idea.get("name"), ex)
+                    continue
+                idea["issue_number"] = number
+                idea["issue_url"] = url
+                created += 1
+                log.info("Opened issue #%s for idea '%s'", number, idea.get("name"))
         try:
             d = fetch_issue(repo, number, token)
         except Exception as ex:

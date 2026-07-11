@@ -129,7 +129,12 @@ def parse_entry(block_lines: list[str], category: str, source_repo: str) -> Entr
 
     links: dict[str, str] = {}
     for m in _LINK_RE.finditer(text):
-        links[m.group(1).strip().lower()] = m.group(2).strip()
+        url = m.group(2).strip()
+        # Upstream link targets become clickable hrefs on the site — allow only
+        # web schemes so a hostile upstream edit can't inject javascript: links.
+        if not url.lower().startswith(("http://", "https://")):
+            continue
+        links[m.group(1).strip().lower()] = url
     text_nolinks = _LINK_RE.sub("", text)
 
     mt = _TITLE_RE.search(text_nolinks)

@@ -11,6 +11,8 @@ site keeps linking back to each paper, consistent with the project's compliance.
 
 from __future__ import annotations
 
+import datetime
+import hashlib
 import os
 import time
 
@@ -61,10 +63,20 @@ def fetch_citation_batch(base_ids: list[str], timeout: int = 30) -> dict[str, tu
 def fetch_citations(entries: list[Entry], settings: Settings, batch_size: int = 100) -> int:
     """Fill in citation counts for arXiv entries lacking them. Returns count fetched."""
     todo = [e for e in entries if e.arxiv_id and e.citation_count is None]
-    if not todo:
+    # Counts drift on a self-updating site: also refresh a rotating ~1/30 slice
+    # of already-fetched entries per run, so no count is more than ~a month old.
+    rota_day = datetime.date.today().toordinal() % 30
+    rota = [
+        e for e in entries
+        if e.arxiv_id and e.citation_count is not None
+        and int(hashlib.sha256(base_id(e.arxiv_id).encode()).hexdigest(), 16) % 30 == rota_day
+    ]
+    if not todo and not rota:
         log.info("Citations: nothing to fetch (cache hit on all arXiv entries)")
         return 0
-    todo = todo[: settings.citations_max_new_fetches]
+    if rota:
+        log.info("Citations: refreshing %d existing counts (staleness rota)", len(rota))
+    todo = (todo + rota)[: settings.citations_max_new_fetches]
 
     by_base: dict[str, list[Entry]] = {}
     for e in todo:

@@ -188,12 +188,17 @@ class Generator:
             return f"\nPapers you have read (all published on or before {self.year}):\n{self.rag}\n"
         return ""
 
-    def propose(self, n: int) -> list[GenIdea]:
+    def propose(self, n: int, batch: int = 0) -> list[GenIdea]:
         user = (
             f"It is {self.year}. Brief on the field so far:\n{self.landscape}\n"
             f"{self._context_block()}\n"
             f"Propose {n} distinct, concrete research directions likely to emerge after {self.year}."
         )
+        if batch:
+            # Salt repeated proposal rounds: the cache is content-addressed, so an
+            # identical prompt would replay the same response and the caller's
+            # dedup would terminate the loop after one real batch.
+            user += f"\n(Independent batch #{batch}: propose directions not covered before.)"
         # Generous budget: Gemini "thinking" tokens count against max_tokens, so a
         # small cap truncates the JSON mid-array. 8k leaves room for thinking + output.
         raw = self.client.complete(self._system(), user, max_tokens=8000)

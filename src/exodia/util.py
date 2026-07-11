@@ -5,6 +5,7 @@ from __future__ import annotations
 import datetime
 import hashlib
 import json
+import os
 import re
 from pathlib import Path
 from typing import Any
@@ -54,9 +55,13 @@ def read_json(path: str | Path, default: Any = None) -> Any:
 
 
 def write_json(path: str | Path, obj: Any) -> None:
+    # Atomic: a crash mid-write must never leave truncated JSON behind — this
+    # state is committed to git and every later stage read-depends on it.
     p = Path(path)
     p.parent.mkdir(parents=True, exist_ok=True)
-    p.write_text(json.dumps(obj, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    tmp = p.with_name(p.name + ".tmp")
+    tmp.write_text(json.dumps(obj, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    os.replace(tmp, p)
 
 
 _ARXIV_RE = re.compile(r"arxiv\.org/(?:abs|pdf)/([^\s?#)]+)", re.IGNORECASE)

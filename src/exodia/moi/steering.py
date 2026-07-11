@@ -77,8 +77,10 @@ def run_baseline(generator: Generator, reward: RewardModel, settings: Settings, 
     seen: set[str] = set()
     out: list[GenIdea] = []
     batch = max(1, settings.moi_init_pop)
+    batch_no = 0
     while len(out) < n_target:
-        fresh = _dedup(generator.propose(batch), seen)
+        fresh = _dedup(generator.propose(batch, batch=batch_no), seen)
+        batch_no += 1
         if not fresh:
             break
         out += fresh

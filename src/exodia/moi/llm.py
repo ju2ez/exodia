@@ -66,6 +66,12 @@ def _http_transport(spec: ModelSpec, payload: dict, *, max_retries: int = 5) -> 
                             spec.id, resp.status_code, wait, attempt + 1, max_retries)
                 time.sleep(wait)
                 continue
+            if 400 <= resp.status_code < 500:
+                # Permanent client error (bad key, bad request): retrying burns
+                # minutes of backoff for the same answer — fail immediately.
+                raise RuntimeError(
+                    f"LLM call to {spec.id} rejected with HTTP {resp.status_code}: {resp.text[:200]}"
+                )
             resp.raise_for_status()
             return resp.json()["choices"][0]["message"]["content"]
         except requests.RequestException as ex:  # network blip: retry
