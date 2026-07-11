@@ -12,14 +12,13 @@ zoom, and toggle series. The venue chart reports the *real* publication venue
 
 from __future__ import annotations
 
-import re
 import statistics
 from collections import Counter
 from dataclasses import replace
 
 import plotly.graph_objects as go
 
-from .concepts import CONCEPTS, concept_matchers
+from .concepts import CONCEPTS, compile_gazetteer, concept_matchers
 from .config import Settings
 from .corpus import corpus_text
 from .enrich import base_id
@@ -58,7 +57,7 @@ _MODELS = {
     "BERT": ["bert"],
     "T5": ["t5"],
     "Diffusion models": ["diffusion"],
-    "Dreamer / world model": ["dreamer", "world model"],
+    "Dreamer / world model": ["dreamer", "world model*"],
     "MuZero / AlphaZero": ["muzero", "alphazero", "alphago"],
     "PPO / DQN (RL)": ["ppo", "dqn", "impala", "a3c"],
 }
@@ -99,12 +98,12 @@ _TASKS = {
     "Code generation": ["code generation", "program synthesis", "coding"],
     "Math reasoning": ["math reasoning", "mathematical reasoning", "theorem proving"],
     "Question answering": ["question answering", "question-answering"],
-    "Dialogue / chat": ["dialogue", "conversational", "chatbot"],
+    "Dialogue / chat": ["dialogue", "conversational", "chatbot*"],
     "Summarization": ["summarization"],
     "Planning": ["planning"],
     "Tool use": ["tool use", "tool-use", "function calling"],
     "Instruction following": ["instruction following", "instruction-following", "instruction tuning"],
-    "Navigation": ["navigation", "maze"],
+    "Navigation": ["navigation", "maze*"],
     "Manipulation / locomotion": ["manipulation", "grasping", "locomotion"],
     "Game playing": ["game playing", "game-playing"],
     "Image generation": ["image generation", "text-to-image", "text to image"],
@@ -443,15 +442,13 @@ def _entity_trend(
 ) -> dict | None:
     """Per-year prevalence of named entities (keyword gazetteer) in an entry's text.
 
-    Matches each keyword as a whole word (leading boundary, so 'gpt-4' also catches
-    'gpt-4o') against the full corpus text (title + abstract + any cached transcript
-    / PDF full text). Plots the top-N entities by total mentions as lines: % of that
+    Matches each keyword as a whole word/phrase (both boundaries; a trailing ``*``
+    marks a deliberate prefix-stem — see :func:`exodia.concepts.alias_pattern`)
+    against the full corpus text (title + abstract + any cached transcript / PDF
+    full text). Plots the top-N entities by total mentions as lines: % of that
     year's entries (``share``) or absolute mention counts.
     """
-    matchers = {
-        label: re.compile("|".join(r"\b" + re.escape(k) for k in kws), re.IGNORECASE)
-        for label, kws in gazetteer.items()
-    }
+    matchers = compile_gazetteer(gazetteer)
     year_total: Counter[int] = Counter()
     ent_year: dict[str, Counter] = {label: Counter() for label in gazetteer}
     totals: Counter[str] = Counter()

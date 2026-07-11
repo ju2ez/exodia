@@ -8,8 +8,10 @@ aliases against each entry's text (:mod:`corpus`), so what we track and plot is
 always sensible.
 
 Each concept maps to a list of alias phrases matched as whole words/phrases
-(case-insensitive, word-boundary), so "llm" also catches "llms" but "albert"
-never matches "bert".
+(case-insensitive, word-boundary on BOTH sides). A trailing ``*`` on an alias
+marks a deliberate prefix-stem: ``llm*`` also catches "llms", ``cellular
+automat*`` catches automaton/automata — but a plain alias matches exactly, so
+"accel" no longer swallows "accelerate" and "poet" no longer matches "poetry".
 """
 
 from __future__ import annotations
@@ -25,74 +27,91 @@ from .models import Entry
 CONCEPTS: dict[str, list[str]] = {
     "Open-ended learning": ["open-ended learning", "open ended learning", "open-endedness",
                             "open endedness", "open-ended"],
-    "Large language models (LLMs)": ["large language model", "llm", "foundation model",
-                                     "language model", "gpt", "transformer"],
-    "Recursive self-improvement": ["recursive self-improvement", "recursively self-improv",
+    "Large language models (LLMs)": ["large language model*", "llm*", "foundation model*",
+                                     "language model*", "gpt*", "transformer*"],
+    "Recursive self-improvement": ["recursive self-improvement", "recursively self-improv*",
                                    "self-improvement", "self-improving", "self improvement"],
-    "Quality-diversity": ["quality-diversity", "quality diversity", "illumination algorithm",
-                          "qd algorithm"],
+    "Quality-diversity": ["quality-diversity", "quality diversity", "illumination algorithm*",
+                          "qd algorithm*"],
     "MAP-Elites": ["map-elites", "map elites"],
     "Novelty search": ["novelty search", "novelty-search"],
-    "Intrinsic motivation & curiosity": ["intrinsic motivation", "intrinsic reward", "curiosity",
+    "Intrinsic motivation & curiosity": ["intrinsic motivation", "intrinsic reward*", "curiosity",
                                          "curiosity-driven"],
-    "Auto-curricula": ["auto-curricul", "autocurricul", "automatic curricul", "curriculum learning",
-                       "curriculum generation"],
+    "Auto-curricula": ["auto-curricul*", "autocurricul*", "automatic curricul*",
+                       "curriculum learning", "curriculum generation"],
     "Unsupervised environment design": ["unsupervised environment design", "environment design",
                                         "environment generation", "level generation",
                                         "prioritized level replay", "level replay", "ued",
-                                        "regret-based", "paired", "accel"],
-    "Cellular automata & self-replication": ["cellular automata", "cellular automaton", "lenia",
-                                             "flow-lenia", "self-replicat", "morphogenesis"],
+                                        "regret-based", "accel"],
+    "Cellular automata & self-replication": ["cellular automat*", "lenia",
+                                             "flow-lenia", "self-replicat*", "morphogenesis"],
     "Cultural accumulation": ["cultural accumulation", "cultural transmission", "cultural evolution",
-                              "social learning", "generational"],
-    "Red-teaming & adversarial generation": ["red-teaming", "red teaming", "adversarial prompt",
-                                             "jailbreak", "adversarial attack"],
-    "Reward & objective design": ["reward design", "reward shaping", "reward function",
-                                  "objective function", "reward model"],
+                              "social learning"],
+    "Red-teaming & adversarial generation": ["red-teaming", "red teaming", "adversarial prompt*",
+                                             "jailbreak*", "adversarial attack*"],
+    "Reward & objective design": ["reward design", "reward shaping", "reward function*",
+                                  "objective function*", "reward model*"],
     "Self-play": ["self-play", "self play"],
-    "Coevolution": ["coevolution", "co-evolution", "competitive evolution"],
+    "Coevolution": ["coevolution*", "co-evolution*", "competitive evolution"],
     "POET / paired open-ended": ["poet", "paired open-ended", "minimal criterion coevolution"],
-    "Evolutionary computation": ["evolutionary algorithm", "evolutionary computation",
-                                 "genetic algorithm", "neuroevolution", "evolution strateg"],
-    "Reinforcement learning": ["reinforcement learning", "policy gradient", "q-learning",
+    "Evolutionary computation": ["evolutionary algorithm*", "evolutionary computation",
+                                 "genetic algorithm*", "neuroevolution", "evolution strateg*"],
+    "Reinforcement learning": ["reinforcement learning", "policy gradient*", "q-learning",
                                "deep rl", "actor-critic"],
-    "World models": ["world model"],
-    "Generative models": ["generative model", "diffusion model", "generative adversarial",
-                          "variational autoencoder"],
+    "World models": ["world model*"],
+    "Generative models": ["generative model*", "diffusion model*", "generative adversarial",
+                          "variational autoencoder*"],
     "In-context learning": ["in-context learning", "in context learning", "few-shot"],
     "Multi-agent systems": ["multi-agent", "multi agent", "multiagent"],
     "Embodied agents": ["embodied", "embodiment"],
-    "Autonomous / LLM agents": ["autonomous agent", "llm agent", "agentic", "language agent"],
+    "Autonomous / LLM agents": ["autonomous agent*", "llm agent*", "agentic", "language agent*"],
     "Exploration": ["exploration", "explorative", "explore novel"],
     "Procedural content generation": ["procedural content generation", "procedural generation",
                                       "pcg"],
-    "Emergent abilities": ["emergent abilit", "emergent capabilit", "emergent behavior",
+    "Emergent abilities": ["emergent abilit*", "emergent capabilit*", "emergent behavio*",
                            "emergence of"],
     "Meta-learning": ["meta-learning", "meta learning", "learning to learn"],
     "Lifelong & continual learning": ["lifelong learning", "continual learning",
                                       "never-ending learning", "lifelong"],
     "Program synthesis & code generation": ["program synthesis", "code generation",
                                             "code synthesis", "programming by"],
-    "Autotelic / goal generation": ["autotelic", "goal generation", "self-generated goal",
+    "Autotelic / goal generation": ["autotelic", "goal generation", "self-generated goal*",
                                     "goal-conditioned"],
-    "AI-generating algorithms (AI-GAs)": ["ai-generating algorithm", "ai generating algorithm",
-                                          "ai-ga"],
+    "AI-generating algorithms (AI-GAs)": ["ai-generating algorithm*", "ai generating algorithm*",
+                                          "ai-ga*"],
     "Artificial life": ["artificial life", "alife", "a-life"],
     "Self-organization": ["self-organization", "self-organizing", "self-organisation"],
     "Diversity-driven search": ["divergent search", "behavioral diversity", "behavioural diversity",
                                 "diversity-driven", "diversity of solutions"],
     "Compositionality": ["compositional", "compositionality"],
-    "Automated scientific discovery": ["scientific discovery", "automated science", "ai scientist",
+    "Automated scientific discovery": ["scientific discovery", "automated science", "ai scientist*",
                                        "automated research", "hypothesis generation"],
 }
 
 
+def alias_pattern(alias: str) -> str:
+    """Regex for one gazetteer alias.
+
+    ``foo*`` marks a deliberate prefix-stem (plurals/inflections); otherwise the
+    alias must end on a word boundary so short aliases don't swallow unrelated
+    longer words ("accel" -> "accelerate", "poet" -> "poetry", "bert" -> "bertrand").
+    """
+    if alias.endswith("*"):
+        return r"\b" + re.escape(alias[:-1])
+    return r"\b" + re.escape(alias) + r"\b"
+
+
+def compile_gazetteer(gazetteer: dict[str, list[str]]) -> dict[str, re.Pattern]:
+    """Compile a {label: [aliases]} gazetteer into per-label matchers."""
+    return {
+        label: re.compile("|".join(alias_pattern(a) for a in aliases), re.IGNORECASE)
+        for label, aliases in gazetteer.items()
+    }
+
+
 def concept_matchers() -> dict[str, re.Pattern]:
     """Compiled whole-word/phrase matchers, one per curated concept."""
-    return {
-        label: re.compile("|".join(r"\b" + re.escape(a) for a in aliases), re.IGNORECASE)
-        for label, aliases in CONCEPTS.items()
-    }
+    return compile_gazetteer(CONCEPTS)
 
 
 def detect_concepts(entries: list[Entry], settings: Settings) -> list[dict]:
