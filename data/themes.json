@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-07-11T03:56:27Z",
+  "generated_utc": "2026-07-13T10:25:16Z",
   "method": "tfidf_kmeans",
   "n_docs": 100,
   "top_keyphrases": [
@@ -203,20 +203,20 @@
           "url": "https://www.oreilly.com/radar/open-endedness-the-last-grand-challenge-youve-never-heard-of/"
         },
         {
-          "title": "The Future of AI is Open-Ended",
-          "url": "https://richardcsuwandi.github.io/blog/2025/open-endedness/"
-        },
-        {
-          "title": "AI That Can Improve Itself",
-          "url": "https://richardcsuwandi.github.io/blog/2025/dgm/"
-        },
-        {
           "title": "EvoCraft: A New Challenge for Open-Endedness",
           "url": "https://link.springer.com/chapter/10.1007/978-3-030-72699-7_21"
         },
         {
           "title": "Novel Opportunities in Open-Endedness",
           "url": "https://youtu.be/T08wc4xD3KA"
+        },
+        {
+          "title": "The Future of AI is Open-Ended",
+          "url": "https://richardcsuwandi.github.io/blog/2025/open-endedness/"
+        },
+        {
+          "title": "AI That Can Improve Itself",
+          "url": "https://richardcsuwandi.github.io/blog/2025/dgm/"
         }
       ]
     },
@@ -513,7 +513,7 @@
         "base",
         "llm",
         "video",
-        "testbed"
+        "phenomena"
       ],
       "representative_titles": [
         "Genie: Generative Interactive Environments",
@@ -784,21 +784,21 @@
   "concepts": [
     {
       "concept": "Open-ended learning",
-      "docs": 85,
-      "share": 0.85,
-      "citations": 8978
+      "docs": 86,
+      "share": 0.86,
+      "citations": 9248
     },
     {
       "concept": "Reinforcement learning",
-      "docs": 73,
-      "share": 0.73,
-      "citations": 9561
+      "docs": 74,
+      "share": 0.74,
+      "citations": 9831
     },
     {
       "concept": "Exploration",
-      "docs": 67,
-      "share": 0.67,
-      "citations": 7435
+      "docs": 68,
+      "share": 0.68,
+      "citations": 7705
     },
     {
       "concept": "Evolutionary computation",
@@ -816,7 +816,7 @@
       "concept": "Reward & objective design",
       "docs": 48,
       "share": 0.48,
-      "citations": 6991
+      "citations": 6992
     },
     {
       "concept": "In-context learning",
@@ -840,19 +840,19 @@
       "concept": "Multi-agent systems",
       "docs": 43,
       "share": 0.43,
-      "citations": 4770
+      "citations": 4771
     },
     {
       "concept": "Auto-curricula",
       "docs": 39,
       "share": 0.39,
-      "citations": 7359
+      "citations": 7360
     },
     {
       "concept": "Autonomous / LLM agents",
       "docs": 39,
       "share": 0.39,
-      "citations": 7179
+      "citations": 7180
     },
     {
       "concept": "Intrinsic motivation & curiosity",
@@ -862,9 +862,9 @@
     },
     {
       "concept": "Generative models",
-      "docs": 35,
-      "share": 0.35,
-      "citations": 4994
+      "docs": 36,
+      "share": 0.36,
+      "citations": 5263
     },
     {
       "concept": "Quality-diversity",
@@ -892,9 +892,9 @@
     },
     {
       "concept": "Recursive self-improvement",
-      "docs": 30,
-      "share": 0.3,
-      "citations": 5078
+      "docs": 31,
+      "share": 0.31,
+      "citations": 5347
     },
     {
       "concept": "Coevolution",
@@ -903,40 +903,40 @@
       "citations": 2952
     },
     {
+      "concept": "Meta-learning",
+      "docs": 27,
+      "share": 0.27,
+      "citations": 5115
+    },
+    {
       "concept": "Self-play",
       "docs": 27,
       "share": 0.27,
       "citations": 3730
     },
     {
-      "concept": "Meta-learning",
+      "concept": "Compositionality",
       "docs": 26,
       "share": 0.26,
-      "citations": 4846
+      "citations": 5395
     },
     {
       "concept": "Lifelong & continual learning",
       "docs": 26,
       "share": 0.26,
-      "citations": 3511
+      "citations": 3512
+    },
+    {
+      "concept": "AI-generating algorithms (AI-GAs)",
+      "docs": 26,
+      "share": 0.26,
+      "citations": 3146
     },
     {
       "concept": "Novelty search",
       "docs": 26,
       "share": 0.26,
       "citations": 2258
-    },
-    {
-      "concept": "Compositionality",
-      "docs": 25,
-      "share": 0.25,
-      "citations": 5126
-    },
-    {
-      "concept": "AI-generating algorithms (AI-GAs)",
-      "docs": 25,
-      "share": 0.25,
-      "citations": 2877
     },
     {
       "concept": "Procedural content generation",
@@ -946,9 +946,9 @@
     },
     {
       "concept": "Program synthesis & code generation",
-      "docs": 22,
-      "share": 0.22,
-      "citations": 4251
+      "docs": 23,
+      "share": 0.23,
+      "citations": 4520
     },
     {
       "concept": "Autotelic / goal generation",
