@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-09-07T13:17:22Z",
+  "generated_utc": "2026-09-14T12:43:07Z",
   "method": "tfidf_kmeans",
   "n_docs": 100,
   "top_keyphrases": [
@@ -786,55 +786,55 @@
       "concept": "Open-ended learning",
       "docs": 86,
       "share": 0.86,
-      "citations": 9461
+      "citations": 9473
     },
     {
       "concept": "Reinforcement learning",
       "docs": 74,
       "share": 0.74,
-      "citations": 10034
+      "citations": 10046
     },
     {
       "concept": "Exploration",
       "docs": 68,
       "share": 0.68,
-      "citations": 7895
+      "citations": 7907
     },
     {
       "concept": "Evolutionary computation",
       "docs": 57,
       "share": 0.57,
-      "citations": 7528
+      "citations": 7540
     },
     {
       "concept": "Large language models (LLMs)",
       "docs": 56,
       "share": 0.56,
-      "citations": 8413
+      "citations": 8425
     },
     {
       "concept": "Reward & objective design",
       "docs": 48,
       "share": 0.48,
-      "citations": 7113
+      "citations": 7125
     },
     {
       "concept": "In-context learning",
       "docs": 44,
       "share": 0.44,
-      "citations": 7550
+      "citations": 7562
     },
     {
       "concept": "Unsupervised environment design",
       "docs": 43,
       "share": 0.43,
-      "citations": 7967
+      "citations": 7979
     },
     {
       "concept": "POET / paired open-ended",
       "docs": 43,
       "share": 0.43,
-      "citations": 6311
+      "citations": 6323
     },
     {
       "concept": "Multi-agent systems",
@@ -846,7 +846,7 @@
       "concept": "Auto-curricula",
       "docs": 39,
       "share": 0.39,
-      "citations": 7398
+      "citations": 7410
     },
     {
       "concept": "Autonomous / LLM agents",
@@ -858,7 +858,7 @@
       "concept": "Intrinsic motivation & curiosity",
       "docs": 38,
       "share": 0.38,
-      "citations": 5592
+      "citations": 5604
     },
     {
       "concept": "Generative models",
@@ -870,31 +870,31 @@
       "concept": "Quality-diversity",
       "docs": 35,
       "share": 0.35,
-      "citations": 3350
+      "citations": 3362
     },
     {
       "concept": "Emergent abilities",
       "docs": 34,
       "share": 0.34,
-      "citations": 5913
+      "citations": 5925
     },
     {
       "concept": "Embodied agents",
       "docs": 34,
       "share": 0.34,
-      "citations": 5326
+      "citations": 5338
     },
     {
       "concept": "Artificial life",
       "docs": 32,
       "share": 0.32,
-      "citations": 3078
+      "citations": 3090
     },
     {
       "concept": "Recursive self-improvement",
       "docs": 31,
       "share": 0.31,
-      "citations": 5533
+      "citations": 5545
     },
     {
       "concept": "Coevolution",
@@ -930,7 +930,7 @@
       "concept": "AI-generating algorithms (AI-GAs)",
       "docs": 26,
       "share": 0.26,
-      "citations": 3320
+      "citations": 3332
     },
     {
       "concept": "Novelty search",
@@ -942,25 +942,25 @@
       "concept": "Procedural content generation",
       "docs": 25,
       "share": 0.25,
-      "citations": 2482
+      "citations": 2494
     },
     {
       "concept": "Program synthesis & code generation",
       "docs": 23,
       "share": 0.23,
-      "citations": 4686
+      "citations": 4698
     },
     {
       "concept": "Autotelic / goal generation",
       "docs": 22,
       "share": 0.22,
-      "citations": 1806
+      "citations": 1818
     },
     {
       "concept": "World models",
       "docs": 20,
       "share": 0.2,
-      "citations": 3742
+      "citations": 3754
     },
     {
       "concept": "MAP-Elites",
