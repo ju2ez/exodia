@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-09-15T11:42:17Z",
+  "generated_utc": "2026-09-16T11:29:34Z",
   "method": "tfidf_kmeans",
   "n_docs": 100,
   "top_keyphrases": [
@@ -513,7 +513,7 @@
         "base",
         "llm",
         "video",
-        "phenomena"
+        "testbed"
       ],
       "representative_titles": [
         "Genie: Generative Interactive Environments",
