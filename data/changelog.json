@@ -956,5 +956,30 @@
     "new_ideas": 0,
     "themes_changed": true,
     "note": ""
+  },
+  {
+    "run_id": "20260920T112028",
+    "run_utc": "2026-09-20T11:45:46Z",
+    "from_sha": "8933d2817ab5b89cc3401cd16eb37ccd84b55812",
+    "to_sha": "0324abd843469b17a12c84cf690e1905f35dd106",
+    "upstream_compare_url": "https://github.com/jennyzzt/awesome-open-ended/compare/8933d2817ab5b89cc3401cd16eb37ccd84b55812...0324abd843469b17a12c84cf690e1905f35dd106",
+    "added": [
+      {
+        "entry_id": "2391740816f9",
+        "title": "DREAM Architecture: a Developmental Approach to Open-Ended Learning in Robotics",
+        "category": "surveys"
+      }
+    ],
+    "removed": [],
+    "changed": [],
+    "counts": {
+      "added": 1,
+      "removed": 0,
+      "changed": 0,
+      "total_entries": 101
+    },
+    "new_ideas": 0,
+    "themes_changed": true,
+    "note": ""
   }
 ]
