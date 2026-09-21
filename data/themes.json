@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-09-20T11:20:45Z",
+  "generated_utc": "2026-09-21T13:37:53Z",
   "method": "tfidf_kmeans",
   "n_docs": 101,
   "top_keyphrases": [
@@ -799,43 +799,43 @@
       "concept": "Open-ended learning",
       "docs": 87,
       "share": 0.8614,
-      "citations": 9619
+      "citations": 9632
     },
     {
       "concept": "Reinforcement learning",
       "docs": 75,
       "share": 0.7426,
-      "citations": 10223
+      "citations": 10237
     },
     {
       "concept": "Exploration",
       "docs": 69,
       "share": 0.6832,
-      "citations": 8084
+      "citations": 8097
     },
     {
       "concept": "Evolutionary computation",
       "docs": 58,
       "share": 0.5743,
-      "citations": 7716
+      "citations": 7729
     },
     {
       "concept": "Large language models (LLMs)",
       "docs": 56,
       "share": 0.5545,
-      "citations": 8581
+      "citations": 8595
     },
     {
       "concept": "Reward & objective design",
       "docs": 49,
       "share": 0.4851,
-      "citations": 7271
+      "citations": 7285
     },
     {
       "concept": "In-context learning",
       "docs": 44,
       "share": 0.4356,
-      "citations": 7718
+      "citations": 7731
     },
     {
       "concept": "Unsupervised environment design",
@@ -865,37 +865,37 @@
       "concept": "Autonomous / LLM agents",
       "docs": 39,
       "share": 0.3861,
-      "citations": 7473
+      "citations": 7487
     },
     {
       "concept": "Intrinsic motivation & curiosity",
       "docs": 39,
       "share": 0.3861,
-      "citations": 5749
+      "citations": 5762
     },
     {
       "concept": "Generative models",
       "docs": 37,
       "share": 0.3663,
-      "citations": 5414
+      "citations": 5415
     },
     {
       "concept": "Quality-diversity",
       "docs": 36,
       "share": 0.3564,
-      "citations": 3505
+      "citations": 3518
     },
     {
       "concept": "Embodied agents",
       "docs": 35,
       "share": 0.3465,
-      "citations": 5481
+      "citations": 5494
     },
     {
       "concept": "Emergent abilities",
       "docs": 34,
       "share": 0.3366,
-      "citations": 5965
+      "citations": 5979
     },
     {
       "concept": "Artificial life",
@@ -937,13 +937,13 @@
       "concept": "Lifelong & continual learning",
       "docs": 27,
       "share": 0.2673,
-      "citations": 3739
+      "citations": 3752
     },
     {
       "concept": "Novelty search",
       "docs": 27,
       "share": 0.2673,
-      "citations": 2495
+      "citations": 2508
     },
     {
       "concept": "AI-generating algorithms (AI-GAs)",
@@ -1003,7 +1003,7 @@
       "concept": "Cellular automata & self-replication",
       "docs": 9,
       "share": 0.0891,
-      "citations": 339
+      "citations": 340
     },
     {
       "concept": "Cultural accumulation",
