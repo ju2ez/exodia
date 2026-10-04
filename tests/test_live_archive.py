@@ -86,3 +86,30 @@ def test_summaries_only_for_abstractless_entries_with_text(tmp_path, monkeypatch
     assert n == 1 and client.calls == 1
     assert blog.summary == "A short summary of the work." and blog.summary_source == "page"
     assert paper.summary is None and bare.summary is None
+
+
+def test_call_budget_stops_calls_and_live_keeps_partial_progress(tmp_path, monkeypatch):
+    import pytest
+
+    from exodia.moi.generator import spec_for_model_id
+    from exodia.moi.llm import CallBudget, CallBudgetExhausted, LLMClient
+
+    budget = CallBudget(2)
+    c = LLMClient(spec_for_model_id("gemini-x"), tmp_path / "cache",
+                  transport=lambda spec, payload: "[]", budget=budget)
+    c.complete("s", "u1")
+    c.complete("s", "u2")
+    c.complete("s", "u1")  # cache hit: free
+    with pytest.raises(CallBudgetExhausted):
+        c.complete("s", "u3")
+
+    # Live run whose budget runs out mid-loop still persists the seeded archive.
+    s = _settings(tmp_path)
+    s.moi_max_calls_per_run = 2
+    import exodia.moi.live as live
+
+    real = live.LLMClient
+    monkeypatch.setattr(live, "LLMClient",
+                        lambda *a, **kw: real(*a, **{**kw, "transport": mock_transport}))
+    st = run_live(_corpus(), s, today=dt.date(2026, 10, 5), generations=3)
+    assert st["archive"]["elites"] and st["history"][-1]["llm_calls"] <= 2

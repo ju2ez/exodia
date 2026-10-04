@@ -16,7 +16,7 @@ from ..util import now_utc_iso, write_json
 from . import evaluation as ev
 from .features import fit_novelty_space
 from .generator import Generator, build_landscape, build_rag_context, oracle_spec, pick_honest_model
-from .llm import LLMClient
+from .llm import CallBudget, LLMClient
 from .reward import train_reward
 from .schema import CutoffResult, GenerationResult, MoiBacktest
 from .steering import run_baseline, run_steered
@@ -36,14 +36,17 @@ def _has_honest_model(year: int, settings: Settings) -> bool:
     return any(int(y) <= year for y in (settings.moi_honest_models or {}))
 
 
-def _client(spec, settings: Settings, transport, seed: int, tag: str) -> LLMClient:
+def _client(spec, settings: Settings, transport, seed: int, tag: str,
+            budget: CallBudget | None = None) -> LLMClient:
     return LLMClient(spec, settings.moi_cache_dir, transport=transport, seed=seed,
                      temperature=settings.moi_temperature, tag=tag,
-                     min_interval=0.0 if transport else settings.moi_min_call_interval)
+                     min_interval=0.0 if transport else settings.moi_min_call_interval,
+                     budget=budget)
 
 
 def run_cutoff(entries: list[Entry], year: int, settings: Settings, *, arms, modes,
-               transport, seed: int, tag: str = "real") -> CutoffResult:
+               transport, seed: int, tag: str = "real",
+               budget: CallBudget | None = None) -> CutoffResult:
     import numpy as np
 
     train, test = split_by_cutoff(entries, year)
@@ -74,7 +77,7 @@ def run_cutoff(entries: list[Entry], year: int, settings: Settings, *, arms, mod
         spec = pick_honest_model(year, settings) if arm == "honest" else oracle_spec(settings)
         rag = build_rag_context(train, landscape, space) if arm == "oracle" else ""
         for mode in modes:
-            client = _client(spec, settings, transport, seed, tag)
+            client = _client(spec, settings, transport, seed, tag, budget)
             gen = Generator(client, year, arm, landscape, rag)
             rng = np.random.default_rng(seed)
             if mode == "steered":
@@ -123,11 +126,15 @@ def run_backtest(settings: Settings, *, cutoffs: list[int], arms: list[str] | No
     )
     out_path = out or str(settings.moi_backtest_path)
     tag = "mock" if mock else "real"
+    # One allowance for the whole command; finished calls are cached, so a run cut
+    # short by the budget resumes from the cache next time at no cost.
+    budget = None if transport else CallBudget(settings.moi_max_calls_per_run)
     for year in sorted(cutoffs):
         log.info("MOI backtest: cutoff %d", year)
         try:
             bt.cutoffs.append(run_cutoff(entries, year, settings, arms=arms, modes=modes,
-                                         transport=transport, seed=seed, tag=tag))
+                                         transport=transport, seed=seed, tag=tag,
+                                         budget=budget))
         except Exception as ex:  # don't lose other cutoffs to one failure
             log.warning("MOI cutoff %d failed: %s", year, ex)
             continue

@@ -30,7 +30,7 @@ from ..util import now_utc_iso, read_json, write_json
 from .archive import FAMILY_NAMES, Archive
 from .features import fit_novelty_space
 from .generator import Generator, build_live_landscape, build_rag_context, oracle_spec
-from .llm import LLMClient
+from .llm import CallBudget, CallBudgetExhausted, LLMClient
 from .reward import train_reward
 from .steering import _score, run_steered
 
@@ -73,15 +73,21 @@ def run_live(entries: list[Entry], settings: Settings, *, transport=None,
     rag = build_rag_context(entries, landscape, space)
     client = LLMClient(oracle_spec(settings), settings.moi_cache_dir, transport=transport,
                        seed=seed, temperature=settings.moi_temperature, tag="live",
-                       min_interval=0.0 if transport else settings.moi_min_call_interval)
+                       min_interval=0.0 if transport else settings.moi_min_call_interval,
+                       budget=None if transport else CallBudget(settings.moi_max_calls_per_run))
     gen = Generator(client, year, "oracle", landscape, rag)
 
     seen = set(state.get("seen_titles") or [])
     start = int(state.get("generation") or 0)
     n_gens = settings.moi_live_generations if generations is None else generations
     before = {i.idea_id for i in archive.elites()}
-    run_steered(gen, reward, settings, np.random.default_rng(seed), archive=archive,
-                generations=n_gens, seen=seen, start_generation=start)
+    try:
+        run_steered(gen, reward, settings, np.random.default_rng(seed), archive=archive,
+                    generations=n_gens, seen=seen, start_generation=start,
+                    batch=settings.moi_live_batch)
+    except CallBudgetExhausted as ex:
+        # The archive is updated in place: keep what this run found so far.
+        log.warning("Live archive: %s; saving partial progress", ex)
     new_ids = {i.idea_id for i in archive.elites()} - before
 
     stats = archive.stats()

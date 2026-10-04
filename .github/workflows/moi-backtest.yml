@@ -1,0 +1,76 @@
+name: MOI backtest (daily slices)
+
+# The walk-forward forecasting backtest needs ~150 Gemini calls, but the free tier
+# allows 20 per model per day, shared with the daily idea archive. So this runs a
+# slice of at most 12 new calls a day; every finished call is kept in the cached
+# data/moi_cache, so each day resumes where the last one stopped. Only when all
+# cutoffs are complete are the backtest and the trained hindsight model committed,
+# and from then on the job is a no-op (delete data/moi_model.json to re-run).
+on:
+  schedule:
+    - cron: "30 12 * * *"   # daily 12:30 UTC, after the Pacific-midnight quota reset
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: exodia-pipeline   # never overlap the main pipeline's data commits
+  cancel-in-progress: false
+
+jobs:
+  slice:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Already complete?
+        id: done
+        run: |
+          if [ -f data/moi_model.json ]; then echo "done=true" >> "$GITHUB_OUTPUT"; else echo "done=false" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Restore the LLM response cache
+        if: steps.done.outputs.done == 'false'
+        uses: actions/cache@v4
+        with:
+          path: data/moi_cache
+          key: moi-cache-${{ github.run_id }}
+          restore-keys: |
+            moi-cache-
+
+      - uses: astral-sh/setup-uv@v5
+        if: steps.done.outputs.done == 'false'
+        with:
+          python-version: "3.11"
+
+      - name: Install
+        if: steps.done.outputs.done == 'false'
+        run: |
+          uv venv --clear
+          uv pip install -e .
+          echo "$PWD/.venv/bin" >> "$GITHUB_PATH"
+
+      - name: Run one slice
+        if: steps.done.outputs.done == 'false'
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python -m exodia moi-backtest --max-calls 12
+
+      - name: Train and commit once complete
+        if: steps.done.outputs.done == 'false'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          n=$(python -c "import json; print(len(json.load(open('data/moi_backtest.json'))['cutoffs']))")
+          echo "cutoffs complete: $n of 3"
+          if [ "$n" -lt 3 ]; then exit 0; fi
+          python -m exodia moi-train
+          git config user.name "exodia-bot"
+          git config user.email "exodia-bot@users.noreply.github.com"
+          git add data/moi_backtest.json data/moi_model.json
+          git commit -m "chore: MOI backtest + hindsight model (complete) [skip ci]"
+          REMOTE="https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
+          git pull --rebase "$REMOTE" main
+          git push "$REMOTE" HEAD:main

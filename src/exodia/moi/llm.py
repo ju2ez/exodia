@@ -80,12 +80,29 @@ def _http_transport(spec: ModelSpec, payload: dict, *, max_retries: int = 8) -> 
     raise RuntimeError(f"LLM call to {spec.id} failed after {max_retries} attempts: {last_err}")
 
 
+class CallBudgetExhausted(RuntimeError):
+    """Raised before a real call once the client's per-run call budget is spent."""
+
+
+class CallBudget:
+    """A real-call allowance shared by every client of one command run."""
+
+    def __init__(self, limit: int | None):
+        self.limit = limit
+        self.used = 0
+
+    def spend(self, model: str) -> None:
+        if self.limit is not None and self.used >= self.limit:
+            raise CallBudgetExhausted(f"call budget of {self.limit} spent (at {model})")
+        self.used += 1
+
+
 class LLMClient:
     """Cache-first chat client. ``transport`` is injectable for offline tests."""
 
     def __init__(self, spec: ModelSpec, cache_dir: Path, *, transport: Transport | None = None,
                  seed: int = 0, temperature: float = 0.7, tag: str = "",
-                 min_interval: float = 0.0):
+                 min_interval: float = 0.0, budget: CallBudget | None = None):
         self.spec = spec
         # Namespace the cache (e.g. "mock" vs "real") so a mock smoke run can never
         # serve its canned responses to a real run with a matching prompt.
@@ -99,6 +116,8 @@ class LLMClient:
         # retry budget on HTTP 429s (cache hits are never delayed).
         self.min_interval = min_interval
         self._last_call = 0.0
+        # Free-tier daily quotas are shared between jobs: cap real calls per run.
+        self.budget = budget
 
     def _cache_path(self, key: str) -> Path:
         return self.cache_dir / f"{key}.json"
@@ -121,6 +140,8 @@ class LLMClient:
             "temperature": temp,
             "max_tokens": max_tokens,
         }
+        if self.budget is not None:
+            self.budget.spend(self.spec.id)
         if self.min_interval > 0:
             import time
 

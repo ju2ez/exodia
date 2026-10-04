@@ -21,6 +21,7 @@ ideation:
   # Using flash: it reliably finalizes ideas in minutes, whereas gemini-2.5-pro
   # repeatedly stalled on the free endpoint (~50-min hangs producing nothing).
   model: "gemini-2.5-flash"
+  min_interval: 13              # 2.5-flash free tier: 5 requests/minute
   max_num_generations: 3
   num_reflections: 4   # enough rounds to search + reflect + FinalizeIdea
   # Max seconds for the AI-Scientist-v2 subprocess before a graceful timeout.
@@ -82,8 +83,16 @@ moi:
   reward_ensemble: 4            # Bradley-Terry MOI ensemble size
   reward_pairs: 400             # sampled preference pairs per ensemble member
   temperature: 0.7
-  live_generations: 3           # live idea archive: QD rounds per daily `evolve-ideas`
+  # Free tier: 20 requests/day/model, shared by the daily archive (~7) and the
+  # daily backtest slice (12; .github/workflows/moi-backtest.yml).
+  live_generations: 1           # live idea archive: QD rounds per daily `evolve-ideas`
+  live_batch: 6                 # children per live generation
   min_call_interval: 4.5        # seconds between real LLM calls (Gemini free-tier RPM)
+
+summaries:
+  # Summaries of blogs/talks/essays for the ideation brief. A different model than
+  # the MOI one, so they draw on a separate free-tier quota.
+  model: "gemini-2.5-flash"
 
 paths:
   data_dir: "data"

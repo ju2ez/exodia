@@ -106,7 +106,7 @@ jobs:
             ${{ steps.flags.outputs.force == 'true' && '--force' || '' }}
 
       - name: Evolve the idea archive (daily, even without upstream changes)
-        # A few MAP-Elites generations per day (~25 short Gemini calls) so the
+        # One MAP-Elites generation per day (<= 8 short Gemini calls, free tier) so the
         # quality-diversity idea archive on the Ideas page keeps exploring. Skipped
         # without a key; never fails the run.
         if: steps.flags.outputs.dry == ''
@@ -114,7 +114,7 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: python -m exodia evolve-ideas
+        run: python -m exodia evolve-ideas --max-calls 8
 
       - name: Sync ideas -> GitHub Issues (votes + feedback)
         env:

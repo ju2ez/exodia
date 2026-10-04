@@ -63,12 +63,15 @@ def build_parser() -> argparse.ArgumentParser:
     mb.add_argument("--seed", type=int, default=0, help="Deterministic seed.")
     mb.add_argument("--mock", action="store_true", help="Use the offline mock LLM (no API calls).")
     mb.add_argument("--out", default=None, help="Output path (default data/moi_backtest.json).")
+    mb.add_argument("--max-calls", type=int, default=None,
+                    help="Cap real LLM calls per arm run (free-tier quota); cached work resumes next time.")
 
     ev = sub.add_parser("evolve-ideas",
                         help="Advance the live MAP-Elites idea archive a few generations "
                              "(runs daily; LLM cost ~25 short calls). Writes data/idea_archive.json.")
     ev.add_argument("--generations", type=int, default=None, help="Override QD rounds this run.")
     ev.add_argument("--mock", action="store_true", help="Use the offline mock LLM (no API calls).")
+    ev.add_argument("--max-calls", type=int, default=None, help="Cap real LLM calls (free-tier quota).")
 
     mt = sub.add_parser("moi-train",
                         help="Train the hindsight realization model from the backtest's own "
@@ -143,6 +146,8 @@ def main(argv: list[str] | None = None) -> int:
     if args.cmd == "moi-backtest":
         from .moi import run_backtest
 
+        if args.max_calls is not None:
+            settings.moi_max_calls_per_run = args.max_calls
         if args.generations is not None:
             settings.moi_generations = args.generations
         if args.init_pop is not None:
@@ -168,6 +173,8 @@ def main(argv: list[str] | None = None) -> int:
         if args.mock:
             from .moi.mock import mock_transport
             transport = mock_transport
+        if args.max_calls is not None:
+            settings.moi_max_calls_per_run = args.max_calls
         entries = load_entries(settings.kb_path)
         state = run_live(entries, settings, transport=transport, generations=args.generations)
         last = (state.get("history") or [{}])[-1]

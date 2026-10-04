@@ -47,7 +47,8 @@ def _dedup(ideas: list[GenIdea], seen_titles: set[str]) -> list[GenIdea]:
 
 def run_steered(generator: Generator, reward: RewardModel, settings: Settings, rng, *,
                 archive: Archive | None = None, generations: int | None = None,
-                seen: set[str] | None = None, start_generation: int = 0) -> list[GenIdea]:
+                seen: set[str] | None = None, start_generation: int = 0,
+                batch: int | None = None) -> list[GenIdea]:
     """Run the QD loop and return elites ranked by fitness.
 
     The backtest starts from an empty archive. The live loop passes its persisted
@@ -66,7 +67,7 @@ def run_steered(generator: Generator, reward: RewardModel, settings: Settings, r
 
     from .archive import FAMILY_NAMES
     for gen in range(start_generation + 1, start_generation + n_gens + 1):
-        parents = archive.sample_parents(rng, settings.moi_batch)
+        parents = archive.sample_parents(rng, settings.moi_batch if batch is None else batch)
         children: list[GenIdea] = []
         for n, parent in enumerate(parents):
             if n % 3 == 0 and len(parents) > 1:  # occasional crossover

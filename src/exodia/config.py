@@ -96,6 +96,10 @@ class Settings:
     moi_temperature: float = 0.7
     moi_live_generations: int = 3  # live archive: QD rounds per daily run
     moi_min_call_interval: float = 4.5  # seconds between real LLM calls (free-tier RPM)
+    moi_live_batch: int = 6  # live archive: children per generation
+    moi_max_calls_per_run: int | None = None  # cap real LLM calls per command (free tier)
+    summaries_model: str = "gemini-2.5-flash"  # own free-tier quota, spares the MOI model
+    summaries_min_interval: float = 13.0  # 2.5-flash free tier allows 5 requests/minute
 
     data_dir: Path = field(default_factory=lambda: paths.DEFAULT_DATA_DIR)
     site_dir: Path = field(default_factory=lambda: paths.DEFAULT_SITE_DIR)
@@ -250,6 +254,11 @@ def load_settings(config_path: str | Path | None = None) -> Settings:
     s.moi_temperature = float(_get(raw, "moi", "temperature", default=s.moi_temperature))
     s.moi_min_call_interval = float(
         _get(raw, "moi", "min_call_interval", default=s.moi_min_call_interval)
+    )
+    s.moi_live_batch = int(_get(raw, "moi", "live_batch", default=s.moi_live_batch))
+    s.summaries_model = str(_get(raw, "summaries", "model", default=s.summaries_model))
+    s.summaries_min_interval = float(
+        _get(raw, "summaries", "min_interval", default=s.summaries_min_interval)
     )
     s.moi_live_generations = int(
         _get(raw, "moi", "live_generations", default=s.moi_live_generations)

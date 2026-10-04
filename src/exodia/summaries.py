@@ -23,7 +23,7 @@ from .config import Settings
 from .fulltext import cached_pdf_text
 from .logging_setup import get_logger
 from .models import Entry
-from .moi.generator import oracle_spec
+from .moi.generator import spec_for_model_id
 from .moi.llm import LLMClient
 from .transcripts import cached_transcript
 
@@ -81,9 +81,9 @@ def summarize_entries(entries: list[Entry], settings: Settings, *, client: LLMCl
     todo = [e for e in entries if needs_summary(e)][:limit]
     if not todo:
         return 0
-    client = client or LLMClient(oracle_spec(settings), settings.moi_cache_dir,
+    client = client or LLMClient(spec_for_model_id(settings.summaries_model), settings.moi_cache_dir,
                                  temperature=0.2, tag="summaries",
-                                 min_interval=settings.moi_min_call_interval)
+                                 min_interval=settings.summaries_min_interval)
     done = 0
     for e in todo:
         text, src = source_text(e, settings)
