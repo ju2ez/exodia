@@ -45,28 +45,39 @@ def _dedup(ideas: list[GenIdea], seen_titles: set[str]) -> list[GenIdea]:
     return out
 
 
-def run_steered(generator: Generator, reward: RewardModel, settings: Settings, rng) -> list[GenIdea]:
-    archive = Archive(n_bins=settings.moi_archive_shape[1])
-    seen: set[str] = set()
+def run_steered(generator: Generator, reward: RewardModel, settings: Settings, rng, *,
+                archive: Archive | None = None, generations: int | None = None,
+                seen: set[str] | None = None, start_generation: int = 0) -> list[GenIdea]:
+    """Run the QD loop and return elites ranked by fitness.
 
-    pop = _dedup(generator.propose(settings.moi_init_pop), seen)
-    for idea in pop:
-        archive.add(_score(idea, reward, settings.moi_fitness_lambda))
+    The backtest starts from an empty archive. The live loop passes its persisted
+    ``archive`` (already re-scored), the titles it has ever seen (so dropped ideas
+    are not re-proposed), and ``start_generation`` so lineage keeps counting up.
+    Only an empty archive is seeded with a fresh population.
+    """
+    archive = archive if archive is not None else Archive(n_bins=settings.moi_archive_shape[1])
+    seen = seen if seen is not None else set()
+    n_gens = settings.moi_generations if generations is None else generations
+
+    if not archive.cells:
+        pop = _dedup(generator.propose(settings.moi_init_pop), seen)
+        for idea in pop:
+            archive.add(_score(idea, reward, settings.moi_fitness_lambda))
 
     from .archive import FAMILY_NAMES
-    for gen in range(1, settings.moi_generations + 1):
+    for gen in range(start_generation + 1, start_generation + n_gens + 1):
         parents = archive.sample_parents(rng, settings.moi_batch)
         children: list[GenIdea] = []
         for n, parent in enumerate(parents):
             if n % 3 == 0 and len(parents) > 1:  # occasional crossover
                 mate = parents[(n + 1) % len(parents)]
-                children += generator.crossover(parent, mate, gen)
+                children += generator.crossover(parent, mate, gen, variant=gen * 100 + n + 1)
             else:
                 hint = FAMILY_NAMES[(parent.bd[0] + 1) % len(FAMILY_NAMES)]
-                children += generator.mutate(parent, hint, gen)
+                children += generator.mutate(parent, hint, gen, variant=gen * 100 + n + 1)
         for idea in _dedup(children, seen):
             archive.add(_score(idea, reward, settings.moi_fitness_lambda))
-        log.info("MOI steer gen %d/%d: %s", gen, settings.moi_generations, archive.stats())
+        log.info("MOI steer gen %d (%d this run): %s", gen, n_gens, archive.stats())
 
     return sorted(archive.elites(), key=lambda i: i.fitness, reverse=True)
 

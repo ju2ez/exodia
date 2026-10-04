@@ -4,6 +4,35 @@
 <h1>Generated research ideas</h1>
 {% include "partials/disclaimer.html" %}
 
+{% if archive %}
+<section class="idea-archive">
+  <h2>Idea archive <span class="muted">(quality-diversity)</span></h2>
+  <p class="muted">Exodia explores ideas the way MAP-Elites explores solutions: every cell keeps the
+    single best idea for one research family at one level of novelty, and an idea only replaces it
+    if the Model of Interestingness scores it higher. A few generations of mutation and recombination
+    run every day, so the grid keeps filling and improving.
+    {{ archive.n_filled }} of {{ archive.n_cells }} cells filled &middot; generation {{ archive.generation }}
+    &middot; updated {{ archive.updated }}.</p>
+  <div class="table-wrap">
+  <table class="archive-grid">
+    <thead><tr><th>Family</th>{% for n in archive.novelty_labels %}<th>{{ n }}</th>{% endfor %}</tr></thead>
+    <tbody>
+    {% for row in archive.rows %}
+      <tr><th scope="row">{{ row.family }}</th>
+      {% for c in row.cells %}
+        {% if c %}<td class="filled" title="{{ c.short_hypothesis }}"><strong>{{ c.title }}</strong>
+          <span class="moi-badge" title="Model-of-Interestingness fitness">MOI {{ (c.fitness * 100)|round|int }}</span>
+          <span class="muted small">gen {{ c.generation }}</span></td>
+        {% else %}<td class="empty">&mdash;</td>{% endif %}
+      {% endfor %}
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</section>
+{% endif %}
+
 {% if ideas %}
 {% if best_ideas %}
 <section class="best-ideas">

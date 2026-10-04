@@ -52,6 +52,30 @@ def _copy_assets(settings: Settings) -> None:
             shutil.copytree(src, settings.site_dir / "assets" / sub, dirs_exist_ok=True)
 
 
+NOVELTY_LABELS = ("incremental", "moderate", "bold")
+
+
+def idea_archive_view(state: dict | None) -> dict | None:
+    """The live MAP-Elites archive as a family × novelty grid for the Ideas page."""
+    if not state or not (state.get("archive") or {}).get("elites"):
+        return None
+    arch = state["archive"]
+    families = state.get("families") or []
+    n_bins = int(arch.get("n_bins", 3))
+    cells = {tuple(e["bd"]): e for e in arch["elites"]}
+    labels = list(NOVELTY_LABELS) if n_bins == len(NOVELTY_LABELS) else [str(b) for b in range(n_bins)]
+    rows = [{"family": fam, "cells": [cells.get((f, b)) for b in range(n_bins)]}
+            for f, fam in enumerate(families)]
+    history = state.get("history") or []
+    last = history[-1] if history else {}
+    return {
+        "rows": rows, "novelty_labels": labels, "n_filled": len(cells),
+        "n_cells": len(families) * n_bins, "generation": state.get("generation", 0),
+        "qd_score": last.get("qd_score"), "updated": (state.get("updated_utc") or "")[:10],
+        "n_runs": len(history),
+    }
+
+
 def site_context(settings: Settings) -> tuple[Environment, dict, dict]:
     """Load all data and build the (env, global_ctx, per-page_ctx) used to render.
 
@@ -75,6 +99,8 @@ def site_context(settings: Settings) -> tuple[Environment, dict, dict]:
     # MOI forecasting backtest (committed JSON; rendered with zero LLM calls). Absent
     # until `exodia moi-backtest` has been run, in which case the chart is skipped.
     moi = read_json(settings.moi_backtest_path, default=None)
+
+    archive_view = idea_archive_view(read_json(settings.idea_archive_path, default=None))
 
     plot_cards = make_plots(entries, report, settings)
     trend_cards = make_trend_plots(entries, report, settings, moi=moi)
@@ -135,7 +161,8 @@ def site_context(settings: Settings) -> tuple[Environment, dict, dict]:
             "categories": list(CATEGORIES.items()),
             "n_entries": len(entries),
         },
-        "ideas.html": {"ideas": ideas_sorted, "n_ideas": len(ideas), "best_ideas": best_ideas},
+        "ideas.html": {"ideas": ideas_sorted, "n_ideas": len(ideas), "best_ideas": best_ideas,
+                       "archive": archive_view},
         "changelog.html": {"changelog": changelog_sorted},
         "about.html": {"report": report, "n_entries": len(entries)},
     }

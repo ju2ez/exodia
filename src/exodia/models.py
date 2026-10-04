@@ -47,6 +47,10 @@ class Entry:
     abstract: str | None = None
     abstract_source: str | None = None
     abstract_url: str | None = None
+    # Short LLM summary for entries without an abstract (blogs, talks, position
+    # pieces), so they can reach the ideation brief. Never shown as the work's own text.
+    summary: str | None = None
+    summary_source: str | None = None  # "transcript" | "pdf" | "page" | "title"
     arxiv_published: str | None = None
     arxiv_categories: list[str] | None = None
     pdf_path: str | None = None

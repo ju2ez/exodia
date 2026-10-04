@@ -64,6 +64,12 @@ def build_parser() -> argparse.ArgumentParser:
     mb.add_argument("--mock", action="store_true", help="Use the offline mock LLM (no API calls).")
     mb.add_argument("--out", default=None, help="Output path (default data/moi_backtest.json).")
 
+    ev = sub.add_parser("evolve-ideas",
+                        help="Advance the live MAP-Elites idea archive a few generations "
+                             "(runs daily; LLM cost ~25 short calls). Writes data/idea_archive.json.")
+    ev.add_argument("--generations", type=int, default=None, help="Override QD rounds this run.")
+    ev.add_argument("--mock", action="store_true", help="Use the offline mock LLM (no API calls).")
+
     mt = sub.add_parser("moi-train",
                         help="Train the hindsight realization model from the backtest's own "
                              "outcomes (offline; no LLM cost). Writes data/moi_model.json.")
@@ -152,6 +158,20 @@ def main(argv: list[str] | None = None) -> int:
             out=args.out,
         )
         print(f"moi-backtest -> {out}")
+        return 0
+
+    if args.cmd == "evolve-ideas":
+        from .moi.live import run_live
+        from .store import load_entries
+
+        transport = None
+        if args.mock:
+            from .moi.mock import mock_transport
+            transport = mock_transport
+        entries = load_entries(settings.kb_path)
+        state = run_live(entries, settings, transport=transport, generations=args.generations)
+        last = (state.get("history") or [{}])[-1]
+        print(f"evolve-ideas -> {settings.idea_archive_path} ({last})")
         return 0
 
     if args.cmd == "moi-train":

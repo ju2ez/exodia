@@ -42,7 +42,7 @@ class ModelSpec:
 Transport = Callable[[ModelSpec, dict], str]
 
 
-def _http_transport(spec: ModelSpec, payload: dict, *, max_retries: int = 5) -> str:
+def _http_transport(spec: ModelSpec, payload: dict, *, max_retries: int = 8) -> str:
     import time
 
     import requests
@@ -84,7 +84,8 @@ class LLMClient:
     """Cache-first chat client. ``transport`` is injectable for offline tests."""
 
     def __init__(self, spec: ModelSpec, cache_dir: Path, *, transport: Transport | None = None,
-                 seed: int = 0, temperature: float = 0.7, tag: str = ""):
+                 seed: int = 0, temperature: float = 0.7, tag: str = "",
+                 min_interval: float = 0.0):
         self.spec = spec
         # Namespace the cache (e.g. "mock" vs "real") so a mock smoke run can never
         # serve its canned responses to a real run with a matching prompt.
@@ -94,6 +95,10 @@ class LLMClient:
         self.temperature = temperature
         self.n_calls = 0
         self.n_cache_hits = 0
+        # Free-tier quotas are per-minute: pace real calls instead of burning the
+        # retry budget on HTTP 429s (cache hits are never delayed).
+        self.min_interval = min_interval
+        self._last_call = 0.0
 
     def _cache_path(self, key: str) -> Path:
         return self.cache_dir / f"{key}.json"
@@ -116,6 +121,13 @@ class LLMClient:
             "temperature": temp,
             "max_tokens": max_tokens,
         }
+        if self.min_interval > 0:
+            import time
+
+            wait = self._last_call + self.min_interval - time.monotonic()
+            if wait > 0:
+                time.sleep(wait)
+            self._last_call = time.monotonic()
         content = self.transport(self.spec, payload)
         self.n_calls += 1
         self.cache_dir.mkdir(parents=True, exist_ok=True)

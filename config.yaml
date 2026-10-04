@@ -82,6 +82,8 @@ moi:
   reward_ensemble: 4            # Bradley-Terry MOI ensemble size
   reward_pairs: 400             # sampled preference pairs per ensemble member
   temperature: 0.7
+  live_generations: 3           # live idea archive: QD rounds per daily `evolve-ideas`
+  min_call_interval: 4.5        # seconds between real LLM calls (Gemini free-tier RPM)
 
 paths:
   data_dir: "data"

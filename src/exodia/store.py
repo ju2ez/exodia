@@ -94,6 +94,9 @@ def merge(
             ne.journal_ref = oe.journal_ref
             ne.comment = oe.comment
             ne.doi = oe.doi
+        if not ne.summary and oe.summary:
+            ne.summary = oe.summary
+            ne.summary_source = oe.summary_source
         if not ne.arxiv_id and oe.arxiv_id:
             ne.arxiv_id = oe.arxiv_id
         # Carry forward the locally cached PDF path so we don't re-download.

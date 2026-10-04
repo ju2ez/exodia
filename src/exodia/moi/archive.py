@@ -94,6 +94,19 @@ class Archive:
         idx = rng.integers(0, len(elites), size=n)
         return [elites[i] for i in idx]
 
+    def to_dict(self) -> dict:
+        return {"n_families": self.n_families, "n_bins": self.n_bins,
+                "elites": [i.to_dict() for i in self.cells.values()]}
+
+    @classmethod
+    def from_dict(cls, data: dict) -> Archive:
+        arch = cls(n_families=int(data.get("n_families", len(FAMILIES))),
+                   n_bins=int(data.get("n_bins", 3)))
+        for d in data.get("elites", []):
+            idea = GenIdea.from_dict(d)
+            arch.cells[tuple(idea.bd)] = idea
+        return arch
+
     def stats(self) -> dict:
         return {"coverage": round(self.coverage(), 3), "qd_score": round(self.qd_score(), 3),
                 "max_fitness": round(self.max_fitness(), 3), "filled": len(self.cells)}

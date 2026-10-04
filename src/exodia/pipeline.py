@@ -8,6 +8,7 @@ executes the whole loop: fetch -> parse -> merge -> enrich -> analyze -> ideate
 
 from __future__ import annotations
 
+import os
 from datetime import UTC, datetime
 from pathlib import Path
 
@@ -26,6 +27,7 @@ from .parser import parse_readme
 from .pdfs import download_pdfs
 from .render import render_site
 from .store import load_entries, merge, save_kb
+from .summaries import summarize_entries
 from .transcripts import fetch_transcripts
 from .util import now_utc_iso, write_json
 from .venues import resolve_venues
@@ -131,6 +133,14 @@ def run_all(
             fetch_transcripts(merged, settings)
         except Exception as ex:
             log.warning("Transcript fetch skipped due to error: %s", ex)
+
+    # Summarize abstract-less entries (blogs, talks, position pieces) so they can
+    # reach the ideation brief. Needs an LLM key; capped per run; non-fatal.
+    if not dry_run and (os.environ.get("GEMINI_API_KEY") or os.environ.get("OPENAI_API_KEY")):
+        try:
+            summarize_entries(merged, settings)
+        except Exception as ex:
+            log.warning("Entry summaries skipped due to error: %s", ex)
 
     # Resolve the real publication venue (arXiv is a preprint server, not a venue).
     resolve_venues(merged)

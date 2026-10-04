@@ -57,10 +57,23 @@ def build_landscape(train_entries: list[Entry], year: int, *, limit: int = 25) -
     """A compact ≤Y landscape brief (title + venue/year + abstract snippet)."""
     chosen = sorted(train_entries, key=lambda e: (1 if e.abstract else 0, e.year or 0),
                     reverse=True)[:limit]
+    return _landscape_lines(chosen, year, lambda e: e.abstract or "")
+
+
+def build_live_landscape(entries: list[Entry], year: int, *, limit: int = 25) -> str:
+    """The live brief: like ``build_landscape`` but with position pieces (blogs, talks,
+    essays) included through their summaries. Not used by the backtest, whose
+    summaries would leak post-cutoff model knowledge."""
+    from ..ideation import entry_blurb, select_brief_entries
+
+    return _landscape_lines(select_brief_entries(entries, limit=limit), year, entry_blurb)
+
+
+def _landscape_lines(chosen: list[Entry], year: int, blurb) -> str:
     lines = [f"Open-endedness research as of year {year} (selected works):"]
     for e in chosen:
         meta = ", ".join(filter(None, [e.venue or None, str(e.year) if e.year else None]))
-        snip = (e.abstract or "")[:280]
+        snip = (blurb(e) or "")[:280]
         lines.append(f"- {e.title}" + (f" ({meta})" if meta else "") + (f" — {snip}" if snip else ""))
     return "\n".join(lines)
 
@@ -204,22 +217,30 @@ class Generator:
         raw = self.client.complete(self._system(), user, max_tokens=8000)
         return parse_gen_ideas(raw, generation=0)
 
-    def mutate(self, parent: GenIdea, cell_hint: str, generation: int) -> list[GenIdea]:
+    @staticmethod
+    def _variant(variant: int) -> str:
+        # The cache is content-addressed: without a distinguishing salt, mutating the
+        # same parent twice in a round replays the first answer, which dedup drops.
+        return f"\n(Variant #{variant}: take a different angle than other variants.)" if variant else ""
+
+    def mutate(self, parent: GenIdea, cell_hint: str, generation: int,
+               variant: int = 0) -> list[GenIdea]:
         user = (
             f"It is {self.year}. A promising direction:\n"
             f"Title: {parent.title}\nHypothesis: {parent.short_hypothesis}\n{self._context_block()}\n"
             f"Produce 1 bolder, more specific variant that pushes toward: {cell_hint}. "
-            "Return a JSON array with a single object."
+            "Return a JSON array with a single object." + self._variant(variant)
         )
         raw = self.client.complete(self._system(), user, max_tokens=2048)
         return parse_gen_ideas(raw, generation=generation, parents=[parent.idea_id])
 
-    def crossover(self, a: GenIdea, b: GenIdea, generation: int) -> list[GenIdea]:
+    def crossover(self, a: GenIdea, b: GenIdea, generation: int,
+                  variant: int = 0) -> list[GenIdea]:
         user = (
             f"It is {self.year}. Combine the key insights of these two directions into one "
             f"novel direction:\nA: {a.title} — {a.short_hypothesis}\n"
             f"B: {b.title} — {b.short_hypothesis}\n{self._context_block()}\n"
-            "Return a JSON array with a single object."
+            "Return a JSON array with a single object." + self._variant(variant)
         )
         raw = self.client.complete(self._system(), user, max_tokens=2048)
         return parse_gen_ideas(raw, generation=generation, parents=[a.idea_id, b.idea_id])

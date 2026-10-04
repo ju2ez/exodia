@@ -38,7 +38,8 @@ def _has_honest_model(year: int, settings: Settings) -> bool:
 
 def _client(spec, settings: Settings, transport, seed: int, tag: str) -> LLMClient:
     return LLMClient(spec, settings.moi_cache_dir, transport=transport, seed=seed,
-                     temperature=settings.moi_temperature, tag=tag)
+                     temperature=settings.moi_temperature, tag=tag,
+                     min_interval=0.0 if transport else settings.moi_min_call_interval)
 
 
 def run_cutoff(entries: list[Entry], year: int, settings: Settings, *, arms, modes,

@@ -46,11 +46,34 @@ _IDEA_KEYS = {
 }
 
 
+# Categories whose works argue for directions rather than report results: essays,
+# surveys and position papers, blog posts, talks. They get reserved brief slots.
+POSITION_CATEGORIES = ("surveys", "blogs", "videos")
+
+
+def entry_blurb(e: Entry) -> str:
+    """The text that stands for a work in a brief: its abstract, else its summary."""
+    return e.abstract or e.summary or ""
+
+
+def select_brief_entries(entries: list[Entry], limit: int = 25, reserved: int = 8) -> list[Entry]:
+    """Recent works with text, with ``reserved`` slots kept for position pieces.
+
+    Ranking by "has an abstract" alone shut every blog post and talk out of the
+    brief; reserving slots (filled from summaries) lets them steer ideation too.
+    """
+    def rank(e: Entry) -> tuple[int, int]:
+        return (1 if entry_blurb(e) else 0, e.year or 0)
+
+    position = sorted((e for e in entries if e.category in POSITION_CATEGORIES and entry_blurb(e)),
+                      key=rank, reverse=True)[:reserved]
+    taken = {e.entry_id for e in position}
+    rest = sorted((e for e in entries if e.entry_id not in taken), key=rank, reverse=True)
+    return position + rest[: max(0, limit - len(position))]
+
+
 def _select_entries(entries: list[Entry], limit: int = 25) -> list[Entry]:
-    """Prefer entries that have abstracts and are recent."""
-    return sorted(
-        entries, key=lambda e: (1 if e.abstract else 0, e.year or 0), reverse=True
-    )[:limit]
+    return select_brief_entries(entries, limit=limit)
 
 
 def synthesize_topic_md(
@@ -91,9 +114,10 @@ def synthesize_topic_md(
     for e in _select_entries(entries):
         meta = ", ".join(filter(None, [e.venue, str(e.year) if e.year else None]))
         head = f"- **{e.title}**" + (f" ({meta})" if meta else "")
-        if e.abstract:
-            abstract = e.abstract[:500] + ("…" if len(e.abstract) > 500 else "")
-            head += f" — {abstract}"
+        blurb = entry_blurb(e)
+        if blurb:
+            head += f" [{e.category}]" if e.category in POSITION_CATEGORIES else ""
+            head += f" — {blurb[:500]}" + ("…" if len(blurb) > 500 else "")
         lines.append(head)
     lines.append("")
     lines.append("## Goal")

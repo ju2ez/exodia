@@ -94,6 +94,8 @@ class Settings:
     moi_reward_ensemble: int = 4
     moi_reward_pairs: int = 400
     moi_temperature: float = 0.7
+    moi_live_generations: int = 3  # live archive: QD rounds per daily run
+    moi_min_call_interval: float = 4.5  # seconds between real LLM calls (free-tier RPM)
 
     data_dir: Path = field(default_factory=lambda: paths.DEFAULT_DATA_DIR)
     site_dir: Path = field(default_factory=lambda: paths.DEFAULT_SITE_DIR)
@@ -134,6 +136,10 @@ class Settings:
     @property
     def moi_cache_dir(self) -> Path:
         return self.data_dir / "moi_cache"
+
+    @property
+    def idea_archive_path(self) -> Path:
+        return self.data_dir / "idea_archive.json"
 
     @property
     def moi_model_path(self) -> Path:
@@ -242,6 +248,12 @@ def load_settings(config_path: str | Path | None = None) -> Settings:
     s.moi_reward_ensemble = int(_get(raw, "moi", "reward_ensemble", default=s.moi_reward_ensemble))
     s.moi_reward_pairs = int(_get(raw, "moi", "reward_pairs", default=s.moi_reward_pairs))
     s.moi_temperature = float(_get(raw, "moi", "temperature", default=s.moi_temperature))
+    s.moi_min_call_interval = float(
+        _get(raw, "moi", "min_call_interval", default=s.moi_min_call_interval)
+    )
+    s.moi_live_generations = int(
+        _get(raw, "moi", "live_generations", default=s.moi_live_generations)
+    )
 
     s.data_dir = paths.resolve(_get(raw, "paths", "data_dir", default="data"))
     s.site_dir = paths.resolve(_get(raw, "paths", "site_dir", default="site"))
