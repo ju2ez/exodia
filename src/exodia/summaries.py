@@ -35,12 +35,15 @@ _SYSTEM = (
     "You summarize works from a curated reading list on open-endedness in AI. "
     "Given a work's title and source text, write 2-3 plain sentences on what it "
     "argues or contributes and why it matters for open-ended research. No preamble, "
-    "no markdown, no claims that are not in the source."
+    "no markdown, no claims that are not in the source. If the source text does not "
+    "actually describe the work (boilerplate, a file listing, a login page), reply "
+    "with exactly NONE."
 )
 
 
 def needs_summary(e: Entry) -> bool:
-    return not e.abstract and not e.summary
+    # summary_source "none" = tried, the source did not describe the work: don't retry.
+    return not e.abstract and not e.summary and e.summary_source != "none"
 
 
 def _page_text(url: str, timeout: int = 20) -> str:
@@ -95,7 +98,9 @@ def summarize_entries(entries: list[Entry], settings: Settings, *, client: LLMCl
         except Exception as ex:
             log.warning("Summary failed for %r: %s", e.title, ex)
             continue
-        if out:
+        if out.strip(" .").upper() == "NONE":
+            e.summary_source = "none"
+        elif out:
             e.summary, e.summary_source = out[:900], src
             done += 1
     log.info("Summarized %d of %d abstract-less entries", done, len(todo))

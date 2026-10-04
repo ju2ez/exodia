@@ -41,6 +41,8 @@
       "abstract": "Large language model (LLM)-based evolution is a promising approach for open-ended discovery, where progress requires sustained search and knowledge accumulation. Existing methods still rely heavily on fixed heuristics and hard-coded exploration rules, which limit the autonomy of LLM agents. We present CORAL, the first framework for autonomous multi-agent evolution on open-ended problems. CORAL replaces rigid control with long-running agents that explore, reflect, and collaborate through shared persistent memory, asynchronous multi-agent execution, and heartbeat-based interventions. It also provides practical safeguards, including isolated workspaces, evaluator separation, resource management, and agent session and health management. Evaluated on diverse mathematical, algorithmic, and systems optimization tasks, CORAL sets new state-of-the-art results on 10 tasks, achieving 3-10 times higher improvement rates with far fewer evaluations than fixed evolutionary search baselines across tasks. On Anthropic's kernel engineering task, four co-evolving agents improve the best known score from 1363 to 1103 cycles. Mechanistic analyses further show how these gains arise from knowledge reuse and multi-agent exploration and communication. Together, these results suggest that greater agent autonomy and multi-agent evolution can substantially improve open-ended discovery. Code is available at https://github.com/Human-Agent-Society/CORAL.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2604.01658",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2026-04-02T05:59:06Z",
       "arxiv_categories": [
         "cs.AI"
@@ -79,6 +81,8 @@
       "abstract": "Today's AI systems have human-designed, fixed architectures and cannot autonomously and continuously improve themselves. The advance of AI could itself be automated. If done safely, that would accelerate AI development and allow us to reap its benefits much sooner. Meta-learning can automate the discovery of novel algorithms, but is limited by first-order improvements and the human design of a suitable search space. The Gödel machine proposed a theoretical alternative: a self-improving AI that repeatedly modifies itself in a provably beneficial manner. Unfortunately, proving that most changes are net beneficial is impossible in practice. We introduce the Darwin Gödel Machine (DGM), a self-improving system that iteratively modifies its own code (thereby also improving its ability to modify its own codebase) and empirically validates each change using coding benchmarks. Inspired by Darwinian evolution and open-endedness research, the DGM maintains an archive of generated coding agents. It grows the archive by sampling an agent from it and using a foundation model to create a new, interesting, version of the sampled agent. This open-ended exploration forms a growing tree of diverse, high-quality agents and allows the parallel exploration of many different paths through the search space. Empirically, the DGM automatically improves its coding capabilities (e.g., better code editing tools, long-context window management, peer-review mechanisms), increasing performance on SWE-bench from 20.0% to 50.0%, and on Polyglot from 14.2% to 30.7%. Furthermore, the DGM significantly outperforms baselines without self-improvement or open-ended exploration. All experiments were done with safety precautions (e.g., sandboxing, human oversight). The DGM is a significant step toward self-improving AI, capable of gathering its own stepping stones along paths that unfold into endless innovation.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2505.22954",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2025-05-29T00:26:15Z",
       "arxiv_categories": [
         "cs.AI"
@@ -116,6 +120,8 @@
       "abstract": "Open-ended learning frames intelligence as emerging from continual interaction with an ever-expanding space of environments. While recent advances have utilized foundation models to programmatically generate diverse environments, these approaches often focus on discovering isolated behaviors rather than orchestrating sustained progression. In complex open-ended worlds, the large combinatorial space of possible challenges makes it difficult for agents to discover sequences of experiences that remain consistently learnable. To address this, we propose Dreaming in Code (DiCode), a framework in which foundation models synthesize executable environment code to scaffold learning toward increasing competence. In DiCode, \"dreaming\" takes the form of materializing code-level variations of the world. We instantiate DiCode in Craftax, a challenging open-ended benchmark characterized by rich mechanics and long-horizon progression. Empirically, DiCode enables agents to acquire long-horizon skills, achieving a $16\\%$ improvement in mean return over the strongest baseline and non-zero success on late-game combat tasks where prior methods fail. Our results suggest that code-level environment design provides a practical mechanism for curriculum control, enabling the construction of intermediate environments that bridge competence gaps in open-ended worlds. Project page and source code are available at https://konstantinosmitsides.github.io/dreaming-in-code and https://github.com/konstantinosmitsides/dreaming-in-code.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2602.08194",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2026-02-09T01:24:40Z",
       "arxiv_categories": [
         "cs.LG",
@@ -156,6 +162,8 @@
       "abstract": "Recent advances in reasoning models have yielded impressive results in mathematics and coding. However, most approaches rely on static datasets, which have been suggested to encourage memorisation and limit generalisation. We introduce DéjàQ, a framework that departs from this paradigm by jointly evolving a diverse set of synthetic mathematical problems alongside model training. This evolutionary process adapts to the model's ability throughout training, optimising problems for learnability. We propose two LLM-driven mutation strategies in which the model itself mutates the training data, either by altering contextual details or by directly modifying problem structure. We find that the model can generate novel and meaningful problems, and that these LLM-driven mutations improve RL training. We analyse key aspects of DéjàQ, including the validity of generated problems and computational overhead. Our results underscore the potential of dynamically evolving training data to enhance mathematical reasoning and indicate broader applicability, which we will support by open-sourcing our code.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2601.01931",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2026-01-05T09:27:49Z",
       "arxiv_categories": [
         "cs.LG",
@@ -198,6 +206,8 @@
       "abstract": "Self-improving AI systems aim to reduce reliance on human engineering by learning to improve their own learning and problem-solving processes. Existing approaches to self-improvement rely on fixed, handcrafted meta-level mechanisms, fundamentally limiting how fast such systems can improve. The Darwin Gödel Machine (DGM) demonstrates open-ended self-improvement in coding by repeatedly generating and evaluating self-modified variants. Because both evaluation and self-modification are coding tasks, gains in coding ability can translate into gains in self-improvement ability. However, this alignment does not generally hold beyond coding domains. We introduce \\textbf{hyperagents}, self-referential agents that integrate a task agent (which solves the target task) and a meta agent (which modifies itself and the task agent) into a single editable program. Crucially, the meta-level modification procedure is itself editable, enabling metacognitive self-modification, improving not only the task-solving behavior, but also the mechanism that generates future improvements. We instantiate this framework by extending DGM to create DGM-Hyperagents (DGM-H), eliminating the assumption of domain-specific alignment between task performance and self-modification skill to potentially support self-accelerating progress on any computable task. Across diverse domains, the DGM-H improves performance over time and outperforms baselines without self-improvement or open-ended exploration, as well as prior self-improving systems. Furthermore, the DGM-H improves the process by which it generates new agents (e.g., persistent memory, performance tracking), and these meta-level improvements transfer across domains and accumulate across runs. DGM-Hyperagents offer a glimpse of open-ended AI systems that do not merely search for better solutions, but continually improve their search for how to improve.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2603.19461",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2026-03-19T20:50:08Z",
       "arxiv_categories": [
         "cs.AI"
@@ -237,6 +247,8 @@
       "abstract": "We are in the midst of large-scale industrial and academic efforts to automate the processes of scientific, technological and creative production through AI-driven assistants. Historically, a fundamental property of these processes in their human form has been their open-endedness: their capacity for generating a seemingly endless supply of novel and meaningful new forms. Do artificial agents have any capacity for such fruitful unguided discovery? To answer this question, we turn to Picbreeder, the canonical exemplar of human-driven open-ended search, in which users collaboratively generated a diverse library of images through interactive evolution of small neural networks. We replicate Picbreeder, replacing human users with frontier Vision Language Models (VLMs). We observe clear qualitative differences between the output of our system and the historical human baseline, and attempt to characterize them using metrics of phylogenetic complexity and visual and semantic salience and novelty. In an effort to identify some of the causal factors contributing these differences, we study the addition of exploratory noise to the agents' selection process, of behavioral diversity between agents, and of narrative momentum in the form of memory of past actions. We make our code available at https://github.com/smearle/picbreeder-vlm.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2605.23908",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2026-04-01T02:44:54Z",
       "arxiv_categories": [
         "cs.AI",
@@ -275,6 +287,8 @@
       "abstract": "The statelessness of foundation models bottlenecks agentic systems' ability to continually learn, a core capability for long-horizon reasoning and adaptation. To address this limitation, agentic systems commonly incorporate memory modules to retain and reuse past experience, aiming for continual learning during test time. However, most existing memory designs are human-crafted and fixed, which limits their ability to adapt to the diversity and non-stationarity of real-world tasks. In this paper, we introduce ALMA (Automated meta-Learning of Memory designs for Agentic systems), a framework that meta-learns memory designs to replace hand-engineered memory designs, therefore minimizing human effort and enabling agentic systems to be continual learners across diverse domains. Our approach employs a Meta Agent that searches over memory designs expressed as executable code in an open-ended manner, theoretically allowing the discovery of arbitrary memory designs, including database schemas as well as their retrieval and update mechanisms. Extensive experiments across four sequential decision-making domains demonstrate that the learned memory designs enable more effective and efficient learning from experience than state-of-the-art human-crafted memory designs on all benchmarks. When developed and deployed safely, ALMA represents a step toward self-improving AI systems that learn to be adaptive, continual learners.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2602.07755",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2026-02-08T01:20:49Z",
       "arxiv_categories": [
         "cs.AI"
@@ -311,6 +325,8 @@
       "abstract": "Foundation models have become general-purpose assistants, exhibiting diverse capabilities across numerous domains through training on web-scale data. It remains challenging to precisely characterize even a fraction of the full spectrum of these abilities and potential risks in any new model. Existing evaluation approaches often require significant human effort, and it is taking increasing effort to design ever harder challenges for more capable models. We introduce Automated Capability Discovery (ACD), a framework that designates one foundation model as a scientist to systematically propose open-ended tasks probing the abilities of a subject model (potentially itself). By combining frontier models with ideas from the field of open-endedness, ACD automatically and systematically uncovers a diverse spectrum of surprising capabilities and failures in the subject model. We demonstrate ACD across a range of foundation models (including the GPT, Claude, and Llama series), showing that it automatically generates thousands of distinct tasks, which are then clustered to reveal dozens of broader capability areas and failure modes, that would be challenging for any single team to uncover. We further validate our method's automated scoring with extensive human surveys, observing high agreement between model-generated and human evaluations. By leveraging foundation models' ability to both create tasks and self-evaluate, ACD is a significant step toward scalable, automated evaluation of novel AI systems. All code and evaluation logs are open-sourced at https://github.com/conglu1997/ACD.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2502.07577",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2025-02-11T14:23:13Z",
       "arxiv_categories": [
         "cs.LG",
@@ -349,6 +365,8 @@
       "abstract": "Researchers are investing substantial effort in developing powerful general-purpose agents, wherein Foundation Models are used as modules within agentic systems (e.g. Chain-of-Thought, Self-Reflection, Toolformer). However, the history of machine learning teaches us that hand-designed solutions are eventually replaced by learned solutions. We describe a newly forming research area, Automated Design of Agentic Systems (ADAS), which aims to automatically create powerful agentic system designs, including inventing novel building blocks and/or combining them in new ways. We further demonstrate that there is an unexplored yet promising approach within ADAS where agents can be defined in code and new agents can be automatically discovered by a meta agent programming ever better ones in code. Given that programming languages are Turing Complete, this approach theoretically enables the learning of any possible agentic system: including novel prompts, tool use, workflows, and combinations thereof. We present a simple yet effective algorithm named Meta Agent Search to demonstrate this idea, where a meta agent iteratively programs interesting new agents based on an ever-growing archive of previous discoveries. Through extensive experiments across multiple domains including coding, science, and math, we show that our algorithm can progressively invent agents with novel designs that greatly outperform state-of-the-art hand-designed agents. Importantly, we consistently observe the surprising result that agents invented by Meta Agent Search maintain superior performance even when transferred across domains and models, demonstrating their robustness and generality. Provided we develop it safely, our work illustrates the potential of an exciting new research direction toward automatically designing ever-more powerful agentic systems to benefit humanity.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2408.08435",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2024-08-15T21:59:23Z",
       "arxiv_categories": [
         "cs.AI"
@@ -385,6 +403,8 @@
       "abstract": null,
       "abstract_source": null,
       "abstract_url": null,
+      "summary": "This paper introduces PromptQuine, an evolutionary framework that optimizes LLM prompts by automatically evolving pruning strategies for in-context learning demonstrations. It demonstrates that pruning random demonstrations into seemingly incoherent \"gibberish\" can surprisingly improve task performance, achieving near state-of-the-art results. This work matters for open-ended research by proposing a novel, self-replicating prompt design paradigm inspired by biological evolution, offering tools for mechanistic studies of in-context learning and LLM prompt sensitivity.",
+      "summary_source": "page",
       "arxiv_published": null,
       "arxiv_categories": null,
       "pdf_path": null,
@@ -418,6 +438,8 @@
       "abstract": "Multi-agent interactions have long fueled innovation, from natural predator-prey dynamics to the space race. Self-play (SP) algorithms try to harness these dynamics by pitting agents against ever-improving opponents, thereby creating an implicit curriculum toward learning high-quality solutions. However, SP often fails to produce diverse solutions and can get stuck in locally optimal behaviors. We introduce Foundation-Model Self-Play (FMSP), a new direction that leverages the code-generation capabilities and vast knowledge of foundation models (FMs) to overcome these challenges by leaping across local optima in policy space. We propose a family of approaches: (1) \\textbf{Vanilla Foundation-Model Self-Play (vFMSP)} continually refines agent policies via competitive self-play; (2) \\textbf{Novelty-Search Self-Play (NSSP)} builds a diverse population of strategies, ignoring performance; and (3) the most promising variant, \\textbf{Quality-Diveristy Self-Play (QDSP)}, creates a diverse set of high-quality policies by combining the diversity of NSSP and refinement of vFMSP. We evaluate FMSPs in Car Tag, a continuous-control pursuer-evader setting, and in Gandalf, a simple AI safety simulation in which an attacker tries to jailbreak an LLM's defenses. In Car Tag, FMSPs explore a wide variety of reinforcement learning, tree search, and heuristic-based methods, to name just a few. In terms of discovered policy quality, \\ouralgo and vFMSP surpass strong human-designed strategies. In Gandalf, FMSPs can successfully automatically red-team an LLM, breaking through and jailbreaking six different, progressively stronger levels of defense. Furthermore, FMSPs can automatically proceed to patch the discovered vulnerabilities. Overall, FMSPs represent a promising new research frontier of improving self-play with foundation models, opening fresh paths toward more creative and open-ended strategy discovery",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2507.06466",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2025-07-09T00:58:19Z",
       "arxiv_categories": [
         "cs.LG",
@@ -458,6 +480,8 @@
       "abstract": "The rapid advancement of large language models (LLMs) has significantly enhanced the capabilities of AI-driven agents across various tasks. However, existing agentic systems, whether based on fixed pipeline algorithms or pre-defined meta-learning frameworks, cannot search the whole agent design space due to the restriction of human-designed components, and thus might miss the globally optimal agent design. In this paper, we introduce Gödel Agent, a self-evolving framework inspired by the Gödel machine, enabling agents to recursively improve themselves without relying on predefined routines or fixed optimization algorithms. Gödel Agent leverages LLMs to dynamically modify its own logic and behavior, guided solely by high-level objectives through prompting. Experimental results on mathematical reasoning and complex agent tasks demonstrate that implementation of Gödel Agent can achieve continuous self-improvement, surpassing manually crafted agents in performance, efficiency, and generalizability.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2410.04444",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2024-10-06T10:49:40Z",
       "arxiv_categories": [
         "cs.AI"
@@ -494,6 +518,8 @@
       "abstract": "Much of the excitement in modern AI is driven by the observation that scaling up existing systems leads to better performance. But does better performance necessarily imply better internal representations? While the representational optimist assumes it must, this position paper challenges that view. We compare neural networks evolved through an open-ended search process to networks trained via conventional stochastic gradient descent (SGD) on the simple task of generating a single image. This minimal setup offers a unique advantage: each hidden neuron's full functional behavior can be easily visualized as an image, thus revealing how the network's output behavior is internally constructed neuron by neuron. The result is striking: while both networks produce the same output behavior, their internal representations differ dramatically. The SGD-trained networks exhibit a form of disorganization that we term fractured entangled representation (FER). Interestingly, the evolved networks largely lack FER, even approaching a unified factored representation (UFR). In large models, FER may be degrading core model capacities like generalization, creativity, and (continual) learning. Therefore, understanding and mitigating FER could be critical to the future of representation learning.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2505.11581",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2025-05-16T16:28:34Z",
       "arxiv_categories": [
         "cs.CV",
@@ -537,6 +563,8 @@
       "abstract": "AI is increasingly playing a pivotal role in transforming how scientific discoveries are made. We introduce The AI Scientist-v2, an end-to-end agentic system capable of producing the first entirely AI generated peer-review-accepted workshop paper. This system iteratively formulates scientific hypotheses, designs and executes experiments, analyzes and visualizes data, and autonomously authors scientific manuscripts. Compared to its predecessor (v1, Lu et al., 2024 arXiv:2408.06292), The AI Scientist-v2 eliminates the reliance on human-authored code templates, generalizes effectively across diverse machine learning domains, and leverages a novel progressive agentic tree-search methodology managed by a dedicated experiment manager agent. Additionally, we enhance the AI reviewer component by integrating a Vision-Language Model (VLM) feedback loop for iterative refinement of content and aesthetics of the figures. We evaluated The AI Scientist-v2 by submitting three fully autonomous manuscripts to a peer-reviewed ICLR workshop. Notably, one manuscript achieved high enough scores to exceed the average human acceptance threshold, marking the first instance of a fully AI-generated paper successfully navigating a peer review. This accomplishment highlights the growing capability of AI in conducting all aspects of scientific research. We anticipate that further advancements in autonomous scientific discovery technologies will profoundly impact human knowledge generation, enabling unprecedented scalability in research productivity and significantly accelerating scientific breakthroughs, greatly benefiting society at large. We have open-sourced the code at https://github.com/SakanaAI/AI-Scientist-v2 to foster the future development of this transformative technology. We also discuss the role of AI in science, including AI safety.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2504.08066",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2025-04-10T18:44:41Z",
       "arxiv_categories": [
         "cs.AI",
@@ -576,6 +604,8 @@
       "abstract": "Cultural accumulation drives the open-ended and diverse progress in capabilities spanning human history. It builds an expanding body of knowledge and skills by combining individual exploration with inter-generational information transmission. Despite its widespread success among humans, the capacity for artificial learning agents to accumulate culture remains under-explored. In particular, approaches to reinforcement learning typically strive for improvements over only a single lifetime. Generational algorithms that do exist fail to capture the open-ended, emergent nature of cultural accumulation, which allows individuals to trade-off innovation and imitation. Building on the previously demonstrated ability for reinforcement learning agents to perform social learning, we find that training setups which balance this with independent learning give rise to cultural accumulation. These accumulating agents outperform those trained for a single lifetime with the same cumulative experience. We explore this accumulation by constructing two models under two distinct notions of a generation: episodic generations, in which accumulation occurs via in-context learning and train-time generations, in which accumulation occurs via in-weights learning. In-context and in-weights cultural accumulation can be interpreted as analogous to knowledge and skill accumulation, respectively. To the best of our knowledge, this work is the first to present general models that achieve emergent cultural accumulation in reinforcement learning, opening up new avenues towards more open-ended learning systems, as well as presenting new opportunities for modelling human culture.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2406.00392",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2024-06-01T10:33:32Z",
       "arxiv_categories": [
         "cs.AI"
@@ -616,6 +646,8 @@
       "abstract": "The fields of Origin of Life and Artificial Life both question what life is and how it emerges from a distinct set of \"pre-life\" dynamics. One common feature of most substrates where life emerges is a marked shift in dynamics when self-replication appears. While there are some hypotheses regarding how self-replicators arose in nature, we know very little about the general dynamics, computational principles, and necessary conditions for self-replicators to emerge. This is especially true on \"computational substrates\" where interactions involve logical, mathematical, or programming rules. In this paper we take a step towards understanding how self-replicators arise by studying several computational substrates based on various simple programming languages and machine instruction sets. We show that when random, non self-replicating programs are placed in an environment lacking any explicit fitness landscape, self-replicators tend to arise. We demonstrate how this occurs due to random interactions and self-modification, and can happen with and without background random mutations. We also show how increasingly complex dynamics continue to emerge following the rise of self-replicators. Finally, we show a counterexample of a minimalistic programming language where self-replicators are possible, but so far have not been observed to arise.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2406.19108",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2024-06-27T11:34:35Z",
       "arxiv_categories": [
         "cs.NE",
@@ -659,6 +691,8 @@
       "abstract": "Common methods for aligning large language models (LLMs) with desired behaviour heavily rely on human-labelled data. However, as models grow increasingly sophisticated, they will surpass human expertise, and the role of human evaluation will evolve into non-experts overseeing experts. In anticipation of this, we ask: can weaker models assess the correctness of stronger models? We investigate this question in an analogous setting, where stronger models (experts) possess the necessary information to answer questions and weaker models (non-experts) lack this information. The method we evaluate is debate, where two LLM experts each argue for a different answer, and a non-expert selects the answer. We find that debate consistently helps both non-expert models and humans answer questions, achieving 76% and 88% accuracy respectively (naive baselines obtain 48% and 60%). Furthermore, optimising expert debaters for persuasiveness in an unsupervised manner improves non-expert ability to identify the truth in debates. Our results provide encouraging empirical evidence for the viability of aligning models with debate in the absence of ground truth.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2402.06782",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2024-02-09T21:05:01Z",
       "arxiv_categories": [
         "cs.AI",
@@ -699,6 +733,8 @@
       "abstract": "Offline preference optimization is a key method for enhancing and controlling the quality of Large Language Model (LLM) outputs. Typically, preference optimization is approached as an offline supervised learning task using manually-crafted convex loss functions. While these methods are based on theoretical insights, they are inherently constrained by human creativity, so the large search space of possible loss functions remains under explored. We address this by performing LLM-driven objective discovery to automatically discover new state-of-the-art preference optimization algorithms without (expert) human intervention. Specifically, we iteratively prompt an LLM to propose and implement new preference optimization loss functions based on previously-evaluated performance metrics. This process leads to the discovery of previously-unknown and performant preference optimization algorithms. The best performing of these we call Discovered Preference Optimization (DiscoPOP), a novel algorithm that adaptively blends logistic and exponential losses. Experiments demonstrate the state-of-the-art performance of DiscoPOP and its successful transfer to held-out tasks.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2406.08414",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2024-06-12T16:58:41Z",
       "arxiv_categories": [
         "cs.LG"
@@ -736,6 +772,8 @@
       "abstract": "Procedural Content Generation (PCG) algorithms enable the automatic generation of complex and diverse artifacts. However, they don't provide high-level control over the generated content and typically require domain expertise. In contrast, text-to-3D methods allow users to specify desired characteristics in natural language, offering a high amount of flexibility and expressivity. But unlike PCG, such approaches cannot guarantee functionality, which is crucial for certain applications like game design. In this paper, we present a method for generating functional 3D artifacts from free-form text prompts in the open-world game Minecraft. Our method, DreamCraft, trains quantized Neural Radiance Fields (NeRFs) to represent artifacts that, when viewed in-game, match given text descriptions. We find that DreamCraft produces more aligned in-game artifacts than a baseline that post-processes the output of an unconstrained NeRF. Thanks to the quantized representation of the environment, functional constraints can be integrated using specialized loss terms. We show how this can be leveraged to generate 3D structures that match a target distribution or obey certain adjacency rules over the block types. DreamCraft inherits a high degree of expressivity and controllability from the NeRF, while still being able to incorporate functional constraints through domain-specific objectives.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2404.15538",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2024-04-23T21:57:14Z",
       "arxiv_categories": [
         "cs.GR",
@@ -776,6 +814,8 @@
       "abstract": "Large language models (LLMs) have become increasingly capable, but their development often requires substantial computational resources. While model merging has emerged as a cost-effective promising approach for creating new models by combining existing ones, it currently relies on human intuition and domain knowledge, limiting its potential. Here, we propose an evolutionary approach that overcomes this limitation by automatically discovering effective combinations of diverse open-source models, harnessing their collective intelligence without requiring extensive additional training data or compute. Our approach operates in both parameter space and data flow space, allowing for optimization beyond just the weights of the individual models. This approach even facilitates cross-domain merging, generating models like a Japanese LLM with Math reasoning capabilities. Surprisingly, our Japanese Math LLM achieved state-of-the-art performance on a variety of established Japanese LLM benchmarks, even surpassing models with significantly more parameters, despite not being explicitly trained for such tasks. Furthermore, a culturally-aware Japanese VLM generated through our approach demonstrates its effectiveness in describing Japanese culture-specific content, outperforming previous Japanese VLMs. This work not only contributes new state-of-the-art models back to the open-source community, but also introduces a new paradigm for automated model composition, paving the way for exploring alternative, efficient approaches to foundation model development.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2403.13187",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2024-03-19T22:56:53Z",
       "arxiv_categories": [
         "cs.NE"
@@ -812,6 +852,8 @@
       "abstract": "Two fundamental challenges face generative models in engineering applications: the acquisition of high-performing, diverse datasets, and the adherence to precise constraints in generated designs. We propose a novel approach combining optimization, constraint satisfaction, and language models to tackle these challenges in architectural design. Our method uses Quality-Diversity (QD) to generate a diverse, high-performing dataset. We then fine-tune a language model with this dataset to generate high-level designs. These designs are then refined into detailed, constraint-compliant layouts using the Wave Function Collapse algorithm. Our system demonstrates reliable adherence to textual guidance, enabling the generation of layouts with targeted architectural and performance features. Crucially, our results indicate that data synthesized through the evolutionary search of QD not only improves overall model performance but is essential for the model's ability to closely adhere to textual guidance. This improvement underscores the pivotal role evolutionary computation can play in creating the datasets key to training generative models for design. Web article at https://tilegpt.github.io",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2405.09997",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2024-05-16T11:30:08Z",
       "arxiv_categories": [
         "cs.NE",
@@ -870,6 +912,8 @@
       "abstract": "We introduce Genie, the first generative interactive environment trained in an unsupervised manner from unlabelled Internet videos. The model can be prompted to generate an endless variety of action-controllable virtual worlds described through text, synthetic images, photographs, and even sketches. At 11B parameters, Genie can be considered a foundation world model. It is comprised of a spatiotemporal video tokenizer, an autoregressive dynamics model, and a simple and scalable latent action model. Genie enables users to act in the generated environments on a frame-by-frame basis despite training without any ground-truth action labels or other domain-specific requirements typically found in the world model literature. Further the resulting learned latent action space facilitates training agents to imitate behaviors from unseen videos, opening the path for training generalist agents of the future.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2402.15391",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2024-02-23T15:47:26Z",
       "arxiv_categories": [
         "cs.LG",
@@ -907,6 +951,8 @@
       "abstract": "Go-Explore is a powerful family of algorithms designed to solve hard-exploration problems built on the principle of archiving discovered states, and iteratively returning to and exploring from the most promising states. This approach has led to superhuman performance across a wide variety of challenging problems including Atari games and robotic control, but requires manually designing heuristics to guide exploration (i.e., determine which states to save and explore from, and what actions to consider next), which is time-consuming and infeasible in general. To resolve this, we propose Intelligent Go-Explore (IGE) which greatly extends the scope of the original Go-Explore by replacing these handcrafted heuristics with the intelligence and internalized human notions of interestingness captured by giant pretrained foundation models (FMs). This provides IGE with a human-like ability to instinctively identify how interesting or promising any new state is (e.g., discovering new objects, locations, or behaviors), even in complex environments where heuristics are hard to define. Moreover, IGE offers the exciting opportunity to recognize and capitalize on serendipitous discoveries -- states encountered during exploration that are valuable in terms of exploration, yet where what makes them interesting was not anticipated by the human user. We evaluate our algorithm on a diverse range of language and vision-based tasks that require search and exploration. Across these tasks, IGE strongly exceeds classic reinforcement learning and graph search baselines, and also succeeds where prior state-of-the-art FM agents like Reflexion completely fail. Overall, Intelligent Go-Explore combines the tremendous strengths of FMs and the powerful Go-Explore algorithm, opening up a new frontier of research into creating more generally capable agents with impressive exploration capabilities.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2405.15143",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2024-05-24T01:45:27Z",
       "arxiv_categories": [
         "cs.LG",
@@ -944,6 +990,8 @@
       "abstract": "Quality-Diversity (QD) approaches are a promising direction to develop open-ended processes as they can discover archives of high-quality solutions across diverse niches. While already successful in many applications, QD approaches usually rely on combining only one or two solutions to generate new candidate solutions. As observed in open-ended processes such as technological evolution, wisely combining large diversity of these solutions could lead to more innovative solutions and potentially boost the productivity of QD search. In this work, we propose to exploit the pattern-matching capabilities of generative models to enable such efficient solution combinations. We introduce In-context QD, a framework of techniques that aim to elicit the in-context capabilities of pre-trained Large Language Models (LLMs) to generate interesting solutions using few-shot and many-shot prompting with quality-diverse examples from the QD archive as context. Applied to a series of common QD domains, In-context QD displays promising results compared to both QD baselines and similar strategies developed for single-objective optimization. Additionally, this result holds across multiple values of parameter sizes and archive population sizes, as well as across domains with distinct characteristics from BBO functions to policy search. Finally, we perform an extensive ablation that highlights the key prompt design considerations that encourage the generation of promising solutions for QD.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2404.15794",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2024-04-24T10:35:36Z",
       "arxiv_categories": [
         "cs.NE",
@@ -984,6 +1032,8 @@
       "abstract": "In the rapidly advancing field of multi-agent systems, ensuring robustness in unfamiliar and adversarial settings is crucial. Notwithstanding their outstanding performance in familiar environments, these systems often falter in new situations due to overfitting during the training phase. This is especially pronounced in settings where both cooperative and competitive behaviours are present, encapsulating a dual nature of overfitting and generalisation challenges. To address this issue, we present Multi-Agent Diagnostics for Robustness via Illuminated Diversity (MADRID), a novel approach for generating diverse adversarial scenarios that expose strategic vulnerabilities in pre-trained multi-agent policies. Leveraging the concepts from open-ended learning, MADRID navigates the vast space of adversarial settings, employing a target policy's regret to gauge the vulnerabilities of these settings. We evaluate the effectiveness of MADRID on the 11vs11 version of Google Research Football, one of the most complex environments for multi-agent reinforcement learning. Specifically, we employ MADRID for generating a diverse array of adversarial settings for TiZero, the state-of-the-art approach which \"masters\" the game through 45 days of training on a large-scale distributed infrastructure. We expose key shortcomings in TiZero's tactical decision-making, underlining the crucial importance of rigorous evaluation in multi-agent systems.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2401.13460",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2024-01-24T14:02:09Z",
       "arxiv_categories": [
         "cs.LG",
@@ -1023,6 +1073,8 @@
       "abstract": "Open-ended and AI-generating algorithms aim to continuously generate and solve increasingly complex tasks indefinitely, offering a promising path toward more general intelligence. To accomplish this grand vision, learning must occur within a vast array of potential tasks. Existing approaches to automatically generating environments are constrained within manually predefined, often narrow distributions of environment, limiting their ability to create any learning environment. To address this limitation, we introduce a novel framework, OMNI-EPIC, that augments previous work in Open-endedness via Models of human Notions of Interestingness (OMNI) with Environments Programmed in Code (EPIC). OMNI-EPIC leverages foundation models to autonomously generate code specifying the next learnable (i.e., not too easy or difficult for the agent's current skill set) and interesting (e.g., worthwhile and novel) tasks. OMNI-EPIC generates both environments (e.g., an obstacle course) and reward functions (e.g., progress through the obstacle course quickly without touching red objects), enabling it, in principle, to create any simulatable learning task. We showcase the explosive creativity of OMNI-EPIC, which continuously innovates to suggest new, interesting learning challenges. We also highlight how OMNI-EPIC can adapt to reinforcement learning agents' learning progress, generating tasks that are of suitable difficulty. Overall, OMNI-EPIC can endlessly create learnable and interesting environments, further propelling the development of self-improving AI systems and AI-Generating Algorithms. Project website with videos: https://dub.sh/omniepic",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2405.15568",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2024-05-24T13:57:32Z",
       "arxiv_categories": [
         "cs.AI"
@@ -1061,6 +1113,8 @@
       "abstract": "Open-ended algorithms aim to learn new, interesting behaviors forever. That requires a vast environment search space, but there are thus infinitely many possible tasks. Even after filtering for tasks the current agent can learn (i.e., learning progress), countless learnable yet uninteresting tasks remain (e.g., minor variations of previously learned tasks). An Achilles Heel of open-endedness research is the inability to quantify (and thus prioritize) tasks that are not just learnable, but also $\\textit{interesting}$ (e.g., worthwhile and novel). We propose solving this problem by $\\textit{Open-endedness via Models of human Notions of Interestingness}$ (OMNI). The insight is that we can utilize foundation models (FMs) as a model of interestingness (MoI), because they $\\textit{already}$ internalize human concepts of interestingness from training on vast amounts of human-generated data, where humans naturally write about what they find interesting or boring. We show that FM-based MoIs improve open-ended learning by focusing on tasks that are both learnable $\\textit{and interesting}$, outperforming baselines based on uniform task sampling or learning progress alone. This approach has the potential to dramatically advance the ability to intelligently select which tasks to focus on next (i.e., auto-curricula), and could be seen as AI selecting its own next task to learn, facilitating self-improving AI and AI-Generating Algorithms. Project website at https://www.jennyzhangzt.com/omni/",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2306.01711",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2023-06-02T17:32:17Z",
       "arxiv_categories": [
         "cs.AI",
@@ -1097,6 +1151,8 @@
       "abstract": "Autonomous interaction with the computer has been a longstanding challenge with great potential, and the recent proliferation of large language models (LLMs) has markedly accelerated progress in building digital agents. However, most of these agents are designed to interact with a narrow domain, such as a specific software or website. This narrow focus constrains their applicability for general computer tasks. To this end, we introduce OS-Copilot, a framework to build generalist agents capable of interfacing with comprehensive elements in an operating system (OS), including the web, code terminals, files, multimedia, and various third-party applications. We use OS-Copilot to create FRIDAY, a self-improving embodied agent for automating general computer tasks. On GAIA, a general AI assistants benchmark, FRIDAY outperforms previous methods by 35%, showcasing strong generalization to unseen applications via accumulated skills from previous tasks. We also present numerical and quantitative evidence that FRIDAY learns to control and self-improve on Excel and Powerpoint with minimal supervision. Our OS-Copilot framework and empirical findings provide infrastructure and insights for future research toward more capable and general-purpose computer agents.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2402.07456",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2024-02-12T07:29:22Z",
       "arxiv_categories": [
         "cs.AI"
@@ -1134,6 +1190,8 @@
       "abstract": "Reinforcement Learning from Human Feedback (RLHF) has shown potential in qualitative tasks where easily defined performance measures are lacking. However, there are drawbacks when RLHF is commonly used to optimize for average human preferences, especially in generative tasks that demand diverse model responses. Meanwhile, Quality Diversity (QD) algorithms excel at identifying diverse and high-quality solutions but often rely on manually crafted diversity metrics. This paper introduces Quality Diversity through Human Feedback (QDHF), a novel approach that progressively infers diversity metrics from human judgments of similarity among solutions, thereby enhancing the applicability and effectiveness of QD algorithms in complex and open-ended domains. Empirical studies show that QDHF significantly outperforms state-of-the-art methods in automatic diversity discovery and matches the efficacy of QD with manually crafted diversity metrics on standard benchmarks in robotics and reinforcement learning. Notably, in open-ended generative tasks, QDHF substantially enhances the diversity of text-to-image generation from a diffusion model and is more favorably received in user studies. We conclude by analyzing QDHF's scalability, robustness, and quality of derived diversity metrics, emphasizing its strength in open-ended optimization tasks. Code and tutorials are available at https://liding.info/qdhf.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2310.12103",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2023-10-18T16:46:16Z",
       "arxiv_categories": [
         "cs.AI",
@@ -1178,6 +1236,8 @@
       "abstract": "In many text-generation problems, users may prefer not only a single response, but a diverse range of high-quality outputs from which to choose. Quality-diversity (QD) search algorithms aim at such outcomes, by continually improving and diversifying a population of candidates. However, the applicability of QD to qualitative domains, like creative writing, has been limited by the difficulty of algorithmically specifying measures of quality and diversity. Interestingly, recent developments in language models (LMs) have enabled guiding search through AI feedback, wherein LMs are prompted in natural language to evaluate qualitative aspects of text. Leveraging this development, we introduce Quality-Diversity through AI Feedback (QDAIF), wherein an evolutionary algorithm applies LMs to both generate variation and evaluate the quality and diversity of candidate text. When assessed on creative writing domains, QDAIF covers more of a specified search space with high-quality samples than do non-QD controls. Further, human evaluation of QDAIF-generated creative texts validates reasonable agreement between AI and human evaluation. Our results thus highlight the potential of AI feedback to guide open-ended search for creative and original solutions, providing a recipe that seemingly generalizes to many domains and modalities. In this way, QDAIF is a step towards AI systems that can independently search, diversify, evaluate, and improve, which are among the core skills underlying human society's capacity for innovation.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2310.13032",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2023-10-19T12:13:58Z",
       "arxiv_categories": [
         "cs.CL",
@@ -1218,6 +1278,8 @@
       "abstract": "Artificial neural networks used for reinforcement learning are structurally rigid, meaning that each optimized parameter of the network is tied to its specific placement in the network structure. It also means that a network only works with pre-defined and fixed input- and output sizes. This is a consequence of having the number of optimized parameters being directly dependent on the structure of the network. Structural rigidity limits the ability to optimize parameters of policies across multiple environments that do not share input and output spaces. Here, we evolve a set of neurons and plastic synapses each represented by a gated recurrent unit (GRU). During optimization, the parameters of these fundamental units of a neural network are optimized in different random structural configurations. Earlier work has shown that parameter sharing between units is important for making structurally flexible neurons We show that it is possible to optimize a set of distinct neuron- and synapse types allowing for a mitigation of the symmetry dilemma. We demonstrate this by optimizing a single set of neurons and synapses to solve multiple reinforcement learning control tasks simultaneously.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2404.15193",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2024-04-06T14:04:14Z",
       "arxiv_categories": [
         "cs.NE",
@@ -1259,6 +1321,8 @@
       "abstract": "One of the grand challenges of artificial general intelligence is developing agents capable of conducting scientific research and discovering new knowledge. While frontier models have already been used as aides to human scientists, e.g. for brainstorming ideas, writing code, or prediction tasks, they still conduct only a small part of the scientific process. This paper presents the first comprehensive framework for fully automatic scientific discovery, enabling frontier large language models to perform research independently and communicate their findings. We introduce The AI Scientist, which generates novel research ideas, writes code, executes experiments, visualizes results, describes its findings by writing a full scientific paper, and then runs a simulated review process for evaluation. In principle, this process can be repeated to iteratively develop ideas in an open-ended fashion, acting like the human scientific community. We demonstrate its versatility by applying it to three distinct subfields of machine learning: diffusion modeling, transformer-based language modeling, and learning dynamics. Each idea is implemented and developed into a full paper at a cost of less than $15 per paper. To evaluate the generated papers, we design and validate an automated reviewer, which we show achieves near-human performance in evaluating paper scores. The AI Scientist can produce papers that exceed the acceptance threshold at a top machine learning conference as judged by our automated reviewer. This approach signifies the beginning of a new era in scientific discovery in machine learning: bringing the transformative benefits of AI agents to the entire research process of AI itself, and taking us closer to a world where endless affordable creativity and innovation can be unleashed on the world's most challenging problems. Our code is open-sourced at https://github.com/SakanaAI/AI-Scientist",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2408.06292",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2024-08-12T16:58:11Z",
       "arxiv_categories": [
         "cs.AI",
@@ -1295,6 +1359,8 @@
       "abstract": "From the formation of snowflakes to the evolution of diverse life forms, emergence is ubiquitous in our universe. In the quest to understand how complexity can arise from simple rules, abstract computational models, such as cellular automata, have been developed to study self-organization. However, the discovery of self-organizing patterns in artificial systems is challenging and has largely relied on manual or semi-automatic search in the past. In this paper, we show that Quality-Diversity, a family of Evolutionary Algorithms, is an effective framework for the automatic discovery of diverse self-organizing patterns in complex systems. Quality-Diversity algorithms aim to evolve a large population of diverse individuals, each adapted to its ecological niche. Combined with Lenia, a family of continuous cellular automata, we demonstrate that our method is able to evolve a diverse population of lifelike self-organizing autonomous patterns. Our framework, called Leniabreeder, can leverage both manually defined diversity criteria to guide the search toward interesting areas, as well as unsupervised measures of diversity to broaden the scope of discoverable patterns. We demonstrate both qualitatively and quantitatively that Leniabreeder offers a powerful solution for discovering self-organizing patterns. The effectiveness of unsupervised Quality-Diversity methods combined with the rich landscape of Lenia exhibits a sustained generation of diversity and complexity characteristic of biological evolution. We provide empirical evidence that suggests unbounded diversity and argue that Leniabreeder is a step toward replicating open-ended evolution in silico.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2406.04235",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2024-06-06T16:35:27Z",
       "arxiv_categories": [
         "cs.NE"
@@ -1331,6 +1397,8 @@
       "abstract": "Large Language Models (LLMs) have proven their worth across a diverse spectrum of disciplines. LLMs have shown great potential in Procedural Content Generation (PCG) as well, but directly generating a level through a pre-trained LLM is still challenging. This work introduces Word2World, a system that enables LLMs to procedurally design playable games through stories, without any task-specific fine-tuning. Word2World leverages the abilities of LLMs to create diverse content and extract information. Combining these abilities, LLMs can create a story for the game, design narrative, and place tiles in appropriate places to create coherent worlds and playable games. We test Word2World with different LLMs and perform a thorough ablation study to validate each step. We open-source the code at https://github.com/umair-nasir14/Word2World.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2405.06686",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2024-05-06T14:21:52Z",
       "arxiv_categories": [
         "cs.CL",
@@ -1369,6 +1437,8 @@
       "abstract": null,
       "abstract_source": null,
       "abstract_url": null,
+      "summary": "Augmentative Topology Agents For Open-Ended Learning (ATEP) is an open-ended learning system that introduces species-based evolution of Enhanced-POET. This system contributes to open-ended research by exploring a novel evolutionary approach to generate increasingly complex and diverse agents and environments.",
+      "summary_source": "page",
       "arxiv_published": null,
       "arxiv_categories": null,
       "pdf_path": null,
@@ -1404,6 +1474,8 @@
       "abstract": "Humans learn to master open-ended repertoires of skills by imagining and practicing their own goals. This autotelic learning process, literally the pursuit of self-generated (auto) goals (telos), becomes more and more open-ended as the goals become more diverse, abstract and creative. The resulting exploration of the space of possible skills is supported by an inter-individual exploration: goal representations are culturally evolved and transmitted across individuals, in particular using language. Current artificial agents mostly rely on predefined goal representations corresponding to goal spaces that are either bounded (e.g. list of instructions), or unbounded (e.g. the space of possible visual inputs) but are rarely endowed with the ability to reshape their goal representations, to form new abstractions or to imagine creative goals. In this paper, we introduce a language model augmented autotelic agent (LMA3) that leverages a pretrained language model (LM) to support the representation, generation and learning of diverse, abstract, human-relevant goals. The LM is used as an imperfect model of human cultural transmission; an attempt to capture aspects of humans' common-sense, intuitive physics and overall interests. Specifically, it supports three key components of the autotelic architecture: 1)~a relabeler that describes the goals achieved in the agent's trajectories, 2)~a goal generator that suggests new high-level goals along with their decomposition into subgoals the agent already masters, and 3)~reward functions for each of these goals. Without relying on any hand-coded goal representations, reward functions or curriculum, we show that LMA3 agents learn to master a large diversity of skills in a task-agnostic text-based environment.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2305.12487",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2023-05-21T15:42:41Z",
       "arxiv_categories": [
         "cs.AI",
@@ -1442,6 +1514,8 @@
       "abstract": "Selecting exploratory actions that generate a rich stream of experience for better learning is a fundamental challenge in reinforcement learning (RL). An approach to tackle this problem consists in selecting actions according to specific policies for an extended period of time, also known as options. A recent line of work to derive such exploratory options builds upon the eigenfunctions of the graph Laplacian. Importantly, until now these methods have been mostly limited to tabular domains where (1) the graph Laplacian matrix was either given or could be fully estimated, (2) performing eigendecomposition on this matrix was computationally tractable, and (3) value functions could be learned exactly. Additionally, these methods required a separate option discovery phase. These assumptions are fundamentally not scalable. In this paper we address these limitations and show how recent results for directly approximating the eigenfunctions of the Laplacian can be leveraged to truly scale up options-based exploration. To do so, we introduce a fully online deep RL algorithm for discovering Laplacian-based options and evaluate our approach on a variety of pixel-based tasks. We compare to several state-of-the-art exploration methods and show that our approach is effective, general, and especially promising in non-stationary settings.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2301.11181",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2023-01-26T15:45:39Z",
       "arxiv_categories": [
         "cs.LG",
@@ -1484,6 +1558,8 @@
       "abstract": "The past decade has seen vast progress in deep reinforcement learning (RL) on the back of algorithms manually designed by human researchers. Recently, it has been shown that it is possible to meta-learn update rules, with the hope of discovering algorithms that can perform well on a wide range of RL tasks. Despite impressive initial results from algorithms such as Learned Policy Gradient (LPG), there remains a generalization gap when these algorithms are applied to unseen environments. In this work, we examine how characteristics of the meta-training distribution impact the generalization performance of these algorithms. Motivated by this analysis and building on ideas from Unsupervised Environment Design (UED), we propose a novel approach for automatically generating curricula to maximize the regret of a meta-learned optimizer, in addition to a novel approximation of regret, which we name algorithmic regret (AR). The result is our method, General RL Optimizers Obtained Via Environment Design (GROOVE). In a series of experiments, we show that GROOVE achieves superior generalization to LPG, and evaluate AR against baseline metrics from UED, identifying it as a critical component of environment design in this setting. We believe this approach is a step towards the discovery of truly general RL algorithms, capable of solving a wide range of real-world environments.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2310.02782",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2023-10-04T12:52:56Z",
       "arxiv_categories": [
         "cs.LG",
@@ -1528,6 +1604,8 @@
       "abstract": "Large Language Models (LLMs) have excelled as high-level semantic planners for sequential decision-making tasks. However, harnessing them to learn complex low-level manipulation tasks, such as dexterous pen spinning, remains an open problem. We bridge this fundamental gap and present Eureka, a human-level reward design algorithm powered by LLMs. Eureka exploits the remarkable zero-shot generation, code-writing, and in-context improvement capabilities of state-of-the-art LLMs, such as GPT-4, to perform evolutionary optimization over reward code. The resulting rewards can then be used to acquire complex skills via reinforcement learning. Without any task-specific prompting or pre-defined reward templates, Eureka generates reward functions that outperform expert human-engineered rewards. In a diverse suite of 29 open-source RL environments that include 10 distinct robot morphologies, Eureka outperforms human experts on 83% of the tasks, leading to an average normalized improvement of 52%. The generality of Eureka also enables a new gradient-free in-context learning approach to reinforcement learning from human feedback (RLHF), readily incorporating human inputs to improve the quality and the safety of the generated rewards without model updating. Finally, using Eureka rewards in a curriculum learning setting, we demonstrate for the first time, a simulated Shadow Hand capable of performing pen spinning tricks, adeptly manipulating a pen in circles at rapid speed.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2310.12931",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2023-10-19T17:31:01Z",
       "arxiv_categories": [
         "cs.RO",
@@ -1568,6 +1646,8 @@
       "abstract": null,
       "abstract_source": null,
       "abstract_url": null,
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": null,
       "arxiv_categories": null,
       "pdf_path": null,
@@ -1627,6 +1707,8 @@
       "abstract": "Foundation models have shown impressive adaptation and scalability in supervised and self-supervised learning problems, but so far these successes have not fully translated to reinforcement learning (RL). In this work, we demonstrate that training an RL agent at scale leads to a general in-context learning algorithm that can adapt to open-ended novel embodied 3D problems as quickly as humans. In a vast space of held-out environment dynamics, our adaptive agent (AdA) displays on-the-fly hypothesis-driven exploration, efficient exploitation of acquired knowledge, and can successfully be prompted with first-person demonstrations. Adaptation emerges from three ingredients: (1) meta-reinforcement learning across a vast, smooth and diverse task distribution, (2) a policy parameterised as a large-scale attention-based memory architecture, and (3) an effective automated curriculum that prioritises tasks at the frontier of an agent's capabilities. We demonstrate characteristic scaling laws with respect to network size, memory length, and richness of the training task distribution. We believe our results lay the foundation for increasingly general and adaptive RL agents that perform well across ever-larger open-ended domains.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2301.07608",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2023-01-18T15:39:21Z",
       "arxiv_categories": [
         "cs.LG",
@@ -1670,6 +1752,8 @@
       "abstract": "Open-ended learning methods that automatically generate a curriculum of increasingly challenging tasks serve as a promising avenue toward generally capable reinforcement learning agents. Existing methods adapt curricula independently over either environment parameters (in single-agent settings) or co-player policies (in multi-agent settings). However, the strengths and weaknesses of co-players can manifest themselves differently depending on environmental features. It is thus crucial to consider the dependency between the environment and co-player when shaping a curriculum in multi-agent domains. In this work, we use this insight and extend Unsupervised Environment Design (UED) to multi-agent environments. We then introduce Multi-Agent Environment Design Strategist for Open-Ended Learning (MAESTRO), the first multi-agent UED approach for two-player zero-sum settings. MAESTRO efficiently produces adversarial, joint curricula over both environments and co-players and attains minimax-regret guarantees at Nash equilibrium. Our experiments show that MAESTRO outperforms a number of strong baselines on competitive two-player games, spanning discrete and continuous control settings.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2303.03376",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2023-03-06T18:57:41Z",
       "arxiv_categories": [
         "cs.LG",
@@ -1712,6 +1796,8 @@
       "abstract": "Exploring rich environments and evaluating one's actions without prior knowledge is immensely challenging. In this paper, we propose Motif, a general method to interface such prior knowledge from a Large Language Model (LLM) with an agent. Motif is based on the idea of grounding LLMs for decision-making without requiring them to interact with the environment: it elicits preferences from an LLM over pairs of captions to construct an intrinsic reward, which is then used to train agents with reinforcement learning. We evaluate Motif's performance and behavior on the challenging, open-ended and procedurally-generated NetHack game. Surprisingly, by only learning to maximize its intrinsic reward, Motif achieves a higher game score than an algorithm directly trained to maximize the score itself. When combining Motif's intrinsic reward with the environment reward, our method significantly outperforms existing approaches and makes progress on tasks where no advancements have ever been made without demonstrations. Finally, we show that Motif mostly generates intuitive human-aligned behaviors which can be steered easily through prompt modifications, while scaling well with the LLM size and the amount of information given in the prompt.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2310.00166",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2023-09-29T22:10:01Z",
       "arxiv_categories": [
         "cs.AI",
@@ -1749,6 +1835,8 @@
       "abstract": "One of the grand challenges of reinforcement learning is the ability to generalize to new tasks. However, general agents require a set of rich, diverse tasks to train on. Designing a `foundation environment' for such tasks is tricky -- the ideal environment would support a range of emergent phenomena, an expressive task space, and fast runtime. To take a step towards addressing this research bottleneck, this work presents Powderworld, a lightweight yet expressive simulation environment running directly on the GPU. Within Powderworld, two motivating challenges distributions are presented, one for world-modelling and one for reinforcement learning. Each contains hand-designed test tasks to examine generalization. Experiments indicate that increasing the environment's complexity improves generalization for world models and certain reinforcement learning agents, yet may inhibit learning in high-variance environments. Powderworld aims to support the study of generalization by providing a source of diverse tasks arising from the same core rules.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2211.13051",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2022-11-23T15:51:44Z",
       "arxiv_categories": [
         "cs.AI",
@@ -1784,6 +1872,8 @@
       "abstract": "Large Language Models (LLMs) have proven to be useful tools in various domains outside of the field of their inception, which was natural language processing. In this study, we provide practical directions on how to use LLMs to generate 2D-game rooms for an under-development game, named Metavoidal. Our technique can harness the power of GPT-3 by Human-in-the-loop fine-tuning which allows our method to create 37% Playable-Novel levels from as scarce data as only 60 hand-designed rooms under a scenario of the non-trivial game, with respect to (Procedural Content Generation) PCG, that has a good amount of local and global constraints.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2305.18243",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2023-05-20T16:08:45Z",
       "arxiv_categories": [
         "cs.CL",
@@ -1822,6 +1912,8 @@
       "abstract": "Popular prompt strategies like Chain-of-Thought Prompting can dramatically improve the reasoning abilities of Large Language Models (LLMs) in various domains. However, such hand-crafted prompt-strategies are often sub-optimal. In this paper, we present Promptbreeder, a general-purpose self-referential self-improvement mechanism that evolves and adapts prompts for a given domain. Driven by an LLM, Promptbreeder mutates a population of task-prompts, and subsequently evaluates them for fitness on a training set. Crucially, the mutation of these task-prompts is governed by mutation-prompts that the LLM generates and improves throughout evolution in a self-referential way. That is, Promptbreeder is not just improving task-prompts, but it is also improving the mutationprompts that improve these task-prompts. Promptbreeder outperforms state-of-the-art prompt strategies such as Chain-of-Thought and Plan-and-Solve Prompting on commonly used arithmetic and commonsense reasoning benchmarks. Furthermore, Promptbreeder is able to evolve intricate task-prompts for the challenging problem of hate speech classification.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2309.16797",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2023-09-28T19:01:07Z",
       "arxiv_categories": [
         "cs.CL",
@@ -1860,6 +1952,8 @@
       "abstract": "There has been a recent surge of interest in developing generally-capable agents that can adapt to new tasks without additional training in the environment. Learning world models from reward-free exploration is a promising approach, and enables policies to be trained using imagined experience for new tasks. However, achieving a general agent requires robustness across different environments. In this work, we address the novel problem of generating curricula in the reward-free setting to train robust world models. We consider robustness in terms of minimax regret over all environment instantiations and show that the minimax regret can be connected to minimising the maximum error in the world model across environment instances. This result informs our algorithm, WAKER: Weighted Acquisition of Knowledge across Environments for Robustness. WAKER selects environments for data collection based on the estimated error of the world model for each environment. Our experiments demonstrate that WAKER outperforms several baselines, resulting in improved robustness, efficiency, and generalisation.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2306.09205",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2023-06-15T15:40:04Z",
       "arxiv_categories": [
         "cs.LG"
@@ -1896,6 +1990,8 @@
       "abstract": "Several recent advances in AI systems solve problems by providing a \"scaffolding\" program that structures multiple calls to language models (LMs) to generate better outputs. A scaffolding program is written in a programming language such as Python. In this work, we use a language-model-infused scaffolding program to improve itself. We start with a seed \"improver\" that improves an input program according to a given utility function by querying an LM several times and returning the best solution. We then run this seed improver to improve itself. Across a small set of downstream tasks, the resulting improved improver generates programs with significantly better performance than its seed improver. A variety of self-improvement strategies are proposed by the language model, including beam search, genetic algorithms, and simulated annealing. Since the language models themselves are not altered, this is not full recursive self-improvement. Nonetheless, it demonstrates that a modern language model, GPT-4 in our experiments, is capable of writing code that can call itself to improve itself. We consider concerns around the development of self-improving technologies and evaluate the frequency with which the generated code bypasses a sandbox.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2310.02304",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2023-10-03T17:59:32Z",
       "arxiv_categories": [
         "cs.CL",
@@ -1941,6 +2037,8 @@
       "abstract": "We introduce Voyager, the first LLM-powered embodied lifelong learning agent in Minecraft that continuously explores the world, acquires diverse skills, and makes novel discoveries without human intervention. Voyager consists of three key components: 1) an automatic curriculum that maximizes exploration, 2) an ever-growing skill library of executable code for storing and retrieving complex behaviors, and 3) a new iterative prompting mechanism that incorporates environment feedback, execution errors, and self-verification for program improvement. Voyager interacts with GPT-4 via blackbox queries, which bypasses the need for model parameter fine-tuning. The skills developed by Voyager are temporally extended, interpretable, and compositional, which compounds the agent's abilities rapidly and alleviates catastrophic forgetting. Empirically, Voyager shows strong in-context lifelong learning capability and exhibits exceptional proficiency in playing Minecraft. It obtains 3.3x more unique items, travels 2.3x longer distances, and unlocks key tech tree milestones up to 15.3x faster than prior SOTA. Voyager is able to utilize the learned skill library in a new Minecraft world to solve novel tasks from scratch, while other techniques struggle to generalize. We open-source our full codebase and prompts at https://voyager.minedojo.org/.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2305.16291",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2023-05-25T17:46:38Z",
       "arxiv_categories": [
         "cs.AI",
@@ -1981,6 +2079,8 @@
       "abstract": "This paper pursues the insight that large language models (LLMs) trained to generate code can vastly improve the effectiveness of mutation operators applied to programs in genetic programming (GP). Because such LLMs benefit from training data that includes sequential changes and modifications, they can approximate likely changes that humans would make. To highlight the breadth of implications of such evolution through large models (ELM), in the main experiment ELM combined with MAP-Elites generates hundreds of thousands of functional examples of Python programs that output working ambulating robots in the Sodarace domain, which the original LLM had never seen in pre-training. These examples then help to bootstrap training a new conditional language model that can output the right walker for a particular terrain. The ability to bootstrap new models that can output appropriate artifacts for a given context in a domain where zero training data was previously available carries implications for open-endedness, deep learning, and reinforcement learning. These implications are explored here in depth in the hope of inspiring new directions of research now opened up by ELM.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2206.08896",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2022-06-17T17:07:04Z",
       "arxiv_categories": [
         "cs.NE"
@@ -2016,6 +2116,8 @@
       "abstract": "It remains a significant challenge to train generally capable agents with reinforcement learning (RL). A promising avenue for improving the robustness of RL agents is through the use of curricula. One such class of methods frames environment design as a game between a student and a teacher, using regret-based objectives to produce environment instantiations (or levels) at the frontier of the student agent's capabilities. These methods benefit from their generality, with theoretical guarantees at equilibrium, yet they often struggle to find effective levels in challenging design spaces. By contrast, evolutionary approaches seek to incrementally alter environment complexity, resulting in potentially open-ended learning, but often rely on domain-specific heuristics and vast amounts of computational resources. In this paper we propose to harness the power of evolution in a principled, regret-based curriculum. Our approach, which we call Adversarially Compounding Complexity by Editing Levels (ACCEL), seeks to constantly produce levels at the frontier of an agent's capabilities, resulting in curricula that start simple but become increasingly complex. ACCEL maintains the theoretical benefits of prior regret-based methods, while providing significant empirical gains in a diverse set of environments. An interactive version of the paper is available at accelagent.github.io.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2203.01302",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2022-03-02T18:40:00Z",
       "arxiv_categories": [
         "cs.LG"
@@ -2056,6 +2158,8 @@
       "abstract": "Adaptive curricula in reinforcement learning (RL) have proven effective for producing policies robust to discrepancies between the train and test environment. Recently, the Unsupervised Environment Design (UED) framework generalized RL curricula to generating sequences of entire environments, leading to new methods with robust minimax regret properties. Problematically, in partially-observable or stochastic settings, optimal policies may depend on the ground-truth distribution over aleatoric parameters of the environment in the intended deployment setting, while curriculum learning necessarily shifts the training distribution. We formalize this phenomenon as curriculum-induced covariate shift (CICS), and describe how its occurrence in aleatoric parameters can lead to suboptimal policies. Directly sampling these parameters from the ground-truth distribution avoids the issue, but thwarts curriculum learning. We propose SAMPLR, a minimax regret UED method that optimizes the ground-truth utility function, even when the underlying training data is biased due to CICS. We prove, and validate on challenging domains, that our approach preserves optimality under the ground-truth distribution, while promoting robustness across the full range of environment settings.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2207.05219",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2022-07-11T22:45:29Z",
       "arxiv_categories": [
         "cs.LG",
@@ -2095,6 +2199,8 @@
       "abstract": "Building autonomous agents able to grow open-ended repertoires of skills across their lives is a fundamental goal of artificial intelligence (AI). A promising developmental approach recommends the design of intrinsically motivated agents that learn new skills by generating and pursuing their own goals - autotelic agents. But despite recent progress, existing algorithms still show serious limitations in terms of goal diversity, exploration, generalisation or skill composition. This perspective calls for the immersion of autotelic agents into rich socio-cultural worlds, an immensely important attribute of our environment that shapes human cognition but is mostly omitted in modern AI. Inspired by the seminal work of Vygotsky, we propose Vygotskian autotelic agents - agents able to internalise their interactions with others and turn them into cognitive tools. We focus on language and show how its structure and informational content may support the development of new cognitive functions in artificial agents as it does in humans. We justify the approach by uncovering several examples of new artificial cognitive functions emerging from interactions between language and embodiment in recent works at the intersection of deep reinforcement learning and natural language processing. Looking forward, we highlight future opportunities and challenges for Vygotskian Autotelic AI research, including the use of language models as cultural models supporting artificial cognitive development.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2206.01134",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2022-06-02T16:35:41Z",
       "arxiv_categories": [
         "cs.AI",
@@ -2141,6 +2247,8 @@
       "abstract": "Autonomous agents have made great strides in specialist domains like Atari games and Go. However, they typically learn tabula rasa in isolated environments with limited and manually conceived objectives, thus failing to generalize across a wide spectrum of tasks and capabilities. Inspired by how humans continually learn and adapt in the open world, we advocate a trinity of ingredients for building generalist agents: 1) an environment that supports a multitude of tasks and goals, 2) a large-scale database of multimodal knowledge, and 3) a flexible and scalable agent architecture. We introduce MineDojo, a new framework built on the popular Minecraft game that features a simulation suite with thousands of diverse open-ended tasks and an internet-scale knowledge base with Minecraft videos, tutorials, wiki pages, and forum discussions. Using MineDojo's data, we propose a novel agent learning algorithm that leverages large pre-trained video-language models as a learned reward function. Our agent is able to solve a variety of open-ended tasks specified in free-form language without any manually designed dense shaping reward. We open-source the simulation suite, knowledge bases, algorithm implementation, and pretrained models (https://minedojo.org) to promote research towards the goal of generally capable embodied agents.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2206.08853",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2022-06-17T15:53:05Z",
       "arxiv_categories": [
         "cs.LG",
@@ -2178,6 +2286,8 @@
       "abstract": null,
       "abstract_source": null,
       "abstract_url": null,
+      "summary": "The Minimal Criterion Artist Collective (MCAC) is a system that generates diverse artistic outputs, such as images and audio, by employing various generative models like StyleGAN, CPPN, and FractalFlame. This work is relevant to open-ended research as it explores how a system with minimal criteria can continuously produce a wide range of novel and diverse creative artifacts.",
+      "summary_source": "page",
       "arxiv_published": null,
       "arxiv_categories": null,
       "pdf_path": null,
@@ -2212,6 +2322,8 @@
       "abstract": "Creatures in the real world constantly encounter new and diverse challenges they have never seen before. They will often need to adapt to some of these tasks and solve them in order to survive. This almost endless world of novel challenges is not as common in virtual environments, where artificially evolving agents often have a limited set of tasks to solve. An exception to this is the field of open-endedness where the goal is to create unbounded exploration of interesting artefacts. We want to move one step closer to creating simulated environments similar to the diverse real world, where agents can both find solvable tasks, and adapt to them. Through the use of MAP-Elites we create a structured repertoire, a map, of terrains and virtual creatures that locomote through them. By using novelty as a dimension in the grid, the map can continuously develop to encourage exploration of new environments. The agents must adapt to the environments found, but can also search for environments within each cell of the grid to find the one that best fits their set of skills. Our approach combines the structure of MAP-Elites, which can allow the virtual creatures to use adjacent cells as stepping stones to solve increasingly difficult environments, with open-ended innovation. This leads to a search that is unbounded, but still has a clear structure. We find that while handcrafted bounded dimensions for the map lead to quicker exploration of a large set of environments, both the bounded and unbounded approach manage to solve a diverse set of terrains.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2305.01153",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2023-05-02T02:03:51Z",
       "arxiv_categories": [
         "cs.NE"
@@ -2250,6 +2362,8 @@
       "abstract": "We propose RAPid-Learn: Learning to Recover and Plan Again, a hybrid planning and learning method, to tackle the problem of adapting to sudden and unexpected changes in an agent's environment (i.e., novelties). RAPid-Learn is designed to formulate and solve modifications to a task's Markov Decision Process (MDPs) on-the-fly and is capable of exploiting domain knowledge to learn any new dynamics caused by the environmental changes. It is capable of exploiting the domain knowledge to learn action executors which can be further used to resolve execution impasses, leading to a successful plan execution. This novelty information is reflected in its updated domain model. We demonstrate its efficacy by introducing a wide variety of novelties in a gridworld environment inspired by Minecraft, and compare our algorithm with transfer learning baselines from the literature. Our method is (1) effective even in the presence of multiple novelties, (2) more sample efficient than transfer learning RL baselines, and (3) robust to incomplete model information, as opposed to pure symbolic planning approaches.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2206.12493",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2022-06-24T21:40:10Z",
       "arxiv_categories": [
         "cs.AI",
@@ -2288,6 +2402,8 @@
       "abstract": "PINSKY is a system for open-ended learning through neuroevolution in game-based domains. It builds on the Paired Open-Ended Trailblazer (POET) system, which originally explored learning and environment generation for bipedal walkers, and adapts it to games in the General Video Game AI (GVGAI) system. Previous work showed that by co-evolving levels and neural network policies, levels could be found for which successful policies could not be created via optimization alone. Studied in the realm of Artificial Life as a potentially open-ended alternative to gradient-based fitness, minimal criteria (MC)-based selection helps foster diversity in evolutionary populations. The main question addressed by this paper is how the open-ended learning actually works, focusing in particular on the role of transfer of policies from one evolutionary branch (\"species\") to another. We analyze the dynamics of the system through creating phylogenetic trees, analyzing evolutionary trajectories of policies, and temporally breaking down transfers according to species type. Furthermore, we analyze the impact of the minimal criterion on generated level diversity and inter-species transfer. The most insightful finding is that inter-species transfer, while rare, is crucial to the system's success.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2203.10941",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2022-03-03T21:10:22Z",
       "arxiv_categories": [
         "cs.AI",
@@ -2328,6 +2444,8 @@
       "abstract": "This paper proposes a framework called Watts for implementing, comparing, and recombining open-ended learning (OEL) algorithms. Motivated by modularity and algorithmic flexibility, Watts atomizes the components of OEL systems to promote the study of and direct comparisons between approaches. Examining implementations of three OEL algorithms, the paper introduces the modules of the framework. The hope is for Watts to enable benchmarking and to explore new types of OEL algorithms. The repo is available at \\url{https://github.com/aadharna/watts}",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2204.13250",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2022-04-28T01:54:53Z",
       "arxiv_categories": [
         "cs.AI",
@@ -2366,6 +2484,8 @@
       "abstract": "Designing robots by hand can be costly and time consuming, especially if the robots have to be created with novel materials, or be robust to internal or external changes. In order to create robots automatically, without the need for human intervention, it is necessary to optimise both the behaviour and the body design of the robot. However, when co-optimising the morphology and controller of a locomoting agent the morphology tends to converge prematurely, reaching a local optimum. Approaches such as explicit protection of morphological innovation have been used to reduce this problem, but it might also be possible to increase exploration of morphologies using a more indirect approach. We explore how changing the environment, where the agent locomotes, affects the convergence of morphologies. The agents' morphologies and controllers are co-optimised, while the environments the agents locomote in are evolved open-endedly with the Paired Open-Ended Trailblazer (POET). We compare the diversity, fitness and robustness of agents evolving in environments generated by POET to agents evolved in handcrafted curricula of environments. Our agents each contain of a population of individuals being evolved with a genetic algorithm. This population is called the agent-population. We show that agent-populations evolving in open-endedly evolving environments exhibit larger morphological diversity than agent-populations evolving in hand crafted curricula of environments. POET proved capable of creating a curriculum of environments which encouraged both diversity and quality in the populations. This suggests that POET may be capable of reducing premature convergence in co-optimisation of morphology and controllers.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2104.03062",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2021-04-07T11:28:23Z",
       "arxiv_categories": [
         "cs.NE"
@@ -2405,6 +2525,8 @@
       "abstract": "Many real-world problems are compositional - solving them requires completing interdependent sub-tasks, either in series or in parallel, that can be represented as a dependency graph. Deep reinforcement learning (RL) agents often struggle to learn such complex tasks due to the long time horizons and sparse rewards. To address this problem, we present Compositional Design of Environments (CoDE), which trains a Generator agent to automatically build a series of compositional tasks tailored to the RL agent's current skill level. This automatic curriculum not only enables the agent to learn more complex tasks than it could have otherwise, but also selects tasks where the agent's performance is weak, enhancing its robustness and ability to generalize zero-shot to unseen tasks at test-time. We analyze why current environment generation techniques are insufficient for the problem of generating compositional tasks, and propose a new algorithm that addresses these issues. Our results assess learning and generalization across multiple compositional tasks, including the real-world problem of learning to navigate and interact with web pages. We learn to generate environments composed of multiple pages or rooms, and train RL agents capable of completing wide-range of complex tasks in those environments. We contribute two new benchmark frameworks for generating compositional tasks, compositional MiniGrid and gMiniWoB for web navigation.CoDE yields 4x higher success rate than the strongest baseline, and demonstrates strong performance of real websites learned on 3500 primitive tasks.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2201.08896",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2022-01-21T21:35:01Z",
       "arxiv_categories": [
         "cs.LG",
@@ -2444,6 +2566,8 @@
       "abstract": null,
       "abstract_source": null,
       "abstract_url": null,
+      "summary": "EvoCraft is a new open-source Python framework for Minecraft designed to study open-ended algorithms by allowing automated search for increasingly complex artifacts. It matters for open-ended research because Minecraft's rich environment supports the construction of diverse structures, including actuated machines, offering a challenging testbed to spur the development of more sophisticated open-ended algorithms.",
+      "summary_source": "page",
       "arxiv_published": null,
       "arxiv_categories": null,
       "pdf_path": null,
@@ -2486,6 +2610,8 @@
       "abstract": "Progress in deep reinforcement learning (RL) is heavily driven by the availability of challenging benchmarks used for training agents. However, benchmarks that are widely adopted by the community are not explicitly designed for evaluating specific capabilities of RL methods. While there exist environments for assessing particular open problems in RL (such as exploration, transfer learning, unsupervised environment design, or even language-assisted RL), it is generally difficult to extend these to richer, more complex environments once research goes beyond proof-of-concept results. We present MiniHack, a powerful sandbox framework for easily designing novel RL environments. MiniHack is a one-stop shop for RL experiments with environments ranging from small rooms to complex, procedurally generated worlds. By leveraging the full set of entities and environment dynamics from NetHack, one of the richest grid-based video games, MiniHack allows designing custom RL testbeds that are fast and convenient to use. With this sandbox framework, novel environments can be designed easily, either using a human-readable description language or a simple Python interface. In addition to a variety of RL tasks and baselines, MiniHack can wrap existing RL benchmarks and provide ways to seamlessly add additional complexity.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2109.13202",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2021-09-27T17:22:42Z",
       "arxiv_categories": [
         "cs.LG",
@@ -2538,6 +2664,8 @@
       "abstract": "In this work we create agents that can perform well beyond a single, individual task, that exhibit much wider generalisation of behaviour to a massive, rich space of challenges. We define a universe of tasks within an environment domain and demonstrate the ability to train agents that are generally capable across this vast space and beyond. The environment is natively multi-agent, spanning the continuum of competitive, cooperative, and independent games, which are situated within procedurally generated physical 3D worlds. The resulting space is exceptionally diverse in terms of the challenges posed to agents, and as such, even measuring the learning progress of an agent is an open research problem. We propose an iterative notion of improvement between successive generations of agents, rather than seeking to maximise a singular objective, allowing us to quantify progress despite tasks being incomparable in terms of achievable rewards. We show that through constructing an open-ended learning process, which dynamically changes the training task distributions and training objectives such that the agent never stops learning, we achieve consistent learning of new behaviours. The resulting agent is able to score reward in every one of our humanly solvable evaluation levels, with behaviour generalising to many held-out points in the universe of tasks. Examples of this zero-shot generalisation include good performance on Hide and Seek, Capture the Flag, and Tag. Through analysis and hand-authored probe tasks we characterise the behaviour of our agent, and find interesting emergent heuristic behaviours such as trial-and-error experimentation, simple tool use, option switching, and cooperation. Finally, we demonstrate that the general capabilities of this agent could unlock larger scale transfer of behaviour through cheap finetuning.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2107.12808",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2021-07-27T13:30:07Z",
       "arxiv_categories": [
         "cs.LG",
@@ -2576,6 +2704,8 @@
       "abstract": "Environments with procedurally generated content serve as important benchmarks for testing systematic generalization in deep reinforcement learning. In this setting, each level is an algorithmically created environment instance with a unique configuration of its factors of variation. Training on a prespecified subset of levels allows for testing generalization to unseen levels. What can be learned from a level depends on the current policy, yet prior work defaults to uniform sampling of training levels independently of the policy. We introduce Prioritized Level Replay (PLR), a general framework for selectively sampling the next training level by prioritizing those with higher estimated learning potential when revisited in the future. We show TD-errors effectively estimate a level's future learning potential and, when used to guide the sampling procedure, induce an emergent curriculum of increasingly difficult levels. By adapting the sampling of training levels, PLR significantly improves sample efficiency and generalization on Procgen Benchmark--matching the previous state-of-the-art in test return--and readily combines with other methods. Combined with the previous leading method, PLR raises the state-of-the-art to over 76% improvement in test return relative to standard RL baselines.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2010.03934",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2020-10-08T12:46:57Z",
       "arxiv_categories": [
         "cs.LG",
@@ -2611,6 +2741,8 @@
       "abstract": "Deep reinforcement learning (RL) agents may successfully generalize to new settings if trained on an appropriately diverse set of environment and task configurations. Unsupervised Environment Design (UED) is a promising self-supervised RL paradigm, wherein the free parameters of an underspecified environment are automatically adapted during training to the agent's capabilities, leading to the emergence of diverse training environments. Here, we cast Prioritized Level Replay (PLR), an empirically successful but theoretically unmotivated method that selectively samples randomly-generated training levels, as UED. We argue that by curating completely random levels, PLR, too, can generate novel and complex levels for effective training. This insight reveals a natural class of UED methods we call Dual Curriculum Design (DCD). Crucially, DCD includes both PLR and a popular UED algorithm, PAIRED, as special cases and inherits similar theoretical guarantees. This connection allows us to develop novel theory for PLR, providing a version with a robustness guarantee at Nash equilibria. Furthermore, our theory suggests a highly counterintuitive improvement to PLR: by stopping the agent from updating its policy on uncurated levels (training on less data), we can improve the convergence to Nash equilibria. Indeed, our experiments confirm that our new method, PLR$^{\\perp}$, obtains better results on a suite of out-of-distribution, zero-shot transfer tasks, in addition to demonstrating that PLR$^{\\perp}$ improves the performance of PAIRED, from which it inherited its theoretical framework.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2110.02439",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2021-10-06T01:01:39Z",
       "arxiv_categories": [
         "cs.LG",
@@ -2650,6 +2782,8 @@
       "abstract": "Symbolic planning models allow decision-making agents to sequence actions in arbitrary ways to achieve a variety of goals in dynamic domains. However, they are typically handcrafted and tend to require precise formulations that are not robust to human error. Reinforcement learning (RL) approaches do not require such models, and instead learn domain dynamics by exploring the environment and collecting rewards. However, RL approaches tend to require millions of episodes of experience and often learn policies that are not easily transferable to other tasks. In this paper, we address one aspect of the open problem of integrating these approaches: how can decision-making agents resolve discrepancies in their symbolic planning models while attempting to accomplish goals? We propose an integrated framework named SPOTTER that uses RL to augment and support (\"spot\") a planning agent by discovering new operators needed by the agent to accomplish goals that are initially unreachable for the agent. SPOTTER outperforms pure-RL approaches while also discovering transferable symbolic knowledge and does not require supervision, successful plan traces or any a priori knowledge about the missing planning operator.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2012.13037",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2020-12-24T00:31:02Z",
       "arxiv_categories": [
         "cs.AI"
@@ -2683,6 +2817,8 @@
       "abstract": null,
       "abstract_source": null,
       "abstract_url": null,
+      "summary": null,
+      "summary_source": "none",
       "arxiv_published": null,
       "arxiv_categories": null,
       "pdf_path": null,
@@ -2717,6 +2853,8 @@
       "abstract": "Open-endedness, primarily studied in the context of artificial life, is the ability of systems to generate potentially unbounded ontologies of increasing novelty and complexity. Engineering generative systems displaying at least some degree of this ability is a goal with clear applications to procedural content generation in games. The Paired Open-Ended Trailblazer (POET) algorithm, heretofore explored only in a biped walking domain, is a coevolutionary system that simultaneously generates environments and agents that can solve them. This paper introduces a POET-Inspired Neuroevolutionary System for KreativitY (PINSKY) in games, which co-generates levels for multiple video games and agents that play them. This system leverages the General Video Game Artificial Intelligence (GVGAI) framework to enable co-generation of levels and agents for the 2D Atari-style games Zelda and Solar Fox. Results demonstrate the ability of PINSKY to generate curricula of game levels, opening up a promising new avenue for research at the intersection of procedural content generation and artificial life. At the same time, results in these challenging game domains highlight the limitations of the current algorithm and opportunities for improvement.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2007.08497",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2020-07-16T17:48:05Z",
       "arxiv_categories": [
         "cs.NE"
@@ -2758,6 +2896,8 @@
       "abstract": "A wide range of reinforcement learning (RL) problems - including robustness, transfer learning, unsupervised RL, and emergent complexity - require specifying a distribution of tasks or environments in which a policy will be trained. However, creating a useful distribution of environments is error prone, and takes a significant amount of developer time and effort. We propose Unsupervised Environment Design (UED) as an alternative paradigm, where developers provide environments with unknown parameters, and these parameters are used to automatically produce a distribution over valid, solvable environments. Existing approaches to automatically generating environments suffer from common failure modes: domain randomization cannot generate structure or adapt the difficulty of the environment to the agent's learning progress, and minimax adversarial training leads to worst-case environments that are often unsolvable. To generate structured, solvable environments for our protagonist agent, we introduce a second, antagonist agent that is allied with the environment-generating adversary. The adversary is motivated to generate environments which maximize regret, defined as the difference between the protagonist and antagonist agent's return. We call our technique Protagonist Antagonist Induced Regret Environment Design (PAIRED). Our experiments demonstrate that PAIRED produces a natural curriculum of increasingly complex environments, and PAIRED agents achieve higher zero-shot transfer performance when tested in highly novel environments.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2012.02096",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2020-12-03T17:37:01Z",
       "arxiv_categories": [
         "cs.LG",
@@ -2801,6 +2941,8 @@
       "abstract": "Creating open-ended algorithms, which generate their own never-ending stream of novel and appropriately challenging learning opportunities, could help to automate and accelerate progress in machine learning. A recent step in this direction is the Paired Open-Ended Trailblazer (POET), an algorithm that generates and solves its own challenges, and allows solutions to goal-switch between challenges to avoid local optima. However, the original POET was unable to demonstrate its full creative potential because of limitations of the algorithm itself and because of external issues including a limited problem space and lack of a universal progress measure. Importantly, both limitations pose impediments not only for POET, but for the pursuit of open-endedness in general. Here we introduce and empirically validate two new innovations to the original algorithm, as well as two external innovations designed to help elucidate its full potential. Together, these four advances enable the most open-ended algorithmic demonstration to date. The algorithmic innovations are (1) a domain-general measure of how meaningfully novel new challenges are, enabling the system to potentially create and solve interesting challenges endlessly, and (2) an efficient heuristic for determining when agents should goal-switch from one problem to another (helping open-ended search better scale). Outside the algorithm itself, to enable a more definitive demonstration of open-endedness, we introduce (3) a novel, more flexible way to encode environmental challenges, and (4) a generic measure of the extent to which a system continues to exhibit open-ended innovation. Enhanced POET produces a diverse range of sophisticated behaviors that solve a wide range of environmental challenges, many of which cannot be solved through other means.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2003.08536",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2020-03-19T01:35:56Z",
       "arxiv_categories": [
         "cs.NE"
@@ -2839,6 +2981,8 @@
       "abstract": "While the history of machine learning so far largely encompasses a series of problems posed by researchers and algorithms that learn their solutions, an important question is whether the problems themselves can be generated by the algorithm at the same time as they are being solved. Such a process would in effect build its own diverse and expanding curricula, and the solutions to problems at various stages would become stepping stones towards solving even more challenging problems later in the process. The Paired Open-Ended Trailblazer (POET) algorithm introduced in this paper does just that: it pairs the generation of environmental challenges and the optimization of agents to solve those challenges. It simultaneously explores many different paths through the space of possible problems and solutions and, critically, allows these stepping-stone solutions to transfer between problems if better, catalyzing innovation. The term open-ended signifies the intriguing potential for algorithms like POET to continue to create novel and increasingly complex capabilities without bound. Our results show that POET produces a diverse range of sophisticated behaviors that solve a wide range of environmental challenges, many of which cannot be solved by direct optimization alone, or even through a direct-path curriculum-building control algorithm introduced to highlight the critical role of open-endedness in solving ambitious challenges. The ability to transfer solutions from one environment to another proves essential to unlocking the full potential of the system as a whole, demonstrating the unpredictable nature of fortuitous stepping stones. We hope that POET will inspire a new push towards open-ended discovery across many domains, where algorithms like POET can blaze a trail through their interesting possible manifestations and solutions.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/1901.01753",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2019-01-07T11:28:36Z",
       "arxiv_categories": [
         "cs.NE"
@@ -2874,6 +3018,8 @@
       "abstract": null,
       "abstract_source": null,
       "abstract_url": null,
+      "summary": null,
+      "summary_source": "none",
       "arxiv_published": null,
       "arxiv_categories": null,
       "pdf_path": null,
@@ -2907,6 +3053,8 @@
       "abstract": null,
       "abstract_source": null,
       "abstract_url": null,
+      "summary": null,
+      "summary_source": "none",
       "arxiv_published": null,
       "arxiv_categories": null,
       "pdf_path": null,
@@ -2939,6 +3087,8 @@
       "abstract": null,
       "abstract_source": null,
       "abstract_url": null,
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": null,
       "arxiv_categories": null,
       "pdf_path": null,
@@ -2974,6 +3124,8 @@
       "abstract": "While recent automated red-teaming methods show promise for systematically exposing model vulnerabilities, most existing approaches rely on human-specified workflows. This dependence on manually designed workflows suffers from human biases and makes exploring the broader design space expensive. We introduce AgenticRed, an automated pipeline that leverages LLMs' in-context learning to iteratively design and refine red-teaming systems without human intervention. Rather than optimizing attacker policies within predefined structures, AgenticRed treats red-teaming as a system design problem, and it autonomously evolves automated red-teaming systems using evolutionary selection and generational knowledge. Red-teaming systems designed by AgenticRed consistently outperform state-of-the-art approaches, achieving 96% attack success rate (ASR) on Llama-2-7B, 98% on Llama-3-8B and 100% on Qwen3-8B on HarmBench. Our approach generates robust, query-agnostic red-teaming systems that transfer strongly to the latest proprietary models, achieving an impressive 100% ASR on GPT-5.1, DeepSeek-R1 and DeepSeek V3.2. This work highlights evolutionary algorithms as a powerful approach to AI safety that can keep pace with rapidly evolving models.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2601.13518",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2026-01-20T02:10:22Z",
       "arxiv_categories": [
         "cs.AI",
@@ -3012,6 +3164,8 @@
       "abstract": "AI advancements have been significantly driven by a combination of foundation models and curiosity-driven learning aimed at increasing capability and adaptability. Within this landscape, open-endedness, where AI agents autonomously and indefinitely generate novel behaviors, representations, or solutions, has gained increasing interest. This has become relevant in the context of self-evolving agents and long-horizon discovery. This position paper argues that the defining properties of open-ended AI systems introduce a distinct and underexplored class of safety challenges, including loss of predictability, emergent misalignment, and difficulties in maintaining effective control as systems evolve beyond their initial design assumptions, that must be addressed preemptively. These challenges differ qualitatively from those associated with task-bounded or static models and are unlikely to be addressed by existing safety frameworks alone, which is why these risks must be examined proactively, before large-scale deployment. The paper proposes a taxonomy for key challenges, discusses research opportunities, and calls for coordinated action to support the safe and responsible development of open-ended AI.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2502.04512",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2025-02-06T21:32:07Z",
       "arxiv_categories": [
         "cs.AI"
@@ -3069,6 +3223,8 @@
       "abstract": "Artificial Intelligence (AI) is progressing rapidly, and companies are shifting their focus to developing generalist AI systems that can autonomously act and pursue goals. Increases in capabilities and autonomy may soon massively amplify AI's impact, with risks that include large-scale social harms, malicious uses, and an irreversible loss of human control over autonomous AI systems. Although researchers have warned of extreme risks from AI, there is a lack of consensus about how exactly such risks arise, and how to manage them. Society's response, despite promising first steps, is incommensurate with the possibility of rapid, transformative progress that is expected by many experts. AI safety research is lagging. Present governance initiatives lack the mechanisms and institutions to prevent misuse and recklessness, and barely address autonomous systems. In this short consensus paper, we describe extreme risks from upcoming, advanced AI systems. Drawing on lessons learned from other safety-critical technologies, we then outline a comprehensive plan combining technical research and development with proactive, adaptive governance mechanisms for a more commensurate preparation.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2310.17688",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2023-10-26T17:59:06Z",
       "arxiv_categories": [
         "cs.CY",
@@ -3117,6 +3273,8 @@
       "abstract": "As large language models (LLMs) become increasingly prevalent across many real-world applications, understanding and enhancing their robustness to adversarial attacks is of paramount importance. Existing methods for identifying adversarial prompts tend to focus on specific domains, lack diversity, or require extensive human annotations. To address these limitations, we present Rainbow Teaming, a novel black-box approach for producing a diverse collection of adversarial prompts. Rainbow Teaming casts adversarial prompt generation as a quality-diversity problem and uses open-ended search to generate prompts that are both effective and diverse. Focusing on the safety domain, we use Rainbow Teaming to target various state-of-the-art LLMs, including the Llama 2 and Llama 3 models. Our approach reveals hundreds of effective adversarial prompts, with an attack success rate exceeding 90% across all tested models. Furthermore, we demonstrate that prompts generated by Rainbow Teaming are highly transferable and that fine-tuning models with synthetic data generated by our method significantly enhances their safety without sacrificing general performance or helpfulness. We additionally explore the versatility of Rainbow Teaming by applying it to question answering and cybersecurity, showcasing its potential to drive robust open-ended self-improvement in a wide range of applications.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2402.16822",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2024-02-26T18:47:27Z",
       "arxiv_categories": [
         "cs.CL",
@@ -3154,6 +3312,8 @@
       "abstract": "Artificial life originated and has long studied the topic of open-ended evolution, which seeks the principles underlying artificial systems that innovate continually, inspired by biological evolution. Recently, interest has grown within the broader field of AI in a generalization of open-ended evolution, here called open-ended search, wherein such questions of open-endedness are explored for advancing AI, whatever the nature of the underlying search algorithm (e.g. evolutionary or gradient-based). For example, open-ended search might design new architectures for neural networks, new reinforcement learning algorithms, or most ambitiously, aim at designing artificial general intelligence. This paper proposes that open-ended evolution and artificial life have much to contribute towards the understanding of open-ended AI, focusing here in particular on the safety of open-ended search. The idea is that AI systems are increasingly applied in the real world, often producing unintended harms in the process, which motivates the growing field of AI safety. This paper argues that open-ended AI has its own safety challenges, in particular, whether the creativity of open-ended systems can be productively and predictably controlled. This paper explains how unique safety problems manifest in open-ended search, and suggests concrete contributions and research questions to explore them. The hope is to inspire progress towards creative, useful, and safe open-ended search algorithms.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2006.07495",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2020-06-12T22:28:09Z",
       "arxiv_categories": [
         "cs.NE"
@@ -3191,6 +3351,8 @@
       "abstract": "This paper claims that machine learning (ML) largely overlooks an important facet of general intelligence: robustness to a qualitatively unknown future in an open world. Such robustness relates to Knightian uncertainty (KU) in economics, i.e. uncertainty that cannot be quantified, which is excluded from consideration in ML's key formalisms. This paper aims to identify this blind spot, argue its importance, and catalyze research into addressing it, which we believe is necessary to create truly robust open-world AI. To help illuminate the blind spot, we contrast one area of ML, reinforcement learning (RL), with the process of biological evolution. Despite staggering ongoing progress, RL still struggles in open-world situations, often failing under unforeseen situations. For example, the idea of zero-shot transferring a self-driving car policy trained only in the US to the UK currently seems exceedingly ambitious. In dramatic contrast, biological evolution routinely produces agents that thrive within an open world, sometimes even to situations that are remarkably out-of-distribution (e.g. invasive species; or humans, who do undertake such zero-shot international driving). Interestingly, evolution achieves such robustness without explicit theory, formalisms, or mathematical gradients. We explore the assumptions underlying RL's typical formalisms, showing how they limit RL's engagement with the unknown unknowns characteristic of an ever-changing complex world. Further, we identify mechanisms through which evolutionary processes foster robustness to novel and unpredictable challenges, and discuss potential pathways to algorithmically embody them. The conclusion is that the intriguing remaining fragility of ML may result from blind spots in its formalisms, and that significant gains may result from direct confrontation with the challenge of KU.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2501.13075",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2025-01-22T18:38:41Z",
       "arxiv_categories": [
         "cs.AI"
@@ -3231,6 +3393,8 @@
       "abstract": "In recent years there has been a tremendous surge in the general capabilities of AI systems, mainly fuelled by training foundation models on internetscale data. Nevertheless, the creation of openended, ever self-improving AI remains elusive. In this position paper, we argue that the ingredients are now in place to achieve openendedness in AI systems with respect to a human observer. Furthermore, we claim that such open-endedness is an essential property of any artificial superhuman intelligence (ASI). We begin by providing a concrete formal definition of open-endedness through the lens of novelty and learnability. We then illustrate a path towards ASI via open-ended systems built on top of foundation models, capable of making novel, humanrelevant discoveries. We conclude by examining the safety implications of generally-capable openended AI. We expect that open-ended foundation models will prove to be an increasingly fertile and safety-critical area of research in the near future.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2406.04268",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2024-06-06T17:15:02Z",
       "arxiv_categories": [
         "cs.LG",
@@ -3267,6 +3431,8 @@
       "abstract": "We are at the cusp of a transition from \"learning from data\" to \"learning what data to learn from\" as a central focus of artificial intelligence (AI) research. While the first-order learning problem is not completely solved, large models under unified architectures, such as transformers, have shifted the learning bottleneck from how to effectively train our models to how to effectively acquire and use task-relevant data. This problem, which we frame as exploration, is a universal aspect of learning in open-ended domains, such as the real world. Although the study of exploration in AI is largely limited to the field of reinforcement learning, we argue that exploration is essential to all learning systems, including supervised learning. We propose the problem of generalized exploration to conceptually unify exploration-driven learning between supervised learning and reinforcement learning, allowing us to highlight key similarities across learning settings and open research challenges. Importantly, generalized exploration serves as a necessary objective for maintaining open-ended learning processes, which in continually learning to discover and solve new problems, provides a promising path to more general intelligence.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2211.07819",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2022-11-15T00:46:15Z",
       "arxiv_categories": [
         "cs.AI",
@@ -3304,6 +3470,8 @@
       "abstract": "Creative Problem Solving (CPS) is a sub-area within Artificial Intelligence (AI) that focuses on methods for solving off-nominal, or anomalous problems in autonomous systems. Despite many advancements in planning and learning, resolving novel problems or adapting existing knowledge to a new context, especially in cases where the environment may change in unpredictable ways post deployment, remains a limiting factor in the safe and useful integration of intelligent systems. The emergence of increasingly autonomous systems dictates the necessity for AI agents to deal with environmental uncertainty through creativity. To stimulate further research in CPS, we present a definition and a framework of CPS, which we adopt to categorize existing AI methods in this field. Our framework consists of four main components of a CPS problem, namely, 1) problem formulation, 2) knowledge representation, 3) method of knowledge manipulation, and 4) method of evaluation. We conclude our survey with open research questions, and suggested directions for the future.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2204.10358",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2022-04-21T18:31:44Z",
       "arxiv_categories": [
         "cs.AI"
@@ -3338,6 +3506,8 @@
       "abstract": "We develop the few-shot continual learning task from first principles and hypothesize an evolutionary motivation and mechanism of action for executive function as a contrastive value policy which resamples and relabels perception data via hindsight summarization to minimize attended prediction error, similar to an online prompt engineering problem. This is made feasible by the use of a memory policy and a pretrained network with inductive biases for a grammar of learning and is trained to maximize evolutionary survival. We show how this model of executive function can be used to implement hypothesis testing as a stream of consciousness and may explain observations of human few-shot learning and neuroanatomy.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2204.12639",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2022-04-27T00:07:44Z",
       "arxiv_categories": [
         "cs.CL"
@@ -3382,6 +3552,8 @@
       "abstract": "Robots are still limited to controlled conditions, that the robot designer knows with enough details to endow the robot with the appropriate models or behaviors. Learning algorithms add some flexibility with the ability to discover the appropriate behavior given either some demonstrations or a reward to guide its exploration with a reinforcement learning algorithm. Reinforcement learning algorithms rely on the definition of state and action spaces that define reachable behaviors. Their adaptation capability critically depends on the representations of these spaces: small and discrete spaces result in fast learning while large and continuous spaces are challenging and either require a long training period or prevent the robot from converging to an appropriate behavior. Beside the operational cycle of policy execution and the learning cycle, which works at a slower time scale to acquire new policies, we introduce the redescription cycle, a third cycle working at an even slower time scale to generate or adapt the required representations to the robot, its environment and the task. We introduce the challenges raised by this cycle and we present DREAM (Deferred Restructuring of Experience in Autonomous Machines), a developmental cognitive architecture to bootstrap this redescription process stage by stage, build new state representations with appropriate motivations, and transfer the acquired knowledge across domains or tasks or even across robots. We describe results obtained so far with this approach and end up with a discussion of the questions it raises in Neuroscience.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/2005.06223",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2020-05-13T09:29:40Z",
       "arxiv_categories": [
         "cs.AI",
@@ -3418,6 +3590,8 @@
       "abstract": "Perhaps the most ambitious scientific quest in human history is the creation of general artificial intelligence, which roughly means AI that is as smart or smarter than humans. The dominant approach in the machine learning community is to attempt to discover each of the pieces required for intelligence, with the implicit assumption that some future group will complete the Herculean task of figuring out how to combine all of those pieces into a complex thinking machine. I call this the \"manual AI approach\". This paper describes another exciting path that ultimately may be more successful at producing general AI. It is based on the clear trend in machine learning that hand-designed solutions eventually are replaced by more effective, learned solutions. The idea is to create an AI-generating algorithm (AI-GA), which automatically learns how to produce general AI. Three Pillars are essential for the approach: (1) meta-learning architectures, (2) meta-learning the learning algorithms themselves, and (3) generating effective learning environments. I argue that either approach could produce general AI first, and both are scientifically worthwhile irrespective of which is the fastest path. Because both are promising, yet the ML community is currently committed to the manual approach, I argue that our community should increase its research investment in the AI-GA approach. To encourage such research, I describe promising work in each of the Three Pillars. I also discuss AI-GA-specific safety and ethical considerations. Because it it may be the fastest path to general AI and because it is inherently scientifically interesting to understand the conditions in which a simple algorithm can produce general AI (as happened on Earth where Darwinian evolution produced human intelligence), I argue that the pursuit of AI-GAs should be considered a new grand challenge of computer science research.",
       "abstract_source": "arXiv",
       "abstract_url": "https://arxiv.org/abs/1905.10985",
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": "2019-05-27T06:05:16Z",
       "arxiv_categories": [
         "cs.AI"
@@ -3453,6 +3627,8 @@
       "abstract": null,
       "abstract_source": null,
       "abstract_url": null,
+      "summary": "This article introduces open-endedness as a profound, largely unrecognized grand challenge, comparable to artificial intelligence itself. It defines open-endedness as a \"never-ending algorithm\" exemplified by biological evolution, which continuously invents increasing complexity and novelty over vast spans of time. Understanding this property is crucial for open-ended research because it could unlock the secrets to generating sustained innovation and complexity in AI systems, potentially leading to human-competitive general digital intelligence.",
+      "summary_source": "page",
       "arxiv_published": null,
       "arxiv_categories": null,
       "pdf_path": null,
@@ -3485,6 +3661,8 @@
       "abstract": null,
       "abstract_source": null,
       "abstract_url": null,
+      "summary": "Why Greatness Cannot Be Planned argues that society's obsession with objectives hinders true innovation and great achievement, proposing instead that serendipitous discovery and playful creativity are more effective. Drawing on scientific discoveries in artificial intelligence, the authors challenge the idea that progress requires narrowly defined goals. This perspective is crucial for open-ended research, as it suggests that truly novel and significant advancements may arise from exploration without a fixed destination, rather than from optimizing for a specific objective.",
+      "summary_source": "page",
       "arxiv_published": null,
       "arxiv_categories": null,
       "pdf_path": null,
@@ -3516,6 +3694,8 @@
       "abstract": null,
       "abstract_source": null,
       "abstract_url": null,
+      "summary": "The blog post introduces the Darwin-Gödel Machine (DGM), a self-improving AI system that iteratively modifies its own code based on empirical validation rather than formal proof, combining Darwinian evolution with Gödelian self-improvement. This approach matters for open-ended research as its open-ended exploration mechanism, which allows diverse and even temporarily underperforming agents to persist, fosters continuous discovery and avoids premature convergence, akin to biological evolution.",
+      "summary_source": "page",
       "arxiv_published": null,
       "arxiv_categories": null,
       "pdf_path": null,
@@ -3548,6 +3728,8 @@
       "abstract": null,
       "abstract_source": null,
       "abstract_url": null,
+      "summary": "This post argues that achieving Artificial General Intelligence requires moving beyond static training to self-improving systems that enable open-ended discovery, where agents and challenges co-evolve to continuously generate novel and learnable artifacts. It formalizes open-endedness and categorizes various algorithms, such as Novelty Search, Quality-Diversity, and co-evolutionary methods, based on their strategies for perpetually generating novelty. This approach is vital for developing AI capable of thriving in unknown environments, solving unforeseen problems, and generating its own knowledge, thereby bootstrapping complexity and capabilities.",
+      "summary_source": "page",
       "arxiv_published": null,
       "arxiv_categories": null,
       "pdf_path": null,
@@ -3579,6 +3761,8 @@
       "abstract": null,
       "abstract_source": null,
       "abstract_url": null,
+      "summary": "This post argues that open-endedness, inspired by biological evolution's continuous creativity, is crucial for the future of AI and for achieving artificial superintelligence. It defines open-ended systems as those that continuously produce novel and learnable artifacts, emphasizing that this process is observer-dependent. Embracing open-endedness matters for research as it offers a path for AI to move beyond task-specific optimization towards continuous exploration, innovation, and adaptation, breaking current system limitations.",
+      "summary_source": "page",
       "arxiv_published": null,
       "arxiv_categories": null,
       "pdf_path": null,
@@ -3610,6 +3794,8 @@
       "abstract": null,
       "abstract_source": null,
       "abstract_url": null,
+      "summary": "This post argues that current AI systems, especially LLMs, primarily exploit pre-existing data rather than actively exploring, limiting their capacity for true discovery. It introduces \"intelligent exploration\" concepts like novelty search and quality diversity as crucial methods to overcome the limitations of goal-driven optimization, promoting diverse solutions and preventing premature convergence. This emphasis on continuous, diverse exploration is vital for open-ended research, which seeks to enable AI systems to achieve boundless creativity and endless innovation beyond predefined objectives.",
+      "summary_source": "page",
       "arxiv_published": null,
       "arxiv_categories": null,
       "pdf_path": null,
@@ -3641,6 +3827,8 @@
       "abstract": null,
       "abstract_source": null,
       "abstract_url": null,
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": null,
       "arxiv_categories": null,
       "pdf_path": null,
@@ -3672,6 +3860,8 @@
       "abstract": null,
       "abstract_source": null,
       "abstract_url": null,
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": null,
       "arxiv_categories": null,
       "pdf_path": null,
@@ -3703,6 +3893,8 @@
       "abstract": null,
       "abstract_source": null,
       "abstract_url": null,
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": null,
       "arxiv_categories": null,
       "pdf_path": null,
@@ -3734,6 +3926,8 @@
       "abstract": null,
       "abstract_source": null,
       "abstract_url": null,
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": null,
       "arxiv_categories": null,
       "pdf_path": null,
@@ -3765,6 +3959,8 @@
       "abstract": null,
       "abstract_source": null,
       "abstract_url": null,
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": null,
       "arxiv_categories": null,
       "pdf_path": null,
@@ -3796,6 +3992,8 @@
       "abstract": null,
       "abstract_source": null,
       "abstract_url": null,
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": null,
       "arxiv_categories": null,
       "pdf_path": null,
@@ -3827,6 +4025,8 @@
       "abstract": null,
       "abstract_source": null,
       "abstract_url": null,
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": null,
       "arxiv_categories": null,
       "pdf_path": null,
@@ -3858,6 +4058,8 @@
       "abstract": null,
       "abstract_source": null,
       "abstract_url": null,
+      "summary": null,
+      "summary_source": null,
       "arxiv_published": null,
       "arxiv_categories": null,
       "pdf_path": null,
