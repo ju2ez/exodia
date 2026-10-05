@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-09-28T14:57:40Z",
+  "generated_utc": "2026-10-05T15:33:51Z",
   "method": "tfidf_kmeans",
   "n_docs": 101,
   "top_keyphrases": [
@@ -805,25 +805,25 @@
       "concept": "Reinforcement learning",
       "docs": 75,
       "share": 0.7426,
-      "citations": 10237
+      "citations": 10238
     },
     {
       "concept": "Exploration",
       "docs": 69,
       "share": 0.6832,
-      "citations": 8097
+      "citations": 8098
     },
     {
       "concept": "Evolutionary computation",
       "docs": 58,
       "share": 0.5743,
-      "citations": 7729
+      "citations": 7730
     },
     {
       "concept": "Large language models (LLMs)",
       "docs": 56,
       "share": 0.5545,
-      "citations": 8595
+      "citations": 8596
     },
     {
       "concept": "Reward & objective design",
@@ -835,7 +835,7 @@
       "concept": "In-context learning",
       "docs": 44,
       "share": 0.4356,
-      "citations": 7731
+      "citations": 7732
     },
     {
       "concept": "Unsupervised environment design",
@@ -901,7 +901,7 @@
       "concept": "Artificial life",
       "docs": 32,
       "share": 0.3168,
-      "citations": 3215
+      "citations": 3216
     },
     {
       "concept": "Recursive self-improvement",
@@ -919,7 +919,7 @@
       "concept": "Meta-learning",
       "docs": 28,
       "share": 0.2772,
-      "citations": 5429
+      "citations": 5430
     },
     {
       "concept": "Compositionality",
@@ -955,7 +955,7 @@
       "concept": "Procedural content generation",
       "docs": 25,
       "share": 0.2475,
-      "citations": 2610
+      "citations": 2611
     },
     {
       "concept": "Program synthesis & code generation",
