@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "updated_utc": "2026-10-08T13:26:38Z",
+  "families": [
+    "Quality-diversity & evolution",
+    "RL, agents & curricula",
+    "LLMs & foundation models",
+    "Open-ended learning & innovation",
+    "World models & automated science",
+    "Artificial life & other"
+  ],
+  "archive": {
+    "n_families": 6,
+    "n_bins": 3,
+    "elites": [
+      {
+        "idea_id": "0729f05b2355",
+        "name": "evolutionary-safety-bootstrapping",
+        "title": "Bootstrapping Safety for Open-Ended Evolutionary AI Scientists",
+        "short_hypothesis": "We must develop safety frameworks that evolve alongside recursively self-improving AI systems, mirroring biological evolution to ensure alignment during open-ended scientific discovery.",
+        "abstract": "This research direction proposes creating safety paradigms that are not static but are themselves subject to open-ended, evolutionary improvement, mirroring the Darwin Gödel Machine and AI Scientist-v2 concepts. The core idea is to bootstrap safety mechanisms in tandem with the AI's self-improvement and scientific discovery capabilities, ensuring that alignment strategies adapt and evolve to maintain human values as the AI's intelligence and autonomy increase without bound.",
+        "concepts": [
+          "Open-ended learning",
+          "Recursive self-improvement",
+          "Automated scientific discovery"
+        ],
+        "bd": [
+          3,
+          2
+        ],
+        "fitness": 0.688,
+        "generation": 1,
+        "parents": [
+          "d3a00a8b4c07",
+          "d3a00a8b4c07"
+        ]
+      },
+      {
+        "idea_id": "3bbb1aea793e",
+        "name": "recursive-world-model-science",
+        "title": "Recursive World Model Refinement for Automated Scientific Discovery",
+        "short_hypothesis": "AI systems capable of autonomously and recursively refining their internal world models will accelerate scientific discovery by enabling more efficient hypothesis generation, experimental design, and data interpretation.",
+        "abstract": "Future AI systems must move beyond static world models to dynamically update and improve their understanding of the physical and abstract world based on new observations and experimental results. This recursive refinement process, inspired by scientific progress itself, will unlock new avenues for automated scientific discovery by allowing AI to autonomously identify knowledge gaps, propose novel experiments, and interpret complex data with increasing sophistication.",
+        "concepts": [
+          "World models",
+          "Automated scientific discovery"
+        ],
+        "bd": [
+          4,
+          2
+        ],
+        "fitness": 0.7084,
+        "generation": 1,
+        "parents": [
+          "d3a00a8b4c07"
+        ]
+      },
+      {
+        "idea_id": "bd450403f811",
+        "name": "creative_problem_solving_in_novel_domains",
+        "title": "Generalizing Creative Problem Solving to Unforeseen Domains",
+        "short_hypothesis": "Developing AI systems capable of creative problem-solving that can generalize to entirely novel and unforeseen domains, rather than being confined to pre-defined task categories, is a key frontier for open-ended intelligence.",
+        "abstract": "This research will focus on creating AI agents that can go beyond solving known types of anomalous problems to invent novel solutions for problems in domains they have never encountered, demonstrating true creative adaptation and problem formulation. The aim is to achieve a level of creative problem-solving that mirrors human ingenuity in its breadth and adaptability.",
+        "concepts": [
+          "Open-ended learning"
+        ],
+        "bd": [
+          3,
+          1
+        ],
+        "fitness": 0.7551,
+        "generation": 0,
+        "parents": []
+      },
+      {
+        "idea_id": "4d50741b1327",
+        "name": "recursive-world-model-science-safety",
+        "title": "Safety Frameworks for Self-Improving World Models in Automated Science",
+        "short_hypothesis": "Ensuring the safety of AI systems that recursively improve their own world models for scientific discovery requires novel oversight mechanisms that can validate emergent scientific hypotheses and reasoning chains.",
+        "abstract": "As AI systems like The AI Scientist-v2 demonstrate increasing autonomy in scientific discovery, the development of self-improving world models presents a critical safety challenge. New frameworks are needed to monitor and control the iterative refinement of these internal representations of reality, ensuring that the scientific knowledge generated remains grounded in verifiable evidence and aligned with human scientific understanding.",
+        "concepts": [
+          "Recursive self-improvement",
+          "World models",
+          "Automated scientific discovery"
+        ],
+        "bd": [
+          4,
+          1
+        ],
+        "fitness": 0.7167,
+        "generation": 1,
+        "parents": [
+          "d3a00a8b4c07"
+        ]
+      }
+    ]
+  },
+  "seen_titles": [
+    "agentic red teaming for discovering unknown unknowns in open ended ai",
+    "automated agent driven curriculum design for open ended worlds",
+    "automated recursive refinement of world models for scientific discovery",
+    "automated scientific discovery via generative world models",
+    "bootstrapping safety for open ended evolutionary ai scientists",
+    "co evolutionary challenge generation for continuous open ended learning",
+    "designing artificial ecosystems to foster open ended intelligence evolution",
+    "developing safety frameworks for recursive self improving ai",
+    "evolutionary meta learning for adaptive ai architectures",
+    "evolving complex reasoning chains through open ended prompt optimization",
+    "evolving internal representations for open ended learning and generalization",
+    "formal verification and safety guarantees for gödel machines",
+    "fully autonomous agents for open ended scientific discovery",
+    "generalizing creative problem solving to unforeseen domains",
+    "generative safety for recursive self improving agents in novel domains",
+    "learning what data to learn from in open ended unstructured environments",
+    "novelty search and quality diversity for hyperparameter and architecture optimization",
+    "open ended discovery of novel tools and capabilities through agentic exploration",
+    "quantifying knightian uncertainty in open ended ai risk assessment",
+    "recursive world model refinement for automated scientific discovery",
+    "safety frameworks for self improving world models in automated science",
+    "simulating and harnessing multi agent cultural accumulation for open ended progress"
+  ],
+  "generation": 1,
+  "history": [
+    {
+      "date": "2026-10-08",
+      "coverage": 0.222,
+      "qd_score": 2.868,
+      "max_fitness": 0.755,
+      "filled": 4,
+      "new_elites": 4,
+      "llm_calls": 7,
+      "model": "gemini-2.5-flash-lite"
+    }
+  ]
+}
