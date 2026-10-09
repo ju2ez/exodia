@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-08T13:26:38Z",
+  "updated_utc": "2026-10-09T13:14:11Z",
   "families": [
     "Quality-diversity & evolution",
     "RL, agents & curricula",
@@ -100,13 +100,17 @@
     "automated agent driven curriculum design for open ended worlds",
     "automated recursive refinement of world models for scientific discovery",
     "automated scientific discovery via generative world models",
+    "autopoietic world model refinement for emergent artificial life",
     "bootstrapping safety for open ended evolutionary ai scientists",
     "co evolutionary challenge generation for continuous open ended learning",
     "designing artificial ecosystems to foster open ended intelligence evolution",
     "developing safety frameworks for recursive self improving ai",
+    "emergent world models for unforeseen scientific discovery",
     "evolutionary meta learning for adaptive ai architectures",
+    "evolutionary oversight for self improving scientific models",
     "evolving complex reasoning chains through open ended prompt optimization",
     "evolving internal representations for open ended learning and generalization",
+    "evolving morphogenetic protocols for self organizing artificial ecosystems",
     "formal verification and safety guarantees for gödel machines",
     "fully autonomous agents for open ended scientific discovery",
     "generalizing creative problem solving to unforeseen domains",
@@ -116,10 +120,12 @@
     "open ended discovery of novel tools and capabilities through agentic exploration",
     "quantifying knightian uncertainty in open ended ai risk assessment",
     "recursive world model refinement for automated scientific discovery",
+    "recursive world model refinement for generalizing creative problem solving in unforeseen domains",
     "safety frameworks for self improving world models in automated science",
-    "simulating and harnessing multi agent cultural accumulation for open ended progress"
+    "simulating and harnessing multi agent cultural accumulation for open ended progress",
+    "verifiable self refinement of recursive world models for safe scientific discovery"
   ],
-  "generation": 1,
+  "generation": 2,
   "history": [
     {
       "date": "2026-10-08",
@@ -129,6 +135,16 @@
       "filled": 4,
       "new_elites": 4,
       "llm_calls": 7,
+      "model": "gemini-2.5-flash-lite"
+    },
+    {
+      "date": "2026-10-09",
+      "coverage": 0.222,
+      "qd_score": 2.868,
+      "max_fitness": 0.755,
+      "filled": 4,
+      "new_elites": 0,
+      "llm_calls": 6,
       "model": "gemini-2.5-flash-lite"
     }
   ]
