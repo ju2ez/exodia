@@ -24,7 +24,7 @@
     "votes_down": 0,
     "score": 0,
     "feedback_count": 0,
-    "moi_score": 0.6306
+    "moi_score": 0.6207
   },
   {
     "idea_id": "ab9b8bacca01",
@@ -51,7 +51,7 @@
     "votes_down": 0,
     "score": 0,
     "feedback_count": 0,
-    "moi_score": 0.6085
+    "moi_score": 0.5695
   },
   {
     "idea_id": "3540558fb026",
@@ -78,7 +78,7 @@
     "votes_down": 0,
     "score": 0,
     "feedback_count": 0,
-    "moi_score": 0.6524
+    "moi_score": 0.6239
   },
   {
     "idea_id": "c30517a36c0d",
@@ -105,6 +105,33 @@
     "votes_down": 0,
     "score": 0,
     "feedback_count": 0,
-    "moi_score": 0.4958
+    "moi_score": 0.4644
+  },
+  {
+    "idea_id": "5cd24ef12c4d",
+    "name": "co_evolving_communication_protocols",
+    "title": "Co-Evolving Communication Protocols: Meta-Learning Language in Open-Ended Multi-Agent Systems",
+    "short_hypothesis": "Open-ended multi-agent systems can achieve superior adaptability and emergent complexity by enabling agents to co-evolve not only their behaviors and environments, but also the explicit protocols and mechanisms of their inter-agent communication. This meta-evolution of communication strategies, driven by the need to solve increasingly novel and complex tasks, will lead to more robust, efficient, and generalizable multi-agent intelligence. This approach is necessary because fixed communication architectures limit the ceiling of emergent complexity in dynamic, open-ended environments, and existing emergent communication methods primarily optimize *within* a given protocol rather than *evolving* the protocol itself.",
+    "related_work": "Existing research on emergent communication (e.g., 'Searching for Structure: Investigating Emergent Communication with Large Language Models', Kouwenhoven et al., 2024; 'The Five Ws of Multi-Agent Communication', Chen et al., 2026) primarily focuses on agents learning to communicate *within* a predefined communication channel or fixed message format to solve a given task. While these works show impressive capabilities in developing structured languages, they do not typically involve agents modifying the fundamental rules, architecture, or meta-strategies of their communication. Similarly, multi-agent co-evolutionary algorithms (e.g., POET, CORAL, Qu et al., 2026; JaxLife, Lu et al., 2024) drive the evolution of agent policies and environments to generate novelty and complexity, but often assume a static or implicitly learned communication layer. Our proposal explicitly introduces a meta-level evolutionary loop where agents, potentially leveraging Large Language Models (LLMs) for reasoning and code generation, can design, adapt, and refine their communication protocols themselves. This moves beyond merely learning *what* to communicate to learning *how* to communicate more effectively, *when* to communicate, *what symbols or structures* to invent, or even *what type of communication channel* is best suited for novel challenges. This is a crucial distinction, as it allows the communication architecture itself to be a subject of open-ended discovery and optimization, rather than a fixed constraint.",
+    "abstract": "Traditional multi-agent systems and open-ended learning paradigms often rely on fixed communication architectures, limiting their capacity for truly unbounded innovation and adaptation in dynamic environments. While emergent communication research has demonstrated agents learning to communicate, these efforts typically optimize message content within static protocols. This paper proposes a novel approach: 'Co-Evolving Communication Protocols' (CECP), where multi-agent systems collaboratively evolve not just their behaviors and environments, but also the very rules, mechanisms, and meta-strategies of their inter-agent communication. We hypothesize that enabling agents to meta-learn and adapt their communication protocols in response to open-ended novelty will unlock higher levels of coordination, knowledge transfer, and emergent problem-solving. We propose a framework where LLM-powered agents can reflect on communication failures, propose protocol modifications (e.g., new message formats, new signaling methods, dynamic bandwidth allocation, or even entirely new communication channels), and implement these changes, with evolutionary pressure selecting for more effective communication strategies. This meta-evolutionary loop, integrated into an open-ended environment generation process, aims to foster robust, efficient, and generalizable multi-agent intelligence capable of tackling unforeseen challenges. Experiments will evaluate the emergent complexity, efficiency, and adaptability of communication protocols compared to fixed-protocol baselines across a curriculum of increasingly complex, open-ended tasks.",
+    "experiments": "baseline_fixed_communication — Establish a baseline using a multi-agent system in an open-ended environment (e.g., a simplified version of JaxLife or a procedural content generation setup). Agents will have a fixed, simple communication protocol (e.g., a fixed-length vector, a small set of predefined symbolic messages, or a shared blackboard). The environment will generate increasingly complex tasks requiring coordination. Agents will evolve their policies to solve these tasks.\ncecp_llm_protocol_evolution — Implement the Co-Evolving Communication Protocols (CECP) framework. Agents, powered by LLMs, will not only learn policies but also have a 'meta-agent' component that reflects on communication effectiveness. When task performance plateaus or fails on novel tasks, the LLM component will propose modifications to the communication protocol (e.g., new message structures, addition of new communication primitives, changes to communication timing or range, generation of new symbolic vocabularies). These proposed protocols will be instantiated and integrated into the agent population, subject to an outer evolutionary loop that selects for populations with more effective communication strategies. The environment will continue to generate open-ended tasks.\nablation_llm_vs_random_protocol_evolution — To validate the role of LLMs in intelligent protocol design, compare CECP against a variant where protocol modifications are generated randomly or through simple heuristics (e.g., random message length changes, random addition/removal of simple symbols).",
+    "risk_factors_and_limitations": "**Computational Cost:** Running LLMs for meta-level reasoning and code generation within an evolutionary loop can be computationally expensive. We will need to carefully design the frequency of protocol modifications and potentially use smaller, fine-tuned LLMs or efficient prompting strategies.\n**Search Space Complexity:** The space of possible communication protocols is vast. The LLM's ability to propose meaningful and implementable changes might be limited, leading to degenerate or ineffective protocols.\n**Evaluation Challenges:** Quantifying the 'quality' or 'complexity' of evolved communication protocols can be subjective. We will rely on proxy metrics like task performance, but direct measures of protocol sophistication might be hard to define.\n**Interpretability:** While LLMs might generate natural language descriptions of protocols, the emergent behavior of these protocols in a multi-agent system could still be difficult to fully interpret or debug.\n**Environment Dependency:** The effectiveness of co-evolving protocols might be highly dependent on the chosen open-ended environment and the types of tasks it generates. Generalizability across different environments needs careful consideration.\n**Safety Concerns:** As agents gain more autonomy over their communication, there's a potential for emergent, uninterpretable, or even adversarial communication patterns to arise, similar to concerns in general open-ended AI development.",
+    "run_id": "20261010T122837",
+    "run_utc": "2026-10-10T12:31:46Z",
+    "model": "gemini-2.5-flash",
+    "source_sha": "966c9ec7ed031eebdffe5a466f8cf4a1f198532d",
+    "generated": true,
+    "realized": false,
+    "realized_paper_title": null,
+    "realized_paper_url": null,
+    "realized_entry_id": null,
+    "realized_score": null,
+    "issue_number": 9,
+    "issue_url": "https://github.com/ju2ez/exodia/issues/9",
+    "votes_up": 0,
+    "votes_down": 0,
+    "score": 0,
+    "feedback_count": 0,
+    "moi_score": 0.586
   }
 ]

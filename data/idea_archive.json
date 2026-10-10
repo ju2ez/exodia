@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-09T13:14:11Z",
+  "updated_utc": "2026-10-10T12:32:28Z",
   "families": [
     "Quality-diversity & evolution",
     "RL, agents & curricula",
@@ -28,7 +28,7 @@
           3,
           2
         ],
-        "fitness": 0.688,
+        "fitness": 0.6608,
         "generation": 1,
         "parents": [
           "d3a00a8b4c07",
@@ -49,7 +49,7 @@
           4,
           2
         ],
-        "fitness": 0.7084,
+        "fitness": 0.6755,
         "generation": 1,
         "parents": [
           "d3a00a8b4c07"
@@ -68,7 +68,7 @@
           3,
           1
         ],
-        "fitness": 0.7551,
+        "fitness": 0.7205,
         "generation": 0,
         "parents": []
       },
@@ -87,10 +87,31 @@
           4,
           1
         ],
-        "fitness": 0.7167,
+        "fitness": 0.6986,
         "generation": 1,
         "parents": [
           "d3a00a8b4c07"
+        ]
+      },
+      {
+        "idea_id": "da084a26f67d",
+        "name": "emergent_self_assembling_scientific_ecosystems",
+        "title": "Emergent Self-Assembling Scientific Ecosystems Driven by Artificial Life Principles",
+        "short_hypothesis": "Applying principles from artificial life, AI agents will autonomously form complex, self-organizing 'ecosystems' that collectively drive scientific discovery through emergent division of labor and symbiotic knowledge generation.",
+        "abstract": "Instead of monolithic AI scientists, future systems will comprise diverse, specialized agents that co-evolve and interact, akin to biological ecosystems, to tackle complex scientific problems. This emergent division of labor and symbiotic knowledge exchange will unlock novel discovery pathways currently inaccessible to single, albeit powerful, AI entities.",
+        "concepts": [
+          "Artificial life",
+          "Self-organization",
+          "Automated scientific discovery"
+        ],
+        "bd": [
+          5,
+          2
+        ],
+        "fitness": 0.5242,
+        "generation": 3,
+        "parents": [
+          "3bbb1aea793e"
         ]
       }
     ]
@@ -105,12 +126,18 @@
     "co evolutionary challenge generation for continuous open ended learning",
     "designing artificial ecosystems to foster open ended intelligence evolution",
     "developing safety frameworks for recursive self improving ai",
+    "emergent oversight mechanisms for self improving scientific agents",
+    "emergent self assembling scientific ecosystems driven by artificial life principles",
     "emergent world models for unforeseen scientific discovery",
     "evolutionary meta learning for adaptive ai architectures",
     "evolutionary oversight for self improving scientific models",
     "evolving complex reasoning chains through open ended prompt optimization",
     "evolving internal representations for open ended learning and generalization",
     "evolving morphogenetic protocols for self organizing artificial ecosystems",
+    "evolving safety architectures for open ended ai scientists",
+    "evolving safety constraints for self improving world models in open ended ai science",
+    "evolving world models for ai scientists with adaptive safety envelopes",
+    "evolving world models for autonomous scientific discovery",
     "formal verification and safety guarantees for gödel machines",
     "fully autonomous agents for open ended scientific discovery",
     "generalizing creative problem solving to unforeseen domains",
@@ -125,7 +152,7 @@
     "simulating and harnessing multi agent cultural accumulation for open ended progress",
     "verifiable self refinement of recursive world models for safe scientific discovery"
   ],
-  "generation": 2,
+  "generation": 3,
   "history": [
     {
       "date": "2026-10-08",
@@ -144,6 +171,16 @@
       "max_fitness": 0.755,
       "filled": 4,
       "new_elites": 0,
+      "llm_calls": 6,
+      "model": "gemini-2.5-flash-lite"
+    },
+    {
+      "date": "2026-10-10",
+      "coverage": 0.278,
+      "qd_score": 3.28,
+      "max_fitness": 0.721,
+      "filled": 5,
+      "new_elites": 1,
       "llm_calls": 6,
       "model": "gemini-2.5-flash-lite"
     }

@@ -1038,5 +1038,35 @@
     "new_ideas": 0,
     "themes_changed": true,
     "note": ""
+  },
+  {
+    "run_id": "20261010T122837",
+    "run_utc": "2026-10-10T12:31:46Z",
+    "from_sha": "0324abd843469b17a12c84cf690e1905f35dd106",
+    "to_sha": "966c9ec7ed031eebdffe5a466f8cf4a1f198532d",
+    "upstream_compare_url": "https://github.com/jennyzzt/awesome-open-ended/compare/0324abd843469b17a12c84cf690e1905f35dd106...966c9ec7ed031eebdffe5a466f8cf4a1f198532d",
+    "added": [
+      {
+        "entry_id": "756c6a0c3247",
+        "title": "A Compositional Framework for Open-ended Intelligence",
+        "category": "surveys"
+      },
+      {
+        "entry_id": "450a9f44b6d9",
+        "title": "Beyond Fixed Representations: The Vocabulary and Verifier Gaps in Open-Ended AI",
+        "category": "surveys"
+      }
+    ],
+    "removed": [],
+    "changed": [],
+    "counts": {
+      "added": 2,
+      "removed": 0,
+      "changed": 0,
+      "total_entries": 103
+    },
+    "new_ideas": 1,
+    "themes_changed": true,
+    "note": ""
   }
 ]
