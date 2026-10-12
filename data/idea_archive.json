@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-12T15:19:47Z",
+  "updated_utc": "2026-10-12T16:56:29Z",
   "families": [
     "Quality-diversity & evolution",
     "RL, agents & curricula",
@@ -28,7 +28,7 @@
           3,
           2
         ],
-        "fitness": 0.6621,
+        "fitness": 0.704,
         "generation": 4,
         "parents": [
           "bd450403f811"
@@ -48,7 +48,7 @@
           4,
           2
         ],
-        "fitness": 0.6755,
+        "fitness": 0.7312,
         "generation": 1,
         "parents": [
           "d3a00a8b4c07"
@@ -67,7 +67,7 @@
           3,
           1
         ],
-        "fitness": 0.7205,
+        "fitness": 0.7081,
         "generation": 0,
         "parents": []
       },
@@ -86,7 +86,7 @@
           4,
           1
         ],
-        "fitness": 0.6986,
+        "fitness": 0.6969,
         "generation": 1,
         "parents": [
           "d3a00a8b4c07"
@@ -107,7 +107,7 @@
           5,
           2
         ],
-        "fitness": 0.5242,
+        "fitness": 0.516,
         "generation": 3,
         "parents": [
           "3bbb1aea793e"
@@ -128,14 +128,17 @@
     "designing artificial ecosystems to foster open ended intelligence evolution",
     "developing safety frameworks for recursive self improving ai",
     "emergent oversight mechanisms for self improving scientific agents",
+    "emergent scientific symbiosis ai agents forming specialized interdependent research collectives",
     "emergent self assembling scientific ecosystems driven by artificial life principles",
     "emergent world models for autonomous scientific discovery in unforeseen domains",
     "emergent world models for unforeseen scientific discovery",
+    "ensuring safe generalization of emergent creative problem solving",
     "evolutionary alignment of self improving world models",
     "evolutionary ecosystems for scientific discovery with quality diversity optimization",
     "evolutionary genetics simulation for accelerated biological discovery",
     "evolutionary meta learning for adaptive ai architectures",
     "evolutionary oversight for self improving scientific models",
+    "evolvable scientific symbiosis emergent division of labor and mutualism in ai research ecosystems",
     "evolving complex reasoning chains through open ended prompt optimization",
     "evolving internal representations for open ended learning and generalization",
     "evolving morphogenetic protocols for self organizing artificial ecosystems",
@@ -154,6 +157,7 @@
     "open ended discovery of novel tools and capabilities through agentic exploration",
     "quality diversity driven emergent scientific ecosystems",
     "quantifying knightian uncertainty in open ended ai risk assessment",
+    "recursive domain agnostic world model evolution for general creative problem solving",
     "recursive world model refinement for automated scientific discovery",
     "recursive world model refinement for generalizing creative problem solving",
     "recursive world model refinement for generalizing creative problem solving in unforeseen domains",
@@ -161,9 +165,10 @@
     "safety frameworks for self improving world models in automated science",
     "simulating and harnessing multi agent cultural accumulation for open ended progress",
     "simulating artificial ecosystems for open ended scientific discovery",
+    "symbiotic emergence of artificial life via recursive world model refinement",
     "verifiable self refinement of recursive world models for safe scientific discovery"
   ],
-  "generation": 5,
+  "generation": 6,
   "history": [
     {
       "date": "2026-10-08",
@@ -210,6 +215,16 @@
       "coverage": 0.278,
       "qd_score": 3.281,
       "max_fitness": 0.721,
+      "filled": 5,
+      "new_elites": 0,
+      "llm_calls": 6,
+      "model": "gemini-2.5-flash-lite"
+    },
+    {
+      "date": "2026-10-12",
+      "coverage": 0.278,
+      "qd_score": 3.356,
+      "max_fitness": 0.731,
       "filled": 5,
       "new_elites": 0,
       "llm_calls": 6,
