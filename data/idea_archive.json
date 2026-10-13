@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-12T16:56:29Z",
+  "updated_utc": "2026-10-13T14:08:50Z",
   "families": [
     "Quality-diversity & evolution",
     "RL, agents & curricula",
@@ -14,24 +14,23 @@
     "n_bins": 3,
     "elites": [
       {
-        "idea_id": "ed805ec4ef27",
-        "name": "autodidactic_world_model_science",
-        "title": "Autodidactic World Models for Automated Scientific Discovery in Uncharted Territories",
-        "short_hypothesis": "AI systems will develop self-sufficient world models to autonomously formulate, test, and refine scientific hypotheses in domains entirely unknown to human knowledge.",
-        "abstract": "Future AI research will focus on creating agents that learn to build comprehensive, dynamic world models from scratch, enabling them to independently explore scientific frontiers. These agents will not only discover novel phenomena but also invent the very scientific methodologies required to understand them, bridging the gap between open-ended discovery and automated scientific progress.",
+        "idea_id": "92573e5d2752",
+        "name": "auto-evolvable-sim-environments",
+        "title": "Automated Co-Evolution of AI Agents and Simulated Scientific Environments",
+        "short_hypothesis": "Open-ended AI discovery will accelerate by developing AI agents and the simulated scientific environments they inhabit in tandem, leading to more complex and nuanced scientific challenges.",
+        "abstract": "Instead of AI agents discovering within static or manually designed simulated scientific environments, this research proposes an automated co-evolutionary process where both the agents and their environments adapt and develop together. This symbiotic evolution will create increasingly sophisticated scientific problem spaces, driving more profound and unexpected discoveries from the AI agents.",
         "concepts": [
           "Open-ended learning",
-          "World models",
-          "Automated scientific discovery"
+          "Coevolution"
         ],
         "bd": [
           3,
           2
         ],
-        "fitness": 0.704,
-        "generation": 4,
+        "fitness": 0.71,
+        "generation": 7,
         "parents": [
-          "bd450403f811"
+          "4d50741b1327"
         ]
       },
       {
@@ -119,14 +118,18 @@
     "agentic red teaming for discovering unknown unknowns in open ended ai",
     "autodidactic hypothesis validation for unforeseen scientific domains",
     "autodidactic world models for automated scientific discovery in uncharted territories",
+    "autodidactic xeno discovery ai driven hypothesis generation in uncharted scientific domains",
     "automated agent driven curriculum design for open ended worlds",
+    "automated co evolution of ai agents and simulated scientific environments",
     "automated recursive refinement of world models for scientific discovery",
     "automated scientific discovery via generative world models",
+    "autonomous scientific discovery via evolving world models",
     "autopoietic world model refinement for emergent artificial life",
     "bootstrapping safety for open ended evolutionary ai scientists",
     "co evolutionary challenge generation for continuous open ended learning",
     "designing artificial ecosystems to foster open ended intelligence evolution",
     "developing safety frameworks for recursive self improving ai",
+    "emergent morphogenesis of ai architectures via embodied self assembly",
     "emergent oversight mechanisms for self improving scientific agents",
     "emergent scientific symbiosis ai agents forming specialized interdependent research collectives",
     "emergent self assembling scientific ecosystems driven by artificial life principles",
@@ -161,6 +164,7 @@
     "recursive world model refinement for automated scientific discovery",
     "recursive world model refinement for generalizing creative problem solving",
     "recursive world model refinement for generalizing creative problem solving in unforeseen domains",
+    "recursive world model refinement for unforeseen domain generalization",
     "safe generalizing creative problem solving via self improving world models",
     "safety frameworks for self improving world models in automated science",
     "simulating and harnessing multi agent cultural accumulation for open ended progress",
@@ -168,7 +172,7 @@
     "symbiotic emergence of artificial life via recursive world model refinement",
     "verifiable self refinement of recursive world models for safe scientific discovery"
   ],
-  "generation": 6,
+  "generation": 7,
   "history": [
     {
       "date": "2026-10-08",
@@ -227,6 +231,16 @@
       "max_fitness": 0.731,
       "filled": 5,
       "new_elites": 0,
+      "llm_calls": 6,
+      "model": "gemini-2.5-flash-lite"
+    },
+    {
+      "date": "2026-10-13",
+      "coverage": 0.278,
+      "qd_score": 3.362,
+      "max_fitness": 0.731,
+      "filled": 5,
+      "new_elites": 1,
       "llm_calls": 6,
       "model": "gemini-2.5-flash-lite"
     }
