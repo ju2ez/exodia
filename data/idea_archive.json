@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-15T11:25:38Z",
+  "updated_utc": "2026-10-16T11:20:05Z",
   "families": [
     "Quality-diversity & evolution",
     "RL, agents & curricula",
@@ -139,6 +139,7 @@
     "emergent scientific symbiosis ai agents forming specialized interdependent research collectives",
     "emergent self assembling scientific ecosystems driven by artificial life principles",
     "emergent symbiotic ai ecosystems for accelerated scientific discovery",
+    "emergent world models for autonomous scientific discovery curricula",
     "emergent world models for autonomous scientific discovery in unforeseen domains",
     "emergent world models for unforeseen scientific discovery",
     "emulated evolutionary oversight for self improving world models in automated science",
@@ -149,6 +150,7 @@
     "evolutionary meta learning for adaptive ai architectures",
     "evolutionary oversight for self improving scientific models",
     "evolutionary safety frameworks for generalizing creative problem solvers",
+    "evolvable safety modules for self improving ai scientists",
     "evolvable scientific symbiosis emergent division of labor and mutualism in ai research ecosystems",
     "evolving complex reasoning chains through open ended prompt optimization",
     "evolving internal representations for open ended learning and generalization",
@@ -169,6 +171,7 @@
     "quality diversity driven emergent scientific ecosystems",
     "quantifying knightian uncertainty in open ended ai risk assessment",
     "recursive domain agnostic world model evolution for general creative problem solving",
+    "recursive simulation of novel biospheres for astrobiological inference",
     "recursive world model refinement for artificial life simulation",
     "recursive world model refinement for automated scientific discovery",
     "recursive world model refinement for generalizing creative problem solving",
@@ -176,13 +179,15 @@
     "recursive world model refinement for unforeseen domain generalization",
     "safe generalizing creative problem solving via self improving world models",
     "safety frameworks for self improving world models in automated science",
+    "self organizing scientific ecosystems for unforeseen creative problem solving",
     "simulating and harnessing multi agent cultural accumulation for open ended progress",
     "simulating artificial ecosystems for open ended scientific discovery",
     "symbiotic emergence of artificial life via recursive world model refinement",
     "verifiable recursive world models for safe automated science",
+    "verifiable recursive world models for safe automated scientific discovery",
     "verifiable self refinement of recursive world models for safe scientific discovery"
   ],
-  "generation": 9,
+  "generation": 10,
   "history": [
     {
       "date": "2026-10-08",
@@ -266,6 +271,16 @@
     },
     {
       "date": "2026-10-15",
+      "coverage": 0.278,
+      "qd_score": 3.362,
+      "max_fitness": 0.731,
+      "filled": 5,
+      "new_elites": 0,
+      "llm_calls": 6,
+      "model": "gemini-2.5-flash-lite"
+    },
+    {
+      "date": "2026-10-16",
       "coverage": 0.278,
       "qd_score": 3.362,
       "max_fitness": 0.731,
