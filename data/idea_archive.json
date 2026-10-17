@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-16T11:20:05Z",
+  "updated_utc": "2026-10-17T10:40:50Z",
   "families": [
     "Quality-diversity & evolution",
     "RL, agents & curricula",
@@ -111,6 +111,26 @@
         "parents": [
           "3bbb1aea793e"
         ]
+      },
+      {
+        "idea_id": "ce8333e358df",
+        "name": "emergent_ecosystem_quality_diversity",
+        "title": "Evolutionary Quality-Diversity for Self-Assembling Scientific Ecosystems",
+        "short_hypothesis": "Applying evolutionary quality-diversity algorithms will enable AI agents to autonomously form diverse, specialized scientific sub-ecosystems that collectively achieve broader and more robust scientific progress than monolithic approaches.",
+        "abstract": "This research proposes leveraging evolutionary quality-diversity (QD) algorithms to guide the self-assembly of AI agents into distinct scientific 'niches' and sub-ecosystems, each optimized for different research methodologies or problem domains. By promoting diversity in agent capabilities and interaction strategies, these QD-driven ecosystems will unlock novel avenues of scientific discovery and accelerate progress beyond the limitations of current monolithic AI scientist frameworks.",
+        "concepts": [
+          "Quality-diversity",
+          "Automated scientific discovery"
+        ],
+        "bd": [
+          0,
+          2
+        ],
+        "fitness": 0.6751,
+        "generation": 11,
+        "parents": [
+          "da084a26f67d"
+        ]
       }
     ]
   },
@@ -139,6 +159,7 @@
     "emergent scientific symbiosis ai agents forming specialized interdependent research collectives",
     "emergent self assembling scientific ecosystems driven by artificial life principles",
     "emergent symbiotic ai ecosystems for accelerated scientific discovery",
+    "emergent world models for autonomous scientific discovery",
     "emergent world models for autonomous scientific discovery curricula",
     "emergent world models for autonomous scientific discovery in unforeseen domains",
     "emergent world models for unforeseen scientific discovery",
@@ -149,9 +170,11 @@
     "evolutionary genetics simulation for accelerated biological discovery",
     "evolutionary meta learning for adaptive ai architectures",
     "evolutionary oversight for self improving scientific models",
+    "evolutionary quality diversity for self assembling scientific ecosystems",
     "evolutionary safety frameworks for generalizing creative problem solvers",
     "evolvable safety modules for self improving ai scientists",
     "evolvable scientific symbiosis emergent division of labor and mutualism in ai research ecosystems",
+    "evolving artificial life ecosystems for unforeseen creative problem solving",
     "evolving complex reasoning chains through open ended prompt optimization",
     "evolving internal representations for open ended learning and generalization",
     "evolving morphogenetic protocols for self organizing artificial ecosystems",
@@ -179,6 +202,7 @@
     "recursive world model refinement for unforeseen domain generalization",
     "safe generalizing creative problem solving via self improving world models",
     "safety frameworks for self improving world models in automated science",
+    "self designing agent architectures for open ended scientific discovery",
     "self organizing scientific ecosystems for unforeseen creative problem solving",
     "simulating and harnessing multi agent cultural accumulation for open ended progress",
     "simulating artificial ecosystems for open ended scientific discovery",
@@ -187,7 +211,7 @@
     "verifiable recursive world models for safe automated scientific discovery",
     "verifiable self refinement of recursive world models for safe scientific discovery"
   ],
-  "generation": 10,
+  "generation": 11,
   "history": [
     {
       "date": "2026-10-08",
@@ -286,6 +310,16 @@
       "max_fitness": 0.731,
       "filled": 5,
       "new_elites": 0,
+      "llm_calls": 6,
+      "model": "gemini-2.5-flash-lite"
+    },
+    {
+      "date": "2026-10-17",
+      "coverage": 0.333,
+      "qd_score": 4.037,
+      "max_fitness": 0.731,
+      "filled": 6,
+      "new_elites": 1,
       "llm_calls": 6,
       "model": "gemini-2.5-flash-lite"
     }
