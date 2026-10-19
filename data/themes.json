@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-10-12T16:30:46Z",
+  "generated_utc": "2026-10-19T14:21:48Z",
   "method": "tfidf_kmeans",
   "n_docs": 103,
   "top_keyphrases": [
@@ -631,7 +631,7 @@
         "generative design",
         "exploration",
         "base",
-        "science"
+        "intelligent"
       ],
       "representative_titles": [
         "SerendipityLM: Interactive evolutionary exploration of generative design spaces with large language models",
