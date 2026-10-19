@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-18T11:01:26Z",
+  "updated_utc": "2026-10-19T13:09:44Z",
   "families": [
     "Quality-diversity & evolution",
     "RL, agents & curricula",
@@ -92,11 +92,11 @@
         ]
       },
       {
-        "idea_id": "da084a26f67d",
-        "name": "emergent_self_assembling_scientific_ecosystems",
-        "title": "Emergent Self-Assembling Scientific Ecosystems Driven by Artificial Life Principles",
-        "short_hypothesis": "Applying principles from artificial life, AI agents will autonomously form complex, self-organizing 'ecosystems' that collectively drive scientific discovery through emergent division of labor and symbiotic knowledge generation.",
-        "abstract": "Instead of monolithic AI scientists, future systems will comprise diverse, specialized agents that co-evolve and interact, akin to biological ecosystems, to tackle complex scientific problems. This emergent division of labor and symbiotic knowledge exchange will unlock novel discovery pathways currently inaccessible to single, albeit powerful, AI entities.",
+        "idea_id": "6ae6ca1f9562",
+        "name": "emergent_ecosystems_creative_generalization",
+        "title": "Self-Assembling Scientific Ecosystems for Unforeseen Domain Discovery",
+        "short_hypothesis": "Artificial life principles will enable AI agents to autonomously form self-organizing scientific ecosystems that can creatively generalize problem-solving to novel domains.",
+        "abstract": "This research direction proposes the creation of AI systems where agents, inspired by artificial life, autonomously form complex, self-organizing 'ecosystems' to drive scientific discovery. These emergent ecosystems will leverage symbiotic knowledge generation and division of labor to tackle and creatively solve problems in entirely unforeseen domains, transcending the limitations of fixed task categories and human-designed architectures.",
         "concepts": [
           "Artificial life",
           "Self-organization",
@@ -106,10 +106,11 @@
           5,
           2
         ],
-        "fitness": 0.516,
-        "generation": 3,
+        "fitness": 0.5441,
+        "generation": 13,
         "parents": [
-          "3bbb1aea793e"
+          "da084a26f67d",
+          "bd450403f811"
         ]
       },
       {
@@ -150,10 +151,12 @@
     "bootstrapping safety for open ended evolutionary ai scientists",
     "co evolutionary challenge generation for continuous open ended learning",
     "co evolving creative agents and generative scientific environments for unforeseen domain discovery",
+    "co evolving world models and scientific environments for accelerated ai discovery",
     "co evolving world models and scientific environments for accelerated discovery",
     "co evolving world models and simulated scientific environments for accelerated discovery",
     "designing artificial ecosystems to foster open ended intelligence evolution",
     "developing safety frameworks for recursive self improving ai",
+    "domain agnostic science generators ai for unforeseen scientific discovery",
     "embodied ai agents for open ended evolution of synthetic biological systems",
     "emergent morphogenesis of ai architectures via embodied self assembly",
     "emergent oversight in artificial ecosystems for self improving world models",
@@ -202,12 +205,15 @@
     "recursive simulation of novel biospheres for astrobiological inference",
     "recursive world model refinement for artificial life simulation",
     "recursive world model refinement for automated scientific discovery",
+    "recursive world model refinement for embodied scientific discovery",
+    "recursive world model refinement for generalizable creative problem solving",
     "recursive world model refinement for generalizing creative problem solving",
     "recursive world model refinement for generalizing creative problem solving in unforeseen domains",
     "recursive world model refinement for unforeseen domain generalization",
     "safe generalizing creative problem solving via self improving world models",
     "safely adaptive creative discovery agents",
     "safety frameworks for self improving world models in automated science",
+    "self assembling scientific ecosystems for unforeseen domain discovery",
     "self designing agent architectures for open ended scientific discovery",
     "self organizing scientific ecosystems for unforeseen creative problem solving",
     "simulating and harnessing multi agent cultural accumulation for open ended progress",
@@ -217,7 +223,7 @@
     "verifiable recursive world models for safe automated scientific discovery",
     "verifiable self refinement of recursive world models for safe scientific discovery"
   ],
-  "generation": 12,
+  "generation": 13,
   "history": [
     {
       "date": "2026-10-08",
@@ -336,6 +342,16 @@
       "max_fitness": 0.731,
       "filled": 6,
       "new_elites": 0,
+      "llm_calls": 6,
+      "model": "gemini-2.5-flash-lite"
+    },
+    {
+      "date": "2026-10-19",
+      "coverage": 0.333,
+      "qd_score": 4.065,
+      "max_fitness": 0.731,
+      "filled": 6,
+      "new_elites": 1,
       "llm_calls": 6,
       "model": "gemini-2.5-flash-lite"
     }
