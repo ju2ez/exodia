@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-19T14:47:30Z",
+  "updated_utc": "2026-10-20T11:59:14Z",
   "families": [
     "Quality-diversity & evolution",
     "RL, agents & curricula",
@@ -28,7 +28,7 @@
           3,
           2
         ],
-        "fitness": 0.7201,
+        "fitness": 0.7404,
         "generation": 14,
         "parents": [
           "bd450403f811"
@@ -48,7 +48,7 @@
           4,
           2
         ],
-        "fitness": 0.7312,
+        "fitness": 0.7597,
         "generation": 1,
         "parents": [
           "d3a00a8b4c07"
@@ -67,7 +67,7 @@
           3,
           1
         ],
-        "fitness": 0.7081,
+        "fitness": 0.7722,
         "generation": 0,
         "parents": []
       },
@@ -86,7 +86,7 @@
           4,
           1
         ],
-        "fitness": 0.6969,
+        "fitness": 0.7935,
         "generation": 1,
         "parents": [
           "d3a00a8b4c07"
@@ -107,7 +107,7 @@
           5,
           2
         ],
-        "fitness": 0.5441,
+        "fitness": 0.5896,
         "generation": 13,
         "parents": [
           "da084a26f67d",
@@ -128,7 +128,7 @@
           0,
           2
         ],
-        "fitness": 0.6751,
+        "fitness": 0.7144,
         "generation": 11,
         "parents": [
           "da084a26f67d"
@@ -175,6 +175,8 @@
     "ensuring safe generalization of emergent creative problem solving",
     "evolutionary alignment of self improving world models",
     "evolutionary artificial life ecosystems for open ended scientific discovery",
+    "evolutionary curricula for self assembling agent ecosystems",
+    "evolutionary curriculum generation for open ended agent specialization",
     "evolutionary ecosystems for scientific discovery with quality diversity optimization",
     "evolutionary genetics simulation for accelerated biological discovery",
     "evolutionary meta learning for adaptive ai architectures",
@@ -194,12 +196,14 @@
     "evolving safety constraints for self improving world models in open ended ai science",
     "evolving world models for ai scientists with adaptive safety envelopes",
     "evolving world models for autonomous scientific discovery",
+    "evolving world models for generalizing creative scientific discovery",
     "formal verification and safety guarantees for gödel machines",
     "formal verification of emergent scientific hypotheses from self improving world models",
     "fully autonomous agents for open ended scientific discovery",
     "generalizing creative problem solving to unforeseen domains",
     "generative safety for recursive self improving agents in novel domains",
     "learning what data to learn from in open ended unstructured environments",
+    "meta evolvable self improving scientific ecosystems",
     "novelty search and quality diversity for hyperparameter and architecture optimization",
     "open ended discovery of novel tools and capabilities through agentic exploration",
     "quality diversity curricula for evolving multi agent scientific collectives",
@@ -228,7 +232,7 @@
     "verifiable recursive world models for safe automated scientific discovery",
     "verifiable self refinement of recursive world models for safe scientific discovery"
   ],
-  "generation": 14,
+  "generation": 15,
   "history": [
     {
       "date": "2026-10-08",
@@ -367,6 +371,16 @@
       "max_fitness": 0.731,
       "filled": 6,
       "new_elites": 1,
+      "llm_calls": 6,
+      "model": "gemini-2.5-flash-lite"
+    },
+    {
+      "date": "2026-10-20",
+      "coverage": 0.333,
+      "qd_score": 4.37,
+      "max_fitness": 0.793,
+      "filled": 6,
+      "new_elites": 0,
       "llm_calls": 6,
       "model": "gemini-2.5-flash-lite"
     }
