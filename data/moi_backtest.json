@@ -1,0 +1,1622 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-10-20T17:25:18Z",
+  "config": {
+    "seed": 0,
+    "mock": false,
+    "arms": [
+      "honest",
+      "oracle"
+    ],
+    "modes": [
+      "steered",
+      "baseline"
+    ],
+    "honest_models": {
+      "2024": "gemini-2.0-flash",
+      "2025": "gemini-2.0-flash"
+    },
+    "oracle_model": "gemini-2.5-flash-lite",
+    "generations": 6,
+    "init_pop": 16,
+    "batch": 8,
+    "archive_shape": [
+      6,
+      3
+    ],
+    "hit_threshold": 0.18
+  },
+  "cutoffs": [
+    {
+      "cutoff_year": 2021,
+      "n_train_le_y": 22,
+      "n_test_gt_y": 82,
+      "runs": [
+        {
+          "arm": "oracle",
+          "mode": "steered",
+          "model": "gemini-2.5-flash-lite",
+          "ideas": [
+            {
+              "idea_id": "02c12175857c",
+              "name": "coevolved_compositional_discovery_worlds",
+              "title": "Co-Evolutionary Discovery Worlds with Compositional Agent Architectures",
+              "short_hypothesis": "Co-evolving agents with compositional world models within dynamically generated, increasingly complex environments will unlock unprecedented rates of AI-driven scientific discovery.",
+              "abstract": "This research direction proposes a synergistic co-evolutionary framework where AI agents, possessing compositional world models, are trained within procedurally generated environments that progressively increase in complexity and novelty. Evolutionary algorithms will simultaneously optimize both the agents' internal representations and the environmental challenges, fostering a continuous cycle of invention and adaptation for accelerated scientific discovery.",
+              "concepts": [
+                "Coevolution",
+                "Evolutionary computation",
+                "World models",
+                "Compositionality",
+                "Automated scientific discovery"
+              ],
+              "bd": [
+                0,
+                2
+              ],
+              "fitness": 0.9974,
+              "generation": 4,
+              "parents": [
+                "7fc57189dcf4",
+                "7ba4ea217d67"
+              ]
+            },
+            {
+              "idea_id": "63e48804ccb1",
+              "name": "compositional_coevolutionary_discovery_worlds",
+              "title": "Co-Evolving Compositional World Models and Discovery Environments for Accelerated Scientific Breakthroughs",
+              "short_hypothesis": "AI agents will accelerate scientific discovery by co-evolving their compositional world models and the increasingly complex discovery environments they inhabit.",
+              "abstract": "This research direction proposes a novel framework where AI agents and their scientific discovery environments co-evolve in tandem. Agents will develop increasingly sophisticated compositional world models, enabling them to understand and manipulate complex scientific phenomena, while simultaneously generating novel and challenging environments that push the boundaries of scientific inquiry.",
+              "concepts": [
+                "World models",
+                "Compositionality",
+                "Automated scientific discovery"
+              ],
+              "bd": [
+                4,
+                2
+              ],
+              "fitness": 0.9971,
+              "generation": 6,
+              "parents": [
+                "7ba4ea217d67",
+                "7ba4ea217d67"
+              ]
+            },
+            {
+              "idea_id": "65f8c955d309",
+              "name": "procedural_content_generation_for_ai",
+              "title": "AI-Driven Procedural Content Generation for AI Training",
+              "short_hypothesis": "AI systems will become adept at generating not just game levels, but entire simulated worlds and complex problem sets specifically tailored to train other AI agents.",
+              "abstract": "This research extends the concept of co-generation to a meta-level, where AI agents are responsible for creating the environments and challenges that other AI agents will learn from. This creates a recursive loop of AI development, potentially leading to rapid advancements in AI capabilities.",
+              "concepts": [
+                "Procedural content generation"
+              ],
+              "bd": [
+                5,
+                1
+              ],
+              "fitness": 0.9966,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "7fc57189dcf4",
+              "name": "evolutionary-pcg-for-ai-training",
+              "title": "Evolutionary Procedural Content Generation for AI Training",
+              "short_hypothesis": "Evolutionary algorithms will be used to co-evolve AI agents and their training environments, leading to more robust and generalizable AI.",
+              "abstract": "This research direction posits that instead of AI generating content for its own training, evolutionary processes will be employed to simultaneously evolve both the AI agent and the content it learns from. This co-evolutionary approach, drawing inspiration from POET and artificial life research, aims to create a symbiotic relationship where novel environments challenge agents to develop new capabilities, and agents' successes inform the generation of even more complex and diverse environments.",
+              "concepts": [
+                "Coevolution",
+                "POET / paired open-ended",
+                "Evolutionary computation",
+                "Procedural content generation",
+                "Artificial life"
+              ],
+              "bd": [
+                0,
+                1
+              ],
+              "fitness": 0.9953,
+              "generation": 2,
+              "parents": [
+                "65f8c955d309"
+              ]
+            },
+            {
+              "idea_id": "a7ec4e5f1357",
+              "name": "co_evolved_discovery_worlds",
+              "title": "AI-Driven Co-evolution of Discovery Worlds and Compositional Agents",
+              "short_hypothesis": "AI systems can simultaneously generate increasingly complex scientific discovery environments and agents with compositional world models that are optimized to solve them, leading to accelerated scientific progress.",
+              "abstract": "This research direction combines AI-driven procedural content generation with co-evolutionary discovery to create dynamic, open-ended learning environments. Agents with compositional world models will evolve within these AI-generated scientific worlds, which themselves adapt to present novel and increasingly complex research problems, fostering a symbiotic advancement of both problem-generation and problem-solving capabilities.",
+              "concepts": [
+                "Open-ended learning",
+                "Coevolution",
+                "World models",
+                "Procedural content generation",
+                "Compositionality",
+                "Automated scientific discovery"
+              ],
+              "bd": [
+                3,
+                2
+              ],
+              "fitness": 0.9943,
+              "generation": 6,
+              "parents": [
+                "65f8c955d309",
+                "7ba4ea217d67"
+              ]
+            },
+            {
+              "idea_id": "685c6bc65b38",
+              "name": "evolutionary-procedural-content-for-ai-training",
+              "title": "Evolving Curricula for Open-Ended AI Development",
+              "short_hypothesis": "Evolutionary algorithms will be used to generate increasingly complex and diverse training environments and tasks that push the boundaries of AI capabilities, fostering open-ended development.",
+              "abstract": "Inspired by the principles of open-ended evolution and quality-diversity, future research will leverage evolutionary computation to automatically generate a continuous stream of novel and challenging learning environments. This approach aims to create AI agents that exhibit unbounded innovation and adaptability by evolving their own training curricula, mirroring biological evolution's capacity for emergent complexity.",
+              "concepts": [
+                "Open-ended learning",
+                "Quality-diversity",
+                "Evolutionary computation"
+              ],
+              "bd": [
+                3,
+                1
+              ],
+              "fitness": 0.9928,
+              "generation": 4,
+              "parents": [
+                "65f8c955d309"
+              ]
+            }
+          ],
+          "n_llm_calls": 0,
+          "n_cache_hits": 49
+        },
+        {
+          "arm": "oracle",
+          "mode": "baseline",
+          "model": "gemini-2.5-flash-lite",
+          "ideas": [
+            {
+              "idea_id": "3ceb6eaf5319",
+              "name": "meta_curriculum_design",
+              "title": "Meta-Curriculum Design for Open-Ended Agents",
+              "short_hypothesis": "Automated systems can learn to design optimal curricula for open-ended agents, accelerating their development of general capabilities.",
+              "abstract": "This research direction focuses on developing algorithms that can automatically generate and adapt learning curricula for agents in open-ended environments. By learning to design effective sequences of challenges, these meta-agents can guide the agent's exploration and skill acquisition more efficiently than manual curriculum design or static environmental distributions.",
+              "concepts": [
+                "Open-ended learning",
+                "Exploration"
+              ],
+              "bd": [
+                3,
+                2
+              ],
+              "fitness": 0.9763,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "772785f5b992",
+              "name": "emergent_tool_use",
+              "title": "Emergent Tool Use and Invention in Open-Ended Environments",
+              "short_hypothesis": "Agents in rich open-ended environments will spontaneously develop and utilize novel tools to overcome challenges and expand their capabilities.",
+              "abstract": "This research investigates how agents can learn to not only solve tasks but also to invent and use tools within the environment. This goes beyond pre-defined toolkits, focusing on the emergent discovery of combinatorial tool usage and the invention of entirely new tools as a crucial step towards more general intelligence.",
+              "concepts": [
+                "Open-ended learning"
+              ],
+              "bd": [
+                3,
+                2
+              ],
+              "fitness": 0.9662,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "3aa26186b66f",
+              "name": "compositional_world_models",
+              "title": "Compositional World Models for Open-Ended Exploration",
+              "short_hypothesis": "Agents that learn compositional and hierarchical world models will be better equipped to understand and navigate complex, open-ended environments.",
+              "abstract": "This direction explores the development of world models that represent environmental dynamics and task structures in a compositional manner. Such models would enable agents to reason about unseen combinations of environmental elements and predict outcomes of novel interactions, facilitating more efficient open-ended exploration.",
+              "concepts": [
+                "Open-ended learning",
+                "World models",
+                "Exploration",
+                "Compositionality"
+              ],
+              "bd": [
+                3,
+                2
+              ],
+              "fitness": 0.9869,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "e368fd0b5ebe",
+              "name": "open_ended_multi_agent",
+              "title": "Open-Ended Multi-Agent Systems with Evolving Objectives",
+              "short_hypothesis": "Multi-agent systems that can continuously generate novel cooperative and competitive dynamics will lead to more robust and adaptable emergent behaviors.",
+              "abstract": "This research focuses on creating multi-agent environments where agents not only learn to interact but also influence the evolution of the environment and the objectives of other agents. This continuous co-evolution of agents and their environment is hypothesized to drive emergent complexity and more sophisticated forms of intelligence.",
+              "concepts": [
+                "Open-ended learning",
+                "Coevolution",
+                "Multi-agent systems",
+                "Emergent abilities"
+              ],
+              "bd": [
+                3,
+                2
+              ],
+              "fitness": 0.9309,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "2529b7d0613e",
+              "name": "safely_exploring_open_endedness",
+              "title": "Safe Exploration Strategies for Open-Ended AI",
+              "short_hypothesis": "Developing robust safety constraints and oversight mechanisms is critical for allowing AI systems to explore open-ended environments without undesirable outcomes.",
+              "abstract": "This research addresses the inherent risks associated with unbounded exploration by focusing on methods to instill safety constraints and ethical considerations into open-ended learning systems. The goal is to enable agents to pursue novelty and complexity while remaining aligned with human values and intentions.",
+              "concepts": [
+                "Open-ended learning",
+                "Exploration"
+              ],
+              "bd": [
+                3,
+                1
+              ],
+              "fitness": 0.9504,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "6ddf5dffde7f",
+              "name": "intrinsic_motivation_architecture",
+              "title": "Architectures for Intrinsic Motivation in Open-Ended Learning",
+              "short_hypothesis": "Novel neural architectures that explicitly encode intrinsic motivation mechanisms will unlock more persistent and goal-directed exploration in open-ended settings.",
+              "abstract": "This research aims to design and implement specific neural network architectures that are optimized for intrinsic motivation, such as curiosity, novelty seeking, and empowerment. These architectures will be tested in challenging open-ended environments to observe their ability to drive sustained learning and discovery.",
+              "concepts": [
+                "Open-ended learning",
+                "Intrinsic motivation & curiosity",
+                "Exploration"
+              ],
+              "bd": [
+                3,
+                2
+              ],
+              "fitness": 0.9782,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "2042e0da99a6",
+              "name": "human_ai_collaboration_open_ended",
+              "title": "Human-AI Collaboration in Open-Ended Creative Tasks",
+              "short_hypothesis": "Open-ended AI systems can become powerful collaborators for humans in creative domains, generating novel ideas and solutions through iterative interaction.",
+              "abstract": "This direction explores how open-ended AI agents can be integrated into human creative workflows, acting as partners in tasks like art generation, scientific discovery, or game design. The focus is on developing interfaces and interaction paradigms that facilitate a synergistic co-creation process.",
+              "concepts": [
+                "Open-ended learning",
+                "Automated scientific discovery"
+              ],
+              "bd": [
+                3,
+                1
+              ],
+              "fitness": 0.9537,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "dbe475d9ec2c",
+              "name": "transferable_skills_open_ended",
+              "title": "Learning Transferable Skills Across Diverse Open-Ended Domains",
+              "short_hypothesis": "Agents trained in one open-ended environment will be able to transfer fundamental skills to vastly different open-ended domains, demonstrating true general intelligence.",
+              "abstract": "This research investigates the ability of agents to acquire generalizable skills and knowledge in one open-ended environment and then effectively apply them to novel and distinct open-ended domains. The goal is to move beyond task-specific generalization to a more fundamental understanding of transferable intelligence.",
+              "concepts": [
+                "Open-ended learning"
+              ],
+              "bd": [
+                3,
+                2
+              ],
+              "fitness": 0.9175,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "65f8c955d309",
+              "name": "procedural_content_generation_for_ai",
+              "title": "AI-Driven Procedural Content Generation for AI Training",
+              "short_hypothesis": "AI systems will become adept at generating not just game levels, but entire simulated worlds and complex problem sets specifically tailored to train other AI agents.",
+              "abstract": "This research extends the concept of co-generation to a meta-level, where AI agents are responsible for creating the environments and challenges that other AI agents will learn from. This creates a recursive loop of AI development, potentially leading to rapid advancements in AI capabilities.",
+              "concepts": [
+                "Procedural content generation"
+              ],
+              "bd": [
+                5,
+                1
+              ],
+              "fitness": 0.9966,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "b44d651278ac",
+              "name": "continual_lifelong_learning_open_ended",
+              "title": "Continual Lifelong Learning in Unbounded Environments",
+              "short_hypothesis": "Agents designed for open-endedness will exhibit true continual learning, seamlessly acquiring new knowledge and skills throughout their existence without forgetting past experiences.",
+              "abstract": "This research focuses on developing agents that can learn continuously over extended periods in dynamic and open-ended environments. The challenge lies in overcoming catastrophic forgetting and enabling agents to integrate new information while retaining and leveraging previously acquired knowledge.",
+              "concepts": [
+                "Open-ended learning",
+                "Lifelong & continual learning"
+              ],
+              "bd": [
+                3,
+                2
+              ],
+              "fitness": 0.9721,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "00ef2ef1d039",
+              "name": "emergent_language_for_collaboration",
+              "title": "Emergent Language and Communication in Open-Ended Multi-Agent Systems",
+              "short_hypothesis": "Complex, symbolic communication systems will emerge spontaneously within multi-agent systems engaged in open-ended cooperative tasks.",
+              "abstract": "This direction explores the possibility of agents developing their own forms of language and communication protocols as a means to coordinate and solve increasingly complex problems in open-ended environments. This research aims to understand the principles behind emergent communication and its role in collective intelligence.",
+              "concepts": [
+                "Open-ended learning",
+                "Multi-agent systems"
+              ],
+              "bd": [
+                3,
+                2
+              ],
+              "fitness": 0.9768,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "fda1fa753626",
+              "name": "symbolic_reasoning_in_open_ended",
+              "title": "Integrating Symbolic Reasoning with Open-Ended Reinforcement Learning",
+              "short_hypothesis": "Combining the exploratory power of RL with the structured reasoning of symbolic AI will unlock novel problem-solving capabilities in open-ended settings.",
+              "abstract": "This research seeks to bridge the gap between deep reinforcement learning and symbolic AI, enabling agents to leverage both experience-driven learning and abstract logical reasoning. The goal is to create agents that can understand abstract concepts, plan complex sequences of actions, and adapt to novel situations more effectively.",
+              "concepts": [
+                "Open-ended learning",
+                "Reinforcement learning"
+              ],
+              "bd": [
+                3,
+                2
+              ],
+              "fitness": 0.9609,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "45ee13f62a30",
+              "name": "open_ended_robotics_embodiment",
+              "title": "Open-Ended Embodiment and Learning in Physical Robots",
+              "short_hypothesis": "Robots that can autonomously adapt their morphology and learn novel skills in real-world, open-ended environments will represent a significant leap in robotics.",
+              "abstract": "This research extends open-ended learning principles to physical robots operating in the real world. The focus is on robots that can continuously learn, adapt their physical form (if applicable), and develop a broad range of skills without explicit human programming for every scenario.",
+              "concepts": [
+                "Open-ended learning",
+                "Embodied agents"
+              ],
+              "bd": [
+                3,
+                2
+              ],
+              "fitness": 0.9761,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "5541c8711f52",
+              "name": "evaluating_open_endedness_progress",
+              "title": "Developing Metrics and Benchmarks for Open-Ended Progress",
+              "short_hypothesis": "New evaluation methodologies are needed to quantify and track progress in open-ended AI research, moving beyond single-task performance.",
+              "abstract": "This research direction addresses the critical need for robust metrics and standardized benchmarks to measure the advancement of open-ended AI systems. The focus is on developing ways to assess novelty, complexity, generality, and the capacity for unbounded development, rather than just task-specific performance.",
+              "concepts": [
+                "Open-ended learning"
+              ],
+              "bd": [
+                3,
+                1
+              ],
+              "fitness": 0.9809,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "7386b3d874b0",
+              "name": "generative_ai_for_simulated_worlds",
+              "title": "Generative AI for Creating Rich, Dynamic Simulated Worlds",
+              "short_hypothesis": "Advanced generative AI models will be capable of creating vast, interconnected, and evolving simulated worlds that serve as ideal playgrounds for open-ended AI development.",
+              "abstract": "This research focuses on using generative AI to construct incredibly detailed and dynamic simulated environments. These worlds will possess emergent properties, complex ecologies, and unpredictable events, providing fertile ground for open-ended learning agents to explore and evolve within.",
+              "concepts": [
+                "Open-ended learning"
+              ],
+              "bd": [
+                3,
+                2
+              ],
+              "fitness": 0.9834,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "f21d57f2d64e",
+              "name": "evolutionary_algorithms_and_deep_learning_synergy",
+              "title": "Synergistic Integration of Evolutionary Algorithms and Deep Learning for Open-Endedness",
+              "short_hypothesis": "Combining the strengths of evolutionary computation and deep learning will unlock new paradigms for open-ended intelligence development.",
+              "abstract": "This research direction explores novel ways to integrate evolutionary algorithms (EAs) and deep learning (DL). The aim is to leverage EAs for exploring complex solution spaces (e.g., network architectures, hyperparameters, environment designs) and DL for efficient learning within those spaces, leading to more powerful open-ended systems.",
+              "concepts": [
+                "Open-ended learning",
+                "Evolutionary computation"
+              ],
+              "bd": [
+                3,
+                2
+              ],
+              "fitness": 0.9317,
+              "generation": 0,
+              "parents": []
+            }
+          ],
+          "n_llm_calls": 0,
+          "n_cache_hits": 1
+        }
+      ],
+      "metrics": {
+        "oracle.steered": {
+          "n_ideas": 6,
+          "n_test": 82,
+          "precision": 0.0,
+          "recall": 0.0,
+          "mean_best_sim": 0.119,
+          "hit_ci": [
+            0.0,
+            0.0
+          ],
+          "precision_at_5": 0.0,
+          "recall_at_5": 0.0,
+          "precision_at_10": 0.0,
+          "recall_at_10": 0.0,
+          "concept_recall": 0.0,
+          "concept_precision": 0.0,
+          "n_risen": 3,
+          "model": "gemini-2.5-flash-lite"
+        },
+        "oracle.baseline": {
+          "n_ideas": 16,
+          "n_test": 82,
+          "precision": 0.062,
+          "recall": 0.012,
+          "mean_best_sim": 0.111,
+          "hit_ci": [
+            0.0,
+            0.188
+          ],
+          "precision_at_5": 0.2,
+          "recall_at_5": 0.012,
+          "precision_at_10": 0.1,
+          "recall_at_10": 0.012,
+          "concept_recall": 0.333,
+          "concept_precision": 0.071,
+          "n_risen": 3,
+          "model": "gemini-2.5-flash-lite"
+        }
+      },
+      "examples": [
+        {
+          "idea_title": "Open-Ended Multi-Agent Systems with Evolving Objectives",
+          "paper_title": "MAESTRO: Open-Ended Environment Design for Multi-Agent Reinforcement Learning",
+          "paper_url": "https://arxiv.org/abs/2303.03376",
+          "score": 0.221,
+          "year": 2023,
+          "arm": "oracle",
+          "mode": "baseline"
+        }
+      ],
+      "concept_table": [
+        {
+          "concept": "Exploration",
+          "risen": true,
+          "named_by": [
+            "oracle.baseline"
+          ]
+        },
+        {
+          "concept": "Large language models (LLMs)",
+          "risen": true,
+          "named_by": []
+        },
+        {
+          "concept": "Recursive self-improvement",
+          "risen": true,
+          "named_by": []
+        }
+      ]
+    },
+    {
+      "cutoff_year": 2022,
+      "n_train_le_y": 35,
+      "n_test_gt_y": 69,
+      "runs": [
+        {
+          "arm": "oracle",
+          "mode": "steered",
+          "model": "gemini-2.5-flash-lite",
+          "ideas": [
+            {
+              "idea_id": "2ac7595d4bed",
+              "name": "llm_compositional_curricula",
+              "title": "LLM-Driven Compositional Curriculum Generation for Zero-Shot Task Generalization",
+              "short_hypothesis": "Large Language Models will be leveraged to automatically generate complex, compositional task curricula that promote zero-shot generalization in RL agents.",
+              "abstract": "Instead of hand-crafting task structures, we propose using LLMs to interpret high-level goals and generate novel, compositional environments and sub-tasks. This approach aims to significantly enhance an RL agent's ability to generalize to unseen tasks by exposing it to a richer, more diverse, and procedurally generated training curriculum.",
+              "concepts": [
+                "Large language models (LLMs)",
+                "Auto-curricula",
+                "Compositionality"
+              ],
+              "bd": [
+                2,
+                1
+              ],
+              "fitness": 0.7849,
+              "generation": 4,
+              "parents": [
+                "329e4af8b214"
+              ]
+            },
+            {
+              "idea_id": "329e4af8b214",
+              "name": "compositional_curricula_generation",
+              "title": "Compositional Curricula for Zero-Shot Task Generalization",
+              "short_hypothesis": "Environments will be automatically generated with compositional task structures to promote zero-shot generalization in RL agents.",
+              "abstract": "Building on the success of Unsupervised Environment Design, future work will focus on generating curricula with explicitly compositional task dependencies, allowing agents to learn to solve unseen complex tasks by composing previously learned sub-skills.",
+              "concepts": [
+                "Unsupervised environment design",
+                "Compositionality"
+              ],
+              "bd": [
+                1,
+                1
+              ],
+              "fitness": 0.7844,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "abd2a3fe0475",
+              "name": "uncertainty-guided-llm-curricula",
+              "title": "LLM-Driven Co-evolution of Agents and Compositional Curricula Grounded in Uncertainty",
+              "short_hypothesis": "LLMs will generate increasingly complex and compositional task curricula for RL agents, with environmental uncertainty explicitly modeled and used to guide curriculum generation for enhanced agent robustness and emergent capabilities.",
+              "abstract": "This research direction proposes an LLM-driven co-evolutionary loop where LLMs generate compositional task curricula, and RL agents trained on these curricula provide feedback to refine the curriculum generation process. Crucially, unsupervised environment design will be extended to explicitly model and utilize aleatoric uncertainty, guiding the LLM in creating tasks that challenge agents' robustness and promote emergent, open-ended skill development.",
+              "concepts": [
+                "Open-ended learning",
+                "Large language models (LLMs)",
+                "Auto-curricula",
+                "Unsupervised environment design",
+                "Coevolution",
+                "Emergent abilities",
+                "Compositionality"
+              ],
+              "bd": [
+                3,
+                2
+              ],
+              "fitness": 0.7538,
+              "generation": 4,
+              "parents": [
+                "bf2768adcb54",
+                "0441e99c5118"
+              ]
+            },
+            {
+              "idea_id": "d4c0d9c07cee",
+              "name": "executive-compositional-curriculum-learning",
+              "title": "Executive Function for Compositional Curriculum Generation via Contrastive Meta-Learning",
+              "short_hypothesis": "Agents can learn to generate and adapt complex, compositional task curricula by internally modeling task relationships and dynamically adjusting their learning focus using contrastive value representations.",
+              "abstract": "This research proposes a novel framework where LLMs, guided by contrastive value policies and hindsight summarization, dynamically generate and refine compositional task curricula for meta-RL agents. This approach aims to imbue agents with explicit executive control over their learning process, enabling them to autonomously discover and master increasingly complex, structured tasks by understanding inter-task dependencies and effectively re-framing sub-goal achievements.",
+              "concepts": [
+                "Large language models (LLMs)",
+                "Auto-curricula",
+                "Meta-learning",
+                "Compositionality"
+              ],
+              "bd": [
+                2,
+                2
+              ],
+              "fitness": 0.741,
+              "generation": 3,
+              "parents": [
+                "53988260b6db",
+                "c0ecb72179ca"
+              ]
+            },
+            {
+              "idea_id": "a2045be37fde",
+              "name": "uncertainty-aware-executive-ued",
+              "title": "Uncertainty-Aware Executive Function for Open-Ended Environment Design",
+              "short_hypothesis": "Agents can develop robust executive functions by leveraging unsupervised environment design to explicitly model and resample uncertain states, thereby improving generalization and adaptation.",
+              "abstract": "This research direction integrates unsupervised environment design with executive function mechanisms, enabling agents to proactively identify and learn from uncertain situations within generated environments. By employing contrastive value policies and hindsight summarization to resample and relabel perceptual data in the face of aleatoric uncertainty, agents will cultivate more adaptable and robust problem-solving capabilities for open-ended tasks.",
+              "concepts": [
+                "Open-ended learning",
+                "Unsupervised environment design"
+              ],
+              "bd": [
+                3,
+                1
+              ],
+              "fitness": 0.7124,
+              "generation": 1,
+              "parents": [
+                "0441e99c5118",
+                "c0ecb72179ca"
+              ]
+            },
+            {
+              "idea_id": "c0ecb72179ca",
+              "name": "hindsight_summarization_executive",
+              "title": "Executive Function via Contrastive Value Policies and Hindsight Summarization",
+              "short_hypothesis": "Agents will develop executive functions by learning to resample and relabel perceptual data through contrastive value policies and hindsight summarization.",
+              "abstract": "Future agents may exhibit human-like executive functions by developing mechanisms to selectively attend to, summarize, and re-evaluate their experiences, enabling more efficient learning and planning in dynamic environments.",
+              "concepts": [],
+              "bd": [
+                5,
+                1
+              ],
+              "fitness": 0.698,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "0441e99c5118",
+              "name": "aleatoric_uncertainty_ued",
+              "title": "Grounding Uncertainty in Unsupervised Environment Design",
+              "short_hypothesis": "Unsupervised Environment Design will be extended to explicitly model and utilize aleatoric uncertainty for improved agent robustness.",
+              "abstract": "Future UED frameworks will incorporate explicit representations and handling of random variations and uncertainties in the environment, leading to agents that are more resilient to unpredictable real-world conditions.",
+              "concepts": [
+                "Unsupervised environment design"
+              ],
+              "bd": [
+                1,
+                2
+              ],
+              "fitness": 0.5847,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "0a9c0812a150",
+              "name": "evolutionary_quality_diversity_for_agent_cognition",
+              "title": "Evolutionary Quality-Diversity for Emergent Cognitive Architectures",
+              "short_hypothesis": "Quality-diversity algorithms will be leveraged to evolve complex cognitive architectures within agents, enabling them to develop sophisticated executive functions and adaptive problem-solving skills.",
+              "abstract": "Future research will explore using evolutionary quality-diversity methods to discover and optimize diverse agent architectures that exhibit emergent executive functions, moving beyond hand-designed control mechanisms. This approach will enable agents to learn and adapt through the concurrent generation of novel behavioral repertoires and the environments that challenge them.",
+              "concepts": [
+                "Quality-diversity"
+              ],
+              "bd": [
+                0,
+                2
+              ],
+              "fitness": 0.4574,
+              "generation": 2,
+              "parents": [
+                "c0ecb72179ca"
+              ]
+            }
+          ],
+          "n_llm_calls": 0,
+          "n_cache_hits": 49
+        },
+        {
+          "arm": "oracle",
+          "mode": "baseline",
+          "model": "gemini-2.5-flash-lite",
+          "ideas": [
+            {
+              "idea_id": "67e8b9bff5d0",
+              "name": "emergent_tool_use_llms",
+              "title": "Emergent Tool Use with LLM-Augmented Agents",
+              "short_hypothesis": "LLMs can be integrated into RL agents to enable emergent, compositional tool use in complex environments.",
+              "abstract": "Future research will explore how LLMs, trained on vast amounts of code and natural language, can be used to dynamically generate and select tools for RL agents. This will enable agents to solve more complex, open-ended problems by composing novel tool functionalities on the fly.",
+              "concepts": [
+                "Open-ended learning",
+                "Large language models (LLMs)",
+                "Compositionality"
+              ],
+              "bd": [
+                3,
+                2
+              ],
+              "fitness": 0.1612,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "329e4af8b214",
+              "name": "compositional_curricula_generation",
+              "title": "Compositional Curricula for Zero-Shot Task Generalization",
+              "short_hypothesis": "Environments will be automatically generated with compositional task structures to promote zero-shot generalization in RL agents.",
+              "abstract": "Building on the success of Unsupervised Environment Design, future work will focus on generating curricula with explicitly compositional task dependencies, allowing agents to learn to solve unseen complex tasks by composing previously learned sub-skills.",
+              "concepts": [
+                "Unsupervised environment design",
+                "Compositionality"
+              ],
+              "bd": [
+                1,
+                1
+              ],
+              "fitness": 0.7844,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "3b4b69a6e96b",
+              "name": "autotelic_language_agents",
+              "title": "Autotelic Agents Learning through Natural Language Interaction",
+              "short_hypothesis": "Agents will develop intrinsic motivation and complex skill repertoires by learning to generate and pursue goals described in natural language.",
+              "abstract": "Inspired by human language acquisition and intrinsic motivation, agents will be developed that use language not just for instruction but also for self-directed goal generation and skill acquisition in open-ended domains.",
+              "concepts": [
+                "Open-ended learning",
+                "Intrinsic motivation & curiosity",
+                "Autotelic / goal generation"
+              ],
+              "bd": [
+                3,
+                1
+              ],
+              "fitness": 0.3457,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "5d7ef9814922",
+              "name": "embodied_llm_world_models",
+              "title": "Embodied Agents with LLM-Powered World Models",
+              "short_hypothesis": "LLMs will serve as powerful world models for embodied agents, enabling them to reason about and interact with complex, real-world-like environments.",
+              "abstract": "Future research will integrate LLMs into embodied agents to provide robust, generalizable world models, allowing for more sophisticated planning, prediction, and adaptation in open-ended physical or simulated environments.",
+              "concepts": [
+                "Open-ended learning",
+                "Large language models (LLMs)",
+                "World models",
+                "Embodied agents"
+              ],
+              "bd": [
+                3,
+                2
+              ],
+              "fitness": 0.0695,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "70b6a8daf815",
+              "name": "evolutionary_robot_design",
+              "title": "Co-evolution of Robot Morphology and Behavior for Open-Ended Tasks",
+              "short_hypothesis": "Robots will be designed through co-evolutionary processes that simultaneously optimize their physical form and control policies for open-ended challenges.",
+              "abstract": "Moving beyond hand-designed robots, future systems will employ evolutionary algorithms to discover novel robot morphologies and corresponding controllers that are adaptable and performant across a wide range of emergent tasks.",
+              "concepts": [
+                "Open-ended learning",
+                "Coevolution",
+                "Evolutionary computation"
+              ],
+              "bd": [
+                3,
+                2
+              ],
+              "fitness": 0.1594,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "da6ca976a622",
+              "name": "safety_bounded_open_endedness",
+              "title": "Safe Exploration in Open-Ended Learning Systems",
+              "short_hypothesis": "Research will focus on developing mechanisms to ensure safety and alignment in open-ended learning systems that exhibit emergent behaviors.",
+              "abstract": "As open-ended learning systems become more capable, ensuring their safety and alignment with human values will be paramount, requiring novel approaches to control creativity and prevent unintended consequences.",
+              "concepts": [
+                "Open-ended learning",
+                "Exploration",
+                "Emergent abilities"
+              ],
+              "bd": [
+                3,
+                1
+              ],
+              "fitness": 0.3098,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "c0ecb72179ca",
+              "name": "hindsight_summarization_executive",
+              "title": "Executive Function via Contrastive Value Policies and Hindsight Summarization",
+              "short_hypothesis": "Agents will develop executive functions by learning to resample and relabel perceptual data through contrastive value policies and hindsight summarization.",
+              "abstract": "Future agents may exhibit human-like executive functions by developing mechanisms to selectively attend to, summarize, and re-evaluate their experiences, enabling more efficient learning and planning in dynamic environments.",
+              "concepts": [],
+              "bd": [
+                5,
+                1
+              ],
+              "fitness": 0.698,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "f0e2a7874977",
+              "name": "internet_scale_knowledge_embodiment",
+              "title": "Embodied Agents Leveraging Internet-Scale Knowledge for Open-Ended Exploration",
+              "short_hypothesis": "Embodied agents will gain broad capabilities by grounding their actions in vast, internet-scale knowledge bases.",
+              "abstract": "Inspired by MineDojo, future research will focus on enabling embodied agents to effectively query and utilize unstructured internet data to inform their exploration and task completion in open-ended environments.",
+              "concepts": [
+                "Open-ended learning",
+                "Embodied agents",
+                "Exploration"
+              ],
+              "bd": [
+                3,
+                1
+              ],
+              "fitness": 0.3844,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "0090bb6f46fd",
+              "name": "generative_ip_operators",
+              "title": "LLM-Powered Generative Operators for Program Synthesis",
+              "short_hypothesis": "Large language models will be used to generate novel and effective mutation and crossover operators for genetic programming.",
+              "abstract": "Future work will leverage LLMs' understanding of code structure and semantics to create highly effective, context-aware operators for evolutionary algorithms, accelerating the synthesis of complex programs.",
+              "concepts": [
+                "Large language models (LLMs)",
+                "Evolutionary computation",
+                "Program synthesis & code generation"
+              ],
+              "bd": [
+                2,
+                2
+              ],
+              "fitness": 0.2066,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "db6698fcf3ed",
+              "name": "regretful_environment_curation",
+              "title": "Regret-Based Environment Design for Robust RL Agents",
+              "short_hypothesis": "Agents will learn more robustly by actively designing challenging environments that minimize regret in their learning process.",
+              "abstract": "Future research will explore game-theoretic approaches where agents learn by actively creating training environments that expose their weaknesses, leading to more generalizable and resilient policies.",
+              "concepts": [
+                "Unsupervised environment design"
+              ],
+              "bd": [
+                1,
+                2
+              ],
+              "fitness": 0.4205,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "0441e99c5118",
+              "name": "aleatoric_uncertainty_ued",
+              "title": "Grounding Uncertainty in Unsupervised Environment Design",
+              "short_hypothesis": "Unsupervised Environment Design will be extended to explicitly model and utilize aleatoric uncertainty for improved agent robustness.",
+              "abstract": "Future UED frameworks will incorporate explicit representations and handling of random variations and uncertainties in the environment, leading to agents that are more resilient to unpredictable real-world conditions.",
+              "concepts": [
+                "Unsupervised environment design"
+              ],
+              "bd": [
+                1,
+                2
+              ],
+              "fitness": 0.5847,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "e3c746866171",
+              "name": "transfer_dynamics_emergent_curricula",
+              "title": "Analyzing Transfer Dynamics in Emergent Evolutionary Curricula",
+              "short_hypothesis": "The dynamics of knowledge transfer between tasks in emergent curricula will be rigorously studied to understand and improve generalization.",
+              "abstract": "Future research will investigate how skills and knowledge learned in one set of emergent tasks transfer to new, unseen tasks, providing insights into the mechanisms of open-ended learning and generalization.",
+              "concepts": [
+                "Open-ended learning"
+              ],
+              "bd": [
+                3,
+                2
+              ],
+              "fitness": 0.2295,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "1607d24cc1a8",
+              "name": "map_elites_open_ended_search",
+              "title": "Open-Ended Search via Map-Elites for Diverse Solutions",
+              "short_hypothesis": "Map-Elites will be utilized for open-ended search to discover a diverse range of solutions to novel and evolving challenges.",
+              "abstract": "Future applications of Map-Elites will focus on finding a wide variety of high-performing agents or solutions across a broad and continuously expanding space of tasks and environments.",
+              "concepts": [
+                "Open-ended learning",
+                "MAP-Elites"
+              ],
+              "bd": [
+                3,
+                1
+              ],
+              "fitness": 0.3762,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "6de4a6c0a8f8",
+              "name": "rapid_learn_novelty_adaptation",
+              "title": "RAPid-Learn for Adaptive Planning in Novel Environments",
+              "short_hypothesis": "Hybrid planning and learning agents will develop rapid adaptation capabilities for sudden environmental changes.",
+              "abstract": "Future agents will employ frameworks like RAPid-Learn to quickly replan and recover from unexpected environmental shifts or novelties by integrating symbolic planning with learned policies.",
+              "concepts": [],
+              "bd": [
+                5,
+                1
+              ],
+              "fitness": 0.6059,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "df03ae676187",
+              "name": "watts_oel_infrastructure",
+              "title": "Modular Infrastructure for Open-Ended Learning Algorithm Development",
+              "short_hypothesis": "A standardized, modular framework will accelerate the development and comparison of open-ended learning algorithms.",
+              "abstract": "Future research will benefit from flexible infrastructure like Watts, which breaks down OEL systems into reusable components, enabling easier experimentation and recombination of different learning and generation strategies.",
+              "concepts": [
+                "Open-ended learning"
+              ],
+              "bd": [
+                3,
+                1
+              ],
+              "fitness": 0.3349,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "e12aa59d97a0",
+              "name": "creative_problem_solving_anomalies",
+              "title": "AI for Creative Problem Solving in Anomalous Situations",
+              "short_hypothesis": "AI systems will be developed to exhibit creative problem-solving capabilities when faced with novel, off-nominal situations.",
+              "abstract": "Future AI research will focus on equipping agents with the ability to reason about, adapt to, and creatively solve problems that fall outside their pre-defined operational parameters.",
+              "concepts": [],
+              "bd": [
+                5,
+                1
+              ],
+              "fitness": 0.2179,
+              "generation": 0,
+              "parents": []
+            }
+          ],
+          "n_llm_calls": 0,
+          "n_cache_hits": 1
+        }
+      ],
+      "metrics": {
+        "oracle.steered": {
+          "n_ideas": 8,
+          "n_test": 69,
+          "precision": 0.0,
+          "recall": 0.0,
+          "mean_best_sim": 0.091,
+          "hit_ci": [
+            0.0,
+            0.0
+          ],
+          "precision_at_5": 0.0,
+          "recall_at_5": 0.0,
+          "precision_at_10": 0.0,
+          "recall_at_10": 0.0,
+          "concept_recall": 0.5,
+          "concept_precision": 0.222,
+          "n_risen": 4,
+          "model": "gemini-2.5-flash-lite"
+        },
+        "oracle.baseline": {
+          "n_ideas": 16,
+          "n_test": 69,
+          "precision": 0.0,
+          "recall": 0.0,
+          "mean_best_sim": 0.094,
+          "hit_ci": [
+            0.0,
+            0.0
+          ],
+          "precision_at_5": 0.0,
+          "recall_at_5": 0.0,
+          "precision_at_10": 0.0,
+          "recall_at_10": 0.0,
+          "concept_recall": 0.5,
+          "concept_precision": 0.143,
+          "n_risen": 4,
+          "model": "gemini-2.5-flash-lite"
+        }
+      },
+      "examples": [],
+      "concept_table": [
+        {
+          "concept": "Exploration",
+          "risen": true,
+          "named_by": [
+            "oracle.baseline"
+          ]
+        },
+        {
+          "concept": "Large language models (LLMs)",
+          "risen": true,
+          "named_by": [
+            "oracle.steered",
+            "oracle.baseline"
+          ]
+        },
+        {
+          "concept": "Quality-diversity",
+          "risen": true,
+          "named_by": [
+            "oracle.steered"
+          ]
+        },
+        {
+          "concept": "Recursive self-improvement",
+          "risen": true,
+          "named_by": []
+        }
+      ]
+    },
+    {
+      "cutoff_year": 2023,
+      "n_train_le_y": 52,
+      "n_test_gt_y": 52,
+      "runs": [
+        {
+          "arm": "oracle",
+          "mode": "steered",
+          "model": "gemini-2.5-flash-lite",
+          "ideas": [
+            {
+              "idea_id": "93a215c27b98",
+              "name": "llm_autotelic_world_modeling",
+              "title": "LLM-Guided Reward-Free World Modeling for Open-Ended Embodied Learning",
+              "short_hypothesis": "LLMs can guide intrinsic exploration to build reward-free world models, enabling agents to autonomously learn and adapt to novel, complex embodied tasks.",
+              "abstract": "This research direction integrates LLM-driven curriculum generation with reward-free autotelic world modeling to foster open-ended skill acquisition in embodied agents. LLMs will generate abstract goals and task sequences, which intrinsically motivated agents will then use to explore and build robust world models, grounding these abstract goals into executable plans for complex, emergent behaviors.",
+              "concepts": [
+                "Open-ended learning",
+                "Large language models (LLMs)",
+                "Auto-curricula",
+                "World models",
+                "Embodied agents",
+                "Exploration",
+                "Emergent abilities",
+                "Autotelic / goal generation"
+              ],
+              "bd": [
+                3,
+                2
+              ],
+              "fitness": 0.8176,
+              "generation": 4,
+              "parents": [
+                "cc8162e565b6",
+                "5c879289d005"
+              ]
+            },
+            {
+              "idea_id": "31dcedb28637",
+              "name": "llm-guided-reward-free-world-models",
+              "title": "LLM-Augmented Reward-Free World Models for Open-Ended Skill Acquisition",
+              "short_hypothesis": "Large Language Models can guide reward-free exploration to build more comprehensive and generalizable world models, accelerating open-ended skill acquisition.",
+              "abstract": "This research direction integrates the power of LLMs to provide high-level guidance and conceptual scaffolding with reward-free world modeling techniques. By leveraging LLMs to suggest diverse exploration strategies and potential future goals, agents can learn richer, more robust world models in an open-ended manner, even in the absence of explicit reward signals, paving the way for more human-like autotelic skill development.",
+              "concepts": [
+                "Open-ended learning",
+                "Large language models (LLMs)",
+                "World models",
+                "Exploration",
+                "Autotelic / goal generation"
+              ],
+              "bd": [
+                3,
+                1
+              ],
+              "fitness": 0.6214,
+              "generation": 6,
+              "parents": [
+                "a33d5763cdb0",
+                "a33d5763cdb0"
+              ]
+            },
+            {
+              "idea_id": "a33d5763cdb0",
+              "name": "reward-free-world-modeling-for-planning",
+              "title": "Reward-Free World Modeling for Advanced Planning",
+              "short_hypothesis": "Agents will learn robust world models through reward-free exploration, enabling them to perform complex planning and decision-making in unseen scenarios without immediate reward signals.",
+              "abstract": "Future work will focus on developing agents that can build comprehensive world models solely through unsupervised interaction with their environment. These models will then be leveraged for sophisticated planning and decision-making, allowing agents to explore potential futures and optimize for long-term objectives without relying on explicit reward functions.",
+              "concepts": [
+                "Reward & objective design",
+                "World models",
+                "Exploration"
+              ],
+              "bd": [
+                5,
+                1
+              ],
+              "fitness": 0.6196,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "36e55eb3618d",
+              "name": "llm_guided_automated_science",
+              "title": "LLM-Driven Discovery Engine for Reward-Free Scientific Experimentation",
+              "short_hypothesis": "LLMs can autonomously formulate hypotheses, design experiments, and interpret results to drive scientific discovery in reward-free embodied environments.",
+              "abstract": "This research proposes an LLM-driven system that acts as an automated scientist, capable of exploring complex embodied environments to uncover novel scientific principles without pre-defined rewards. The system will leverage LLMs for hypothesis generation, experimental design, and the interpretation of emergent phenomena, thereby enabling reward-free world modeling and accelerating scientific progress.",
+              "concepts": [
+                "Large language models (LLMs)",
+                "World models",
+                "Embodied agents",
+                "Automated scientific discovery"
+              ],
+              "bd": [
+                2,
+                2
+              ],
+              "fitness": 0.611,
+              "generation": 6,
+              "parents": [
+                "93a215c27b98"
+              ]
+            },
+            {
+              "idea_id": "ed27722c2be1",
+              "name": "autotelic-curriculum-synthesis",
+              "title": "Automated Synthesis of Autotelic Curricula",
+              "short_hypothesis": "AI systems will be able to automatically generate increasingly challenging and diverse curricula of self-generated goals, mirroring human developmental trajectories.",
+              "abstract": "Moving beyond fixed or manually designed curricula, future work will focus on agents that can autonomously design their own learning pathways. This involves developing methods for agents to set and pursue increasingly abstract and complex goals, creating a self-sustaining loop of exploration and skill acquisition.",
+              "concepts": [
+                "Exploration",
+                "Autotelic / goal generation"
+              ],
+              "bd": [
+                1,
+                2
+              ],
+              "fitness": 0.4737,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "286c5337eaac",
+              "name": "curriculum_driven_world_models",
+              "title": "Curriculum-Driven Co-evolution of Diverse World Models for Adaptive Agents",
+              "short_hypothesis": "Agents that learn world models within dynamically adapting curricula, where the curriculum complexity is guided by the diversity and performance of the agents' world models, will exhibit more robust generalization and efficient exploration.",
+              "abstract": "This research proposes a novel framework where an agent's world model is not static but evolves within a curriculum that is itself shaped by the diversity and capabilities of a population of agents' world models. The curriculum will dynamically increase in complexity or introduce novel challenges based on the observed diversity and generalization performance of the agent population, fostering more adaptive and robust agents.",
+              "concepts": [
+                "Coevolution",
+                "World models",
+                "Exploration"
+              ],
+              "bd": [
+                0,
+                2
+              ],
+              "fitness": 0.3021,
+              "generation": 5,
+              "parents": [
+                "77005ffe062c"
+              ]
+            }
+          ],
+          "n_llm_calls": 9,
+          "n_cache_hits": 40
+        },
+        {
+          "arm": "oracle",
+          "mode": "baseline",
+          "model": "gemini-2.5-flash-lite",
+          "ideas": [
+            {
+              "idea_id": "2225da41403c",
+              "name": "emergent-world-models",
+              "title": "Emergent World Models from Open-Ended Interaction",
+              "short_hypothesis": "Agents trained in open-ended environments will spontaneously develop internal world models that capture complex causal relationships and predictive dynamics without explicit supervision.",
+              "abstract": "Future research will focus on analyzing the internal representations learned by agents operating in open-ended, self-generated task spaces. We hypothesize that these agents will develop sophisticated, emergent world models that go beyond simple state prediction, enabling more robust planning and generalization to novel, unseen scenarios.",
+              "concepts": [
+                "Open-ended learning",
+                "World models"
+              ],
+              "bd": [
+                3,
+                2
+              ],
+              "fitness": 0.3218,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "e53303a0fa5d",
+              "name": "llm-agent-collaboration-frameworks",
+              "title": "Formalizing LLM-Agent Collaboration Frameworks",
+              "short_hypothesis": "Developing standardized frameworks for LLM-agent interaction will unlock more complex, multi-agent collaborative behaviors and emergent task decomposition.",
+              "abstract": "This research direction will explore formalisms and architectures for seamless collaboration between large language models and embodied or disembodied agents. Such frameworks will enable agents to leverage LLMs for strategic planning, natural language instruction following, and even the generation of novel sub-goals, leading to more sophisticated open-ended problem-solving.",
+              "concepts": [
+                "Open-ended learning",
+                "Large language models (LLMs)",
+                "Multi-agent systems",
+                "Embodied agents"
+              ],
+              "bd": [
+                3,
+                2
+              ],
+              "fitness": 0.4077,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "ed27722c2be1",
+              "name": "autotelic-curriculum-synthesis",
+              "title": "Automated Synthesis of Autotelic Curricula",
+              "short_hypothesis": "AI systems will be able to automatically generate increasingly challenging and diverse curricula of self-generated goals, mirroring human developmental trajectories.",
+              "abstract": "Moving beyond fixed or manually designed curricula, future work will focus on agents that can autonomously design their own learning pathways. This involves developing methods for agents to set and pursue increasingly abstract and complex goals, creating a self-sustaining loop of exploration and skill acquisition.",
+              "concepts": [
+                "Exploration",
+                "Autotelic / goal generation"
+              ],
+              "bd": [
+                1,
+                2
+              ],
+              "fitness": 0.4737,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "eb9a0b591353",
+              "name": "intrinsic-motivation-grounding",
+              "title": "Grounding Intrinsic Motivation in Embodied Experience",
+              "short_hypothesis": "Intrinsic motivation signals will be more effectively learned and utilized when grounded in rich, multimodal sensory-motor experiences rather than abstract state-space features.",
+              "abstract": "This research will investigate how intrinsic motivation mechanisms can be more robustly learned by connecting them to the rich, continuous stream of sensory and motor data from embodied agents. This grounding is expected to lead to more nuanced and adaptive exploration strategies in complex, real-world environments.",
+              "concepts": [
+                "Intrinsic motivation & curiosity",
+                "Embodied agents",
+                "Exploration"
+              ],
+              "bd": [
+                3,
+                2
+              ],
+              "fitness": 0.3667,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "b84af3be84f9",
+              "name": "evolutionary-algorithm-llm-synergy",
+              "title": "Synergistic Evolution of Algorithms and Environments",
+              "short_hypothesis": "Combining evolutionary algorithms with LLMs will enable the co-evolution of both learning algorithms and the environments they train in, leading to highly specialized and adaptable agents.",
+              "abstract": "Future research will explore tighter integration between evolutionary computation and LLMs to drive the co-evolution of both agent policies and their training environments. This synergistic approach aims to discover novel algorithms and task distributions that foster more robust and generalizable open-ended learning.",
+              "concepts": [
+                "Open-ended learning",
+                "Large language models (LLMs)",
+                "Coevolution",
+                "Evolutionary computation"
+              ],
+              "bd": [
+                3,
+                2
+              ],
+              "fitness": 0.6088,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "1e1d5b16346a",
+              "name": "lifelong-learning-with-memory-consolidation",
+              "title": "Lifelong Learning with Adaptive Memory Consolidation",
+              "short_hypothesis": "Agents capable of open-ended learning will require sophisticated memory consolidation mechanisms that can selectively retain and integrate new knowledge without catastrophic forgetting.",
+              "abstract": "This research direction will focus on developing advanced memory systems for lifelong learning agents, enabling them to continuously acquire new skills and knowledge while efficiently consolidating and organizing past experiences. Techniques for adaptive memory replay and knowledge transfer will be crucial for preventing skill degradation.",
+              "concepts": [
+                "Open-ended learning",
+                "Lifelong & continual learning"
+              ],
+              "bd": [
+                3,
+                2
+              ],
+              "fitness": 0.4741,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "2131c6a48824",
+              "name": "compositional-skill-acquisition",
+              "title": "Compositional Skill Acquisition and Recombination",
+              "short_hypothesis": "Agents will learn to acquire skills in a compositional manner, enabling them to combine and reconfigure existing skills to solve novel, complex tasks.",
+              "abstract": "Future work will explore how agents can learn fundamental skill primitives that can be flexibly composed and recombined to address a wide range of emergent goals. This compositional approach is key to achieving human-like adaptability and creativity in open-ended task spaces.",
+              "concepts": [
+                "Open-ended learning",
+                "Compositionality"
+              ],
+              "bd": [
+                3,
+                2
+              ],
+              "fitness": 0.3415,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "30f59885c26d",
+              "name": "multi-agent-emergent-cooperation",
+              "title": "Emergent Cooperation in Open-Ended Multi-Agent Systems",
+              "short_hypothesis": "Open-ended learning in multi-agent systems will lead to the emergence of complex cooperative strategies and social structures.",
+              "abstract": "This research will investigate how multiple agents learning and interacting in open-ended environments can develop sophisticated cooperative behaviors and division of labor. The focus will be on understanding the emergence of complex social dynamics and communication protocols without explicit human design.",
+              "concepts": [
+                "Open-ended learning",
+                "Multi-agent systems",
+                "Emergent abilities"
+              ],
+              "bd": [
+                3,
+                1
+              ],
+              "fitness": 0.2459,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "ebffdf0e2a8a",
+              "name": "generalized-exploration-strategies",
+              "title": "Generalizing Exploration Strategies Across Domains",
+              "short_hypothesis": "Developing exploration strategies that are less environment-specific and more transferable across diverse open-ended task domains will be critical for broad generalization.",
+              "abstract": "Future research will aim to move beyond environment-specific exploration techniques, focusing on developing more generalizable intrinsic motivation and curiosity-driven exploration methods. These strategies will be designed to effectively navigate and learn in a wide variety of novel and unpredictable environments.",
+              "concepts": [
+                "Open-ended learning",
+                "Intrinsic motivation & curiosity",
+                "Exploration"
+              ],
+              "bd": [
+                3,
+                2
+              ],
+              "fitness": 0.2221,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "c6032a825f78",
+              "name": "human-in-the-loop-autotelic-learning",
+              "title": "Human-in-the-Loop Autotelic Learning",
+              "short_hypothesis": "Integrating human feedback and guidance into autotelic learning loops will accelerate the development of complex skills and abstract reasoning.",
+              "abstract": "This research will explore synergistic human-AI collaboration for open-ended learning, where humans can provide high-level guidance, feedback, or even introduce novel goals to the agent's autotelic learning process. This human-in-the-loop approach aims to bridge the gap between AI capabilities and human intuition.",
+              "concepts": [
+                "Open-ended learning",
+                "Autotelic / goal generation"
+              ],
+              "bd": [
+                3,
+                2
+              ],
+              "fitness": 0.2876,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "a33d5763cdb0",
+              "name": "reward-free-world-modeling-for-planning",
+              "title": "Reward-Free World Modeling for Advanced Planning",
+              "short_hypothesis": "Agents will learn robust world models through reward-free exploration, enabling them to perform complex planning and decision-making in unseen scenarios without immediate reward signals.",
+              "abstract": "Future work will focus on developing agents that can build comprehensive world models solely through unsupervised interaction with their environment. These models will then be leveraged for sophisticated planning and decision-making, allowing agents to explore potential futures and optimize for long-term objectives without relying on explicit reward functions.",
+              "concepts": [
+                "Reward & objective design",
+                "World models",
+                "Exploration"
+              ],
+              "bd": [
+                5,
+                1
+              ],
+              "fitness": 0.6196,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "a59ef5415976",
+              "name": "open-ended-procedural-content-generation",
+              "title": "Open-Ended Procedural Content Generation with Agents",
+              "short_hypothesis": "Agents themselves will become capable of generating novel and increasingly complex content within their environments, driving further open-ended learning.",
+              "abstract": "This research direction envisions agents that actively participate in the generation of their own environments or challenges, creating a continuous feedback loop for open-ended learning. This could involve agents designing new levels, puzzles, or even tools that enhance their own learning and exploration capabilities.",
+              "concepts": [
+                "Open-ended learning",
+                "Exploration",
+                "Procedural content generation"
+              ],
+              "bd": [
+                3,
+                2
+              ],
+              "fitness": 0.5122,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "e1718c899f94",
+              "name": "meta-learning-of-learning-rules-for-open-endedness",
+              "title": "Meta-Learning of Learning Rules for Open-Endedness",
+              "short_hypothesis": "The meta-learning of adaptive learning rules will enable agents to dynamically adjust their learning processes to better suit the open-ended nature of emergent tasks.",
+              "abstract": "Future research will explore meta-learning approaches that go beyond optimizing fixed learning algorithms. The goal is to develop systems that can learn and adapt their own learning rules in response to the evolving complexity and novelty of tasks encountered in open-ended environments.",
+              "concepts": [
+                "Open-ended learning",
+                "Meta-learning"
+              ],
+              "bd": [
+                3,
+                2
+              ],
+              "fitness": 0.4378,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "421570ed4d19",
+              "name": "grounding-abstract-goals-in-physical-systems",
+              "title": "Grounding Abstract Goals in Physical and Simulated Systems",
+              "short_hypothesis": "Bridging the gap between high-level, abstract goals (e.g., from LLMs) and low-level, executable actions in complex physical or simulated environments will be a key research frontier.",
+              "abstract": "This research will focus on developing methods to translate abstract, semantic goals into concrete, executable plans and actions for agents operating in rich environments. Techniques for hierarchical goal decomposition and reward shaping based on abstract objectives will be central to this effort.",
+              "concepts": [
+                "Large language models (LLMs)",
+                "Reward & objective design"
+              ],
+              "bd": [
+                2,
+                2
+              ],
+              "fitness": 0.3505,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "f9211592985e",
+              "name": "measuring-and-promoting-creativity-in-ai",
+              "title": "Quantifying and Promoting AI Creativity in Open-Ended Tasks",
+              "short_hypothesis": "Developing metrics to objectively measure and actively promote creative problem-solving and novel discovery in AI agents operating in open-ended domains is essential.",
+              "abstract": "Future work will focus on defining and operationalizing metrics for creativity in AI, particularly within the context of open-ended learning. This research will aim to develop methodologies and architectures that explicitly encourage and reward novel solutions, unexpected discoveries, and the generation of diverse behaviors.",
+              "concepts": [
+                "Open-ended learning"
+              ],
+              "bd": [
+                3,
+                2
+              ],
+              "fitness": 0.398,
+              "generation": 0,
+              "parents": []
+            },
+            {
+              "idea_id": "66f2ca929d70",
+              "name": "emergent-communication-for-coordination",
+              "title": "Emergent Communication Protocols for Open-Ended Coordination",
+              "short_hypothesis": "Agents in multi-agent open-ended systems will develop novel, emergent communication protocols optimized for complex coordination and task sharing.",
+              "abstract": "This research direction will investigate how agents, through open-ended interaction, can develop their own communication systems for efficient coordination. The focus will be on understanding the emergence of shared vocabularies and communication strategies that are adapted to the specific demands of the ongoing tasks and interactions.",
+              "concepts": [
+                "Open-ended learning",
+                "Multi-agent systems",
+                "Emergent abilities"
+              ],
+              "bd": [
+                3,
+                2
+              ],
+              "fitness": 0.1942,
+              "generation": 0,
+              "parents": []
+            }
+          ],
+          "n_llm_calls": 0,
+          "n_cache_hits": 1
+        }
+      ],
+      "metrics": {
+        "oracle.steered": {
+          "n_ideas": 6,
+          "n_test": 52,
+          "precision": 0.0,
+          "recall": 0.0,
+          "mean_best_sim": 0.114,
+          "hit_ci": [
+            0.0,
+            0.0
+          ],
+          "precision_at_5": 0.0,
+          "recall_at_5": 0.0,
+          "precision_at_10": 0.0,
+          "recall_at_10": 0.0,
+          "concept_recall": 0.25,
+          "concept_precision": 0.091,
+          "n_risen": 4,
+          "model": "gemini-2.5-flash-lite"
+        },
+        "oracle.baseline": {
+          "n_ideas": 16,
+          "n_test": 52,
+          "precision": 0.125,
+          "recall": 0.038,
+          "mean_best_sim": 0.104,
+          "hit_ci": [
+            0.0,
+            0.312
+          ],
+          "precision_at_5": 0.2,
+          "recall_at_5": 0.019,
+          "precision_at_10": 0.2,
+          "recall_at_10": 0.038,
+          "concept_recall": 0.25,
+          "concept_precision": 0.062,
+          "n_risen": 4,
+          "model": "gemini-2.5-flash-lite"
+        }
+      },
+      "examples": [
+        {
+          "idea_title": "Emergent World Models from Open-Ended Interaction",
+          "paper_title": "Open-Endedness, World Models, and the Automation of Innovation",
+          "paper_url": "https://iclr.cc/virtual/2025/invited-talk/36780",
+          "score": 0.195,
+          "year": 2025,
+          "arm": "oracle",
+          "mode": "baseline"
+        },
+        {
+          "idea_title": "Emergent Cooperation in Open-Ended Multi-Agent Systems",
+          "paper_title": "Multi-Agent Diagnostics for Robustness via Illuminated Diversity",
+          "paper_url": "https://arxiv.org/abs/2401.13460",
+          "score": 0.187,
+          "year": 2024,
+          "arm": "oracle",
+          "mode": "baseline"
+        }
+      ],
+      "concept_table": [
+        {
+          "concept": "Autonomous / LLM agents",
+          "risen": true,
+          "named_by": []
+        },
+        {
+          "concept": "Large language models (LLMs)",
+          "risen": true,
+          "named_by": [
+            "oracle.steered",
+            "oracle.baseline"
+          ]
+        },
+        {
+          "concept": "Quality-diversity",
+          "risen": true,
+          "named_by": []
+        },
+        {
+          "concept": "Recursive self-improvement",
+          "risen": true,
+          "named_by": []
+        }
+      ]
+    }
+  ]
+}
