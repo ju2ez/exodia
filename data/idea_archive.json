@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-20T11:59:14Z",
+  "updated_utc": "2026-10-21T11:45:50Z",
   "families": [
     "Quality-diversity & evolution",
     "RL, agents & curricula",
@@ -148,6 +148,7 @@
     "automated recursive refinement of world models for scientific discovery",
     "automated scientific discovery via evolving world models",
     "automated scientific discovery via generative world models",
+    "autonomous construction and refinement of causal world models for open ended scientific discovery",
     "autonomous scientific discovery via evolving world models",
     "autopoietic ai ecosystems for emergent scientific paradigms",
     "autopoietic world model refinement for emergent artificial life",
@@ -175,6 +176,7 @@
     "ensuring safe generalization of emergent creative problem solving",
     "evolutionary alignment of self improving world models",
     "evolutionary artificial life ecosystems for open ended scientific discovery",
+    "evolutionary chemistry ecosystems for novel material synthesis",
     "evolutionary curricula for self assembling agent ecosystems",
     "evolutionary curriculum generation for open ended agent specialization",
     "evolutionary ecosystems for scientific discovery with quality diversity optimization",
@@ -188,14 +190,17 @@
     "evolvable scientific symbiosis emergent division of labor and mutualism in ai research ecosystems",
     "evolving artificial life ecosystems for unforeseen creative problem solving",
     "evolving complex reasoning chains through open ended prompt optimization",
+    "evolving embodied world models for artificial life emergence",
     "evolving internal representations for open ended learning and generalization",
     "evolving morphogenetic protocols for self organizing artificial ecosystems",
     "evolving oversight verifiable scientific hypotheses from self improving world models",
     "evolving safety architectures for open ended ai scientists",
     "evolving safety constraints for self improving world models in automated science",
     "evolving safety constraints for self improving world models in open ended ai science",
+    "evolving scientific world models for autonomous discovery",
     "evolving world models for ai scientists with adaptive safety envelopes",
     "evolving world models for autonomous scientific discovery",
+    "evolving world models for general creative problem solving in unforeseen domains",
     "evolving world models for generalizing creative scientific discovery",
     "formal verification and safety guarantees for gödel machines",
     "formal verification of emergent scientific hypotheses from self improving world models",
@@ -221,6 +226,7 @@
     "safe generalizing creative problem solving via self improving world models",
     "safely adaptive creative discovery agents",
     "safety frameworks for self improving world models in automated science",
+    "self assembling evolvable world models for open ended scientific discovery",
     "self assembling scientific ecosystems for unforeseen domain discovery",
     "self assembling self improving scientific ecosystems for unforeseen domain discovery",
     "self designing agent architectures for open ended scientific discovery",
@@ -232,7 +238,7 @@
     "verifiable recursive world models for safe automated scientific discovery",
     "verifiable self refinement of recursive world models for safe scientific discovery"
   ],
-  "generation": 15,
+  "generation": 16,
   "history": [
     {
       "date": "2026-10-08",
@@ -376,6 +382,16 @@
     },
     {
       "date": "2026-10-20",
+      "coverage": 0.333,
+      "qd_score": 4.37,
+      "max_fitness": 0.793,
+      "filled": 6,
+      "new_elites": 0,
+      "llm_calls": 6,
+      "model": "gemini-2.5-flash-lite"
+    },
+    {
+      "date": "2026-10-21",
       "coverage": 0.333,
       "qd_score": 4.37,
       "max_fitness": 0.793,
