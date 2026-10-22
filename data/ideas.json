@@ -24,7 +24,8 @@
     "votes_down": 0,
     "score": 0,
     "feedback_count": 0,
-    "moi_score": 0.6939
+    "moi_score": 0.3545,
+    "moi_hindsight": 0.4863
   },
   {
     "idea_id": "ab9b8bacca01",
@@ -51,7 +52,8 @@
     "votes_down": 0,
     "score": 0,
     "feedback_count": 0,
-    "moi_score": 0.63
+    "moi_score": 0.2524,
+    "moi_hindsight": 0.8987
   },
   {
     "idea_id": "3540558fb026",
@@ -78,7 +80,8 @@
     "votes_down": 0,
     "score": 0,
     "feedback_count": 0,
-    "moi_score": 0.7063
+    "moi_score": 0.3583,
+    "moi_hindsight": 0.5236
   },
   {
     "idea_id": "c30517a36c0d",
@@ -105,7 +108,8 @@
     "votes_down": 0,
     "score": 0,
     "feedback_count": 0,
-    "moi_score": 0.5577
+    "moi_score": 0.1472,
+    "moi_hindsight": 0.9761
   },
   {
     "idea_id": "5cd24ef12c4d",
@@ -132,6 +136,35 @@
     "votes_down": 0,
     "score": 0,
     "feedback_count": 0,
-    "moi_score": 0.6642
+    "moi_score": 0.285,
+    "moi_hindsight": 0.7849
+  },
+  {
+    "idea_id": "56bf534f76f5",
+    "name": "learned_novelty_metrics",
+    "title": "Self-Evolving Metrics: Learning What Constitutes Novelty in Open-Ended Systems",
+    "short_hypothesis": "An AI system capable of autonomously learning and adapting its own internal metrics for novelty and progress will exhibit more robust, diverse, and genuinely open-ended exploration and discovery compared to systems relying on fixed or human-designed criteria. This is the best setting to investigate this idea because current open-ended algorithms are bottlenecked by the human-defined 'vocabulary' and 'verifier' gaps for novelty, and directly addressing this learning capability at the meta-level is a fundamental step towards true open-endedness that cannot be achieved by simply adding more pre-defined metrics or using simpler adaptive strategies.",
+    "related_work": "Current open-ended learning algorithms, such as Novelty Search (NS) and Quality-Diversity (QD) methods (e.g., MAP-Elites), heavily rely on pre-defined behavior descriptors or novelty metrics. While approaches like Multi-Container Quality Diversity (MCQD) (Doncieux & Coninx, 2018) allow for dynamically adding *pre-defined types* of behavior spaces, they still operate within a human-specified conceptual vocabulary. The problem of how to *learn* what constitutes a relevant behavior descriptor or a useful novelty metric from scratch, or how to adapt these definitions to emergent complexities, remains largely unaddressed. Recent surveys like 'Beyond Fixed Representations: The Vocabulary and Verifier Gaps in Open-Ended AI' explicitly highlight this limitation. Our proposal directly tackles this 'verifier gap' by enabling the system to learn its own evaluative criteria and the 'vocabulary gap' by learning which features are salient for describing novelty, moving beyond mere selection or combination of human-designed components. This is not a trivial extension as it requires a meta-learning or self-reflection mechanism to define the very objectives of exploration.",
+    "abstract": "The quest for open-ended intelligence—systems capable of endless novelty and increasing complexity—is fundamentally limited by the reliance on human-defined notions of 'novelty' or 'progress.' Current algorithms, such as Novelty Search and Quality-Diversity, operate within fixed or pre-specified behavioral feature spaces, hindering truly unbounded exploration. This proposal introduces a novel framework where an AI system autonomously learns and refines its own internal metrics for novelty and diversity through continuous interaction with its environment. Instead of hand-crafting behavior descriptors, our approach leverages meta-learning and potentially large language models (LLMs) to propose, evaluate, and adapt these metrics based on the system's ongoing experience. We hypothesize that by learning what constitutes 'interestingness,' agents can overcome the 'vocabulary and verifier gaps' inherent in existing methods, leading to more robust, diverse, and genuinely open-ended discovery. Experiments will compare agents with learned metrics against those with fixed or adaptively selected pre-defined metrics across various open-ended environments, evaluating the diversity, complexity, and sustainability of generated artifacts and behaviors.",
+    "experiments": "baseline_fixed_metrics — Implement a standard Quality-Diversity algorithm (e.g., MAP-Elites) with a set of commonly used, human-designed behavior descriptors (e.g., final position, average speed, path length) in a simple robotic locomotion or maze exploration environment. The objective is to fill the behavior space defined by these fixed metrics.\nadaptive_selection_predefined_metrics — Extend the baseline by allowing the agent to dynamically select from a *pre-defined pool* of diverse behavior descriptors, or to combine them, based on exploration progress (e.g., using a meta-controller or a simple heuristic to switch descriptors if coverage stagnates). This acts as an improved baseline, akin to the spirit of MCQD but without learning new descriptor types.\nlearned_novelty_metrics_llm_guided — Develop a system where an LLM proposes new candidate behavior descriptor functions or novelty metrics. The LLM would observe agent trajectories and environmental states, then generate Python code snippets or natural language descriptions that can be translated into quantifiable metrics. These proposed metrics are then evaluated by a meta-learning loop for their utility in driving further diverse exploration. Metrics that lead to higher diversity or novelty accumulation are retained or refined.\nlearned_novelty_metrics_meta_network — Instead of an LLM, a meta-network (e.g., a small neural network) is trained to predict an 'interestingness' score for observed behaviors, or to output latent behavior descriptors directly. This network is updated based on a meta-objective that encourages the discovery of diverse and complex behaviors. This could involve an intrinsic motivation signal that rewards the 'surprise' or 'unpredictability' of the network's own predictions.",
+    "risk_factors_and_limitations": "**Defining 'Good' Metrics:** The primary challenge is how to objectively evaluate the 'goodness' of a learned novelty metric. A meta-objective is needed, which itself could be a form of human-defined criterion, potentially reintroducing the problem we aim to solve. This could be mitigated by focusing on emergent properties like sustained diversity or increasing complexity.\n**Computational Cost:** Training and integrating LLMs for metric generation or meta-networks for novelty prediction can be computationally intensive, especially for long-running open-ended experiments.\n**Metric Collapse/Stagnation:** Learned metrics might converge to trivial or uninformative features, leading to stagnation in exploration, similar to mode collapse in generative models.\n**Interpretability:** If metrics are learned by complex neural networks, their interpretability might be low, making it difficult to understand *why* certain behaviors are deemed novel.\n**Generalization:** Learned metrics might be highly specific to the training environment and not generalize well to qualitatively different environments, limiting true open-endedness across domains.",
+    "run_id": "20261022T114815",
+    "run_utc": "2026-10-22T11:52:25Z",
+    "model": "gemini-2.5-flash",
+    "source_sha": "7891a0e1f1436f7566f05382f8c0c0ae2487f4aa",
+    "generated": true,
+    "realized": false,
+    "realized_paper_title": null,
+    "realized_paper_url": null,
+    "realized_entry_id": null,
+    "realized_score": null,
+    "issue_number": 10,
+    "issue_url": "https://github.com/ju2ez/exodia/issues/10",
+    "votes_up": 0,
+    "votes_down": 0,
+    "score": 0,
+    "feedback_count": 0,
+    "moi_score": 0.3348,
+    "moi_hindsight": 0.708
   }
 ]

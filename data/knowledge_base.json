@@ -1,11 +1,57 @@
 {
   "schema_version": 1,
-  "generated_utc": "2026-10-20T11:33:24Z",
+  "generated_utc": "2026-10-22T11:48:39Z",
   "source": {
     "repo": "jennyzzt/awesome-open-ended",
     "url": "https://github.com/jennyzzt/awesome-open-ended"
   },
   "entries": [
+    {
+      "entry_id": "48a1dd13b301",
+      "title": "Agon: An Autonomous Large-Scale Omnidisciplinary Research System Built on Prompt Economy",
+      "authors": [
+        "Youran Sun",
+        "Xingyu Ren",
+        "Chugang Yi",
+        "Jiaxuan Guo",
+        "Kejia Zhang",
+        "Jianda Du",
+        "Haizhao Yang"
+      ],
+      "authors_raw": "Youran Sun, Xingyu Ren, Chugang Yi, Jiaxuan Guo, Kejia Zhang, Jianda Du, Haizhao Yang",
+      "venue": "arXiv",
+      "year": 2026,
+      "category": "papers",
+      "links": {
+        "paper": "https://arxiv.org/abs/2606.24177",
+        "code": "https://github.com/AutoResearch-Factory/Agon",
+        "website": "https://haizhaoyang.github.io/research/autoresearch.html"
+      },
+      "arxiv_id": "2606.24177",
+      "abstract": "Large language models are making research production scalable, shifting the bottleneck from producing artifacts to judging claims. We present \\textsc{Agon}, a research orchestrator that validates what can be checked inside the workflow and leaves the remaining judgments to human scientists. \\textsc{Agon} is built on six design principles: Prompt Economy, Future-Facing, Minimal Prompts, OmniDisciplinary, Massive Parallelism, and Zero-Code. We ran \\textsc{Agon} across domains for 444 iterations of Prompt Economy loops, using only small starting topics and no human-written experimental code. These deployments demonstrate scalability while exposing new classes of failure. We organize these failures into a taxonomy along severity, fixability, visibility, and capability locus. The taxonomy separates failures the loops can see and fix from those that require human judgment. Together, these results show that \\textsc{Agon} is pushing research toward a new paradigm: machine scales, human steers.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2606.24177",
+      "summary": null,
+      "summary_source": null,
+      "arxiv_published": "2026-06-23T05:57:09Z",
+      "arxiv_categories": [
+        "cs.SE",
+        "cs.AI",
+        "cs.CL",
+        "cs.MA"
+      ],
+      "pdf_path": "data/pdfs/2606.24177.pdf",
+      "citation_count": 6,
+      "influential_citation_count": 0,
+      "journal_ref": null,
+      "doi": null,
+      "comment": null,
+      "venue_display": "Preprint (arXiv)",
+      "first_seen_utc": "2026-10-22T11:48:15Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
+      "content_hash": "f6ed3f0ec02ca98f",
+      "source_repo": "jennyzzt/awesome-open-ended"
+    },
     {
       "entry_id": "f8cb8723f2f7",
       "title": "CORAL: Towards Autonomous Multi-Agent Evolution for Open-Ended Discovery",
@@ -55,7 +101,7 @@
       "comment": null,
       "venue_display": "Preprint (arXiv)",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "d56b7bf20c63ab2c",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -95,7 +141,7 @@
       "comment": "Code at https://github.com/jennyzzt/dgm",
       "venue_display": "ICLR",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "76d71d8fdf8d271e",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -136,7 +182,7 @@
       "comment": "11 pages (main text), 90 pages total. Project page: https://konstantinosmitsides.github.io/dreaming-in-code",
       "venue_display": "ICML",
       "first_seen_utc": "2026-06-19T09:02:17Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "1a5af5af84696ab3",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -177,7 +223,7 @@
       "comment": null,
       "venue_display": "Preprint (arXiv)",
       "first_seen_utc": "2026-06-19T09:02:17Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "d83db12816e1aaa9",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -203,22 +249,27 @@
         "website": "https://yuanjiayiy.github.io/MODA/"
       },
       "arxiv_id": "2609.14896",
-      "abstract": null,
-      "abstract_source": null,
-      "abstract_url": null,
+      "abstract": "A notable byproduct of LLM alignment training is mode collapse: the progressive loss of output diversity that narrows a model's expressivity at inference time. This degradation is especially limiting for applications requiring open-ended exploration and pluralistic perspectives, such as scientific ideation and creative writing. We present MoDA (Mode-conditioned Diversity Alignment), an online post-training RL algorithm that jointly optimizes generation quality and diversity, inspired by the coordination perspective in multi-agent reinforcement learning (MARL). MoDA trains a single shared LLM policy conditioned on abstract numbered roles, where each role acts as an agent competing to produce outputs distinct from the others. This formulation encourages mode-conditioned agents to explore complementary regions of the high-quality output space without requiring hand-crafted personas or architectural modifications. MoDA employs a prompt-adaptive quality gating mechanism that calibrates a reference quality threshold and grants diversity rewards only to responses that meet the threshold, preventing reward-hacking behaviors that compromise response quality. To study quality-diversity tradeoffs, we evaluate MoDA on a comprehensive suite of benchmarks spanning seven general capability tasks and four domain-specific diversity tasks in scientific ideation and creative writing. MoDA improves SBERT diversity by 265% on the Infinite-Chat held-out prompts, while increasing average general capability pass@1 by 10.3% over the Qwen3-8B baseline. Compared with the strongest DivPO baseline, MoDA improves SBERT diversity from 0.274 to 0.482 (+75.9%) and E-Vendi from 2.86 to 4.4 (+53.8%), while improving average general capability pass@1 by 7.0%. Overall, MoDA provides a drop-in alternative to standard post-training methods that preserves and expands the model's expressive output space while improving quality.",
+      "abstract_source": "arXiv",
+      "abstract_url": "https://arxiv.org/abs/2609.14896",
       "summary": "\"Forty Shades of Blue\" introduces MODA, a post-training reinforcement learning algorithm that tackles mode collapse in LLMs by jointly optimizing output quality and diversity. It uses a multi-agent reinforcement learning approach where different \"modes\" within a single policy compete to generate distinct, high-quality responses, enforced by a prompt-adaptive quality gate. This method is crucial for open-ended research as it enables LLMs to explore broader, more diverse, and plausible output spaces, which is essential for applications like scientific ideation and creative writing.",
       "summary_source": "pdf",
-      "arxiv_published": null,
-      "arxiv_categories": null,
+      "arxiv_published": "2026-09-14T01:30:23Z",
+      "arxiv_categories": [
+        "cs.CL",
+        "cs.AI",
+        "cs.LG",
+        "cs.MA"
+      ],
       "pdf_path": "data/pdfs/2609.14896.pdf",
-      "citation_count": null,
-      "influential_citation_count": null,
+      "citation_count": 0,
+      "influential_citation_count": 0,
       "journal_ref": null,
       "doi": null,
       "comment": null,
       "venue_display": "Preprint (arXiv)",
       "first_seen_utc": "2026-10-20T11:32:35Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "57f360d322d4d368",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -261,7 +312,7 @@
       "comment": "Code at https://github.com/facebookresearch/Hyperagents",
       "venue_display": "Preprint (arXiv)",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "f983b0a476884880",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -305,7 +356,7 @@
       "comment": "26 pages, 21 figures, to be published at GECCO 2026",
       "venue_display": "GECCO",
       "first_seen_utc": "2026-06-19T09:02:17Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "7a2d96b11def648a",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -342,7 +393,7 @@
       "comment": null,
       "venue_display": "Preprint (arXiv)",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "5fd9b4ab1d8b30d2",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -382,7 +433,7 @@
       "comment": null,
       "venue_display": "Preprint (arXiv)",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "a69dfcf733d5865e",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -420,7 +471,7 @@
       "comment": "Website: https://shengranhu.com/ADAS",
       "venue_display": "ICLR",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "4f820ef0a2ca4c92",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -456,7 +507,7 @@
       "comment": null,
       "venue_display": "ICML",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "10bdd717c0a769c1",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -494,7 +545,7 @@
       "comment": "67 pages, accepted to RLC 2025",
       "venue_display": "RL Journal",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "a7398f051b74c438",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -535,7 +586,7 @@
       "comment": "ACL 2025 main. The code can be found at https://github.com/Arvid-pku/Godel_Agent",
       "venue_display": "ACL",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "a070ea6f755a0fbd",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -575,7 +626,7 @@
       "comment": "43 pages, 25 figures",
       "venue_display": "Preprint (arXiv)",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "9ba016c5dcd2a3d1",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -620,7 +671,7 @@
       "comment": null,
       "venue_display": "Preprint (arXiv)",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "8bf9443a6dd13e52",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -659,7 +710,7 @@
       "comment": null,
       "venue_display": "Preprint (arXiv)",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "4f5109dddac526b5",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -702,7 +753,7 @@
       "comment": "20 pages; updated introduction with further related work",
       "venue_display": "Preprint (arXiv)",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "9eb3ea924725d033",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -747,7 +798,7 @@
       "comment": "For code please check: https://github.com/ucl-dark/llm_debate",
       "venue_display": "Preprint (arXiv)",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "832fb9579fdea11b",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -788,7 +839,7 @@
       "comment": null,
       "venue_display": "Preprint (arXiv)",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "ffa3628dd8418e49",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -830,7 +881,7 @@
       "comment": "16 pages, 9 figures, accepted to Foundation of Digital Games 2024",
       "venue_display": "FDG",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "6ec17a2b94501b18",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -869,7 +920,7 @@
       "comment": "Authors' submitted version before final edits. Published in Nature Machine Intelligence on January 27, 2025: https://www.nature.com/articles/s42256-024-00975-8",
       "venue_display": "Nat Mach Intell (2025)",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "d3a2a61bc723079d",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -908,7 +959,7 @@
       "comment": "8 pages, 8 figures, GECCO 2024",
       "venue_display": "GECCO",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "a2df8a0ffbfd96d6",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -969,7 +1020,7 @@
       "comment": "https://sites.google.com/corp/view/genie-2024/",
       "venue_display": "Preprint (arXiv)",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "def65c40488f364a",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -1008,7 +1059,7 @@
       "comment": "Published as a conference paper at ICLR 2025",
       "venue_display": "ICLR",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "50c705c7cf7d364c",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -1040,14 +1091,14 @@
         "cs.LG"
       ],
       "pdf_path": "data/pdfs/2404.15794.pdf",
-      "citation_count": 7,
+      "citation_count": 11,
       "influential_citation_count": 0,
       "journal_ref": null,
       "doi": null,
       "comment": null,
       "venue_display": "Preprint (arXiv)",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "d903017c06dc5d81",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -1089,7 +1140,7 @@
       "comment": null,
       "venue_display": "AAMAS",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "cda6ebd275e4c24e",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -1128,7 +1179,7 @@
       "comment": null,
       "venue_display": "Preprint (arXiv)",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "de77bed3c1dce28c",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -1169,7 +1220,7 @@
       "comment": "47 pages, 33 figures",
       "venue_display": "ICLR",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "630a50407c82ecba",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -1206,7 +1257,7 @@
       "comment": "Project page: https://os-copilot.github.io",
       "venue_display": "Preprint (arXiv)",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "143452c643235b24",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -1246,7 +1297,7 @@
       "comment": "ICML 2024",
       "venue_display": "ICML",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "c911f28af78e21ca",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -1294,7 +1345,7 @@
       "comment": "minor additions to supplementary results",
       "venue_display": "ICLR",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "ff91da9d313c3ccd",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -1335,7 +1386,7 @@
       "comment": null,
       "venue_display": "Preprint (arXiv)",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "a1b4d48ddc795197",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -1378,7 +1429,7 @@
       "comment": null,
       "venue_display": "Preprint (arXiv)",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "d1bfa025adcd8860",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -1414,7 +1465,7 @@
       "comment": "The International Conference for Artificial Life (ALife)",
       "venue_display": "ALIFE",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "7b6935ef5bc881c3",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -1453,7 +1504,7 @@
       "comment": null,
       "venue_display": "Preprint (arXiv)",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "c7ddcaf4363d5506",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -1490,7 +1541,7 @@
       "comment": null,
       "venue_display": "GECCO",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "9a2149df39f357db",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -1531,7 +1582,7 @@
       "comment": null,
       "venue_display": "Preprint (arXiv)",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "6b32787ebb6a580b",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -1570,7 +1621,7 @@
       "comment": null,
       "venue_display": "ICML",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "955ce70c5d563b54",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -1614,7 +1665,7 @@
       "comment": "Published at NeurIPS 2023",
       "venue_display": "NeurIPS",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "dfa46da6f0212ea7",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -1661,7 +1712,7 @@
       "comment": "ICLR 2024. Project website and open-source code: https://eureka-research.github.io/",
       "venue_display": "ICLR",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "d87092fa08776970",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -1699,7 +1750,7 @@
       "comment": null,
       "venue_display": "ALife",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "87c8895167eb55f4",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -1764,7 +1815,7 @@
       "comment": null,
       "venue_display": "ICML",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "ddcc364b3e5ff97d",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -1808,7 +1859,7 @@
       "comment": "International Conference on Learning Representations (ICLR) 2023",
       "venue_display": "ICLR",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "51568ea7117506b0",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -1852,7 +1903,7 @@
       "comment": "The first two authors equally contributed - order decided by coin flip",
       "venue_display": "Preprint (arXiv)",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "08ca8fed9087da1b",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -1891,7 +1942,7 @@
       "comment": null,
       "venue_display": "ICLR",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "ce65e38aa8661f13",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -1928,7 +1979,7 @@
       "comment": "Published at 2023 IEEE Conference on Games",
       "venue_display": "CoG",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "1f52d1362ec757a0",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -1970,7 +2021,7 @@
       "comment": null,
       "venue_display": "Preprint (arXiv)",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "c3edca99aa8ace31",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -2007,7 +2058,7 @@
       "comment": "ICLR 2024",
       "venue_display": "ICLR",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "a9f0dc063fbe0be0",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -2041,14 +2092,14 @@
         "stat.ML"
       ],
       "pdf_path": "data/pdfs/2310.02304.pdf",
-      "citation_count": 98,
-      "influential_citation_count": 2,
+      "citation_count": 199,
+      "influential_citation_count": 7,
       "journal_ref": null,
       "doi": null,
       "comment": "Published as a conference paper at COLM 2024",
       "venue_display": "COLM",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "7677f1f13fb37694",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -2093,7 +2144,7 @@
       "comment": "Project website and open-source codebase: https://voyager.minedojo.org/",
       "venue_display": "Preprint (arXiv)",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "4f2f8a551df47c67",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -2134,7 +2185,7 @@
       "comment": null,
       "venue_display": "Preprint (arXiv)",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "f49139c61aced5e6",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -2171,7 +2222,7 @@
       "comment": "First two authors contributed equally",
       "venue_display": "Preprint (arXiv)",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "ae112e361995746c",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -2215,7 +2266,7 @@
       "comment": "NeurIPS 2022",
       "venue_display": "NeurIPS",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "555eb1f4ecc03acf",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -2256,7 +2307,7 @@
       "comment": null,
       "venue_display": "Nature",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "6632635d487dcd92",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -2305,7 +2356,7 @@
       "comment": "Outstanding Paper Award at NeurIPS 2022. Project website: https://minedojo.org",
       "venue_display": "NeurIPS",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "372ddd03a45d66c4",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -2339,7 +2390,7 @@
       "comment": null,
       "venue_display": "GECCO",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "8c962d63af6e2332",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -2377,7 +2428,7 @@
       "comment": null,
       "venue_display": "Science",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "1e8c5dd768ff9440",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -2418,7 +2469,7 @@
       "comment": "Proceedings of the IEEE Conference on Development and Learning (ICDL 2022)",
       "venue_display": "Preprint (arXiv)",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "515efc6f7df2eed3",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -2459,7 +2510,7 @@
       "comment": "14 pages, 9 figures, published in IEEE Transaction on Games",
       "venue_display": "IEEE Transactions on Games",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "6ba8c69ab5d57bf0",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -2501,7 +2552,7 @@
       "comment": "ICLR Workshop on Agent Learning in Open-Endedness (ALOE 2022)",
       "venue_display": "ICLR",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "4a9138183028155f",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -2539,7 +2590,7 @@
       "comment": "17 pages, 8 figures",
       "venue_display": "EvoStar",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "4cc858a0dff60ec5",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -2581,7 +2632,7 @@
       "comment": "Published in NeurIPS 2021",
       "venue_display": "NeurIPS",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "e35a3b52ff8b5a6e",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -2619,7 +2670,7 @@
       "comment": null,
       "venue_display": "EvoStar",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "317162480b716da2",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -2666,7 +2717,7 @@
       "comment": "NeurIPS 2021: Datasets and Benchmarks Track",
       "venue_display": "NeurIPS",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "087659676ad4485f",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -2721,7 +2772,7 @@
       "comment": null,
       "venue_display": "Preprint (arXiv)",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "0837256d59f1a43e",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -2760,7 +2811,7 @@
       "comment": null,
       "venue_display": "ICML",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "6d1adfa8bfeea6b3",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -2797,7 +2848,7 @@
       "comment": "NeurIPS 2021",
       "venue_display": "NeurIPS",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "5e2a28657d56c84f",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -2837,7 +2888,7 @@
       "comment": "Accepted to AAMAS 2021",
       "venue_display": "AAMAS",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "9fa089da4f8a24f6",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -2870,7 +2921,7 @@
       "comment": null,
       "venue_display": "IEEE Conference on Games",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "73978dd4371e09ee",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -2908,7 +2959,7 @@
       "comment": "7 pages, 5 figures, AIIDE 2020",
       "venue_display": "AIIDE",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "36bf017e50ba0f3d",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -2946,14 +2997,14 @@
         "cs.MA"
       ],
       "pdf_path": "data/pdfs/2012.02096.pdf",
-      "citation_count": 315,
-      "influential_citation_count": 58,
+      "citation_count": 381,
+      "influential_citation_count": 65,
       "journal_ref": null,
       "doi": null,
       "comment": null,
       "venue_display": "NeurIPS",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "e81493de5b72866f",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -2996,7 +3047,7 @@
       "comment": "23 pages, 14 figures",
       "venue_display": "ICML",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "680b47825acf4728",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -3036,7 +3087,7 @@
       "comment": "28 pages, 9 figures",
       "venue_display": "GECCO",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "ace87145b1a89006",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -3071,7 +3122,7 @@
       "comment": null,
       "venue_display": "GECCO",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "64f78a8bd3280d81",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -3106,7 +3157,7 @@
       "comment": null,
       "venue_display": "ALife",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "f1dd4fef1121fbf5",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -3140,7 +3191,7 @@
       "comment": null,
       "venue_display": "ALife",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "279a83de3580a130",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -3173,14 +3224,14 @@
         "cs.NE"
       ],
       "pdf_path": "data/pdfs/2601.13518.pdf",
-      "citation_count": 1,
+      "citation_count": 4,
       "influential_citation_count": 0,
       "journal_ref": null,
       "doi": null,
       "comment": "Website: https://yuanjiayiy.github.io/AgenticRed/",
       "venue_display": "Preprint (arXiv)",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "a054668600e0bbd4",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -3219,7 +3270,7 @@
       "comment": "Accepted to ICML'26",
       "venue_display": "ICML",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "847b0f265bd28bcc",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -3281,7 +3332,7 @@
       "comment": "Published in Science: https://www.science.org/doi/10.1126/science.adn0117",
       "venue_display": "Science",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "1535d905eadd618d",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -3330,7 +3381,7 @@
       "comment": null,
       "venue_display": "NeurIPS",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "d54f44edbdb6d2cd",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -3367,7 +3418,7 @@
       "comment": null,
       "venue_display": "Preprint (arXiv)",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "e6c5068fb8870677",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -3403,7 +3454,7 @@
       "comment": null,
       "venue_display": "Preprint (arXiv)",
       "first_seen_utc": "2026-10-10T12:28:38Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "1731b3c9cbea19ce",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -3440,7 +3491,7 @@
       "comment": null,
       "venue_display": "Preprint (arXiv)",
       "first_seen_utc": "2026-10-10T12:28:38Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "c4177b1fcd473dfb",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -3479,7 +3530,7 @@
       "comment": null,
       "venue_display": "Preprint (arXiv)",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "271ab0016992ba71",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -3522,7 +3573,7 @@
       "comment": null,
       "venue_display": "ICML",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "74c02d9747396cce",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -3560,7 +3611,7 @@
       "comment": null,
       "venue_display": "Royal Society Open Science",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "093c110f67dac157",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -3598,7 +3649,7 @@
       "comment": "46 pages (including appendix), 17 figures, under submission at Journal of Artificial Intelligence Research (JAIR)",
       "venue_display": "Journal of Artificial Intelligence Research 2022",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "9915a71956cbd474",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -3634,7 +3685,7 @@
       "comment": "The authors also thank MeiMei the golden retriever for insightful collaboration, in particular, sampling contrastive data on human vs. dog hindsight summarization",
       "venue_display": "Preprint (arXiv)",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "0ae22b4583f34f5b",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -3683,7 +3734,7 @@
       "comment": null,
       "venue_display": "Preprint (arXiv)",
       "first_seen_utc": "2026-09-20T11:20:28Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "86c1ae68f1320156",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -3718,7 +3769,7 @@
       "comment": null,
       "venue_display": "Preprint (arXiv)",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "a34357bb15bbcfdd",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -3753,7 +3804,7 @@
       "comment": null,
       "venue_display": "O'Reilly Radar",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "4be6ecacd6e95c12",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -3787,7 +3838,7 @@
       "comment": null,
       "venue_display": "Springer",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "10b11e60ed14c646",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -3820,7 +3871,7 @@
       "comment": null,
       "venue_display": "Unpublished",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "44e79b87f94ac75e",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -3854,7 +3905,7 @@
       "comment": null,
       "venue_display": "Unpublished",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "3442d4542a2c7ebe",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -3887,7 +3938,7 @@
       "comment": null,
       "venue_display": "Unpublished",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "3cd3e337318d1109",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -3920,7 +3971,7 @@
       "comment": null,
       "venue_display": "Unpublished",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "9d4c5a5e6aaec469",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -3953,7 +4004,7 @@
       "comment": null,
       "venue_display": "Unpublished",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "c995f3a418e4daed",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -3986,7 +4037,7 @@
       "comment": null,
       "venue_display": "Unpublished",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "103d3b2f13f30c1d",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -4019,7 +4070,7 @@
       "comment": null,
       "venue_display": "Unpublished",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "2f51e59b8b0fcc32",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -4052,7 +4103,7 @@
       "comment": null,
       "venue_display": "Unpublished",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "4f76f24f515aa1f7",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -4085,7 +4136,7 @@
       "comment": null,
       "venue_display": "Unpublished",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "32831e0471e93bfc",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -4118,7 +4169,7 @@
       "comment": null,
       "venue_display": "Unpublished",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "9f4b0a68dd459bac",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -4151,7 +4202,7 @@
       "comment": null,
       "venue_display": "Unpublished",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "174ce64325076785",
       "source_repo": "jennyzzt/awesome-open-ended"
     },
@@ -4184,7 +4235,7 @@
       "comment": null,
       "venue_display": "Unpublished",
       "first_seen_utc": "2026-06-18T15:41:09Z",
-      "last_seen_utc": "2026-10-20T11:32:35Z",
+      "last_seen_utc": "2026-10-22T11:48:15Z",
       "content_hash": "c6baac1f0dfe3186",
       "source_repo": "jennyzzt/awesome-open-ended"
     }
