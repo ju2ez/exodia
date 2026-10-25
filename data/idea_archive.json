@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-24T10:56:05Z",
+  "updated_utc": "2026-10-25T11:23:33Z",
   "families": [
     "Quality-diversity & evolution",
     "RL, agents & curricula",
@@ -146,6 +146,7 @@
     "automated co evolution of ai agents and world model informed simulated scientific environments",
     "automated emergence of scientific world models from open ended exploration",
     "automated recursive refinement of world models for scientific discovery",
+    "automated scientific discovery via evolving and composable world models",
     "automated scientific discovery via evolving world models",
     "automated scientific discovery via generative world models",
     "autonomous construction and refinement of causal world models for open ended scientific discovery",
@@ -164,6 +165,7 @@
     "domain agnostic science generators ai for unforeseen scientific discovery",
     "embodied ai agents for open ended evolution of synthetic biological systems",
     "emergent morphogenesis of ai architectures via embodied self assembly",
+    "emergent oversight for self improving scientific ai",
     "emergent oversight in artificial ecosystems for self improving world models",
     "emergent oversight mechanisms for self improving scientific agents",
     "emergent scientific symbiosis ai agents forming specialized interdependent research collectives",
@@ -187,6 +189,7 @@
     "evolutionary genetics simulation for accelerated biological discovery",
     "evolutionary meta learning for adaptive ai architectures",
     "evolutionary oversight for self improving scientific models",
+    "evolutionary oversight self correction and validation in self improving scientific ai",
     "evolutionary quality diversity for self assembling scientific ecosystems",
     "evolutionary reinforcement learning for dynamic scientific curricula",
     "evolutionary safety frameworks for generalizing creative problem solvers",
@@ -195,6 +198,7 @@
     "evolvable safety modules for self improving ai scientists",
     "evolvable scientific symbiosis emergent division of labor and mutualism in ai research ecosystems",
     "evolvable world models within self assembling scientific ecosystems for safe open ended discovery",
+    "evolving agent architectures for unforeseen scientific domains",
     "evolving artificial life ecosystems for unforeseen creative problem solving",
     "evolving complex reasoning chains through open ended prompt optimization",
     "evolving embodied world models for artificial life emergence",
@@ -202,6 +206,7 @@
     "evolving internal representations for open ended learning and generalization",
     "evolving morphogenetic protocols for self organizing artificial ecosystems",
     "evolving oversight verifiable scientific hypotheses from self improving world models",
+    "evolving safe world models for autonomous scientific discovery",
     "evolving safety architectures for open ended ai scientists",
     "evolving safety constraints for self improving world models in automated science",
     "evolving safety constraints for self improving world models in open ended ai science",
@@ -227,6 +232,7 @@
     "quantifying knightian uncertainty in open ended ai risk assessment",
     "recursive domain agnostic world model evolution for general creative problem solving",
     "recursive evolution of self improving world models for autonomous scientific discovery",
+    "recursive refinement of evolving world models for autonomous scientific discovery",
     "recursive simulation of novel biospheres for astrobiological inference",
     "recursive world model refinement for artificial life simulation",
     "recursive world model refinement for automated scientific discovery",
@@ -253,7 +259,7 @@
     "verifiable recursive world models for safe open ended automated science",
     "verifiable self refinement of recursive world models for safe scientific discovery"
   ],
-  "generation": 19,
+  "generation": 20,
   "history": [
     {
       "date": "2026-10-08",
@@ -437,6 +443,16 @@
     },
     {
       "date": "2026-10-24",
+      "coverage": 0.333,
+      "qd_score": 2.358,
+      "max_fitness": 0.53,
+      "filled": 6,
+      "new_elites": 0,
+      "llm_calls": 6,
+      "model": "gemini-2.5-flash-lite"
+    },
+    {
+      "date": "2026-10-25",
       "coverage": 0.333,
       "qd_score": 2.358,
       "max_fitness": 0.53,
