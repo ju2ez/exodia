@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-26T12:58:00Z",
+  "updated_utc": "2026-10-26T14:20:15Z",
   "families": [
     "Quality-diversity & evolution",
     "RL, agents & curricula",
@@ -167,6 +167,7 @@
     "emergent morphogenesis of ai architectures via embodied self assembly",
     "emergent oversight for self improving scientific ai",
     "emergent oversight in artificial ecosystems for self improving world models",
+    "emergent oversight mechanisms for generalist self improving ai scientists",
     "emergent oversight mechanisms for self improving scientific agents",
     "emergent scientific symbiosis ai agents forming specialized interdependent research collectives",
     "emergent scientific world models for unforeseen domains",
@@ -175,6 +176,7 @@
     "emergent world models for autonomous scientific discovery",
     "emergent world models for autonomous scientific discovery curricula",
     "emergent world models for autonomous scientific discovery in unforeseen domains",
+    "emergent world models for generalizable creative problem solving",
     "emergent world models for unforeseen scientific discovery",
     "emulated evolutionary oversight for self improving world models in automated science",
     "ensuring safe generalization of emergent creative problem solving",
@@ -190,12 +192,14 @@
     "evolutionary meta learning for adaptive ai architectures",
     "evolutionary oversight for self improving scientific models",
     "evolutionary oversight self correction and validation in self improving scientific ai",
+    "evolutionary quality diversity for autonomous scientific ecosystems with rl driven curricula",
     "evolutionary quality diversity for emergent scientific ecosystems",
     "evolutionary quality diversity for rl agent curated scientific ecosystems",
     "evolutionary quality diversity for self assembling scientific ecosystems",
     "evolutionary reinforcement learning for dynamic scientific curricula",
     "evolutionary safety frameworks for generalizing creative problem solvers",
     "evolutionary synthesis of interacting world models for emergent scientific paradigms",
+    "evolvable ecosystem synthesis for emergent scientific paradigms",
     "evolvable meta representation ecosystems for unforeseen scientific discovery",
     "evolvable safety modules for self improving ai scientists",
     "evolvable scientific symbiosis emergent division of labor and mutualism in ai research ecosystems",
@@ -245,6 +249,7 @@
     "recursive world model refinement for unforeseen domain generalization",
     "reinforcement learning with quality diversity for autonomous scientific ecosystem formation",
     "safe generalizing creative problem solving via self improving world models",
+    "safe self evolving scientific ecosystems for unforeseen discovery",
     "safely adaptive creative discovery agents",
     "safety frameworks for emergent creative self improving world models",
     "safety frameworks for self improving world models in automated science",
@@ -263,7 +268,7 @@
     "verifiable recursive world models for safe open ended automated science",
     "verifiable self refinement of recursive world models for safe scientific discovery"
   ],
-  "generation": 21,
+  "generation": 22,
   "history": [
     {
       "date": "2026-10-08",
@@ -457,6 +462,16 @@
     },
     {
       "date": "2026-10-25",
+      "coverage": 0.333,
+      "qd_score": 2.358,
+      "max_fitness": 0.53,
+      "filled": 6,
+      "new_elites": 0,
+      "llm_calls": 6,
+      "model": "gemini-2.5-flash-lite"
+    },
+    {
+      "date": "2026-10-26",
       "coverage": 0.333,
       "qd_score": 2.358,
       "max_fitness": 0.53,
