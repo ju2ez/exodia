@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-25T11:23:33Z",
+  "updated_utc": "2026-10-26T12:58:00Z",
   "families": [
     "Quality-diversity & evolution",
     "RL, agents & curricula",
@@ -190,6 +190,8 @@
     "evolutionary meta learning for adaptive ai architectures",
     "evolutionary oversight for self improving scientific models",
     "evolutionary oversight self correction and validation in self improving scientific ai",
+    "evolutionary quality diversity for emergent scientific ecosystems",
+    "evolutionary quality diversity for rl agent curated scientific ecosystems",
     "evolutionary quality diversity for self assembling scientific ecosystems",
     "evolutionary reinforcement learning for dynamic scientific curricula",
     "evolutionary safety frameworks for generalizing creative problem solvers",
@@ -244,6 +246,7 @@
     "reinforcement learning with quality diversity for autonomous scientific ecosystem formation",
     "safe generalizing creative problem solving via self improving world models",
     "safely adaptive creative discovery agents",
+    "safety frameworks for emergent creative self improving world models",
     "safety frameworks for self improving world models in automated science",
     "self assembling evolvable world models for open ended scientific discovery",
     "self assembling evolving ecosystems of world models for open ended scientific discovery",
@@ -251,6 +254,7 @@
     "self assembling self improving scientific ecosystems for unforeseen domain discovery",
     "self designing agent architectures for open ended scientific discovery",
     "self organizing scientific ecosystems for unforeseen creative problem solving",
+    "self validating scientific ecosystems for safe open ended discovery",
     "simulating and harnessing multi agent cultural accumulation for open ended progress",
     "simulating artificial ecosystems for open ended scientific discovery",
     "symbiotic emergence of artificial life via recursive world model refinement",
@@ -259,7 +263,7 @@
     "verifiable recursive world models for safe open ended automated science",
     "verifiable self refinement of recursive world models for safe scientific discovery"
   ],
-  "generation": 20,
+  "generation": 21,
   "history": [
     {
       "date": "2026-10-08",
@@ -453,6 +457,16 @@
     },
     {
       "date": "2026-10-25",
+      "coverage": 0.333,
+      "qd_score": 2.358,
+      "max_fitness": 0.53,
+      "filled": 6,
+      "new_elites": 0,
+      "llm_calls": 6,
+      "model": "gemini-2.5-flash-lite"
+    },
+    {
+      "date": "2026-10-26",
       "coverage": 0.333,
       "qd_score": 2.358,
       "max_fitness": 0.53,
