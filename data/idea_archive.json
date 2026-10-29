@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-28T12:50:24Z",
+  "updated_utc": "2026-10-29T12:57:20Z",
   "families": [
     "Quality-diversity & evolution",
     "RL, agents & curricula",
@@ -170,6 +170,7 @@
     "emergent oversight mechanisms for generalist self improving ai scientists",
     "emergent oversight mechanisms for self improving scientific agents",
     "emergent scientific ontologies from self improving world models",
+    "emergent scientific paradigms from self evolving world models",
     "emergent scientific symbiosis ai agents forming specialized interdependent research collectives",
     "emergent scientific world models for unforeseen domains",
     "emergent self assembling scientific ecosystems driven by artificial life principles",
@@ -191,13 +192,17 @@
     "evolutionary ecosystems for unforeseen domain discovery via quality diversity search",
     "evolutionary genetics simulation for accelerated biological discovery",
     "evolutionary meta learning for adaptive ai architectures",
+    "evolutionary optimization of recursive world models for general creative problem solving",
     "evolutionary oversight for self improving scientific models",
+    "evolutionary oversight mechanisms for self improving world models in automated science",
     "evolutionary oversight self correction and validation in self improving scientific ai",
     "evolutionary quality diversity for autonomous scientific ecosystems with rl driven curricula",
     "evolutionary quality diversity for emergent scientific ecosystems",
     "evolutionary quality diversity for rl agent curated scientific ecosystems",
     "evolutionary quality diversity for self assembling open ended scientific ecosystems",
     "evolutionary quality diversity for self assembling scientific ecosystems",
+    "evolutionary quality diversity for self assembling scientific ecosystems with adaptive rl curricula",
+    "evolutionary quality diversity for self improving scientific ecosystems with emergent verification",
     "evolutionary reinforcement learning for dynamic scientific curricula",
     "evolutionary safety frameworks for generalizing creative problem solvers",
     "evolutionary synthesis of interacting world models for emergent scientific paradigms",
@@ -278,7 +283,7 @@
     "verifiable recursive world models for safe open ended automated science",
     "verifiable self refinement of recursive world models for safe scientific discovery"
   ],
-  "generation": 24,
+  "generation": 25,
   "history": [
     {
       "date": "2026-10-08",
@@ -512,6 +517,16 @@
     },
     {
       "date": "2026-10-28",
+      "coverage": 0.333,
+      "qd_score": 2.363,
+      "max_fitness": 0.53,
+      "filled": 6,
+      "new_elites": 0,
+      "llm_calls": 6,
+      "model": "gemini-2.5-flash-lite"
+    },
+    {
+      "date": "2026-10-29",
       "coverage": 0.333,
       "qd_score": 2.363,
       "max_fitness": 0.53,
