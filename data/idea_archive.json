@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-29T12:57:20Z",
+  "updated_utc": "2026-10-30T12:51:01Z",
   "families": [
     "Quality-diversity & evolution",
     "RL, agents & curricula",
@@ -151,7 +151,9 @@
     "autonomous construction and refinement of causal world models for open ended scientific discovery",
     "autonomous scientific discovery via evolving world models",
     "autopoietic ai ecosystems for emergent scientific paradigms",
+    "autopoietic ai self constructing and self maintaining cognitive architectures",
     "autopoietic world model refinement for emergent artificial life",
+    "avalon evolutionary symbiosis for open ended ai development",
     "bootstrapping safety for open ended evolutionary ai scientists",
     "co evolutionary challenge generation for continuous open ended learning",
     "co evolving creative agents and generative scientific environments for unforeseen domain discovery",
@@ -217,6 +219,7 @@
     "evolvable scientific symbiosis emergent division of labor and mutualism in ai research ecosystems",
     "evolvable world models as autonomous scientific curators",
     "evolvable world models for automated scientific discovery and hypothesis generation",
+    "evolvable world models for autonomous scientific discovery acceleration",
     "evolvable world models within self assembling scientific ecosystems for safe open ended discovery",
     "evolving agent architectures for unforeseen scientific domains",
     "evolving artificial life ecosystems for unforeseen creative problem solving",
@@ -242,6 +245,7 @@
     "formal verification of emergent scientific hypotheses from self improving world models",
     "fully autonomous agents for open ended scientific discovery",
     "generalizing creative problem solving to unforeseen domains",
+    "generalizing scientific discovery with evolving world models",
     "generative safety for recursive self improving agents in novel domains",
     "learning what data to learn from in open ended unstructured environments",
     "meta evolvable self improving scientific ecosystems",
@@ -270,6 +274,7 @@
     "safety frameworks for self improving world models in automated science",
     "self assembling evolvable world models for open ended scientific discovery",
     "self assembling evolving ecosystems of world models for open ended scientific discovery",
+    "self assembling evolving scientific ecosystems for unforeseen domain generalization",
     "self assembling scientific ecosystems for unforeseen domain discovery",
     "self assembling self improving scientific ecosystems for unforeseen domain discovery",
     "self designing agent architectures for open ended scientific discovery",
@@ -283,7 +288,7 @@
     "verifiable recursive world models for safe open ended automated science",
     "verifiable self refinement of recursive world models for safe scientific discovery"
   ],
-  "generation": 25,
+  "generation": 26,
   "history": [
     {
       "date": "2026-10-08",
@@ -527,6 +532,16 @@
     },
     {
       "date": "2026-10-29",
+      "coverage": 0.333,
+      "qd_score": 2.363,
+      "max_fitness": 0.53,
+      "filled": 6,
+      "new_elites": 0,
+      "llm_calls": 6,
+      "model": "gemini-2.5-flash-lite"
+    },
+    {
+      "date": "2026-10-30",
       "coverage": 0.333,
       "qd_score": 2.363,
       "max_fitness": 0.53,
