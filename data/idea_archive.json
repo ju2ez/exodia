@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-30T12:51:01Z",
+  "updated_utc": "2026-10-31T12:49:40Z",
   "families": [
     "Quality-diversity & evolution",
     "RL, agents & curricula",
@@ -14,23 +14,25 @@
     "n_bins": 3,
     "elites": [
       {
-        "idea_id": "e51ad95fbd71",
-        "name": "evolvable-agent-architectures",
-        "title": "Evolvable Agent Architectures for Open-Ended Scientific Co-Discovery",
-        "short_hypothesis": "AI agents will evolve their own cognitive architectures, including memory and reasoning mechanisms, in open-ended collaboration with humans to accelerate scientific breakthroughs.",
-        "abstract": "Future AI systems will move beyond fixed architectures and meta-learning on fixed architectures, instead evolving their internal computational structures, akin to biological evolution, to tackle complex scientific problems. This research focuses on creating environments where AI agents can autonomously discover and refine novel cognitive architectures, fostering a synergistic co-discovery process with human scientists.",
+        "idea_id": "cd1f92858ecc",
+        "name": "evolvable-world-models-for-science",
+        "title": "Evolvable World Models for Autonomous Scientific Discovery",
+        "short_hypothesis": "AI agents will evolve their own internal world models, dynamically adapting their understanding of scientific domains to generate and test novel hypotheses autonomously.",
+        "abstract": "Future AI systems will move beyond fixed representational frameworks by evolving their own dynamic world models, enabling them to autonomously hypothesize, design experiments, and interpret results in complex scientific domains. This self-improving, adaptive modeling capability will be crucial for accelerating open-ended scientific discovery by allowing agents to discover and refine not just solutions, but the very conceptual tools needed to find them.",
         "concepts": [
           "Open-ended learning",
-          "Meta-learning"
+          "Recursive self-improvement",
+          "World models",
+          "Automated scientific discovery"
         ],
         "bd": [
           3,
           2
         ],
-        "fitness": 0.4092,
-        "generation": 23,
+        "fitness": 0.5106,
+        "generation": 27,
         "parents": [
-          "3bbb1aea793e"
+          "e51ad95fbd71"
         ]
       },
       {
@@ -47,7 +49,7 @@
           4,
           2
         ],
-        "fitness": 0.3883,
+        "fitness": 0.527,
         "generation": 1,
         "parents": [
           "d3a00a8b4c07"
@@ -66,7 +68,7 @@
           3,
           1
         ],
-        "fitness": 0.5303,
+        "fitness": 0.6153,
         "generation": 0,
         "parents": []
       },
@@ -85,7 +87,7 @@
           4,
           1
         ],
-        "fitness": 0.3997,
+        "fitness": 0.5587,
         "generation": 1,
         "parents": [
           "d3a00a8b4c07"
@@ -106,7 +108,7 @@
           5,
           2
         ],
-        "fitness": 0.2852,
+        "fitness": 0.3983,
         "generation": 13,
         "parents": [
           "da084a26f67d",
@@ -127,7 +129,7 @@
           0,
           2
         ],
-        "fitness": 0.3505,
+        "fitness": 0.4829,
         "generation": 11,
         "parents": [
           "da084a26f67d"
@@ -143,6 +145,7 @@
     "automated agent driven curriculum design for open ended worlds",
     "automated co evolution of ai agents and simulated scientific environments",
     "automated co evolution of ai agents and world model informed simulated scientific environments",
+    "automated discovery of generalizable world models for unforeseen scientific domains",
     "automated emergence of scientific world models from open ended exploration",
     "automated recursive refinement of world models for scientific discovery",
     "automated scientific discovery via evolving and composable world models",
@@ -200,7 +203,9 @@
     "evolutionary oversight self correction and validation in self improving scientific ai",
     "evolutionary quality diversity for autonomous scientific ecosystems with rl driven curricula",
     "evolutionary quality diversity for emergent scientific ecosystems",
+    "evolutionary quality diversity for generalizable scientific creativity",
     "evolutionary quality diversity for rl agent curated scientific ecosystems",
+    "evolutionary quality diversity for rl driven self assembling scientific ecosystems with emergent curricula",
     "evolutionary quality diversity for self assembling open ended scientific ecosystems",
     "evolutionary quality diversity for self assembling scientific ecosystems",
     "evolutionary quality diversity for self assembling scientific ecosystems with adaptive rl curricula",
@@ -219,10 +224,12 @@
     "evolvable scientific symbiosis emergent division of labor and mutualism in ai research ecosystems",
     "evolvable world models as autonomous scientific curators",
     "evolvable world models for automated scientific discovery and hypothesis generation",
+    "evolvable world models for autonomous scientific discovery",
     "evolvable world models for autonomous scientific discovery acceleration",
     "evolvable world models within self assembling scientific ecosystems for safe open ended discovery",
     "evolving agent architectures for unforeseen scientific domains",
     "evolving artificial life ecosystems for unforeseen creative problem solving",
+    "evolving biological inspired world models for autonomous scientific discovery",
     "evolving complex reasoning chains through open ended prompt optimization",
     "evolving embodied world models for artificial life emergence",
     "evolving generative world models for autonomous scientific hypothesis generation and validation",
@@ -288,7 +295,7 @@
     "verifiable recursive world models for safe open ended automated science",
     "verifiable self refinement of recursive world models for safe scientific discovery"
   ],
-  "generation": 26,
+  "generation": 27,
   "history": [
     {
       "date": "2026-10-08",
@@ -547,6 +554,16 @@
       "max_fitness": 0.53,
       "filled": 6,
       "new_elites": 0,
+      "llm_calls": 6,
+      "model": "gemini-2.5-flash-lite"
+    },
+    {
+      "date": "2026-10-31",
+      "coverage": 0.333,
+      "qd_score": 3.093,
+      "max_fitness": 0.615,
+      "filled": 6,
+      "new_elites": 1,
       "llm_calls": 6,
       "model": "gemini-2.5-flash-lite"
     }
