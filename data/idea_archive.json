@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-10-31T12:49:40Z",
+  "updated_utc": "2026-11-01T13:18:30Z",
   "families": [
     "Quality-diversity & evolution",
     "RL, agents & curricula",
@@ -14,25 +14,25 @@
     "n_bins": 3,
     "elites": [
       {
-        "idea_id": "cd1f92858ecc",
-        "name": "evolvable-world-models-for-science",
-        "title": "Evolvable World Models for Autonomous Scientific Discovery",
-        "short_hypothesis": "AI agents will evolve their own internal world models, dynamically adapting their understanding of scientific domains to generate and test novel hypotheses autonomously.",
-        "abstract": "Future AI systems will move beyond fixed representational frameworks by evolving their own dynamic world models, enabling them to autonomously hypothesize, design experiments, and interpret results in complex scientific domains. This self-improving, adaptive modeling capability will be crucial for accelerating open-ended scientific discovery by allowing agents to discover and refine not just solutions, but the very conceptual tools needed to find them.",
+        "idea_id": "4449541692dd",
+        "name": "meta_architectural_evolution_for_novelty",
+        "title": "Meta-Architectural Evolution for Generalizing Creative Problem Solving in Unforeseen Domains",
+        "short_hypothesis": "AI systems can achieve generalized creative problem-solving in unforeseen domains by autonomously evolving their own meta-architectures and learning mechanisms.",
+        "abstract": "This research direction integrates the principles of Darwinian evolution and Gödel Machines with the self-improving capabilities of hyperagents and agentic memory designs. The core idea is to develop AI systems that can not only solve problems creatively in novel domains but also autonomously redesign their own internal architectures, learning algorithms, and memory structures to better tackle these unforeseen challenges. This meta-level evolutionary process will enable AI to move beyond fixed, human-designed frameworks, facilitating truly open-ended discovery and adaptation.",
         "concepts": [
           "Open-ended learning",
           "Recursive self-improvement",
-          "World models",
-          "Automated scientific discovery"
+          "Autonomous / LLM agents"
         ],
         "bd": [
           3,
           2
         ],
-        "fitness": 0.5106,
-        "generation": 27,
+        "fitness": 0.5437,
+        "generation": 28,
         "parents": [
-          "e51ad95fbd71"
+          "bd450403f811",
+          "bd450403f811"
         ]
       },
       {
@@ -156,6 +156,7 @@
     "autopoietic ai ecosystems for emergent scientific paradigms",
     "autopoietic ai self constructing and self maintaining cognitive architectures",
     "autopoietic world model refinement for emergent artificial life",
+    "autotelic artificial ecosystems for open ended scientific discovery",
     "avalon evolutionary symbiosis for open ended ai development",
     "bootstrapping safety for open ended evolutionary ai scientists",
     "co evolutionary challenge generation for continuous open ended learning",
@@ -174,6 +175,7 @@
     "emergent oversight in artificial ecosystems for self improving world models",
     "emergent oversight mechanisms for generalist self improving ai scientists",
     "emergent oversight mechanisms for self improving scientific agents",
+    "emergent scientific discovery via self improving world models",
     "emergent scientific ontologies from self improving world models",
     "emergent scientific paradigms from self evolving world models",
     "emergent scientific symbiosis ai agents forming specialized interdependent research collectives",
@@ -242,7 +244,9 @@
     "evolving safety constraints for self improving world models in automated science",
     "evolving safety constraints for self improving world models in open ended ai science",
     "evolving safety modules for generalizing creative ai",
+    "evolving scientific ecosystems for unforeseen domain discovery via quality diversity",
     "evolving scientific world models for autonomous discovery",
+    "evolving verifiers for self improving world models in automated science",
     "evolving world models for ai scientists with adaptive safety envelopes",
     "evolving world models for autonomous scientific discovery",
     "evolving world models for autonomous scientific hypothesis generation and validation",
@@ -255,6 +259,7 @@
     "generalizing scientific discovery with evolving world models",
     "generative safety for recursive self improving agents in novel domains",
     "learning what data to learn from in open ended unstructured environments",
+    "meta architectural evolution for generalizing creative problem solving in unforeseen domains",
     "meta evolvable self improving scientific ecosystems",
     "novelty search and quality diversity for hyperparameter and architecture optimization",
     "open ended discovery of novel tools and capabilities through agentic exploration",
@@ -295,7 +300,7 @@
     "verifiable recursive world models for safe open ended automated science",
     "verifiable self refinement of recursive world models for safe scientific discovery"
   ],
-  "generation": 27,
+  "generation": 28,
   "history": [
     {
       "date": "2026-10-08",
@@ -561,6 +566,16 @@
       "date": "2026-10-31",
       "coverage": 0.333,
       "qd_score": 3.093,
+      "max_fitness": 0.615,
+      "filled": 6,
+      "new_elites": 1,
+      "llm_calls": 6,
+      "model": "gemini-2.5-flash-lite"
+    },
+    {
+      "date": "2026-11-01",
+      "coverage": 0.333,
+      "qd_score": 3.126,
       "max_fitness": 0.615,
       "filled": 6,
       "new_elites": 1,
