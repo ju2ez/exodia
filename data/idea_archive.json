@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-11-02T16:11:38Z",
+  "updated_utc": "2026-11-02T17:15:45Z",
   "families": [
     "Quality-diversity & evolution",
     "RL, agents & curricula",
@@ -194,9 +194,11 @@
     "evolutionary chemistry ecosystems for novel material synthesis",
     "evolutionary curricula for self assembling agent ecosystems",
     "evolutionary curriculum generation for open ended agent specialization",
+    "evolutionary ecosystems for emergent scientific discovery",
     "evolutionary ecosystems for generalizable scientific discovery",
     "evolutionary ecosystems for scientific discovery with quality diversity optimization",
     "evolutionary ecosystems for unforeseen domain discovery via quality diversity search",
+    "evolutionary ecosystems for unforeseen scientific domain discovery",
     "evolutionary genetics simulation for accelerated biological discovery",
     "evolutionary meta learning for adaptive ai architectures",
     "evolutionary optimization of recursive world models for general creative problem solving",
@@ -216,6 +218,7 @@
     "evolutionary safety frameworks for generalizing creative problem solvers",
     "evolutionary synthesis of interacting world models for emergent scientific paradigms",
     "evolvable agent architectures for open ended scientific co discovery",
+    "evolvable bio mimetic agents for self directed scientific inquiry",
     "evolvable cognitive architectures for recursive scientific discovery",
     "evolvable cognitive architectures with emergent world models for autonomous scientific discovery",
     "evolvable ecosystem synthesis for emergent scientific paradigms",
@@ -250,6 +253,7 @@
     "evolving scientific niches with generative adversarial ecosystems",
     "evolving scientific world models for autonomous discovery",
     "evolving self assembling scientific ecosystems for unforeseen domain discovery",
+    "evolving the architects of discovery self assembling ecosystems that design themselves",
     "evolving verifiers for self improving world models in automated science",
     "evolving world models for ai scientists with adaptive safety envelopes",
     "evolving world models for autonomous scientific discovery",
@@ -291,6 +295,7 @@
     "self assembling evolutionary ecosystems for unforeseen domain creative problem solving",
     "self assembling evolvable world models for open ended scientific discovery",
     "self assembling evolving ecosystems of world models for open ended scientific discovery",
+    "self assembling evolving scientific ecosystems for generalizable creative problem solving",
     "self assembling evolving scientific ecosystems for unforeseen domain generalization",
     "self assembling scientific ecosystems for unforeseen domain discovery",
     "self assembling self improving scientific ecosystems for unforeseen domain discovery",
@@ -305,7 +310,7 @@
     "verifiable recursive world models for safe open ended automated science",
     "verifiable self refinement of recursive world models for safe scientific discovery"
   ],
-  "generation": 29,
+  "generation": 30,
   "history": [
     {
       "date": "2026-10-08",
@@ -584,6 +589,16 @@
       "max_fitness": 0.615,
       "filled": 6,
       "new_elites": 1,
+      "llm_calls": 6,
+      "model": "gemini-2.5-flash-lite"
+    },
+    {
+      "date": "2026-11-02",
+      "coverage": 0.333,
+      "qd_score": 3.126,
+      "max_fitness": 0.615,
+      "filled": 6,
+      "new_elites": 0,
       "llm_calls": 6,
       "model": "gemini-2.5-flash-lite"
     },
