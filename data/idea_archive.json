@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-11-04T14:28:52Z",
+  "updated_utc": "2026-11-05T14:36:36Z",
   "families": [
     "Quality-diversity & evolution",
     "RL, agents & curricula",
@@ -198,19 +198,23 @@
     "evolutionary curricula for self assembling agent ecosystems",
     "evolutionary curriculum design for emergent agentic specialization",
     "evolutionary curriculum generation for open ended agent specialization",
+    "evolutionary curriculum generation for self assembling agent ecosystems",
     "evolutionary ecosystems for emergent scientific discovery",
     "evolutionary ecosystems for generalizable scientific discovery",
     "evolutionary ecosystems for scientific discovery with quality diversity optimization",
     "evolutionary ecosystems for unforeseen domain discovery via quality diversity search",
     "evolutionary ecosystems for unforeseen scientific domain discovery",
     "evolutionary genetics simulation for accelerated biological discovery",
+    "evolutionary meta cognition for self assembling scientific ecosystems",
     "evolutionary meta learning for adaptive ai architectures",
     "evolutionary multi agent ecosystems for unforeseen scientific domain discovery",
     "evolutionary optimization of recursive world models for general creative problem solving",
     "evolutionary orchestration of recursive world model refinement for scientific ecosystems",
     "evolutionary oversight for self improving scientific models",
+    "evolutionary oversight mechanisms for self improving scientific world models",
     "evolutionary oversight mechanisms for self improving world models in automated science",
     "evolutionary oversight self correction and validation in self improving scientific ai",
+    "evolutionary quality diversity for adaptive self improving scientific ecosystems",
     "evolutionary quality diversity for autonomous scientific ecosystems with rl driven curricula",
     "evolutionary quality diversity for emergent scientific ecosystems",
     "evolutionary quality diversity for generalizable scientific creativity",
@@ -246,6 +250,7 @@
     "evolving agent architectures for unforeseen scientific domains",
     "evolving agentic curricula for open ended discovery",
     "evolving artificial life ecosystems for unforeseen creative problem solving",
+    "evolving artificial lifeforms for unforeseen scientific paradigms",
     "evolving biological inspired world models for autonomous scientific discovery",
     "evolving complex reasoning chains through open ended prompt optimization",
     "evolving embodied world models for artificial life emergence",
@@ -321,7 +326,7 @@
     "verifiable recursive world models for safe open ended automated science",
     "verifiable self refinement of recursive world models for safe scientific discovery"
   ],
-  "generation": 32,
+  "generation": 33,
   "history": [
     {
       "date": "2026-10-08",
@@ -635,6 +640,16 @@
     },
     {
       "date": "2026-11-04",
+      "coverage": 0.333,
+      "qd_score": 3.149,
+      "max_fitness": 0.615,
+      "filled": 6,
+      "new_elites": 0,
+      "llm_calls": 6,
+      "model": "gemini-2.5-flash-lite"
+    },
+    {
+      "date": "2026-11-05",
       "coverage": 0.333,
       "qd_score": 3.149,
       "max_fitness": 0.615,
