@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-11-05T14:36:36Z",
+  "updated_utc": "2026-11-06T14:13:39Z",
   "families": [
     "Quality-diversity & evolution",
     "RL, agents & curricula",
@@ -147,6 +147,7 @@
     "automated discovery of generalizable world models for unforeseen scientific domains",
     "automated emergence of scientific world models from open ended exploration",
     "automated recursive refinement of world models for scientific discovery",
+    "automated scientific discovery via emergent world models",
     "automated scientific discovery via evolving and composable world models",
     "automated scientific discovery via evolving world models",
     "automated scientific discovery via generative world models",
@@ -168,6 +169,7 @@
     "developing domain agnostic world models for unforeseen scientific discovery",
     "developing safety frameworks for recursive self improving ai",
     "domain agnostic science generators ai for unforeseen scientific discovery",
+    "eco evolutionary systems for open ended scientific discovery",
     "embodied ai agents for open ended evolution of synthetic biological systems",
     "emergence of normative frameworks in self improving artificial life",
     "emergent morphogenesis of ai architectures via embodied self assembly",
@@ -180,6 +182,7 @@
     "emergent scientific paradigms from self evolving world models",
     "emergent scientific symbiosis ai agents forming specialized interdependent research collectives",
     "emergent scientific verification protocols for self improving world models",
+    "emergent scientific world models for autonomous discovery agents",
     "emergent scientific world models for unforeseen domains",
     "emergent self assembling scientific ecosystems driven by artificial life principles",
     "emergent symbiotic ai ecosystems for accelerated scientific discovery",
@@ -270,6 +273,7 @@
     "evolving scientific world models for autonomous discovery",
     "evolving self assembling scientific ecosystems for unforeseen domain discovery",
     "evolving the architects of discovery self assembling ecosystems that design themselves",
+    "evolving verifiable creative world models for unforeseen scientific discovery",
     "evolving verifiers for self improving world models in automated science",
     "evolving world models for ai scientists with adaptive safety envelopes",
     "evolving world models for autonomous scientific discovery",
@@ -293,6 +297,7 @@
     "quantifying knightian uncertainty in open ended ai risk assessment",
     "recursive domain agnostic world model evolution for general creative problem solving",
     "recursive evolution of self improving world models for autonomous scientific discovery",
+    "recursive refinement of emergent world models for autonomous scientific discovery",
     "recursive refinement of evolving world models for autonomous scientific discovery",
     "recursive simulation of novel biospheres for astrobiological inference",
     "recursive world model refinement for artificial life simulation",
@@ -326,7 +331,7 @@
     "verifiable recursive world models for safe open ended automated science",
     "verifiable self refinement of recursive world models for safe scientific discovery"
   ],
-  "generation": 33,
+  "generation": 34,
   "history": [
     {
       "date": "2026-10-08",
@@ -650,6 +655,16 @@
     },
     {
       "date": "2026-11-05",
+      "coverage": 0.333,
+      "qd_score": 3.149,
+      "max_fitness": 0.615,
+      "filled": 6,
+      "new_elites": 0,
+      "llm_calls": 6,
+      "model": "gemini-2.5-flash-lite"
+    },
+    {
+      "date": "2026-11-06",
       "coverage": 0.333,
       "qd_score": 3.149,
       "max_fitness": 0.615,
