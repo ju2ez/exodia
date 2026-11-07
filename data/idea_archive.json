@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-11-06T14:13:39Z",
+  "updated_utc": "2026-11-07T13:23:22Z",
   "families": [
     "Quality-diversity & evolution",
     "RL, agents & curricula",
@@ -28,7 +28,7 @@
           3,
           2
         ],
-        "fitness": 0.5668,
+        "fitness": 0.7824,
         "generation": 31,
         "parents": [
           "bd450403f811"
@@ -48,45 +48,7 @@
           4,
           2
         ],
-        "fitness": 0.527,
-        "generation": 1,
-        "parents": [
-          "d3a00a8b4c07"
-        ]
-      },
-      {
-        "idea_id": "bd450403f811",
-        "name": "creative_problem_solving_in_novel_domains",
-        "title": "Generalizing Creative Problem Solving to Unforeseen Domains",
-        "short_hypothesis": "Developing AI systems capable of creative problem-solving that can generalize to entirely novel and unforeseen domains, rather than being confined to pre-defined task categories, is a key frontier for open-ended intelligence.",
-        "abstract": "This research will focus on creating AI agents that can go beyond solving known types of anomalous problems to invent novel solutions for problems in domains they have never encountered, demonstrating true creative adaptation and problem formulation. The aim is to achieve a level of creative problem-solving that mirrors human ingenuity in its breadth and adaptability.",
-        "concepts": [
-          "Open-ended learning"
-        ],
-        "bd": [
-          3,
-          1
-        ],
-        "fitness": 0.6153,
-        "generation": 0,
-        "parents": []
-      },
-      {
-        "idea_id": "4d50741b1327",
-        "name": "recursive-world-model-science-safety",
-        "title": "Safety Frameworks for Self-Improving World Models in Automated Science",
-        "short_hypothesis": "Ensuring the safety of AI systems that recursively improve their own world models for scientific discovery requires novel oversight mechanisms that can validate emergent scientific hypotheses and reasoning chains.",
-        "abstract": "As AI systems like The AI Scientist-v2 demonstrate increasing autonomy in scientific discovery, the development of self-improving world models presents a critical safety challenge. New frameworks are needed to monitor and control the iterative refinement of these internal representations of reality, ensuring that the scientific knowledge generated remains grounded in verifiable evidence and aligned with human scientific understanding.",
-        "concepts": [
-          "Recursive self-improvement",
-          "World models",
-          "Automated scientific discovery"
-        ],
-        "bd": [
-          4,
-          1
-        ],
-        "fitness": 0.5587,
+        "fitness": 0.8251,
         "generation": 1,
         "parents": [
           "d3a00a8b4c07"
@@ -107,7 +69,7 @@
           5,
           2
         ],
-        "fitness": 0.3983,
+        "fitness": 0.5853,
         "generation": 13,
         "parents": [
           "da084a26f67d",
@@ -128,7 +90,7 @@
           0,
           2
         ],
-        "fitness": 0.4829,
+        "fitness": 0.6241,
         "generation": 11,
         "parents": [
           "da084a26f67d"
@@ -180,9 +142,11 @@
     "emergent scientific discovery via self improving world models",
     "emergent scientific ontologies from self improving world models",
     "emergent scientific paradigms from self evolving world models",
+    "emergent scientific reasoning agents with self correcting world models",
     "emergent scientific symbiosis ai agents forming specialized interdependent research collectives",
     "emergent scientific verification protocols for self improving world models",
     "emergent scientific world models for autonomous discovery agents",
+    "emergent scientific world models for autonomous hypothesis generation",
     "emergent scientific world models for unforeseen domains",
     "emergent self assembling scientific ecosystems driven by artificial life principles",
     "emergent symbiotic ai ecosystems for accelerated scientific discovery",
@@ -237,6 +201,7 @@
     "evolvable agentic architectures for open ended scientific innovation",
     "evolvable bio mimetic agents for self directed scientific inquiry",
     "evolvable cognitive architectures for recursive scientific discovery",
+    "evolvable cognitive architectures for self accelerating scientific discovery",
     "evolvable cognitive architectures with emergent world models for autonomous scientific discovery",
     "evolvable ecosystem synthesis for emergent scientific paradigms",
     "evolvable meta representation ecosystems for unforeseen scientific discovery",
@@ -248,6 +213,7 @@
     "evolvable world models for automated scientific discovery and hypothesis generation",
     "evolvable world models for autonomous scientific discovery",
     "evolvable world models for autonomous scientific discovery acceleration",
+    "evolvable world models for autonomous scientific ecosystems",
     "evolvable world models within self assembling scientific ecosystems for safe open ended discovery",
     "evolvably architected ecosystems for open ended scientific discovery",
     "evolving agent architectures for unforeseen scientific domains",
@@ -280,6 +246,7 @@
     "evolving world models for autonomous scientific hypothesis generation and validation",
     "evolving world models for general creative problem solving in unforeseen domains",
     "evolving world models for generalizing creative scientific discovery",
+    "evolving world models within self assembling scientific ecosystems",
     "formal verification and safety guarantees for gödel machines",
     "formal verification of emergent scientific hypotheses from self improving world models",
     "fully autonomous agents for open ended scientific discovery",
@@ -331,7 +298,7 @@
     "verifiable recursive world models for safe open ended automated science",
     "verifiable self refinement of recursive world models for safe scientific discovery"
   ],
-  "generation": 34,
+  "generation": 35,
   "history": [
     {
       "date": "2026-10-08",
@@ -669,6 +636,16 @@
       "qd_score": 3.149,
       "max_fitness": 0.615,
       "filled": 6,
+      "new_elites": 0,
+      "llm_calls": 6,
+      "model": "gemini-2.5-flash-lite"
+    },
+    {
+      "date": "2026-11-07",
+      "coverage": 0.222,
+      "qd_score": 2.817,
+      "max_fitness": 0.825,
+      "filled": 4,
       "new_elites": 0,
       "llm_calls": 6,
       "model": "gemini-2.5-flash-lite"
