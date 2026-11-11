@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-11-10T14:50:25Z",
+  "updated_utc": "2026-11-11T14:17:59Z",
   "families": [
     "Quality-diversity & evolution",
     "RL, agents & curricula",
@@ -168,6 +168,7 @@
     "evolutionary curriculum design for emergent agentic specialization",
     "evolutionary curriculum generation for open ended agent specialization",
     "evolutionary curriculum generation for self assembling agent ecosystems",
+    "evolutionary curriculum learning for autonomous scientific ecosystems",
     "evolutionary ecosystems for emergent scientific discovery",
     "evolutionary ecosystems for generalizable scientific discovery",
     "evolutionary ecosystems for scientific discovery with quality diversity optimization",
@@ -198,11 +199,13 @@
     "evolutionary quality diversity for self assembling scientific ecosystems",
     "evolutionary quality diversity for self assembling scientific ecosystems driving unforeseen domain discovery",
     "evolutionary quality diversity for self assembling scientific ecosystems with adaptive rl curricula",
+    "evolutionary quality diversity for self assembling scientific ecosystems with rl driven curricula",
     "evolutionary quality diversity for self assembling scientific ecosystems with rl guided curricula",
     "evolutionary quality diversity for self improving scientific ecosystems with emergent verification",
     "evolutionary reinforcement learning for dynamic scientific curricula",
     "evolutionary safety frameworks for generalizing creative problem solvers",
     "evolutionary self improving world models for autonomous scientific discovery",
+    "evolutionary self refining world models for autonomous scientific ecosystems",
     "evolutionary synthesis of interacting world models for emergent scientific paradigms",
     "evolutionary world models for autodidactic scientific discovery",
     "evolvability as a design principle for self improving scientific discovery agents",
@@ -276,10 +279,12 @@
     "quantifying knightian uncertainty in open ended ai risk assessment",
     "recursive domain agnostic world model evolution for general creative problem solving",
     "recursive evolution of self improving world models for autonomous scientific discovery",
+    "recursive evolutionary quality diversity for self improving scientific ecosystems",
     "recursive refinement of emergent world models for autonomous scientific discovery",
     "recursive refinement of evolving world models for autonomous scientific discovery",
     "recursive simulation of novel biospheres for astrobiological inference",
     "recursive world model refinement for artificial life simulation",
+    "recursive world model refinement for astrobiological hypothesis generation",
     "recursive world model refinement for automated scientific discovery",
     "recursive world model refinement for embodied scientific discovery",
     "recursive world model refinement for generalizable creative problem solving",
@@ -312,7 +317,7 @@
     "verifiable recursive world models for safe open ended automated science",
     "verifiable self refinement of recursive world models for safe scientific discovery"
   ],
-  "generation": 39,
+  "generation": 40,
   "history": [
     {
       "date": "2026-10-08",
@@ -696,6 +701,16 @@
     },
     {
       "date": "2026-11-10",
+      "coverage": 0.222,
+      "qd_score": 2.817,
+      "max_fitness": 0.825,
+      "filled": 4,
+      "new_elites": 0,
+      "llm_calls": 6,
+      "model": "gemini-2.5-flash-lite"
+    },
+    {
+      "date": "2026-11-11",
       "coverage": 0.222,
       "qd_score": 2.817,
       "max_fitness": 0.825,
