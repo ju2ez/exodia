@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-11-12T15:09:59Z",
+  "updated_utc": "2026-11-13T14:31:48Z",
   "families": [
     "Quality-diversity & evolution",
     "RL, agents & curricula",
@@ -148,6 +148,7 @@
     "emergent scientific verification protocols for self improving world models",
     "emergent scientific world models for autonomous discovery agents",
     "emergent scientific world models for autonomous hypothesis generation",
+    "emergent scientific world models for autonomous hypothesis generation and experiment design",
     "emergent scientific world models for unforeseen domains",
     "emergent self assembling scientific ecosystems driven by artificial life principles",
     "emergent symbiotic ai ecosystems for accelerated scientific discovery",
@@ -180,6 +181,7 @@
     "evolutionary meta cognition for self assembling scientific ecosystems",
     "evolutionary meta learning for adaptive ai architectures",
     "evolutionary multi agent ecosystems for unforeseen scientific domain discovery",
+    "evolutionary optimization of adaptive curricula for multi agent discovery",
     "evolutionary optimization of recursive world models for general creative problem solving",
     "evolutionary orchestration of recursive world model refinement for scientific ecosystems",
     "evolutionary oversight for self improving scientific models",
@@ -190,6 +192,7 @@
     "evolutionary quality diversity for autonomous scientific ecosystems with rl driven curricula",
     "evolutionary quality diversity for autonomous self assembling scientific ecosystems enabling unforeseen domain discovery",
     "evolutionary quality diversity for emergent scientific ecosystems",
+    "evolutionary quality diversity for emergent scientific world model ecosystems",
     "evolutionary quality diversity for generalizable scientific creativity",
     "evolutionary quality diversity for rl agent curated scientific ecosystems",
     "evolutionary quality diversity for rl driven scientific ecosystems with adaptive curricula",
@@ -283,6 +286,7 @@
     "recursive domain agnostic world model evolution for general creative problem solving",
     "recursive evolution of self improving world models for autonomous scientific discovery",
     "recursive evolutionary quality diversity for self improving scientific ecosystems",
+    "recursive quality diversity for self improving scientific ecosystems",
     "recursive refinement of emergent world models for autonomous scientific discovery",
     "recursive refinement of evolving world models for autonomous scientific discovery",
     "recursive simulation of novel biospheres for astrobiological inference",
@@ -321,7 +325,7 @@
     "verifiable recursive world models for safe open ended automated science",
     "verifiable self refinement of recursive world models for safe scientific discovery"
   ],
-  "generation": 41,
+  "generation": 42,
   "history": [
     {
       "date": "2026-10-08",
@@ -725,6 +729,16 @@
     },
     {
       "date": "2026-11-12",
+      "coverage": 0.222,
+      "qd_score": 2.817,
+      "max_fitness": 0.825,
+      "filled": 4,
+      "new_elites": 0,
+      "llm_calls": 6,
+      "model": "gemini-2.5-flash-lite"
+    },
+    {
+      "date": "2026-11-13",
       "coverage": 0.222,
       "qd_score": 2.817,
       "max_fitness": 0.825,
