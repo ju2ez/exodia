@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-11-13T14:31:48Z",
+  "updated_utc": "2026-11-14T13:31:53Z",
   "families": [
     "Quality-diversity & evolution",
     "RL, agents & curricula",
@@ -28,7 +28,7 @@
           3,
           2
         ],
-        "fitness": 0.7824,
+        "fitness": 0.5457,
         "generation": 31,
         "parents": [
           "bd450403f811"
@@ -48,7 +48,7 @@
           4,
           2
         ],
-        "fitness": 0.8251,
+        "fitness": 0.538,
         "generation": 1,
         "parents": [
           "d3a00a8b4c07"
@@ -69,7 +69,7 @@
           5,
           2
         ],
-        "fitness": 0.5853,
+        "fitness": 0.4307,
         "generation": 13,
         "parents": [
           "da084a26f67d",
@@ -90,7 +90,7 @@
           0,
           2
         ],
-        "fitness": 0.6241,
+        "fitness": 0.504,
         "generation": 11,
         "parents": [
           "da084a26f67d"
@@ -115,6 +115,7 @@
     "automated scientific discovery via generative world models",
     "autonomic scientific ecosystems for emergent knowledge discovery",
     "autonomous construction and refinement of causal world models for open ended scientific discovery",
+    "autonomous construction and refinement of causal world models for scientific discovery",
     "autonomous scientific discovery via evolving world models",
     "autopoietic ai ecosystems for emergent scientific paradigms",
     "autopoietic ai self constructing and self maintaining cognitive architectures",
@@ -222,6 +223,7 @@
     "evolvable cognitive architectures for self accelerating scientific discovery",
     "evolvable cognitive architectures with emergent world models for autonomous scientific discovery",
     "evolvable ecosystem synthesis for emergent scientific paradigms",
+    "evolvable meta learning ecosystems for autonomous scientific discovery",
     "evolvable meta representation ecosystems for unforeseen scientific discovery",
     "evolvable quality diversity for self improving scientific ecosystems with integrated safety verification",
     "evolvable recursive world models for autonomous scientific co discovery",
@@ -279,6 +281,7 @@
     "meta evolvable self improving scientific ecosystems",
     "novelty search and quality diversity for hyperparameter and architecture optimization",
     "open ended discovery of novel tools and capabilities through agentic exploration",
+    "open ended evolution of self improving world models for autonomous scientific discovery",
     "open ended evolution of self improving world models for scientific discovery",
     "quality diversity curricula for evolving multi agent scientific collectives",
     "quality diversity driven emergent scientific ecosystems",
@@ -325,7 +328,7 @@
     "verifiable recursive world models for safe open ended automated science",
     "verifiable self refinement of recursive world models for safe scientific discovery"
   ],
-  "generation": 42,
+  "generation": 43,
   "history": [
     {
       "date": "2026-10-08",
@@ -742,6 +745,16 @@
       "coverage": 0.222,
       "qd_score": 2.817,
       "max_fitness": 0.825,
+      "filled": 4,
+      "new_elites": 0,
+      "llm_calls": 6,
+      "model": "gemini-2.5-flash-lite"
+    },
+    {
+      "date": "2026-11-14",
+      "coverage": 0.222,
+      "qd_score": 2.018,
+      "max_fitness": 0.546,
       "filled": 4,
       "new_elites": 0,
       "llm_calls": 6,
