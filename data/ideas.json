@@ -24,8 +24,8 @@
     "votes_down": 0,
     "score": 0,
     "feedback_count": 0,
-    "moi_score": 0.6019,
-    "moi_hindsight": 0.7051
+    "moi_score": 0.6138,
+    "moi_hindsight": 0.7052
   },
   {
     "idea_id": "ab9b8bacca01",
@@ -52,8 +52,8 @@
     "votes_down": 0,
     "score": 0,
     "feedback_count": 0,
-    "moi_score": 0.5481,
-    "moi_hindsight": 0.898
+    "moi_score": 0.5517,
+    "moi_hindsight": 0.7766
   },
   {
     "idea_id": "3540558fb026",
@@ -69,19 +69,19 @@
     "model": "gemini-2.5-flash",
     "source_sha": "8933d2817ab5b89cc3401cd16eb37ccd84b55812",
     "generated": true,
-    "realized": false,
-    "realized_paper_title": null,
-    "realized_paper_url": null,
-    "realized_entry_id": null,
-    "realized_score": null,
+    "realized": true,
+    "realized_paper_title": "Can AI Agents Make Open-Ended Scientific Discovery? Evidence from Station",
+    "realized_paper_url": "https://arxiv.org/abs/2610.08927",
+    "realized_entry_id": "0a368c510722",
+    "realized_score": 0.187,
     "issue_number": 7,
     "issue_url": "https://github.com/ju2ez/exodia/issues/7",
     "votes_up": 0,
     "votes_down": 0,
     "score": 0,
     "feedback_count": 0,
-    "moi_score": 0.6263,
-    "moi_hindsight": 0.7315
+    "moi_score": 0.6346,
+    "moi_hindsight": 0.7279
   },
   {
     "idea_id": "c30517a36c0d",
@@ -108,7 +108,7 @@
     "votes_down": 0,
     "score": 0,
     "feedback_count": 0,
-    "moi_score": 0.5469,
+    "moi_score": 0.5618,
     "moi_hindsight": 0.9758
   },
   {
@@ -136,8 +136,8 @@
     "votes_down": 0,
     "score": 0,
     "feedback_count": 0,
-    "moi_score": 0.5812,
-    "moi_hindsight": 0.7837
+    "moi_score": 0.5928,
+    "moi_hindsight": 0.7838
   },
   {
     "idea_id": "56bf534f76f5",
@@ -164,7 +164,7 @@
     "votes_down": 0,
     "score": 0,
     "feedback_count": 0,
-    "moi_score": 0.5959,
-    "moi_hindsight": 0.8574
+    "moi_score": 0.6083,
+    "moi_hindsight": 0.8559
   }
 ]
