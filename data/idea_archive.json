@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-11-15T14:20:40Z",
+  "updated_utc": "2026-11-16T15:40:44Z",
   "families": [
     "Quality-diversity & evolution",
     "RL, agents & curricula",
@@ -14,13 +14,14 @@
     "n_bins": 3,
     "elites": [
       {
-        "idea_id": "d366b3b895d4",
-        "name": "emergent-world-models-for-science",
-        "title": "Emergent World Models for Automated Scientific Discovery",
-        "short_hypothesis": "AI systems that autonomously construct and refine internal world models from raw observational data will be capable of generating novel scientific hypotheses and designing experiments to test them, leading to accelerated discovery across unforeseen scientific domains.",
-        "abstract": "We propose developing AI agents that move beyond task-specific learning to build comprehensive, dynamic world models from diverse, unstructured data streams. These agents will then leverage their internal understanding of scientific principles to autonomously formulate falsifiable hypotheses and design novel experiments, thereby driving open-ended scientific progress without explicit human guidance on the scientific method itself.",
+        "idea_id": "49c4f28b6e73",
+        "name": "recursive_emergent_world_models_for_self_improving_science",
+        "title": "Recursive Refinement of Emergent World Models for Open-Ended Scientific Discovery",
+        "short_hypothesis": "AI agents can achieve open-ended scientific discovery by recursively refining emergent world models that are initially constructed from raw observational data.",
+        "abstract": "Future AI systems for scientific discovery will combine the autonomous construction of world models from raw data with recursive self-improvement mechanisms. This synergy will allow agents to continually refine their internal understanding of scientific domains, leading to more robust hypothesis generation and experimental design for unforeseen scientific challenges.",
         "concepts": [
           "Open-ended learning",
+          "Recursive self-improvement",
           "World models",
           "Automated scientific discovery"
         ],
@@ -28,10 +29,11 @@
           3,
           2
         ],
-        "fitness": 0.5351,
-        "generation": 31,
+        "fitness": 0.5407,
+        "generation": 45,
         "parents": [
-          "bd450403f811"
+          "3bbb1aea793e",
+          "d366b3b895d4"
         ]
       },
       {
@@ -228,6 +230,7 @@
     "evolvable meta representation ecosystems for unforeseen scientific discovery",
     "evolvable quality diversity for self improving scientific ecosystems with integrated safety verification",
     "evolvable recursive world models for autonomous scientific co discovery",
+    "evolvable recursive world models for self assembling scientific ecosystems",
     "evolvable safety modules for self improving ai scientists",
     "evolvable scientific symbiosis emergent division of labor and mutualism in ai research ecosystems",
     "evolvable world models as autonomous scientific curators",
@@ -295,6 +298,7 @@
     "recursive evolutionary quality diversity for self improving scientific ecosystems",
     "recursive quality diversity for self improving scientific ecosystems",
     "recursive refinement of emergent world models for autonomous scientific discovery",
+    "recursive refinement of emergent world models for open ended scientific discovery",
     "recursive refinement of evolving world models for autonomous scientific discovery",
     "recursive simulation of novel biospheres for astrobiological inference",
     "recursive world model refinement for artificial life simulation",
@@ -332,7 +336,7 @@
     "verifiable recursive world models for safe open ended automated science",
     "verifiable self refinement of recursive world models for safe scientific discovery"
   ],
-  "generation": 44,
+  "generation": 45,
   "history": [
     {
       "date": "2026-10-08",
@@ -771,6 +775,16 @@
       "max_fitness": 0.535,
       "filled": 4,
       "new_elites": 0,
+      "llm_calls": 6,
+      "model": "gemini-2.5-flash-lite"
+    },
+    {
+      "date": "2026-11-16",
+      "coverage": 0.222,
+      "qd_score": 2.03,
+      "max_fitness": 0.541,
+      "filled": 4,
+      "new_elites": 1,
       "llm_calls": 6,
       "model": "gemini-2.5-flash-lite"
     }
