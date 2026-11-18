@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-11-17T16:23:18Z",
+  "updated_utc": "2026-11-18T15:36:29Z",
   "families": [
     "Quality-diversity & evolution",
     "RL, agents & curricula",
@@ -14,11 +14,11 @@
     "n_bins": 3,
     "elites": [
       {
-        "idea_id": "49c4f28b6e73",
-        "name": "recursive_emergent_world_models_for_self_improving_science",
-        "title": "Recursive Refinement of Emergent World Models for Open-Ended Scientific Discovery",
-        "short_hypothesis": "AI agents can achieve open-ended scientific discovery by recursively refining emergent world models that are initially constructed from raw observational data.",
-        "abstract": "Future AI systems for scientific discovery will combine the autonomous construction of world models from raw data with recursive self-improvement mechanisms. This synergy will allow agents to continually refine their internal understanding of scientific domains, leading to more robust hypothesis generation and experimental design for unforeseen scientific challenges.",
+        "idea_id": "4d76f97aff4b",
+        "name": "self_improving_recursive_world_models",
+        "title": "Self-Improving Recursive World Models for Autonomous Open-Ended Scientific Discovery",
+        "short_hypothesis": "AI agents can achieve truly open-ended scientific discovery by autonomously and recursively refining their emergent world models, which are themselves capable of self-improvement.",
+        "abstract": "Future AI systems will integrate recursive world model refinement with self-improving agent architectures to enable autonomous, open-ended scientific discovery. This approach will allow agents to not only generate hypotheses and design experiments based on their evolving understanding of the world but also to continuously enhance their own learning and reasoning capabilities without human intervention.",
         "concepts": [
           "Open-ended learning",
           "Recursive self-improvement",
@@ -29,11 +29,11 @@
           3,
           2
         ],
-        "fitness": 0.5407,
-        "generation": 45,
+        "fitness": 0.548,
+        "generation": 48,
         "parents": [
-          "3bbb1aea793e",
-          "d366b3b895d4"
+          "49c4f28b6e73",
+          "3bbb1aea793e"
         ]
       },
       {
@@ -140,6 +140,7 @@
     "eco evolutionary systems for open ended scientific discovery",
     "embodied ai agents for open ended evolution of synthetic biological systems",
     "emergence of normative frameworks in self improving artificial life",
+    "emergent ecosystem cognition for unforeseen scientific paradigms",
     "emergent morphogenesis of ai architectures via embodied self assembly",
     "emergent oversight for self improving scientific ai",
     "emergent oversight in artificial ecosystems for self improving world models",
@@ -237,6 +238,7 @@
     "evolvable recursive world models for autonomous scientific co discovery",
     "evolvable recursive world models for self assembling scientific ecosystems",
     "evolvable safety modules for self improving ai scientists",
+    "evolvable scientific ecosystems for unforeseen domain discovery",
     "evolvable scientific symbiosis emergent division of labor and mutualism in ai research ecosystems",
     "evolvable world models as autonomous scientific curators",
     "evolvable world models for automated scientific discovery and hypothesis generation",
@@ -249,6 +251,7 @@
     "evolving agentic curricula for open ended discovery",
     "evolving artificial life ecosystems for unforeseen creative problem solving",
     "evolving artificial lifeforms for unforeseen scientific paradigms",
+    "evolving autonomous ecosystems for open ended scientific discovery",
     "evolving biological inspired world models for autonomous scientific discovery",
     "evolving complex reasoning chains through open ended prompt optimization",
     "evolving embodied world models for artificial life emergence",
@@ -335,6 +338,7 @@
     "self assembling scientific ecosystems with evolving world models",
     "self assembling self improving scientific ecosystems for unforeseen domain discovery",
     "self designing agent architectures for open ended scientific discovery",
+    "self improving recursive world models for autonomous open ended scientific discovery",
     "self organizing scientific ecosystems for unforeseen creative problem solving",
     "self validating scientific ecosystems for safe open ended discovery",
     "simulating and harnessing multi agent cultural accumulation for open ended progress",
@@ -345,7 +349,7 @@
     "verifiable recursive world models for safe open ended automated science",
     "verifiable self refinement of recursive world models for safe scientific discovery"
   ],
-  "generation": 47,
+  "generation": 48,
   "history": [
     {
       "date": "2026-10-08",
@@ -814,6 +818,16 @@
       "max_fitness": 0.541,
       "filled": 4,
       "new_elites": 0,
+      "llm_calls": 6,
+      "model": "gemini-2.5-flash-lite"
+    },
+    {
+      "date": "2026-11-18",
+      "coverage": 0.222,
+      "qd_score": 2.038,
+      "max_fitness": 0.548,
+      "filled": 4,
+      "new_elites": 1,
       "llm_calls": 6,
       "model": "gemini-2.5-flash-lite"
     }
