@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-11-18T15:36:29Z",
+  "updated_utc": "2026-11-19T15:42:16Z",
   "families": [
     "Quality-diversity & evolution",
     "RL, agents & curricula",
@@ -172,6 +172,7 @@
     "evolutionary artificial life ecosystems for open ended scientific discovery",
     "evolutionary chemistry autonomous discovery of novel molecular structures and reactions",
     "evolutionary chemistry ecosystems for novel material synthesis",
+    "evolutionary composition of recursive world models for open ended scientific discovery",
     "evolutionary curricula for self assembling agent ecosystems",
     "evolutionary curriculum design for emergent agentic specialization",
     "evolutionary curriculum generation for open ended agent specialization",
@@ -234,6 +235,7 @@
     "evolvable ecosystem synthesis for emergent scientific paradigms",
     "evolvable meta learning ecosystems for autonomous scientific discovery",
     "evolvable meta representation ecosystems for unforeseen scientific discovery",
+    "evolvable morphogenetic codebases for self organizing scientific discovery",
     "evolvable quality diversity for self improving scientific ecosystems with integrated safety verification",
     "evolvable recursive world models for autonomous scientific co discovery",
     "evolvable recursive world models for self assembling scientific ecosystems",
@@ -261,6 +263,7 @@
     "evolving oversight artificial life principles for safe self improving world models",
     "evolving oversight verifiable scientific hypotheses from self improving world models",
     "evolving recursive world models for open ended scientific discovery",
+    "evolving recursive world models for open ended scientific discovery with meta learned architectures",
     "evolving recursive world models for self improving scientific agents",
     "evolving safe world models for autonomous scientific discovery",
     "evolving safety architectures for open ended ai scientists",
@@ -340,6 +343,7 @@
     "self designing agent architectures for open ended scientific discovery",
     "self improving recursive world models for autonomous open ended scientific discovery",
     "self organizing scientific ecosystems for unforeseen creative problem solving",
+    "self refining hierarchical world models for accelerated scientific discovery",
     "self validating scientific ecosystems for safe open ended discovery",
     "simulating and harnessing multi agent cultural accumulation for open ended progress",
     "simulating artificial ecosystems for open ended scientific discovery",
@@ -349,7 +353,7 @@
     "verifiable recursive world models for safe open ended automated science",
     "verifiable self refinement of recursive world models for safe scientific discovery"
   ],
-  "generation": 48,
+  "generation": 49,
   "history": [
     {
       "date": "2026-10-08",
@@ -828,6 +832,16 @@
       "max_fitness": 0.548,
       "filled": 4,
       "new_elites": 1,
+      "llm_calls": 6,
+      "model": "gemini-2.5-flash-lite"
+    },
+    {
+      "date": "2026-11-19",
+      "coverage": 0.222,
+      "qd_score": 2.038,
+      "max_fitness": 0.548,
+      "filled": 4,
+      "new_elites": 0,
       "llm_calls": 6,
       "model": "gemini-2.5-flash-lite"
     }
