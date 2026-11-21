@@ -24,8 +24,8 @@
     "votes_down": 0,
     "score": 0,
     "feedback_count": 0,
-    "moi_score": 0.6138,
-    "moi_hindsight": 0.7052
+    "moi_score": 0.3324,
+    "moi_hindsight": 0.7042
   },
   {
     "idea_id": "ab9b8bacca01",
@@ -52,8 +52,8 @@
     "votes_down": 0,
     "score": 0,
     "feedback_count": 0,
-    "moi_score": 0.5517,
-    "moi_hindsight": 0.7766
+    "moi_score": 0.1205,
+    "moi_hindsight": 0.9569
   },
   {
     "idea_id": "3540558fb026",
@@ -80,8 +80,8 @@
     "votes_down": 0,
     "score": 0,
     "feedback_count": 0,
-    "moi_score": 0.6346,
-    "moi_hindsight": 0.7279
+    "moi_score": 0.2383,
+    "moi_hindsight": 0.8706
   },
   {
     "idea_id": "c30517a36c0d",
@@ -108,8 +108,8 @@
     "votes_down": 0,
     "score": 0,
     "feedback_count": 0,
-    "moi_score": 0.5618,
-    "moi_hindsight": 0.9758
+    "moi_score": 0.0952,
+    "moi_hindsight": 0.9902
   },
   {
     "idea_id": "5cd24ef12c4d",
@@ -136,8 +136,8 @@
     "votes_down": 0,
     "score": 0,
     "feedback_count": 0,
-    "moi_score": 0.5928,
-    "moi_hindsight": 0.7838
+    "moi_score": 0.3032,
+    "moi_hindsight": 0.783
   },
   {
     "idea_id": "56bf534f76f5",
@@ -164,7 +164,35 @@
     "votes_down": 0,
     "score": 0,
     "feedback_count": 0,
-    "moi_score": 0.6083,
-    "moi_hindsight": 0.8559
+    "moi_score": 0.3293,
+    "moi_hindsight": 0.7001
+  },
+  {
+    "idea_id": "7a2281fcfcf5",
+    "name": "meta_objective_evolution_for_open_endedness",
+    "title": "Meta-Objective Evolution: Learning to Discover Novelty Metrics for Open-Ended AI",
+    "short_hypothesis": "An open-ended learning system can achieve more profound and genuinely unbounded discovery by autonomously evolving its *own metrics for novelty, interestingness, or complexity*, leading to the emergence of novel evaluative criteria that transcend initial human-designed objectives. This direction is crucial because current open-ended systems, even those that evolve agents or environments, often operate within a fixed 'lens' of what constitutes 'good' or 'novel', which fundamentally limits the scope of discovery to what humans can initially conceive and encode. Investigating this within an existing open-ended learning framework (e.g., a Quality-Diversity system) provides the ideal setting, as these systems are already designed for continuous generation and evaluation, making them suitable for a meta-level evolution of the evaluation criteria. Simpler interventions like hyperparameter tuning or combining fixed metrics would not address the fundamental challenge of discovering *new types* of evaluative criteria.",
+    "related_work": "Existing open-ended learning research largely focuses on evolving agents (e.g., CORAL, Darwin-Gödel Machine), evolving environments or curricula (e.g., ACCEL, UED), or evolving problems/tasks (e.g., DéjàQ). While these approaches push the boundaries of discovery, they typically rely on human-designed, static metrics for evaluating novelty, complexity, or interestingness. For instance, Quality-Diversity (QD) algorithms (e.g., Novelty Search, MAP-Elites) generate diverse solutions across pre-defined 'behavior descriptors'; our work proposes to *evolve these behavior descriptors themselves* or the meta-criteria that select/combine them, rather than fixing them a priori. Similarly, Adversarial Environment Design (AED) methods (e.g., ACCEL, UED) evolve environments to challenge agents based on a fixed notion of performance or complexity; our proposal aims to evolve *what constitutes a challenging or interesting environment* from the system's perspective. Our work also distinguishes from meta-learning approaches that learn reward functions or curricula, as these often optimize for a target task or generalization, still implicitly relying on an outer human-defined objective. Instead, we focus on the *open-ended discovery of novel objectives themselves*, without a fixed external target, and without human foresight into what those objectives might be. Intrinsic motivation and curiosity-driven methods typically use fixed novelty/surprise metrics; we propose to evolve *how* novelty or interestingness is defined.",
+    "abstract": "Current open-ended learning systems, while adept at generating novel agents, environments, or artifacts, are often constrained by human-designed metrics for evaluating progress, novelty, or interestingness. This fundamental limitation can inadvertently restrict the scope of discovery to what humans can initially conceptualize. We propose Meta-Objective Evolution (MOE), a novel framework that empowers an open-ended system to autonomously evolve its *own criteria for novelty and complexity*. MOE introduces a meta-evolutionary loop that optimizes a population of 'evaluation metrics' based on their ability to sustain and diversify discovery within an inner open-ended learning loop. For example, a metric might be deemed 'fit' if it guides the inner loop to continuously generate a high diversity of complex artifacts over extended periods, avoiding stagnation. Our hypothesis is that by decoupling the definition of 'progress' from fixed human priors, MOE can lead to the emergence of truly unbounded and unforeseen forms of discovery, pushing beyond the current frontiers of open-endedness. We plan to validate MOE against strong baselines in generative domains, analyzing the long-term diversity and complexity of generated artifacts, and critically, the characteristics of the evolved metrics themselves. This work represents a significant step towards genuinely autonomous scientific and creative discovery in AI.",
+    "experiments": "baseline_open_ended_system — Implement a standard open-ended learning system, such as a Quality-Diversity (QD) algorithm (e.g., Novelty Search or MAP-Elites), in a simple generative domain (e.g., Lenia, Picbreeder, or a simple procedural content generation task). This system will use a fixed, human-designed novelty or diversity metric (e.g., behavioral distance in a pre-defined feature space, or a hand-crafted complexity score) to guide its search for novel artifacts/behaviors. This serves as the control group.\nmeta_objective_evolution_system — Develop the Meta-Objective Evolution (MOE) system: 1. **Metric Representation**: Define a flexible representation for 'metrics' or 'objective components'. This could be:    a) A set of configurable parameters for existing novelty metrics (e.g., weights for different behavioral features, thresholds).    b) A small neural network (e.g., a shallow MLP) that takes an observation (e.g., a latent representation of an artifact, or a vector of behavioral features) and outputs a scalar 'interestingness' score.2. **Meta-Evolutionary Loop**: Introduce an outer evolutionary loop that evolves a population of these 'metrics'. The fitness of a metric is determined by its ability to *sustain novel and diverse discovery* in the inner open-ended learning loop. For example, a metric's fitness could be proportional to the cumulative increase in the diversity and complexity of artifacts generated by the inner loop over a fixed number of inner loop steps, or its ability to avoid stagnation.3. **Inner Open-Ended Learning Loop**: This inner loop (e.g., a QD algorithm like Novelty Search or MAP-Elites) uses the currently selected or 'best' evolved metric from the outer loop to guide its search for novel artifacts/behaviors. The inner loop periodically queries the evolved metric to evaluate candidate solutions.\nrobustness_and_transferability_analysis — 1. **Robustness**: Evaluate the MOE system's performance across different random seeds and initial populations to assess its stability and consistency in discovering effective meta-objectives.2. **Transferability (Stretch Goal)**: Test if the meta-evolved metrics (or components thereof) can be transferred to a slightly different but related generative domain or a variant of the original domain, and still promote effective open-ended discovery. This would indicate the generality of the learned evaluative criteria.",
+    "risk_factors_and_limitations": "**Defining 'Fitness' for Metrics**: The most significant challenge is designing a robust and non-trivial fitness function for the meta-evolutionary loop. If the meta-fitness function itself is too simple or prone to local optima, the evolved metrics may not genuinely promote open-endedness. We will need to carefully design proxies for 'sustained discovery' and 'avoiding stagnation'.\n**Computational Cost**: Nested evolutionary loops are inherently computationally expensive. Careful selection of domain complexity, population sizes, and efficient metric representations will be crucial to keep experiments within academic lab resources.\n**Metric Collapse/Degeneracy**: The meta-evolution process might converge to trivial or degenerate metrics that do not foster meaningful discovery, or that lead to 'meta-overfitting' to the inner loop's dynamics.\n**Interpretability of Evolved Metrics**: If the metrics are represented by neural networks or complex parameter sets, interpreting *why* certain metrics are effective could be challenging, limiting insights into the nature of emergent open-ended criteria.\n**Domain Dependence**: The effectiveness of MOE might be highly dependent on the chosen generative domain. Initial experiments will focus on simpler domains to establish feasibility before scaling to more complex ones.",
+    "run_id": "20261121T143635",
+    "run_utc": "2026-11-21T14:39:26Z",
+    "model": "gemini-2.5-flash",
+    "source_sha": "3db111ac1425944818f944045c802dfcafda7646",
+    "generated": true,
+    "realized": false,
+    "realized_paper_title": null,
+    "realized_paper_url": null,
+    "realized_entry_id": null,
+    "realized_score": null,
+    "issue_number": 11,
+    "issue_url": "https://github.com/ju2ez/exodia/issues/11",
+    "votes_up": 0,
+    "votes_down": 0,
+    "score": 0,
+    "feedback_count": 0,
+    "moi_score": 0.1486,
+    "moi_hindsight": 0.9138
   }
 ]

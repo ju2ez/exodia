@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-11-20T15:24:36Z",
+  "updated_utc": "2026-11-21T14:40:09Z",
   "families": [
     "Quality-diversity & evolution",
     "RL, agents & curricula",
@@ -14,14 +14,16 @@
     "n_bins": 3,
     "elites": [
       {
-        "idea_id": "f49adae884cd",
-        "name": "recursive-world-model-self-evolution",
-        "title": "Recursive Self-Evolution of World Models for Autonomous, Open-Ended Scientific Discovery",
-        "short_hypothesis": "AI agents capable of recursively evolving their own world models, including their learning and representation mechanisms, will unlock truly open-ended scientific discovery by overcoming fixed architectural limitations.",
-        "abstract": "This research direction posits that truly open-ended scientific discovery requires AI agents to not only refine their internal world models but also to recursively improve the very mechanisms by which these models are learned and represented, inspired by the Darwin-Gödel Machine and Hyperagent concepts. By autonomously evolving their meta-learning capabilities and representational vocabularies, these agents will overcome the limitations of fixed architectures and handcrafted heuristics, enabling sustained innovation and the discovery of novel scientific paradigms.",
+        "idea_id": "0c7747f48e4e",
+        "name": "evolvable_ecosystem_meta_learning",
+        "title": "Evolving Meta-Learning Architectures for Self-Improving Scientific Ecosystems",
+        "short_hypothesis": "Quality-Diversity algorithms will evolve not only the scientific tasks and agents within an ecosystem but also the meta-learning mechanisms that enable agents to continuously improve their own learning processes.",
+        "abstract": "This research direction combines Quality-Diversity for autonomous ecosystem formation with meta-learning for self-improvement, aiming to create scientific AI systems that can dynamically evolve both their specialized sub-fields and the fundamental learning architectures that drive their progress. By applying evolutionary algorithms to meta-learning designs, we can enable AI agents to autonomously discover and optimize the most effective ways to learn, leading to unprecedented rates of open-ended scientific discovery.",
         "concepts": [
           "Open-ended learning",
-          "World models",
+          "Recursive self-improvement",
+          "Quality-diversity",
+          "Evolutionary computation",
           "Meta-learning",
           "Automated scientific discovery"
         ],
@@ -29,11 +31,11 @@
           3,
           2
         ],
-        "fitness": 0.5515,
-        "generation": 50,
+        "fitness": 0.173,
+        "generation": 51,
         "parents": [
-          "4d76f97aff4b",
-          "3bbb1aea793e"
+          "ce8333e358df",
+          "ce8333e358df"
         ]
       },
       {
@@ -50,7 +52,7 @@
           4,
           2
         ],
-        "fitness": 0.5279,
+        "fitness": 0.2149,
         "generation": 1,
         "parents": [
           "d3a00a8b4c07"
@@ -71,7 +73,7 @@
           5,
           2
         ],
-        "fitness": 0.457,
+        "fitness": 0.1387,
         "generation": 13,
         "parents": [
           "da084a26f67d",
@@ -92,7 +94,7 @@
           0,
           2
         ],
-        "fitness": 0.5046,
+        "fitness": 0.1856,
         "generation": 11,
         "parents": [
           "da084a26f67d"
@@ -183,6 +185,7 @@
     "evolutionary ecosystems for emergent scientific discovery",
     "evolutionary ecosystems for generalizable scientific discovery",
     "evolutionary ecosystems for scientific discovery with quality diversity optimization",
+    "evolutionary ecosystems for self refining world models",
     "evolutionary ecosystems for unforeseen domain discovery via quality diversity search",
     "evolutionary ecosystems for unforeseen scientific domain discovery",
     "evolutionary emergence of world models for self assembling scientific ecosystems",
@@ -198,6 +201,7 @@
     "evolutionary oversight mechanisms for self improving world models in automated science",
     "evolutionary oversight self correction and validation in self improving scientific ai",
     "evolutionary quality diversity for adaptive self improving scientific ecosystems",
+    "evolutionary quality diversity for autonomous scientific ecosystems",
     "evolutionary quality diversity for autonomous scientific ecosystems with rl driven curricula",
     "evolutionary quality diversity for autonomous self assembling scientific ecosystems enabling unforeseen domain discovery",
     "evolutionary quality diversity for emergent scientific ecosystems",
@@ -262,6 +266,7 @@
     "evolving embodied world models for artificial life emergence",
     "evolving generative world models for autonomous scientific hypothesis generation and validation",
     "evolving internal representations for open ended learning and generalization",
+    "evolving meta learning architectures for self improving scientific ecosystems",
     "evolving morphogenetic protocols for self organizing artificial ecosystems",
     "evolving oversight artificial life principles for safe self improving world models",
     "evolving oversight verifiable scientific hypotheses from self improving world models",
@@ -329,6 +334,7 @@
     "recursive world model refinement for generalizing creative problem solving in unforeseen domains",
     "recursive world model refinement for unforeseen domain generalization",
     "reinforcement learning driven self assembly of scientific agent collectives with emergent curricula",
+    "reinforcement learning for quality diversity driven scientific ecosystem formation",
     "reinforcement learning with quality diversity for autonomous scientific ecosystem formation",
     "safe generalizing creative problem solving via self improving world models",
     "safe self evolving scientific ecosystems for unforeseen discovery",
@@ -357,7 +363,7 @@
     "verifiable recursive world models for safe open ended automated science",
     "verifiable self refinement of recursive world models for safe scientific discovery"
   ],
-  "generation": 50,
+  "generation": 51,
   "history": [
     {
       "date": "2026-10-08",
@@ -854,6 +860,16 @@
       "coverage": 0.222,
       "qd_score": 2.041,
       "max_fitness": 0.551,
+      "filled": 4,
+      "new_elites": 1,
+      "llm_calls": 6,
+      "model": "gemini-2.5-flash-lite"
+    },
+    {
+      "date": "2026-11-21",
+      "coverage": 0.222,
+      "qd_score": 0.712,
+      "max_fitness": 0.215,
       "filled": 4,
       "new_elites": 1,
       "llm_calls": 6,
