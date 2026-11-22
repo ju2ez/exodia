@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-11-21T14:40:09Z",
+  "updated_utc": "2026-11-22T14:31:16Z",
   "families": [
     "Quality-diversity & evolution",
     "RL, agents & curricula",
@@ -14,27 +14,23 @@
     "n_bins": 3,
     "elites": [
       {
-        "idea_id": "0c7747f48e4e",
-        "name": "evolvable_ecosystem_meta_learning",
-        "title": "Evolving Meta-Learning Architectures for Self-Improving Scientific Ecosystems",
-        "short_hypothesis": "Quality-Diversity algorithms will evolve not only the scientific tasks and agents within an ecosystem but also the meta-learning mechanisms that enable agents to continuously improve their own learning processes.",
-        "abstract": "This research direction combines Quality-Diversity for autonomous ecosystem formation with meta-learning for self-improvement, aiming to create scientific AI systems that can dynamically evolve both their specialized sub-fields and the fundamental learning architectures that drive their progress. By applying evolutionary algorithms to meta-learning designs, we can enable AI agents to autonomously discover and optimize the most effective ways to learn, leading to unprecedented rates of open-ended scientific discovery.",
+        "idea_id": "87d5dd18d3c9",
+        "name": "evolvable_ecosystem_architectures",
+        "title": "Evolvable Ecosystem Architectures for Emergent Scientific Modularity",
+        "short_hypothesis": "Applying evolutionary quality-diversity to the architectural design of self-assembling scientific AI ecosystems will enable the discovery of novel, modular sub-ecosystems that autonomously specialize and collaborate on complex, open-ended scientific problems.",
+        "abstract": "This research proposes using evolutionary quality-diversity (QD) algorithms not just for agent behavior, but also for dynamically evolving the architectural structure and inter-agent communication protocols within self-assembling scientific AI ecosystems. By optimizing for both diversity of ecosystem configurations and collective problem-solving performance across a range of scientific tasks, we aim to discover emergent modularity where specialized sub-ecosystems arise to tackle distinct facets of open-ended discovery, leading to more robust and adaptable scientific progress.",
         "concepts": [
           "Open-ended learning",
-          "Recursive self-improvement",
-          "Quality-diversity",
-          "Evolutionary computation",
-          "Meta-learning",
-          "Automated scientific discovery"
+          "Quality-diversity"
         ],
         "bd": [
           3,
           2
         ],
-        "fitness": 0.173,
-        "generation": 51,
+        "fitness": 0.3309,
+        "generation": 52,
         "parents": [
-          "ce8333e358df",
+          "6ae6ca1f9562",
           "ce8333e358df"
         ]
       },
@@ -237,6 +233,7 @@
     "evolvable cognitive architectures for recursive scientific discovery",
     "evolvable cognitive architectures for self accelerating scientific discovery",
     "evolvable cognitive architectures with emergent world models for autonomous scientific discovery",
+    "evolvable ecosystem architectures for emergent scientific modularity",
     "evolvable ecosystem architectures for unforeseen scientific discovery",
     "evolvable ecosystem synthesis for emergent scientific paradigms",
     "evolvable meta learning ecosystems for autonomous scientific discovery",
@@ -312,6 +309,7 @@
     "quality diversity driven emergent scientific ecosystems",
     "quality diversity reinforcement learning for emergent scientific agent ecosystems",
     "quality diversity reinforcement learning for emergent scientific curricula and agent ecosystems",
+    "quality diversity reinforcement learning for emergent scientific multi agent systems",
     "quality diversity reinforcement learning for self assembling scientific agent ecosystems",
     "quality diversity rl for emergent scientific curricula and agent specialization",
     "quantifying knightian uncertainty in open ended ai risk assessment",
@@ -363,7 +361,7 @@
     "verifiable recursive world models for safe open ended automated science",
     "verifiable self refinement of recursive world models for safe scientific discovery"
   ],
-  "generation": 51,
+  "generation": 52,
   "history": [
     {
       "date": "2026-10-08",
@@ -870,6 +868,16 @@
       "coverage": 0.222,
       "qd_score": 0.712,
       "max_fitness": 0.215,
+      "filled": 4,
+      "new_elites": 1,
+      "llm_calls": 6,
+      "model": "gemini-2.5-flash-lite"
+    },
+    {
+      "date": "2026-11-22",
+      "coverage": 0.222,
+      "qd_score": 0.87,
+      "max_fitness": 0.331,
       "filled": 4,
       "new_elites": 1,
       "llm_calls": 6,
