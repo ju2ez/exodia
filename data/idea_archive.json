@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-11-23T18:01:50Z",
+  "updated_utc": "2026-11-23T19:25:06Z",
   "families": [
     "Quality-diversity & evolution",
     "RL, agents & curricula",
@@ -55,25 +55,20 @@
         ]
       },
       {
-        "idea_id": "6ae6ca1f9562",
-        "name": "emergent_ecosystems_creative_generalization",
-        "title": "Self-Assembling Scientific Ecosystems for Unforeseen Domain Discovery",
-        "short_hypothesis": "Artificial life principles will enable AI agents to autonomously form self-organizing scientific ecosystems that can creatively generalize problem-solving to novel domains.",
-        "abstract": "This research direction proposes the creation of AI systems where agents, inspired by artificial life, autonomously form complex, self-organizing 'ecosystems' to drive scientific discovery. These emergent ecosystems will leverage symbiotic knowledge generation and division of labor to tackle and creatively solve problems in entirely unforeseen domains, transcending the limitations of fixed task categories and human-designed architectures.",
-        "concepts": [
-          "Artificial life",
-          "Self-organization",
-          "Automated scientific discovery"
-        ],
+        "idea_id": "2b1a37d0ba0e",
+        "name": "evolvability-driven-discovery-ecosystems",
+        "title": "Evolvability-Driven Discovery Ecosystems",
+        "short_hypothesis": "AI agents designed with explicit mechanisms for evolving their own internal structures and communication protocols will autonomously discover entirely new scientific paradigms.",
+        "abstract": "Future AI systems will move beyond fixed architectures by incorporating principles of evolvability, allowing them to not only learn but also to redesign their own cognitive and collaborative frameworks. This self-directed evolution of interaction and internal representation will enable emergent, cross-disciplinary scientific breakthroughs that are currently inconceivable to human researchers.",
+        "concepts": [],
         "bd": [
           5,
           2
         ],
-        "fitness": 0.1387,
-        "generation": 13,
+        "fitness": 0.2536,
+        "generation": 54,
         "parents": [
-          "da084a26f67d",
-          "bd450403f811"
+          "6ae6ca1f9562"
         ]
       },
       {
@@ -227,8 +222,10 @@
     "evolutionary world models for autodidactic scientific discovery",
     "evolutionary world models for automated scientific hypothesis generation and experimentation",
     "evolvability as a design principle for self improving scientific discovery agents",
+    "evolvability driven discovery ecosystems",
     "evolvable agent architectures for open ended scientific co discovery",
     "evolvable agentic architectures for open ended scientific innovation",
+    "evolvable architectures for self assembling modular scientific ecosystems",
     "evolvable bio mimetic agents for self directed scientific inquiry",
     "evolvable cognitive architectures for open ended scientific discovery",
     "evolvable cognitive architectures for recursive scientific discovery",
@@ -247,8 +244,10 @@
     "evolvable recursive world models for autonomous scientific co discovery",
     "evolvable recursive world models for self assembling scientific ecosystems",
     "evolvable safety modules for self improving ai scientists",
+    "evolvable scientific architectures for emergent ecosystem modularity",
     "evolvable scientific ecosystems for unforeseen domain discovery",
     "evolvable scientific symbiosis emergent division of labor and mutualism in ai research ecosystems",
+    "evolvable world model ecosystems for autonomous scientific discovery",
     "evolvable world models as autonomous scientific curators",
     "evolvable world models for automated scientific discovery and hypothesis generation",
     "evolvable world models for autonomous scientific discovery",
@@ -282,6 +281,7 @@
     "evolving scientific niches for autonomous discovery",
     "evolving scientific niches with generative adversarial ecosystems",
     "evolving scientific world models for autonomous discovery",
+    "evolving scientific world models via agentic ecosystems",
     "evolving self assembling scientific ecosystems for unforeseen domain discovery",
     "evolving self assembling scientific ecosystems with recursive world model refinement",
     "evolving the architects of discovery self assembling ecosystems that design themselves",
@@ -365,7 +365,7 @@
     "verifiable recursive world models for safe open ended automated science",
     "verifiable self refinement of recursive world models for safe scientific discovery"
   ],
-  "generation": 53,
+  "generation": 54,
   "history": [
     {
       "date": "2026-10-08",
@@ -894,6 +894,16 @@
       "max_fitness": 0.331,
       "filled": 4,
       "new_elites": 0,
+      "llm_calls": 6,
+      "model": "gemini-2.5-flash-lite"
+    },
+    {
+      "date": "2026-11-23",
+      "coverage": 0.222,
+      "qd_score": 0.985,
+      "max_fitness": 0.331,
+      "filled": 4,
+      "new_elites": 1,
       "llm_calls": 6,
       "model": "gemini-2.5-flash-lite"
     }
