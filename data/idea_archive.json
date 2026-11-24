@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-11-23T19:25:06Z",
+  "updated_utc": "2026-11-24T17:39:34Z",
   "families": [
     "Quality-diversity & evolution",
     "RL, agents & curricula",
@@ -55,20 +55,20 @@
         ]
       },
       {
-        "idea_id": "2b1a37d0ba0e",
-        "name": "evolvability-driven-discovery-ecosystems",
-        "title": "Evolvability-Driven Discovery Ecosystems",
+        "idea_id": "58a0043137d9",
+        "name": "evolvability_driven_discovery_ecosystems",
+        "title": "Evolvability-Driven Discovery Ecosystems for Scientific Paradigm Shifts",
         "short_hypothesis": "AI agents designed with explicit mechanisms for evolving their own internal structures and communication protocols will autonomously discover entirely new scientific paradigms.",
-        "abstract": "Future AI systems will move beyond fixed architectures by incorporating principles of evolvability, allowing them to not only learn but also to redesign their own cognitive and collaborative frameworks. This self-directed evolution of interaction and internal representation will enable emergent, cross-disciplinary scientific breakthroughs that are currently inconceivable to human researchers.",
+        "abstract": "Current AI discovery systems are constrained by human-designed architectures and fixed communication protocols, limiting their ability to generate truly novel scientific frameworks. This research proposes creating 'Evolvability-Driven Discovery Ecosystems' where AI agents can autonomously evolve their own internal representations, learning algorithms, and inter-agent communication strategies, fostering emergent, paradigm-shifting scientific breakthroughs.",
         "concepts": [],
         "bd": [
           5,
           2
         ],
-        "fitness": 0.2536,
-        "generation": 54,
+        "fitness": 0.2763,
+        "generation": 55,
         "parents": [
-          "6ae6ca1f9562"
+          "2b1a37d0ba0e"
         ]
       },
       {
@@ -192,6 +192,7 @@
     "evolutionary oversight mechanisms for self improving world models in automated science",
     "evolutionary oversight self correction and validation in self improving scientific ai",
     "evolutionary quality diversity for adaptive self improving scientific ecosystems",
+    "evolutionary quality diversity for agentic ecosystems with curriculum driven specialization",
     "evolutionary quality diversity for autonomous scientific ecosystems",
     "evolutionary quality diversity for autonomous scientific ecosystems with rl driven curricula",
     "evolutionary quality diversity for autonomous self assembling scientific ecosystems enabling unforeseen domain discovery",
@@ -221,10 +222,14 @@
     "evolutionary synthesis of interacting world models for emergent scientific paradigms",
     "evolutionary world models for autodidactic scientific discovery",
     "evolutionary world models for automated scientific hypothesis generation and experimentation",
+    "evolutionary world models for autonomous scientific hypothesis generation",
     "evolvability as a design principle for self improving scientific discovery agents",
     "evolvability driven discovery ecosystems",
+    "evolvability driven discovery ecosystems for scientific paradigm shifts",
+    "evolvability driven evolutionary quality diversity for autonomous scientific paradigm shifts",
     "evolvable agent architectures for open ended scientific co discovery",
     "evolvable agentic architectures for open ended scientific innovation",
+    "evolvable architectures for modular scientific ecosystems via quality diversity",
     "evolvable architectures for self assembling modular scientific ecosystems",
     "evolvable bio mimetic agents for self directed scientific inquiry",
     "evolvable cognitive architectures for open ended scientific discovery",
@@ -365,7 +370,7 @@
     "verifiable recursive world models for safe open ended automated science",
     "verifiable self refinement of recursive world models for safe scientific discovery"
   ],
-  "generation": 54,
+  "generation": 55,
   "history": [
     {
       "date": "2026-10-08",
@@ -901,6 +906,16 @@
       "date": "2026-11-23",
       "coverage": 0.222,
       "qd_score": 0.985,
+      "max_fitness": 0.331,
+      "filled": 4,
+      "new_elites": 1,
+      "llm_calls": 6,
+      "model": "gemini-2.5-flash-lite"
+    },
+    {
+      "date": "2026-11-24",
+      "coverage": 0.222,
+      "qd_score": 1.008,
       "max_fitness": 0.331,
       "filled": 4,
       "new_elites": 1,
