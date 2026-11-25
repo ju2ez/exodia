@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-11-24T17:39:34Z",
+  "updated_utc": "2026-11-25T17:10:10Z",
   "families": [
     "Quality-diversity & evolution",
     "RL, agents & curricula",
@@ -14,24 +14,23 @@
     "n_bins": 3,
     "elites": [
       {
-        "idea_id": "87d5dd18d3c9",
-        "name": "evolvable_ecosystem_architectures",
-        "title": "Evolvable Ecosystem Architectures for Emergent Scientific Modularity",
-        "short_hypothesis": "Applying evolutionary quality-diversity to the architectural design of self-assembling scientific AI ecosystems will enable the discovery of novel, modular sub-ecosystems that autonomously specialize and collaborate on complex, open-ended scientific problems.",
-        "abstract": "This research proposes using evolutionary quality-diversity (QD) algorithms not just for agent behavior, but also for dynamically evolving the architectural structure and inter-agent communication protocols within self-assembling scientific AI ecosystems. By optimizing for both diversity of ecosystem configurations and collective problem-solving performance across a range of scientific tasks, we aim to discover emergent modularity where specialized sub-ecosystems arise to tackle distinct facets of open-ended discovery, leading to more robust and adaptable scientific progress.",
+        "idea_id": "4fbc974c8148",
+        "name": "evolvable-world-models",
+        "title": "Evolvable World Models for Open-Ended Biological Design",
+        "short_hypothesis": "AI systems that can recursively refine and evolve their internal world models, inspired by biological evolution, will unlock novel avenues for open-ended design in synthetic biology and drug discovery.",
+        "abstract": "This research proposes developing AI agents capable of not only learning and refining world models but also evolving the very structure and mechanisms of these models over time, mirroring principles of open-ended biological evolution. Such 'evolvable world models' will be applied to complex biological design problems, such as de novo protein design and novel therapeutic development, accelerating discovery beyond human intuition.",
         "concepts": [
           "Open-ended learning",
-          "Quality-diversity"
+          "World models"
         ],
         "bd": [
           3,
           2
         ],
-        "fitness": 0.3309,
-        "generation": 52,
+        "fitness": 0.3583,
+        "generation": 56,
         "parents": [
-          "6ae6ca1f9562",
-          "ce8333e358df"
+          "3bbb1aea793e"
         ]
       },
       {
@@ -90,6 +89,25 @@
         "parents": [
           "da084a26f67d"
         ]
+      },
+      {
+        "idea_id": "77189b45a7b6",
+        "name": "autogenetic_molecular_discovery",
+        "title": "Autogenetic Molecular Discovery: Self-Evolving Chemical Synthesizers",
+        "short_hypothesis": "AI systems that can autonomously design, synthesize, and test novel molecules, recursively refining their internal generative models based on experimental feedback, will dramatically accelerate materials science and drug discovery.",
+        "abstract": "Inspired by autopoiesis in biological systems, we propose AI agents that evolve their own molecular design and synthesis pipelines. These agents will learn from the outcomes of their chemical experiments to iteratively improve their generative models, enabling the discovery of molecules with unprecedented properties without direct human intervention.",
+        "concepts": [
+          "Generative models"
+        ],
+        "bd": [
+          2,
+          2
+        ],
+        "fitness": 0.1313,
+        "generation": 56,
+        "parents": [
+          "3bbb1aea793e"
+        ]
       }
     ]
   },
@@ -99,6 +117,7 @@
     "autodidactic refinement of hierarchical world models for autonomous scientific hypothesis generation",
     "autodidactic world models for automated scientific discovery in uncharted territories",
     "autodidactic xeno discovery ai driven hypothesis generation in uncharted scientific domains",
+    "autogenetic molecular discovery self evolving chemical synthesizers",
     "automated agent driven curriculum design for open ended worlds",
     "automated co evolution of ai agents and simulated scientific environments",
     "automated co evolution of ai agents and world model informed simulated scientific environments",
@@ -242,6 +261,7 @@
     "evolvable ecosystem synthesis for emergent scientific paradigms",
     "evolvable meta learning ecosystems for autonomous scientific discovery",
     "evolvable meta representation ecosystems for unforeseen scientific discovery",
+    "evolvable modular ecosystems driven by self improving meta architectures",
     "evolvable modular quality diversity networks for scientific ecosystems",
     "evolvable morphogenetic agents for open ended scientific discovery",
     "evolvable morphogenetic codebases for self organizing scientific discovery",
@@ -258,10 +278,12 @@
     "evolvable world models for autonomous scientific discovery",
     "evolvable world models for autonomous scientific discovery acceleration",
     "evolvable world models for autonomous scientific ecosystems",
+    "evolvable world models for open ended biological design",
     "evolvable world models within self assembling scientific ecosystems for safe open ended discovery",
     "evolvably architected ecosystems for open ended scientific discovery",
     "evolving agent architectures for unforeseen scientific domains",
     "evolving agentic curricula for open ended discovery",
+    "evolving architectures for recursive world model refinement in open ended discovery",
     "evolving artificial life ecosystems for unforeseen creative problem solving",
     "evolving artificial lifeforms for unforeseen scientific paradigms",
     "evolving autonomous ecosystems for open ended scientific discovery",
@@ -315,6 +337,7 @@
     "open ended evolution of self improving world models for scientific discovery",
     "quality diversity curricula for evolving multi agent scientific collectives",
     "quality diversity driven emergent scientific ecosystems",
+    "quality diversity reinforcement learning for curated scientific agent evolution",
     "quality diversity reinforcement learning for emergent scientific agent ecosystems",
     "quality diversity reinforcement learning for emergent scientific curricula and agent ecosystems",
     "quality diversity reinforcement learning for emergent scientific multi agent systems",
@@ -370,7 +393,7 @@
     "verifiable recursive world models for safe open ended automated science",
     "verifiable self refinement of recursive world models for safe scientific discovery"
   ],
-  "generation": 55,
+  "generation": 56,
   "history": [
     {
       "date": "2026-10-08",
@@ -919,6 +942,16 @@
       "max_fitness": 0.331,
       "filled": 4,
       "new_elites": 1,
+      "llm_calls": 6,
+      "model": "gemini-2.5-flash-lite"
+    },
+    {
+      "date": "2026-11-25",
+      "coverage": 0.278,
+      "qd_score": 1.166,
+      "max_fitness": 0.358,
+      "filled": 5,
+      "new_elites": 2,
       "llm_calls": 6,
       "model": "gemini-2.5-flash-lite"
     }
