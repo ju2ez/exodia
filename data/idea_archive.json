@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-11-25T17:10:10Z",
+  "updated_utc": "2026-11-26T16:51:16Z",
   "families": [
     "Quality-diversity & evolution",
     "RL, agents & curricula",
@@ -117,6 +117,7 @@
     "autodidactic refinement of hierarchical world models for autonomous scientific hypothesis generation",
     "autodidactic world models for automated scientific discovery in uncharted territories",
     "autodidactic xeno discovery ai driven hypothesis generation in uncharted scientific domains",
+    "autogenetic evolvable world models for open ended biological design",
     "autogenetic molecular discovery self evolving chemical synthesizers",
     "automated agent driven curriculum design for open ended worlds",
     "automated co evolution of ai agents and simulated scientific environments",
@@ -274,10 +275,12 @@
     "evolvable scientific symbiosis emergent division of labor and mutualism in ai research ecosystems",
     "evolvable world model ecosystems for autonomous scientific discovery",
     "evolvable world models as autonomous scientific curators",
+    "evolvable world models for artificial life",
     "evolvable world models for automated scientific discovery and hypothesis generation",
     "evolvable world models for autonomous scientific discovery",
     "evolvable world models for autonomous scientific discovery acceleration",
     "evolvable world models for autonomous scientific ecosystems",
+    "evolvable world models for autonomous scientific paradigm discovery",
     "evolvable world models for open ended biological design",
     "evolvable world models within self assembling scientific ecosystems for safe open ended discovery",
     "evolvably architected ecosystems for open ended scientific discovery",
@@ -337,6 +340,7 @@
     "open ended evolution of self improving world models for scientific discovery",
     "quality diversity curricula for evolving multi agent scientific collectives",
     "quality diversity driven emergent scientific ecosystems",
+    "quality diversity driven evolvability ecosystems for scientific paradigm shifts",
     "quality diversity reinforcement learning for curated scientific agent evolution",
     "quality diversity reinforcement learning for emergent scientific agent ecosystems",
     "quality diversity reinforcement learning for emergent scientific curricula and agent ecosystems",
@@ -393,7 +397,7 @@
     "verifiable recursive world models for safe open ended automated science",
     "verifiable self refinement of recursive world models for safe scientific discovery"
   ],
-  "generation": 56,
+  "generation": 57,
   "history": [
     {
       "date": "2026-10-08",
@@ -952,6 +956,16 @@
       "max_fitness": 0.358,
       "filled": 5,
       "new_elites": 2,
+      "llm_calls": 6,
+      "model": "gemini-2.5-flash-lite"
+    },
+    {
+      "date": "2026-11-26",
+      "coverage": 0.278,
+      "qd_score": 1.166,
+      "max_fitness": 0.358,
+      "filled": 5,
+      "new_elites": 0,
       "llm_calls": 6,
       "model": "gemini-2.5-flash-lite"
     }
