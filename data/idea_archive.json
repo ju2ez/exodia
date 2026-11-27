@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-11-26T16:51:16Z",
+  "updated_utc": "2026-11-27T16:37:06Z",
   "families": [
     "Quality-diversity & evolution",
     "RL, agents & curricula",
@@ -34,23 +34,24 @@
         ]
       },
       {
-        "idea_id": "3bbb1aea793e",
-        "name": "recursive-world-model-science",
-        "title": "Recursive World Model Refinement for Automated Scientific Discovery",
-        "short_hypothesis": "AI systems capable of autonomously and recursively refining their internal world models will accelerate scientific discovery by enabling more efficient hypothesis generation, experimental design, and data interpretation.",
-        "abstract": "Future AI systems must move beyond static world models to dynamically update and improve their understanding of the physical and abstract world based on new observations and experimental results. This recursive refinement process, inspired by scientific progress itself, will unlock new avenues for automated scientific discovery by allowing AI to autonomously identify knowledge gaps, propose novel experiments, and interpret complex data with increasing sophistication.",
+        "idea_id": "360c41abb0f1",
+        "name": "astrobiology_world_model_evolution",
+        "title": "Evolutionary World Models for Astrobiological Hypothesis Generation",
+        "short_hypothesis": "AI systems will evolve internal world models specifically tuned for generating and testing hypotheses about extraterrestrial life and habitability.",
+        "abstract": "This research direction focuses on creating AI agents that not only refine their understanding of physical and chemical laws but also evolve novel conceptual frameworks for identifying biosignatures and assessing habitability in exoplanetary contexts. The agents will iteratively self-improve their world models through simulated exploration of diverse astrobiological scenarios, accelerating the discovery of plausible life-supporting conditions beyond Earth.",
         "concepts": [
           "World models",
+          "Exploration",
           "Automated scientific discovery"
         ],
         "bd": [
           4,
           2
         ],
-        "fitness": 0.2149,
-        "generation": 1,
+        "fitness": 0.2783,
+        "generation": 58,
         "parents": [
-          "d3a00a8b4c07"
+          "3bbb1aea793e"
         ]
       },
       {
@@ -182,6 +183,7 @@
     "emulated evolutionary oversight for self improving world models in automated science",
     "ensuring safe generalization of emergent creative problem solving",
     "evolutionary adaptation of world models for novel scientific domains",
+    "evolutionary adaptation of world models for open ended scientific inquiry",
     "evolutionary alignment of self improving world models",
     "evolutionary artificial life ecosystems for open ended scientific discovery",
     "evolutionary chemistry autonomous discovery of novel molecular structures and reactions",
@@ -240,6 +242,7 @@
     "evolutionary self refinement of open ended world models for autonomous scientific discovery",
     "evolutionary self refining world models for autonomous scientific ecosystems",
     "evolutionary synthesis of interacting world models for emergent scientific paradigms",
+    "evolutionary world models for astrobiological hypothesis generation",
     "evolutionary world models for autodidactic scientific discovery",
     "evolutionary world models for automated scientific hypothesis generation and experimentation",
     "evolutionary world models for autonomous scientific hypothesis generation",
@@ -282,6 +285,7 @@
     "evolvable world models for autonomous scientific ecosystems",
     "evolvable world models for autonomous scientific paradigm discovery",
     "evolvable world models for open ended biological design",
+    "evolvable world models for self assembling synthetic biology ecosystems",
     "evolvable world models within self assembling scientific ecosystems for safe open ended discovery",
     "evolvably architected ecosystems for open ended scientific discovery",
     "evolving agent architectures for unforeseen scientific domains",
@@ -340,12 +344,14 @@
     "open ended evolution of self improving world models for scientific discovery",
     "quality diversity curricula for evolving multi agent scientific collectives",
     "quality diversity driven emergent scientific ecosystems",
+    "quality diversity driven evolutionary ecosystems for scientific discovery",
     "quality diversity driven evolvability ecosystems for scientific paradigm shifts",
     "quality diversity reinforcement learning for curated scientific agent evolution",
     "quality diversity reinforcement learning for emergent scientific agent ecosystems",
     "quality diversity reinforcement learning for emergent scientific curricula and agent ecosystems",
     "quality diversity reinforcement learning for emergent scientific multi agent systems",
     "quality diversity reinforcement learning for self assembling scientific agent ecosystems",
+    "quality diversity rl for curricula driven self assembling scientific ecosystems",
     "quality diversity rl for emergent scientific curricula and agent specialization",
     "quantifying knightian uncertainty in open ended ai risk assessment",
     "recursive domain agnostic world model evolution for general creative problem solving",
@@ -397,7 +403,7 @@
     "verifiable recursive world models for safe open ended automated science",
     "verifiable self refinement of recursive world models for safe scientific discovery"
   ],
-  "generation": 57,
+  "generation": 58,
   "history": [
     {
       "date": "2026-10-08",
@@ -966,6 +972,16 @@
       "max_fitness": 0.358,
       "filled": 5,
       "new_elites": 0,
+      "llm_calls": 6,
+      "model": "gemini-2.5-flash-lite"
+    },
+    {
+      "date": "2026-11-27",
+      "coverage": 0.278,
+      "qd_score": 1.23,
+      "max_fitness": 0.358,
+      "filled": 5,
+      "new_elites": 1,
       "llm_calls": 6,
       "model": "gemini-2.5-flash-lite"
     }
