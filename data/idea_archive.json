@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-11-27T16:37:06Z",
+  "updated_utc": "2026-11-28T15:36:55Z",
   "families": [
     "Quality-diversity & evolution",
     "RL, agents & curricula",
@@ -118,8 +118,11 @@
     "autodidactic refinement of hierarchical world models for autonomous scientific hypothesis generation",
     "autodidactic world models for automated scientific discovery in uncharted territories",
     "autodidactic xeno discovery ai driven hypothesis generation in uncharted scientific domains",
+    "autogenetic evolutionary scientific ecosystems",
+    "autogenetic evolvable world models for open ended biological and chemical design",
     "autogenetic evolvable world models for open ended biological design",
     "autogenetic molecular discovery self evolving chemical synthesizers",
+    "autogenetic molecular discovery self evolving chemical synthesizers with dynamic repertoires",
     "automated agent driven curriculum design for open ended worlds",
     "automated co evolution of ai agents and simulated scientific environments",
     "automated co evolution of ai agents and world model informed simulated scientific environments",
@@ -353,6 +356,7 @@
     "quality diversity reinforcement learning for self assembling scientific agent ecosystems",
     "quality diversity rl for curricula driven self assembling scientific ecosystems",
     "quality diversity rl for emergent scientific curricula and agent specialization",
+    "quality diversity rl for evolving scientific agent ecosystems with adaptive curricula",
     "quantifying knightian uncertainty in open ended ai risk assessment",
     "recursive domain agnostic world model evolution for general creative problem solving",
     "recursive evolution of self improving world models for autonomous scientific discovery",
@@ -375,6 +379,7 @@
     "reinforcement learning driven self assembly of scientific agent collectives with emergent curricula",
     "reinforcement learning for quality diversity driven scientific ecosystem formation",
     "reinforcement learning for quality diversity guided self assembly of scientific ai ecosystems",
+    "reinforcement learning quality diversity for evolving scientific agent ecosystems",
     "reinforcement learning with quality diversity for autonomous scientific ecosystem formation",
     "safe generalizing creative problem solving via self improving world models",
     "safe self evolving scientific ecosystems for unforeseen discovery",
@@ -403,7 +408,7 @@
     "verifiable recursive world models for safe open ended automated science",
     "verifiable self refinement of recursive world models for safe scientific discovery"
   ],
-  "generation": 58,
+  "generation": 59,
   "history": [
     {
       "date": "2026-10-08",
@@ -982,6 +987,16 @@
       "max_fitness": 0.358,
       "filled": 5,
       "new_elites": 1,
+      "llm_calls": 6,
+      "model": "gemini-2.5-flash-lite"
+    },
+    {
+      "date": "2026-11-28",
+      "coverage": 0.278,
+      "qd_score": 1.23,
+      "max_fitness": 0.358,
+      "filled": 5,
+      "new_elites": 0,
       "llm_calls": 6,
       "model": "gemini-2.5-flash-lite"
     }

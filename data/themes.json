@@ -1,5 +1,5 @@
 {
-  "generated_utc": "2026-11-23T18:59:23Z",
+  "generated_utc": "2026-11-28T15:29:10Z",
   "method": "tfidf_kmeans",
   "n_docs": 110,
   "top_keyphrases": [
@@ -835,79 +835,79 @@
       "concept": "Open-ended learning",
       "docs": 93,
       "share": 0.8455,
-      "citations": 10916
+      "citations": 10984
     },
     {
       "concept": "Reinforcement learning",
       "docs": 82,
       "share": 0.7455,
-      "citations": 11546
+      "citations": 11614
     },
     {
       "concept": "Exploration",
       "docs": 77,
       "share": 0.7,
-      "citations": 9316
+      "citations": 9376
     },
     {
       "concept": "Large language models (LLMs)",
       "docs": 64,
       "share": 0.5818,
-      "citations": 9810
+      "citations": 9878
     },
     {
       "concept": "Evolutionary computation",
       "docs": 61,
       "share": 0.5545,
-      "citations": 8934
+      "citations": 9002
     },
     {
       "concept": "Reward & objective design",
       "docs": 53,
       "share": 0.4818,
-      "citations": 8402
+      "citations": 8462
     },
     {
       "concept": "Multi-agent systems",
       "docs": 50,
       "share": 0.4545,
-      "citations": 5357
+      "citations": 5425
     },
     {
       "concept": "In-context learning",
       "docs": 47,
       "share": 0.4273,
-      "citations": 8785
+      "citations": 8853
     },
     {
       "concept": "Autonomous / LLM agents",
       "docs": 47,
       "share": 0.4273,
-      "citations": 8662
+      "citations": 8670
     },
     {
       "concept": "Unsupervised environment design",
       "docs": 46,
       "share": 0.4182,
-      "citations": 9212
+      "citations": 9272
     },
     {
       "concept": "POET / paired open-ended",
       "docs": 45,
       "share": 0.4091,
-      "citations": 7563
+      "citations": 7611
     },
     {
       "concept": "Intrinsic motivation & curiosity",
       "docs": 43,
       "share": 0.3909,
-      "citations": 6796
+      "citations": 6856
     },
     {
       "concept": "Auto-curricula",
       "docs": 41,
       "share": 0.3727,
-      "citations": 8670
+      "citations": 8718
     },
     {
       "concept": "Generative models",
@@ -919,43 +919,43 @@
       "concept": "Embodied agents",
       "docs": 38,
       "share": 0.3455,
-      "citations": 6664
+      "citations": 6672
     },
     {
       "concept": "Quality-diversity",
       "docs": 38,
       "share": 0.3455,
-      "citations": 3529
+      "citations": 3597
     },
     {
       "concept": "Recursive self-improvement",
       "docs": 36,
       "share": 0.3273,
-      "citations": 6823
+      "citations": 6891
     },
     {
       "concept": "Emergent abilities",
       "docs": 35,
       "share": 0.3182,
-      "citations": 7187
+      "citations": 7235
     },
     {
       "concept": "Artificial life",
       "docs": 32,
       "share": 0.2909,
-      "citations": 3228
+      "citations": 3240
     },
     {
       "concept": "Coevolution",
       "docs": 31,
       "share": 0.2818,
-      "citations": 3071
+      "citations": 3119
     },
     {
       "concept": "Compositionality",
       "docs": 29,
       "share": 0.2636,
-      "citations": 6685
+      "citations": 6733
     },
     {
       "concept": "Lifelong & continual learning",
@@ -973,7 +973,7 @@
       "concept": "Meta-learning",
       "docs": 28,
       "share": 0.2545,
-      "citations": 6450
+      "citations": 6470
     },
     {
       "concept": "AI-generating algorithms (AI-GAs)",
@@ -997,7 +997,7 @@
       "concept": "Program synthesis & code generation",
       "docs": 25,
       "share": 0.2273,
-      "citations": 5911
+      "citations": 5979
     },
     {
       "concept": "Autotelic / goal generation",
@@ -1015,19 +1015,19 @@
       "concept": "Automated scientific discovery",
       "docs": 21,
       "share": 0.1909,
-      "citations": 1896
+      "citations": 1904
     },
     {
       "concept": "MAP-Elites",
       "docs": 21,
       "share": 0.1909,
-      "citations": 1056
+      "citations": 1104
     },
     {
       "concept": "Diversity-driven search",
       "docs": 19,
       "share": 0.1727,
-      "citations": 2116
+      "citations": 2164
     },
     {
       "concept": "Red-teaming & adversarial generation",
